@@ -1,3 +1,8 @@
+const heapsort = (arr) => {
+  /* Your code here */
+  
+};
+
 class Heap {
   constructor() {
     this.storage = [null];
@@ -59,21 +64,6 @@ class Heap {
     }
   }
 }
-
-const heapsort = (arr) => {
-  let heap = new Heap();
-  const sorted = new Array(arr.length);
-
-  for (let i = 0; i < arr.length; i++) {
-    heap.insert(arr[i]);
-  }
-
-  for (let i = arr.length - 1; i > -1; i--) {
-    sorted[i] = heap.delete();
-  }
-
-  return sorted;
-};
 
 module.exports = {
   Heap,
