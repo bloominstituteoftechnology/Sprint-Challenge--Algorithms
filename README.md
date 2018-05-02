@@ -13,7 +13,7 @@ Navigate into the `data_structures` directory. Inside the `src` directory, you'l
 Run `npm test binary-search-tree` to run the tests for this function to ensure that your implementation is correct.
 
 ### Task 2. Implement Heapsort
-Inside the `src` directory you'll also find the `heap.js` file with the completed code the heap class. Your second task is to implement a sorting method called heapsort that uses the heap data structure in order to sort an array of numbers. Your `heapsort` function should return a new array containing all of the sorted data.
+Inside the `src` directory you'll also find the `heap.js` file with the completed code the heap class. Your second task is to implement a sorting method called [heapsort](https://en.wikipedia.org/wiki/Heapsort) that uses the heap data structure in order to sort an array of numbers. Your `heapsort` function should return a new array containing all of the sorted data.
 
 Run `npm test heap` to run the tests for your `heapsort` function to ensure that your implementation is correct.
 
