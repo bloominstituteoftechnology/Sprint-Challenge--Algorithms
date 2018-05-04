@@ -51,18 +51,17 @@ For each of the methods associated with each data structure, classify it based o
 
 ## Binary Search Tree
 
-1. What is the runtime complexity of your `checkBalanced` function?
+1. What is the runtime complexity of `insert`? 
 
-2. What is the runtime complexity of `insert`? 
+2. What is the runtime complexity of `contains`?
 
-3. What is the runtime complexity of `contains`?
+3. What is the runtime complexity of `getMax`? 
 
-4. What is the runtime complexity of `getMax`? 
+4. What is the runtime complexity of `depthFirstForEach`?
 
-5. What is the runtime complexity of `depthFirstForEach`?
+5. What is the runtime complexity of `breadthFirstForEach`?
 
-6. What is the runtime complexity of `breadthFirstForEach`?
-
+6. [Stretch Question] What is the runtime complexity of your `checkBalanced` function?
 
 ## Heap
 
