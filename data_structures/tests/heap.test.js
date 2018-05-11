@@ -17,7 +17,11 @@ const isSorted = (arr) => {
 
 describe('heapsort', () => {
   test('heapsort correctly sorts an array of integers', () => {
-    const input = generateRandomInput(20, 100);
-    expect(isSorted(heapsort(input))).toBe(true);
+    const len = Math.round(Math.random() * 100);
+    const input = generateRandomInput(len, 1000);
+    const output = heapsort(input);
+
+    expect(output.length).toEqual(len);
+    expect(isSorted(output)).toBe(true);
   });
 });
