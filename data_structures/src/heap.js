@@ -3,64 +3,61 @@ const heapsort = (arr) => {
   
 };
 
+
 class Heap {
   constructor() {
-    this.storage = [null];
-    this.size = 0;
+    this.storage = [];
   }
 
   insert(val) {
     const index = this.storage.push(val) - 1;
-    this.size++;
     this.bubbleUp(index);
   }
 
   delete() {
-    if (this.storage.length === 2) {
-      this.size--;
+    if (!this.storage.length) return null;
+    if (this.storage.length === 1) {
       return this.storage.pop();
-    } else if (this.storage.length === 1) {
-      return this.storage[0];
     }
-    this.size--;
-    const max = this.storage[1];
-    this.storage[1] = this.storage.pop();
-    this.siftDown(1);
+
+    const max = this.storage[0];
+    this.storage[0] = this.storage.pop();
+    this.siftDown(0);
     return max;
   }
 
   getMax() {
-    return this.storage[1];
+    return this.storage[0];
   }
 
   getSize() {
-    return this.size;
+    return this.storage.length;
   }
 
   bubbleUp(index) {
-    const parent = Math.floor(index/2);
-    if (parent > 0 && this.storage[parent] < this.storage[index]) {
+    const parent = Math.floor((index - 1) / 2);
+    if (this.storage[parent] < this.storage[index]) {
       [this.storage[parent], this.storage[index]] = [this.storage[index], this.storage[parent]];
       this.bubbleUp(parent);
     }
   }
 
   siftDown(index) {
-    const child1 = index * 2;
-    const child2 = index * 2 + 1;
+    const leftChildIndex = index * 2 + 1;
+    const rightChildIndex = index * 2 + 2;
     let maxChild;
+    
+    if (this.storage[leftChildIndex] && this.storage[rightChildIndex]) {
+      maxChild = this.storage[leftChildIndex] > this.storage[rightChildIndex] ? leftChildIndex : rightChildIndex;
+    } else if (this.storage[leftChildIndex]) {
+      maxChild = leftChildIndex;
+    } else if (this.storage[rightChildIndex]) {
+      maxChild = rightChildIndex;
+    } 
 
-    if (this.storage[child1] !== undefined) {
-      if (this.storage[child2] === undefined) {
-        maxChild = child1;
-      } else if (this.storage[child2] !== undefined) {
-        maxChild = this.storage[child1] > this.storage[child2] ? child1 : child2;
-      }
-
-      if (this.storage[index] < this.storage[maxChild]) {
-        [this.storage[maxChild], this.storage[index]] = [this.storage[index], this.storage[maxChild]];
-        this.siftDown(maxChild);
-      }
+    if (this.storage[index] < this.storage[maxChild]) {
+      [this.storage[maxChild], this.storage[index]] = [this.storage[index], this.storage[maxChild]];
+      this.siftDown(maxChild);
     }
   }
 }
