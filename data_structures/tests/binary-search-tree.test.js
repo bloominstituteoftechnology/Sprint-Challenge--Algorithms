@@ -1,27 +1,36 @@
-const { BinarySearchTree, checkBalanced } = require('../src/binary-search-tree');
+const BinarySearchTree = require('../src/binary-search-tree');
 
 let bst;
 
-describe('checkBalanced', () => {
+describe('`depthFirstForEach` and `breadthFirstForEach`', () => {
   beforeEach(() => {
-    bst = new BinarySearchTree(10);
+    bst = new BinarySearchTree(5);
   });
 
-  test('checkBalanced returns true given a perfectly balanced tree', () => {
-    expect(checkBalanced(bst)).toBe(true);
+  test("`depthFirstForEach` executes a callback on every value in a tree in depth-first order", () => {
+    const array = [];
+    const cb = x => array.push(x);
 
-    bst.insert(11);
+    bst.insert(2);
+    bst.insert(3);
+    bst.insert(7);
     bst.insert(9);
+    bst.depthFirstForEach(cb);
 
-    expect(checkBalanced(bst)).toBe(true);
+    expect(array).toEqual([5, 2, 3, 7, 9]);
   });
 
-  test('checkBalanced returns false given a tree that is not perfectly balanced', () => {
-    bst.insert(11);
-    bst.insert(12);
-    expect(checkBalanced(bst)).toBe(false);
+  test("`breadthFirstForEach` executes a callback on every value in a tree in breadth-first order", () => {
+    const array = [];
+    const cb = x => array.push(x);
 
+    bst.insert(3);
+    bst.insert(4);
+    bst.insert(10);
     bst.insert(9);
-    expect(checkBalanced(bst)).toBe(false);
+    bst.insert(11);
+    bst.breadthFirstForEach(cb);
+
+    expect(array).toEqual([5, 3, 10, 4, 9, 11]);
   });
 });

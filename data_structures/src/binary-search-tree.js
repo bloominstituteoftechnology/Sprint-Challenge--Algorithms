@@ -1,13 +1,18 @@
-const checkBalanced = (rootNode) => {
-  /* Your code here */
-
-};
-
 class BinarySearchTree {
   constructor(value) {
     this.value = value;
     this.left = null;
     this.right = null;
+  }
+
+  depthFirstForEach(cb) {
+    /* Your code here */
+    
+  }
+
+  breadthFirstForEach(cb) {
+    /* Your code here */
+
   }
 
   insert(value) {
@@ -59,19 +64,6 @@ class BinarySearchTree {
 
     return max;
   }
-
-  depthFirstForEach(cb) {
-    cb(this.value);
-    if (this.left) {
-      this.left.depthFirstForEach(cb);
-    }
-    if (this.right) {
-      this.right.depthFirstForEach(cb);
-    }
-  }
 }
 
-module.exports = {
-  BinarySearchTree,
-  checkBalanced,
-};
+module.exports = BinarySearchTree;
