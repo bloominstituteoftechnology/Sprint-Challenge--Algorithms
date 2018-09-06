@@ -10,9 +10,12 @@ For the algorithms portion of the sprint challenge, you'll be answering the ques
 Navigate into the `ex_1` directory in the `data_structures` directory. Inside, you'll see the `binary-search-tree.py` file with a complete implementation of the binary search tree class. Your first task is to implement the methods `depth_first_for_each` and `breadth_first_for_each` on the `BinarySearchTree` class:
 
    * `depth_first_for_each(cb)` receives a callback function as a parameter. This method iterates over the binary search tree in [depth-first](https://en.wikipedia.org/wiki/Depth-first_search) order, applying the supplied callback function to each tree element in turn.
-   *HINT*: In order to achieve depth-first order, you'll probably want to utilize a Stack data structure. 
+   
+     *HINT*: In order to achieve depth-first order, you'll probably want to utilize a Stack data structure. 
+
    * `breadth_first_for_each(cb)` receives a callback function as a parameter. This method iterates over the binary search tree in [breadth-first](https://en.wikipedia.org/wiki/Breadth-first_search) order, applying the supplied callback function to each tree element in turn.
-   *HINT*: In order to achieve breadth-first order, you'll probably want to utilize a Queue data structure.
+   
+     *HINT*: In order to achieve breadth-first order, you'll probably want to utilize a Queue data structure.
 
 NOTE: In Python, anonymous functions are referred to as "lambda functions". When passing in a callback function as input to either `depth_first_for_each` or `breadth_first_for_each`, you'll want to define the callbacks as lambda functions. For more information on lambda functions, check out this documentation: [https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions](https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions)
 
