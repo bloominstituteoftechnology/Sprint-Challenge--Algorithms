@@ -2,7 +2,7 @@
 
 For the data structures portion of this sprint challenge, you'll be implementing a few functions that build off of some of the data structures you implemented in the first half of the week. Then you'll be analyzing the runtimes of these functions.
 
-For the algorithms portion of the sprint challenge, you'll be answering the questions posed in the `exercises.pdf` file regarding runtime complexities and algorithmic paradigms.
+For the algorithms portion of the sprint challenge, you'll be answering the questions posed in the `Algorithms_Questions.md` file regarding runtime complexities and algorithmic paradigms.
 
 ## Data Structures
 
