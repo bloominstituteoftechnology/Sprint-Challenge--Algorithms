@@ -27,7 +27,7 @@ Inside the `ex_2` directory you'll find the `heap.py` file with a working implem
 Run `python test_heap.py` to run the tests for your `heapsort` function to ensure that your implementation is correct.
 
 ### Task 3. Analyze some runtimes
-Open up the `Data_Structures_Answers.md` file. This is where you'll jot down your answers for the runtimes of the functions you just implemented. Be sure to also answer any other questions posed in the `Answers.md` file!
+Open up the `Data_Structures_Answers.md` file. This is where you'll jot down your answers for the runtimes of the functions you just implemented. Be sure to also answer any other questions posed in the `Data_Structures_Answers.md` file!
 
 ## Algorithms
 For the algorithms portion of the sprint challenge, you'll be answering questions posed in the `Algorithms_Questions.md` document inside the `algorithms` directory. Add your answers to the questions in the `Algorithms_Answers.md` file.
