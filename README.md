@@ -2,7 +2,7 @@
 
 For the data structures portion of this sprint challenge, you'll be implementing a few functions that build off of some of the data structures you implemented in the first half of the week. Then you'll be analyzing the runtimes of these functions.
 
-For the algorithms portion of the sprint challenge, you'll be answering the questions posed in the `exercises.pdf` file regarding runtime complexities and algorithmic paradigms.
+For the algorithms portion of the sprint challenge, you'll be answering the questions posed in the `Algorithms_Questions.md` file regarding runtime complexities and algorithmic paradigms.
 
 ## Data Structures
 
@@ -27,7 +27,7 @@ Inside the `ex2` directory you'll find the `heap.py` file with a working impleme
 Run `python test_heap.py` to run the tests for your `heapsort` function to ensure that your implementation is correct.
 
 ### Task 3. Analyze some runtimes
-Open up the `Data_Structures_Answers.md` file. This is where you'll jot down your answers for the runtimes of the functions you just implemented. Be sure to also answer any other questions posed in the `Answers.md` file!
+Open up the `Data_Structures_Answers.md` file. This is where you'll jot down your answers for the runtimes of the functions you just implemented. Be sure to also answer any other questions posed in the `Data_Structures_Answers.md` file!
 
 ## Algorithms
 For the algorithms portion of the sprint challenge, you'll be answering questions posed in the `Algorithms_Questions.md` document inside the `algorithms` directory. Add your answers to the questions in the `Algorithms_Answers.md` file.
