@@ -6,6 +6,8 @@ For the algorithms portion of the sprint challenge, you'll be answering the ques
 
 ## Data Structures
 
+It is recommended that you allot about 2 hours for this portion of the sprint challenge. 
+
 ### Task 1. Implement Depth-First and Breadth-First Traversal on the Binary Search Tree Class 
 Navigate into the `ex1` directory in the `data_structures` directory. Inside, you'll see the `binary-search-tree.py` file with a complete implementation of the binary search tree class. Your first task is to implement the methods `depth_first_for_each` and `breadth_first_for_each` on the `BinarySearchTree` class:
 
@@ -30,4 +32,18 @@ Run `python test_heap.py` to run the tests for your `heapsort` function to ensur
 Open up the `Data_Structures_Answers.md` file. This is where you'll jot down your answers for the runtimes of the functions you just implemented. Be sure to also answer any other questions posed in the `Data_Structures_Answers.md` file!
 
 ## Algorithms
+
+It is recommended that you allot about 1 hour for this portion of the sprint challenge.
+
 For the algorithms portion of the sprint challenge, you'll be answering questions posed in the `Algorithms_Questions.md` document inside the `algorithms` directory. Add your answers to the questions in the `Algorithms_Answers.md` file.
+
+## Rubric
+
+Each test in the Data Structures portion is worth 2 points. Each runtime analysis question in the Data Structures portion is worth 1 point. 
+Each question in the Algorithms portion is worth 2 points. 
+
+In order to earn a score of 3, you'll need to score at least 90%, or 18 / 20 total possible points.
+
+In order to earn a score of 2, you'll need to score at least 70%, or 14 / 20 total possible points.
+
+Anything lower earns you a score of 1. 

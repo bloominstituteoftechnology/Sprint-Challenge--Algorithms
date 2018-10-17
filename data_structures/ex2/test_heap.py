@@ -23,5 +23,6 @@ class HeapTests(unittest.TestCase):
     self.assertEqual(len(output), length)
     self.assertTrue(is_sorted(output))
 
+
 if __name__ == '__main__':
   unittest.main()

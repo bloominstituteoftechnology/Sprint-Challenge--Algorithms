@@ -30,5 +30,6 @@ class BinarySearchTreeTests(unittest.TestCase):
 
     self.assertEqual(arr, [5, 3, 10, 4, 9, 11])
 
+
 if __name__ == '__main__':
   unittest.main()
