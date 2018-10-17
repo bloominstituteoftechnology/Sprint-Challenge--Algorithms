@@ -39,9 +39,9 @@ For the algorithms portion of the sprint challenge, you'll be answering question
 
 ## Rubric
 
-Each test in the Data Structures portion is worth 2 points.  
-Each runtime analysis question in the Data Structures portion is worth 1 point.  
-Each question in the Algorithms portion is worth 2 points. 
+Each test in the Data Structures portion is worth 2 points for a total of 6.  
+Each runtime analysis question in the Data Structures portion is worth 1 point for a total of 6.  
+Each question in the Algorithms portion is worth 2 points for a total of 8. 
 
 In order to earn a score of 3, you'll need to score at least 90%, or 18 / 20 total possible points.
 
