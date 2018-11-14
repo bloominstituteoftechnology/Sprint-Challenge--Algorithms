@@ -24,7 +24,7 @@ This Sprint Challenge is split into two separate parts: a data structures portio
 
 It is recommended that you allot about 1 and a half hours for this portion of the Sprint Challenge. 
 
-#### Task 1. Implement Depth-First and Breadth-First Traversal on the Binary Search Tree Class 
+#### Task 1. Implement Depth-First or Breadth-First Traversal on the Binary Search Tree Class 
 
 Navigate into the `ex1` directory in the `data_structures` directory. Inside, you'll see the `binary-search-tree.py` file with a complete implementation of the binary search tree class. Your first task is to implement either `depth_first_for_each` or `breadth_first_for_each` on the `BinarySearchTree` class:
 
@@ -52,7 +52,7 @@ Run `python test_heap.py` to run the tests for your `heapsort` function to ensur
 
 #### Task 3. Analyze some runtimes
 
-Open up the `Data_Structures_Answers.md` file. This is where you'll jot down your answers for the runtimes of the functions you just implemented. Be sure to also answer any other questions posed in the `Data_Structures_Answers.md` file!
+Open up the `Data_Structures_Answers.md` file. This is where you'll jot down your answers for the runtimes of the functions you just implemented. If you implemented depth-first traversal, just answer the questions pertaining to the depth-first traversal algorithm. If you implemented breadth-first traversal, just answer the questions pertaining to breadth-first traversal. Make sure you answer the heapsort questions as well!
 
 ### Algorithms
 
@@ -62,4 +62,4 @@ For the algorithms portion of the sprint challenge, you'll be answering question
 
 ### Stretch Problems
 
-Implement the other tree traversal algorithm that you didn't implement on the `BinarySearchTree` class. Run the appropriate test file to test your implementation's correctness. 
+Implement the other tree traversal algorithm that you didn't implement on the `BinarySearchTree` class. Run the appropriate test file to test your implementation's correctness. Then go back to the `Data_Structures_Answers.md` file and answer the time and space complexity questions pertaining to the traveral method you just implemented.
