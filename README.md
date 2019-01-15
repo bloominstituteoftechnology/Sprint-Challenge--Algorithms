@@ -33,7 +33,7 @@ Run `python test_heap.py` to run the tests for your `heapsort` function to ensur
 
 #### Task 2. Analyze some runtimes
 
-Open up the `Data_Structures_Answers.md` file. This is where you'll jot down your answers for the runtimes of the functions you just implemented. 
+Open up the `Analysis_Answers.md` file. This is where you'll jot down your answers for the runtimes of the functions you just implemented. 
 
 [4/6 questions were for data structures, maybe add to it]
 
