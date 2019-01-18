@@ -8,8 +8,7 @@ def heapsort(arr):
 
   # For each item in the heap get max value and insert it at the beginning of the results array.
   while heap.get_size() > 0:
-    result.insert(0, heap.get_max())
-    heap.delete()
+    result.insert(0, heap.delete())
 
   return result
 
@@ -23,8 +22,7 @@ def heapsort_min(arr):
 
   # For each item in the heap get max value and insert it at the beginning of the results array.
   while heap.get_size() > 0:
-    result.insert(len(result), heap.get_max())
-    heap.delete()
+    result.append(heap.delete())
 
   return result
 
