@@ -6,10 +6,10 @@ def heapsort(arr):
 
     while heap.get_size() > 0:
         for i in range(heap.get_size()):
-            heap. _sift_down(i)
-        final.append(heap.delete())
+            heap._sift_down(i)
+        final.insert(0, heap.delete())
 
-    return final[::-1]
+    return final
 
 
 class Heap:
@@ -52,3 +52,6 @@ class Heap:
             return index * 2 + 1
         else:
             return index * 2 + 1 if self.storage[index * 2 + 1] > self.storage[index * 2 + 2] else index * 2 + 2
+
+
+print(heapsort([2, 6, 1, 7, 3, 4, 5]))
