@@ -63,8 +63,20 @@ ensure that your implementation is correct.
 #### Task 2. Analyze some runtimes
 
 Open up the `Analysis_Answers.md` file. This is where you'll jot down your
-answers for the runtimes of the functions you just implemented. 
+answers for the runtimes of the functions you just implemented.
 
 ### Stretch Problems
 
-[was for data structures, need to add something]
+#### Min versus Max
+
+The heap presented in the code is called a _max heap_, because `delete()` always
+returns the maximum value in the heap.
+
+Modify it to be a _min heap_, so that `delete()` always returns the _minimum_
+value in the heap.
+
+Fix your heapsort after you do this. What did you have to modify?
+
+How does the time complexity change?
+
+In terms of wall clock time, is the min heap version faster or slower?

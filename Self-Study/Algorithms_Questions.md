@@ -1,6 +1,6 @@
 # Analysis of Algorithms
 
-**Exercise I**
+## Exercise I
 
 Give an analysis of the running time of each snippet of
 pseudocode with respect to the input size n of each of the following:
@@ -27,7 +27,7 @@ c)  bunnyEars = function(bunnies) {
     }
 ```
 
-**Exercise II**
+## Exercise II
 
 Suppose that you have an _n_-story building and plenty of eggs. Suppose also
 that an egg gets broken if it is thrown off floor _f_ or higher, and doesn't get
