@@ -34,13 +34,12 @@ def heapsort(arr):
     final = []
     for i in arr:
         heap.insert(i)
-    i = 0
 
     while heap.get_size() > 0:
         final.append(heap.delete())
-        i += 1
 
-    return final[::-1]
+    final = final[::-1]
+    return final
 
 
 class Heap:
