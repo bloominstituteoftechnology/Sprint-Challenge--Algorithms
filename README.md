@@ -52,6 +52,9 @@ questions in the `Algorithms_Answers.md` file.
 Inside the `task1` directory you'll find the `heap.py` file with a working
 implementation of the heap class--the heap is already written for you.
 
+A heap is a tree-like data structure that can rapidly tell you what the largest
+or smallest number is within that set of data.
+
 You have to figure out how to use the heap to implement heapsort.
 
 Some hints:
