@@ -1,6 +1,29 @@
+#heapify = helper function to validate max heap structure and reconstruct heap if needed after an item is sorted
+def heapify(arr, n, i):
+  maximum = i
+  left = 2 * i + 1
+  right = 2 * i + 2
+
+  #is left greater than root?
+  if left < n and arr[i] < arr[left]:
+    maximum = left
+  
+  #is right greater than root? 
+  if right < n and arr[maximum] < arr[right]:
+    maximum = right
+
+  #if right or left child is greater than root, swap/reconstruct
+  if maximum != i:
+    arr[i],arr[maximum] = arr[maximum],arr[i] 
+
+    #call heapify for each node remaining in heap/tree
+    heapify(arr, n, maximum)
+
+
 def heapsort(arr):
- pass 
- #start
+
+
+
 
 class Heap:
   def __init__(self):
