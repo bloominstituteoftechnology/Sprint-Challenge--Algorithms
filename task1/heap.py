@@ -16,9 +16,9 @@ def heapsort(arr):
     result.insert(0, )"""
 
   #take largest number from tree and insert into list
-  while len(sorting_heap) > 0:
-    result.insert(0, sorting_heap.get_max())
-    sorting_heap.delete()
+  while sorting_heap.get_size() > 0:
+    result.insert(0, sorting_heap.delete())
+  
     
   return result
  
