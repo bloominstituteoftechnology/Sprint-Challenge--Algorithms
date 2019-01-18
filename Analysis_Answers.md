@@ -6,9 +6,11 @@ Add your answers to the questions below.
 
    Other hints, to save you some searching:
 
-   * Heap insert: `O(log n)`
-   * Heap delete: `O(log n)`
-   * Heap get max: `O(1)`
+   - Heap insert: `O(log n)`
+   - Heap delete: `O(log n)`
+   - Heap get max: `O(1)`
+
+i believe my heap sort algorithm is O(n^2) because we have two loops that are both O(n)
 
 2. Could one make your algorithm run in better time? If so, how? If not, why
    not?
