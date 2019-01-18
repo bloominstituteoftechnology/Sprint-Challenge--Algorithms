@@ -100,19 +100,18 @@ n = 3 => 2 + function(2) => 2 + (2 + f(1)) => 2 + (2 + f(0))
 
 ## Exercise II
 
--	|-------|									-
-|	|		|									|
-|	|		|									|
-|	|		|			egg broken				|
-|	|		|									|	new _f_
-|n	|		|	-		-------					|
-|	|		|	|								|
-|	|		|	| f		egg not broken			|
-|	|		|	|								|
-_	-----------	-								-
+-	|-------|									
+|	|		|									
+|	|		|									
+|	|		|			egg broken				
+|	|		|									
+|n	|		|	-		------- midpoint	
+|	|		|	|							
+|	|		|	| f		egg not broken			
+|	|		|	|								
+_	-----------	-								
 
 
 ?? Devise a strategy to determine the value of _f_ such that the number of dropped eggs is minimized.??
-
-==> The number of dropped eggs doesn't depend on _f_ or _n_.
-	But if we want to minimized the number of broken eggs, and assuming we are in control of _f_, then we want _f_ to be as closed to _n_ as possible. Ideally, _f_ > _n_.
+	
+==> This is a binary search, O(log(n)). We can start looking for _f_ at the midpoint of the building _n_, and check if the egg would break when thrown off. If it does, then we can assume _f_ is less than the midpoint and try again. If the egg doesn't break at the midpoint, then we check the floor above that. We would repeat this process with a new midpoint until _f_ is found, leading we to use the minimum number of eggs as possible.
