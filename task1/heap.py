@@ -1,5 +1,55 @@
+"""
+Heapsort pseudocode:
+
+- First we'll need to establish a heap and another list to hold our resulting data
+- Go over the given array (arr) and use Heap's insert() function to add the values
+- Analyze the heap with get.size() and use sift_down where appropriate (get.size > 0)
+- Call the delete() function and append the result to the heap, increment counter
+- Return the result, which is our new properly ordered heap
+
+"""
+
 def heapsort(arr):
- pass 
+  '''
+  # INITIAL SOLUTION - O(N) SPACE COMPLEXITY #
+  heap = Heap()
+  result = []
+  
+  for i in arr:
+    heap.insert(i)
+  
+  # new i value
+  i = 0
+  while heap.get_size() > 0:
+  '''
+  '''
+  This bit saves some time: initially I used insert here, but append runs faster.
+  To compensate the return now uses [::-1] to reverse the order as necessary.
+  I don't think this changes runtime, just a small optimization change.
+    
+    heap._sift_down(i)
+    result.append(heap.delete())
+    i += 1
+
+  return result[::-1]
+  '''
+  '''
+  '''
+
+  # MODIFIED ATTEMPT AT O(1) SPACE COMPLEXITY
+  heap = Heap()
+  length = len(arr)
+
+  # work with the original list and simply add values directly to the heap instead of a new list
+  for i in range(0, length):
+    heap.insert(arr.pop())
+  
+  # adding the heaped deleted values back into the original array for better space complexity
+  for i in range(0, length):
+    max = heap.delete()
+    arr = [max] + arr
+  
+  return arr
  
 
 class Heap:
