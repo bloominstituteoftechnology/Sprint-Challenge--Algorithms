@@ -1,11 +1,11 @@
 def heapsort(arr):
-  heap = Heap()
+  heap = Heap() #O(1)
   new_arr = []
-  for i in arr:
-    heap.insert(i)
-  for i in arr:
-    new_arr.insert(0, heap.delete())
-  return new_arr
+  for i in arr: #O(n) * O(log n) = O(n log n)
+    heap.insert(i) #O(log n)
+  for i in arr: #O(n) * O(log n) = O(n log n)
+    new_arr.insert(0, heap.delete())  #O(n) + O(log n) = O(n)
+  return new_arr #O(1)
     
 class Heap:
   def __init__(self):
