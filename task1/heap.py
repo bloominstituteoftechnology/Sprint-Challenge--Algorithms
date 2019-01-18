@@ -1,11 +1,12 @@
 def heapsort(arr):
     max_heap = Heap() 
     for ele in arr:
-      #creating max heap
+      #creating max heap, insert into self.storage
         max_heap.insert(ele)
-# placeholder array for sorted nums
+# placeholder array for sorted ele
     sorted_list = []
 # while elements still in max_heap => add the remaining elements to sorted_list
+# delete will
     while len(max_heap.storage) > 0:
         sorted_list.append(max_heap.delete()) 
     # reverse array to be lowest to greatest
