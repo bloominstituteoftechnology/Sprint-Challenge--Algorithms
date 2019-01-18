@@ -44,10 +44,10 @@ def heapsort(arr):
   # result = []
   length = len(arr)
 
-  for i in range(0, length -1):
+  for i in range(0, length):
     my_heap.insert(arr.pop())
   
-  for i in range(0, length -1):
+  for i in range(0, length):
     biggest = my_heap.delete()
     arr = [biggest] + arr
 
@@ -57,10 +57,10 @@ def heapsort(arr):
 # Troubleshooting test code #
 #############################
 
-def create_array(size = 10, max = 99):
-    from random import randint
-    return [randint(0, max) for _ in range(size)]
+# def create_array(size = 10, max = 99):
+#     from random import randint
+#     return [randint(0, max) for _ in range(size)]
 
-heap_test_arr = create_array()
-print(f'Before: {heap_test_arr}')
-print(f'{heapsort(heap_test_arr)}')
+# heap_test_arr = create_array()
+# print(f'Before: {heap_test_arr}')
+# print(f'After: {heapsort(heap_test_arr)}')
