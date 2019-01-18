@@ -10,4 +10,4 @@ c)O(n) -- This recursive funtion is O(n) because it is like a for loop. And for 
 
 # Exercise II
 
-We would want to do this like a Binary search. We would go to the middle of the building and throw the egg. If it breaks, go halfway down from the middle and do it again. If it doesn't break, we go up halfway and throw an egg again. We keep going up or down depending on the new middle of the leftover floors until we get to the floor f where it will not break if the egg is dropped less than that floor and where it will break if higher than that floor.
+We would want to do this like a Binary search. We would go to the middle of the building and throw the egg. If it breaks, go halfway down from the middle and do it again. If it doesn't break, we go up halfway and throw an egg again. We keep going up or down depending on the new middle of the leftover floors until we get to the floor f where it will not break if the egg is dropped less than that floor and where it will break if higher than that floor. This would be a O(log n) because we are halfing it everytime we go to throw another egg.
