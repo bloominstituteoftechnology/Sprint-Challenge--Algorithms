@@ -22,5 +22,9 @@ I dont see a way of making it run any faster than O(n). O(log n ) would be faste
    that the size of the input array passed to the `heapsort()` function does
    _not_ contribute to the size complexity.)
 
+   0(n) space complexity
+
    Most online sources say that the space complexity of heapsort is `O(1)`. What
    would we have to change in our code to get there?
+
+   change the heapsort from a class to a regular function
