@@ -1,3 +1,14 @@
+"""
+Heapsort pseudocode:
+
+- First we'll need to establish a heap and another list to hold our resulting data
+- Go over the given array (arr) and use Heap's insert() function to add the values
+- Analyze the heap with get.size() and use sift_down where appropriate (get.size > 0)
+- Call the delete() function and append the result to the heap, increment counter
+- Return the result, which is our new properly ordered heap
+
+"""
+
 def heapsort(arr):
  pass 
  
