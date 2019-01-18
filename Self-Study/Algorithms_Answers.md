@@ -8,7 +8,7 @@ Exercise II:
 n = total floors
 f = egg break floor
 e = eggs
-t = tries
+t = test floor
 
-drop first egg at testfloor0.  if it breaks move to lower floor to test.  if it does not break move to higher floor to test.  this could be done recursively:
-testfloor0 + testfloor(n-1) + testfloor(n-2) + ...etc = n
+drop first egg at testfloor0.  if it breaks move to lower floor to test and if it does not break move to higher floor to test. this would be similar to a binary search.  or this could be done recursively starting from n-1:
+[t + (t-1) + (t-2) + ...etc] = n

@@ -1,5 +1,22 @@
 def heapsort(arr):
- pass 
+  #use class to create list sorted from heap by inserting into list while deleting from heap
+  #heap is binary tree so children indices are l=2i+1 and r=2i+2
+  #bubble up brings bigger numbers up, sift down lowers smaller numbers down tree
+  
+  sorting_heap = Heap()
+  result = [] 
+
+  for i in arr: 
+    sorting_heap.insert(i)
+
+  #insert and delete into array
+  #insert parameters: index and element
+  #delete? 
+  for i in arr: 
+    result.insert(0)
+    sorting_heap.delete()
+
+  return result
  
 
 class Heap:
