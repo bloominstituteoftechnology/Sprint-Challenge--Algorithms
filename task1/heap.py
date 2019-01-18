@@ -45,12 +45,17 @@ def heapsort(arr):
 
     returned = []
     new_list = Heap()
+    #  Creates new Heap.storage with all values from arr
     for i in range(len(arr)):
         new_list.insert(arr[i])
+    #  Goes through new_list.storage, finds the max and appends it to returned array
+    #  Finally the element that was passed to returned gets deleted
+    #  continues this process until whole storage is gone
     for j in range(new_list.get_size()):
         returned.append(new_list.get_max())
         new_list.delete()
+    #  reverses returned array so it is in ascending order
     return list(reversed(returned))
-#     return new_list
 
-print(heapsort([4,3,2,5,44,12]))
+
+print(heapsort([4, 3, 2, 5, 44, 12]))
