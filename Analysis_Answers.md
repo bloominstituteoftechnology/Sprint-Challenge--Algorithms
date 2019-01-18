@@ -9,9 +9,11 @@ Add your answers to the questions below.
    * Heap insert: `O(log n)`
    * Heap delete: `O(log n)`
    * Heap get max: `O(1)`
+   The runtime of this function currently is O(nlog(n)) because there is a nested loop using the delete method. 
 
 2. Could one make your algorithm run in better time? If so, how? If not, why
    not?
+   You could make this algorithm have a smaller time complexity by removing the nested loops and use an alterantive approach to delete/insert.
 
 3. What is the space complexity of your `heapsort` function? Recall that your
    implementation should return a new array with the sorted data. (Also remember
@@ -20,3 +22,4 @@ Add your answers to the questions below.
 
    Most online sources say that the space complexity of heapsort is `O(1)`. What
    would we have to change in our code to get there?
+   The data doesn't have to be stored anywhere, if we remove the step creating a new array to store our data and swap in place the space complexity would be O(1).
