@@ -41,25 +41,26 @@ class Heap:
 my_heap = Heap()
 
 def heapsort(arr):
-  result = []
+  # result = []
+  length = len(arr)
 
-  for i in arr:
-    my_heap.insert(i)
+  for i in range(0, length -1):
+    my_heap.insert(arr.pop())
   
-  for i in arr:
+  for i in range(0, length -1):
     biggest = my_heap.delete()
-    result = [biggest] + result
+    arr = [biggest] + arr
 
-  return result
+  return arr
 
 #############################
 # Troubleshooting test code #
 #############################
 
-# def create_array(size = 10, max = 99):
-#     from random import randint
-#     return [randint(0, max) for _ in range(size)]
+def create_array(size = 10, max = 99):
+    from random import randint
+    return [randint(0, max) for _ in range(size)]
 
-# heap_test_arr = create_array()
-# print(f'Before: {heap_test_arr}')
-# print(f'{heapsort(heap_test_arr)}')
+heap_test_arr = create_array()
+print(f'Before: {heap_test_arr}')
+print(f'{heapsort(heap_test_arr)}')
