@@ -1,7 +1,3 @@
-def heapsort(arr):
- pass 
- 
-
 class Heap:
   def __init__(self):
     self.storage = []
@@ -41,3 +37,20 @@ class Heap:
       return index * 2 + 1
     else:
       return index * 2 + 1 if self.storage[index * 2 + 1] > self.storage[index * 2 + 2] else index * 2 + 2
+
+def heapsort(arr):
+ 
+  # First, let's 'heapify' our array data.
+  heap = Heap()
+  for i in arr:
+    heap.insert(i)    
+
+  # Next, we should iteratively remove the top node (biggest) of the heap and add it to our sorted list until the heap is empty.
+  for i in range(0, heap.get_size()):
+    arr[i] = heap.delete() 
+
+  # Finally, we return our array, now with the elements sorted.
+  arr.reverse() # Order from least to greatest
+  return arr
+ 
+# print(heapsort([15, 19, 10, 7, 17, 16, 12341, 34, 456, 76, 123]))
