@@ -87,12 +87,18 @@ answers for the runtimes of the functions you just implemented.
 The heap presented in the code is called a _max heap_, because `delete()` always
 returns the maximum value in the heap.
 
-Modify it to be a _min heap_, so that `delete()` always returns the _minimum_
+[x] Modify it to be a _min heap_, so that `delete()` always returns the _minimum_
 value in the heap. Also change `get_max()` to `get_min()`.
 
 Your heapsort probably broke after you did this. What did you have to modify to
 fix it?
 
+A: I had to fix other internal functions `_bubble_up`, `_sift_down`, and `max_child` to `_min_child`
+
 How does the time complexity change?
 
+A: Instead of using the Python method insert O(n), I used append which is O(1) but it didn't change the overall time complexity.
+
 In terms of wall clock time, is the min heap version faster or slower?
+
+A: The test results are showing similar times.
