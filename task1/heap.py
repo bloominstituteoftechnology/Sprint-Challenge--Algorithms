@@ -53,7 +53,7 @@ class Min_Heap:
     self._sift_down(0)
     return retval 
 
-  def get_max(self):
+  def get_min(self):
     return self.storage[0]
 
   def get_size(self):
@@ -67,17 +67,18 @@ class Min_Heap:
 
   def _sift_down(self, index):
     while index * 2 + 1 <= len(self.storage) - 1:
-      mc = self._max_child(index)
+      mc = self._min_child(index)
       if self.storage[index] > self.storage[mc]:
         self.storage[index], self.storage[mc] = self.storage[mc], self.storage[index]
       index = mc
 
-  def _max_child(self, index):
+  def _min_child(self, index):
     if index * 2 + 2 > len(self.storage) - 1:
       return index * 2 + 1
     else:
       return index * 2 + 1 if self.storage[index * 2 + 1] < self.storage[index * 2 + 2] else index * 2 + 2
 
+# Max Heapsort
 def heapsort(arr):
 
   # Declare a new list to store our sorted data into:
@@ -95,6 +96,8 @@ def heapsort(arr):
   # Finally, we return our list, now with the elements sorted.
   return sorted
 
+
+# Min Heapsort
 def min_heapsort(arr):
   
   # Declare a new list to store our sorted data into:
@@ -116,3 +119,13 @@ test_array = [15, 19, 10, 7, 17, 16, 12341, 34, 456, 76, 123]
 
 print(heapsort(test_array))
 print(min_heapsort(test_array))
+
+min_heap = Min_Heap()
+heap = Heap()
+
+for i in test_array:
+  heap.insert(i)   
+  min_heap.insert(i)
+
+print(heap.get_max())
+print(min_heap.get_min())
