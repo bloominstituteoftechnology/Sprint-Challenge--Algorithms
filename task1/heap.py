@@ -47,14 +47,16 @@ import collections
 def heapsort(arr):
  heap = Heap()
  sorted_arr = collections.deque()
- print(sorted_arr)
  for item in arr:
    heap.insert(item)
+   
 
  while heap.get_size() > 0:
    sorted_arr.appendleft(heap.delete())
 
+
  return list(sorted_arr)
 
 
-
+arr = [2,5,4,1,3]
+print(heapsort(arr))
