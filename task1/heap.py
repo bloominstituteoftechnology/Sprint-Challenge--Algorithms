@@ -115,17 +115,44 @@ def min_heapsort(arr):
   # Finally, we return our list, now with the elements sorted.
   return sorted
 
-test_array = [15, 19, 10, 7, 17, 16, 12341, 34, 456, 76, 123]
+# Testing Heap / heapsort
 
-print(heapsort(test_array))
-print(min_heapsort(test_array))
+# test_array = [15, 19, 10, 7, 17, 16, 12341, 34, 456, 76, 123]
 
-min_heap = Min_Heap()
-heap = Heap()
+# print(heapsort(test_array))
+# print(min_heapsort(test_array))
 
-for i in test_array:
-  heap.insert(i)   
-  min_heap.insert(i)
+# min_heap = Min_Heap()
+# heap = Heap()
 
-print(heap.get_max())
-print(min_heap.get_min())
+# for i in test_array:
+#   heap.insert(i)   
+#   min_heap.insert(i)
+
+# print(heap.get_max())
+# print(min_heap.get_min())
+
+# Comparing Clock Time of min_heapsort and heapsort:
+import random
+import time
+
+def gen_random_input(length, max):
+  input = []
+  for i in range(length):
+    input.append(random.randint(0, max))
+  return input
+
+big_test = [gen_random_input(100, 500), gen_random_input(1000, 500), gen_random_input(10000, 500), gen_random_input(20000, 500), gen_random_input(30000, 500)]
+
+for i in big_test:
+  max_start = time.time()
+  heapsort(i)
+  max_finish = time.time()
+
+  print("%d,%.10f" % (len(i), max_finish - max_start))
+
+  min_start = time.time()
+  heapsort(i)
+  min_finish = time.time()
+
+  print("%d,%.10f" % (len(i), min_finish - min_start))

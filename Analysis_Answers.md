@@ -64,3 +64,36 @@ Add your answers to the questions below.
    In order for our heapsort to be O(1), we'd need to sort the list in place
    somehow. So we'd have to be able to represent a heap as a list and then modify our
    heap functions so that they work on the list instead of our Heap class object.
+
+## STRETCH:
+  1. My heapsort didn't break, actually. Though it did sort everything in reverse!
+     To fix that, I just swapped the sorted list and the concatenated item when
+     I build up the sorted list.
+  2. I don't think that the time complexity changed. I changed very little to
+     accomplish this and nothing that should have created a limiting increase
+     in time complexity.
+  3. After running tests of the two, they appear to be neck and neck. Here are some
+     results:
+
+    items , time (seconds)
+    100   , 0.0000000000
+    100   , 0.0000000000
+    1000  , 0.0109984875
+    1000  , 0.0109441280
+    10000 , 0.2683062553
+    10000 , 0.2642953396
+    20000 , 0.8696694374
+    20000 , 0.8736567497
+    30000 , 1.8859679699
+    30000 , 1.8739492893
+
+    100   , 0.0009968281
+    100   , 0.0010032654
+    1000  , 0.0109658241
+    1000  , 0.0119938850
+    10000 , 0.2672986984
+    10000 , 0.2692778111
+    20000 , 0.8736319542
+    20000 , 0.8806369305
+    30000 , 1.8889625072
+    30000 , 1.8689625263
