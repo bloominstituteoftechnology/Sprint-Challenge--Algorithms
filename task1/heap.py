@@ -1,8 +1,20 @@
 def heapsort(arr):
-  
- pass 
+  heap_arr = []
+  heap = Heap()
+  for item in arr: 
+  # insert item to heap one at a time
+    heap.insert(item)
+  # delete items from heap and add to arr either at front 
+  # or end of the array and reverse it
+  while len(heap.storage) > 0:
+    heap.delete()
+    # for item in arr: 
+    #   [item] + heap_arr
+    for item in arr:
+      heap_arr.append(item)
+    
+  return heap_arr.reverse()
  
-
 class Heap:
   def __init__(self):
     self.storage = []
