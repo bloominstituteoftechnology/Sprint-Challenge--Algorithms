@@ -78,3 +78,13 @@ Because this is recursive, we can essentially write the time complexity as the t
 `return 0`, is of course, `O(1)`.
 
 Time complexity: O(n)
+
+
+## Exercise II
+Honestly, the answer is always floor 1. Don't drop eggs off of buildings!
+
+But, in a more critical sense... To figure out, while saving as many eggs as possible, the maximum floor from which I could drop an egg without breaking it, I would mirror the steps of a binary search algorithm. 
+
+First, I'd start at the middle floor of the building (n // 2), and then check to see if the egg breaks. If it does, I know that the floor that I'm looking for is in the bottom half. If not, I know that it is in the top half.
+
+Then I would take whichever half the floor was in and perform the same steps above until I narrowed the number of floors that I need to check to one floor. If everything was executed correctly, that last floor should be the floor that I am looking for!
