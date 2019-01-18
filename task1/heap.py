@@ -40,10 +40,17 @@ class Heap:
 
 
 def heapsort(arr):
+    if not len(arr):
+        return []
+
+    returned = []
     new_list = Heap()
-    for i in arr:
-        new_list.insert(i)
-    print(new_list.storage)
+    for i in range(len(arr)):
+        new_list.insert(arr[i])
+    for j in range(new_list.get_size()):
+        returned.append(new_list.get_max())
+        new_list.delete()
+    return list(reversed(returned))
 #     return new_list
 
-heapsort([4,3,2,5])
+print(heapsort([4,3,2,5,44,12]))
