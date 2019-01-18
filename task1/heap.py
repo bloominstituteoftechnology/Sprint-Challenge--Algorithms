@@ -6,7 +6,10 @@ def heapsort(arr):
         heap.insert(i)
 
     for i in arr:
-        sorted.insert(0, heap.delete())
+        # sorted.insert(0, heap.delete())  # whoops, this is O(n)
+        sorted.append(heap.delete())
+
+    sorted.reverse()
 
     return sorted
 
