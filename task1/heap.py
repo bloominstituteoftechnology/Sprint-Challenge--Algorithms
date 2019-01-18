@@ -2,16 +2,16 @@ import timeit
 
 def heapsort(arr):
   heap = Heap()
-  heap.storage = arr
 
-  if len(arr) == 0:
-    return arr
-  for i in range(heap.get_size() - 1, -1, -1):
-    if heap.storage[i] < heap.get_max():
-      temp = heap.storage[i]
-      heap.storage[i] = heap.get_max()
-      heap.storage[0] = temp
-  return [heap.get_max()] + heapsort(arr[1:])
+  sorted_list = []
+
+  for element in arr:
+    heap.insert(element)
+
+  while len(heap.storage) > 0:
+    sorted_list.insert(0, heap.delete())
+
+  return sorted_list
  
 
 class Heap:
