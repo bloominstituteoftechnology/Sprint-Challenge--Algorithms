@@ -4,14 +4,30 @@ def heapsort(arr):
     this function uses a Heap class to sort a list
 
   pseudo code:
-    - list = []
+    - list = [] 
     - use insert function to add highest # to the list, then bubbles up a new max #
     - use delete function to remove the highest #, then sift down the smaller #s
     - list will be in descending order
       - how can i make it come out in ascending order?
     - return list
   '''
- 
+  # initialize Heap class
+  heap = Heap()
+  sorted_list = []
+
+  # in the insert function, bubble_up function will swap the numbers make sure the largest number is on the left
+  for i in arr:
+      heap.insert(i)
+
+  # in the delete function, sift_down function will move the smaller numbers to the right
+  # when the largest # gets popped off, it'll get added to the sorted_list
+  for i in arr:
+    sorted_list.append(heap.delete())
+
+  # reversing the list from descending to ascending order
+  sorted_list.reverse()
+  return sorted_list
+
 
 class Heap:
   def __init__(self):
@@ -52,3 +68,9 @@ class Heap:
       return index * 2 + 1
     else:
       return index * 2 + 1 if self.storage[index * 2 + 1] > self.storage[index * 2 + 2] else index * 2 + 2
+
+
+# # try it out:
+# arr = [4, 10, 3, 5, 1]
+# print(arr)
+# print(heapsort(arr))
