@@ -21,10 +21,10 @@ b)  sum = 0
 ```
 
 ```
-c)  bunnyEars = function(bunnies) {
-      if (bunnies == 0) return 0
+c)  def bunnieEars(bunnies):
+      if bunnies == 0:
+        return 0
       return 2 + bunnyEars(bunnies-1)
-    }
 ```
 
 ## Exercise II
