@@ -1,5 +1,5 @@
 # Sprint Challenge: Algorithms
-
+Hunter Smith
 In this week's Sprint you explored and implemented some classic algorithmic
 approaches and used them to solve novel problems. You also implemented some
 classic and fundamental sorting algorithms and learned about how to go about
