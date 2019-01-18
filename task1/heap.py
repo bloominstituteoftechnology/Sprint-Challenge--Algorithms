@@ -47,8 +47,7 @@ def heapsort(arr):
     heap.insert(i)
 
   while heap.get_size() > 0:
-    result.insert(0, heap.get_max())
-    heap.delete()
+    result.insert(0, heap.delete())
 
   return result
 

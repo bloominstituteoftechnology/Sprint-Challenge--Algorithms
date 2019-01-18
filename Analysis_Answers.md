@@ -27,8 +27,9 @@ Add your answers to the questions below.
    
 ANSWERS
 
-1. O(n^2)
+1. O(n log n)
 
-2. Yes
+2. I think no, since the root of the tree needs to be rearranged everytime an index is deleted.
 
-3. 
+3. I would have to sort heap.storage and return that instead of creating a results array
+to achieve O(1). Right now my implementation is O(n).
