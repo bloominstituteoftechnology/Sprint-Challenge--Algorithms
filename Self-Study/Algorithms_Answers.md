@@ -24,3 +24,29 @@ c) bunnyEars = function(bunnies) {
 
 Exercise II 
 
+set variable for drops
+base cases for floors = 0 would be no drops are needed so return 0
+base case for floors = 1 if breaks return 1 else return 0
+find pivot which is length of floors//2
+if egg breaks at pivot then drop egg again from floor - 1 and down until egg does not break
+if egg does not break then drop from floor +1 and up until egg breaks
+return number of drops needed to find breaking floor
+
+
+getDrops(eggs, floors):
+    if floors is 0 or floors is 1:
+        return the floors
+
+    if eggs is 1:
+        return floors
+
+    pivot is floors//2
+
+    if egg breaks at pivot:
+        for n in range floors[:-pivot]:
+            if egg does not break at n:
+                return n + 1
+    else:
+        for n in range floors[pivot:]:
+            if egg breaks at n:
+                return n
