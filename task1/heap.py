@@ -53,18 +53,18 @@ class Heap:
     self.insert(9)
     self.insert(7)
     print(self._max_child(0))
-    # for i in range(0, len(self.storage)-1):
+    for i in range(0, len(self.storage)):
       # if self._max_child(i) <= len(self.storage)-1:
-    arr.append(self.delete())
-    arr.append(self.delete())
-    arr.append(self.delete())
-    arr.append(self.delete())
-    arr.append(self.delete())
-    arr.append(self.delete())
-    arr.append(self.delete())
-    arr.append(self.delete())
-    arr.append(self.delete())
-    arr.append(self.delete())
+      arr.append(self.delete())
+    # arr.append(self.delete())
+    # arr.append(self.delete())
+    # arr.append(self.delete())
+    # arr.append(self.delete())
+    # arr.append(self.delete())
+    # arr.append(self.delete())
+    # arr.append(self.delete())
+    # arr.append(self.delete())
+    # arr.append(self.delete())
         
         # self.storage[0], self.storage[self._max_child(i)] = self.storage[self._max_child(i)], self.storage[0]
         
