@@ -23,9 +23,8 @@ while i < n:  # O(n)
 			k += 1  #(O1)
 		j += 1  # O(1)
 	i += 1  # O(1)
-# O(n) * O(n) * O(n) * O(9) = O(n^3)
+# O(n) * O(n) * O(n) * O(9) = O(9n^3) = O(n^3)
 print("B", sum_int)
-print("B", len(b_list))
 
 
 # c
