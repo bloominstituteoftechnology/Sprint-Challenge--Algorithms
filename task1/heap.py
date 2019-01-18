@@ -51,13 +51,17 @@ def heapsort(arr):
   
   for i in arr:
     new_heap.insert(i)
-    #traverse tree, check if right or left child is greater than root, then swap/reconstruct if needed
+    # * Heap insert: `O(log n)`
+    # traverse tree, check if right or left child is greater than root, then swap/reconstruct if needed
   
   for i in arr:
     root_max = new_heap.delete()
-    #start at root, delete 
+    # * Heap delete: `O(log n)`
+    # start at root, delete 
+
     new_array = [root_max] + new_array
-    #deleted item, becomes sorted and added to sorted array
+    #  `O(log n)`
+    # deleted item, becomes sorted and added to sorted array
 
   return new_array
 
