@@ -44,4 +44,3 @@ _n_ = stories
 _f_ = floor
 _n_ >= _f_  # eggs breaks
 _n_ < _f_   # eggs don't break
-
