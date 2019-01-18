@@ -47,3 +47,5 @@ def saving_eggs(n, f):
   for i in range(num_of_floors):
     if num_of_eggs == num_of_eggs - 1:
       return ("Break starting point", num_of_floors)
+
+Big O === 0(n)
