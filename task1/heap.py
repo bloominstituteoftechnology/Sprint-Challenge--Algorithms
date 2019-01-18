@@ -1,6 +1,19 @@
 def heapsort(arr):
     # init heap
     heap = Heap()
+    # init an output
+    output = []
+    # insert arr items into heap
+    for i in arr:
+        heap.insert(i)
+    # loop until heap dissolves
+    while heap.get_size() > 0:
+        # insert biggest item into front of array
+        output.insert(0, heap.storage[0])
+        # delete that node and max heap
+        heap.delete()
+
+    return output
 
 
 class Heap:
