@@ -6,7 +6,7 @@ def heapsort(arr):
   for h in range(sprint.get_size()):
     result.append(sprint.get_max())
     sprint.delete()
-  return result
+  return result[::-1]
 #  pass 
 
 class Heap:
@@ -51,8 +51,6 @@ class Heap:
   
   def __repr__(self):
     return f'{self.storage}'
-
-# test = Heap()
 
 # testList = [19,25,58,14,76,7,211,3]
 # print(heapsort(testList))
