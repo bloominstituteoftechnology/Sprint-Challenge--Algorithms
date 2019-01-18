@@ -1,5 +1,17 @@
 def heapsort(arr):
-    sorted_max_heap = Heap() 
+    max_heap = Heap() 
+    for ele in arr:
+      #creating max heap
+        max_heap.insert(ele)
+# placeholder array for sorted nums
+    sorted_list = []
+# while elements still in max_heap => add the remaining elements to sorted_list
+    while len(max_heap.storage) > 0:
+        sorted_list.append(max_heap.delete()) 
+    # reverse array to be lowest to greatest
+    sorted_list.reverse() 
+
+    return sorted_list 
  
 
 class Heap:
