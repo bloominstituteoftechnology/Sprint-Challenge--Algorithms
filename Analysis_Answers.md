@@ -4,14 +4,18 @@ Add your answers to the questions below.
    Python built-in functions, you can find their time complexities here:
    https://wiki.python.org/moin/TimeComplexity )
 
-   Other hints, to save you some searching:
+O(n)
 
-   * Heap insert: `O(log n)`
-   * Heap delete: `O(log n)`
-   * Heap get max: `O(1)`
+Other hints, to save you some searching:
+
+- Heap insert: `O(log n)`
+- Heap delete: `O(log n)`
+- Heap get max: `O(1)`
 
 2. Could one make your algorithm run in better time? If so, how? If not, why
    not?
+
+I dont see a way of making it run any faster than O(n). O(log n ) would be faster but we need to add the items in the list one at a time, thats one operation per item which is O(n).
 
 3. What is the space complexity of your `heapsort` function? Recall that your
    implementation should return a new array with the sorted data. (Also remember
