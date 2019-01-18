@@ -1,8 +1,18 @@
 def heapsort(arr):
-    x = Heap()
-    for i in arr:
-        x.insert(i)
-    return print(x.get_size())
+    result = []                 # O(1)
+    heap = Heap()               # O(1)
+
+    # O(n log n)
+    for x in arr:
+        heap.insert(x)
+
+    # O(n^2) largest
+    while heap.get_size() > 0:  # O(n)
+        v = heap.delete()
+        result.insert(0, v)
+
+    print(result)
+    return result
 
 
 class Heap:
@@ -63,6 +73,3 @@ class Heap:
             # returns index times 2 plus 1 if self.storage at the index of index times 2 plus 1 is greater than
             # self.storage at the index of index times 2 plus 2 else, index times 2 plus 2
             return index * 2 + 1 if self.storage[index * 2 + 1] > self.storage[index * 2 + 2] else index * 2 + 2
-
-
-heapsort([4, 10, 3, 5, 1])
