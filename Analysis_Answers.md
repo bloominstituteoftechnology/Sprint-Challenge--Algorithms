@@ -15,7 +15,7 @@ i believe my heap sort algorithm is O(n^2) because we have two loops that are bo
 2. Could one make your algorithm run in better time? If so, how? If not, why
    not?
 
-using heap insert would definetly speed up our heapsort because the isnert does its own sorting which is log n versus our heapsort which is n^2
+using heap insert would definetly speed up our heapsort because the insert does its own sorting which is log n versus our heapsort which is n^2
 
 3. What is the space complexity of your `heapsort` function? Recall that your
    implementation should return a new array with the sorted data. (Also remember
