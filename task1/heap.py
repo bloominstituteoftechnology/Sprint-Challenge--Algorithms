@@ -1,5 +1,3 @@
-def heapsort(arr):
- pass 
  
 
 class Heap:
@@ -41,3 +39,56 @@ class Heap:
       return index * 2 + 1
     else:
       return index * 2 + 1 if self.storage[index * 2 + 1] > self.storage[index * 2 + 2] else index * 2 + 2
+
+  def heapsort(self):
+    arr = []
+    self.insert(3)
+    self.insert(54)
+    self.insert(56)
+    self.insert(7777)
+    self.insert(54)
+    self.insert(40)
+    self.insert(44)
+    self.insert(13)
+    self.insert(9)
+    self.insert(7)
+    print(self._max_child(0))
+    # for i in range(0, len(self.storage)-1):
+      # if self._max_child(i) <= len(self.storage)-1:
+    arr.append(self.delete())
+    arr.append(self.delete())
+    arr.append(self.delete())
+    arr.append(self.delete())
+    arr.append(self.delete())
+    arr.append(self.delete())
+    arr.append(self.delete())
+    arr.append(self.delete())
+    arr.append(self.delete())
+    arr.append(self.delete())
+        
+        # self.storage[0], self.storage[self._max_child(i)] = self.storage[self._max_child(i)], self.storage[0]
+        
+    print(arr[::-1])
+    return arr[::-1]
+    # for i in range(0, len(self.storage) - 1):
+    #   print(len(self.storage) - 1)
+    #   print(self.storage[self._max_child(i)])
+    #   maximum_child = self.storage[self._max_child(i)]
+    #   parent = self.storage[i]
+    #   # while self._max_child(i) < self.get_size():
+    #   # maximum_child, parent = parent, maximum_child
+    #   while maximum_child < len(self.storage) - 1:
+    #     if parent < maximum_child:
+    #       parent, maximum_child = maximum_child, parent
+    #     else:
+    #       parent, self.storage[len(self.storage) - 1] = self.storage[len(self.storage) - 1], parent
+          
+    print(self.storage)
+    return self.storage
+    
+        
+
+    pass 
+
+
+Heap().heapsort()
