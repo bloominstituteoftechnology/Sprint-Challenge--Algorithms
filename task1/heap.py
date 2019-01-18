@@ -9,13 +9,17 @@ def heapsort(arr):
   for i in arr: 
     sorting_heap.insert(i)
 
-  #insert and delete into array
+  #insert into list and delete from heap
   #insert parameters: index and element
   #delete? 
-  for i in arr: 
-    result.insert(0)
-    sorting_heap.delete()
+  """for i in arr: 
+    result.insert(0, )"""
 
+  #take largest number from tree and insert into list
+  while len(sorting_heap) > 0:
+    result.insert(0, sorting_heap.get_max())
+    sorting_heap.delete()
+    
   return result
  
 
