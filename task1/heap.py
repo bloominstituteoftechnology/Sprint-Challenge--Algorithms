@@ -1,5 +1,16 @@
 def heapsort(arr):
- pass 
+  '''
+  description:
+    this function uses a Heap class to sort a list
+
+  pseudo code:
+    - list = []
+    - use insert function to add highest # to the list, then bubbles up a new max #
+    - use delete function to remove the highest #, then sift down the smaller #s
+    - list will be in descending order
+      - how can i make it come out in ascending order?
+    - return list
+  '''
  
 
 class Heap:
