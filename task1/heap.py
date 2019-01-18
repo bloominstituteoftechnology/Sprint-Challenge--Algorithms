@@ -40,18 +40,21 @@ class Heap:
     else:
       return index * 2 + 1 if self.storage[index * 2 + 1] > self.storage[index * 2 + 2] else index * 2 + 2
 
-  def heapsort(self):
+  def heapsort(self, input_arr):
     arr = []
-    self.insert(3)
-    self.insert(54)
-    self.insert(56)
-    self.insert(7777)
-    self.insert(54)
-    self.insert(40)
-    self.insert(44)
-    self.insert(13)
-    self.insert(9)
-    self.insert(7)
+    arr2 = input_arr
+    for j in arr2:
+
+      self.insert(j)
+    # self.insert(54)
+    # self.insert(56)
+    # self.insert(7777)
+    # self.insert(54)
+    # self.insert(40)
+    # self.insert(44)
+    # self.insert(13)
+    # self.insert(9)
+    # self.insert(7)
     print(self._max_child(0))
     for i in range(0, len(self.storage)):
       # if self._max_child(i) <= len(self.storage)-1:
@@ -91,4 +94,4 @@ class Heap:
     pass 
 
 
-Heap().heapsort()
+Heap().heapsort([54, 56, 7777, 54, 40, 44, 13, 9, 7])
