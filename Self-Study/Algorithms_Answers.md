@@ -11,4 +11,4 @@ C) I think this will be an infinite loop as the failure condition for the recurs
 
 Exercise II
 
-A) 
+A) The ideal strategy would be having to go thru each floor from the top most floor and drop 1 egg to see if it breaks or not. If it does not break we stop as we have found the safe floor. This would minimize the number of eggs destroyed while also giving us a correct answer. 
