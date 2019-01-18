@@ -1,6 +1,14 @@
 def heapsort(arr):
- pass 
- 
+  if len(arr) > 1:
+    print(arr)
+    heap = Heap()
+    for num in arr:
+      heap.insert(num)
+    max = heap.delete()
+    return heapsort(heap.storage) + [max]
+  else:
+    return [arr[0]]
+  
 
 class Heap:
   def __init__(self):
