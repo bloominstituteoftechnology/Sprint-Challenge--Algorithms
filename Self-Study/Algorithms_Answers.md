@@ -10,4 +10,8 @@ c) The nature of this recursive function is such that the number of times it wil
 
 ## Exercise II
 
-The optimal strategy would be to use a variation of the binary search technique. Drop an egg from the middle floor, if it breaks, then you know every floor above it would also result in breakage, so you eliminate the half above the _f_ you began at. If it doesn't break, you know that every floor below it won't result in breakage either, so eliminate those lower floors. Split the remaining floors in half, and drop it from the new middle of those floors. Continue to do this splitting and eliminating until you find your culprit _f_.
+The optimal strategy would be to use a variation of the binary search technique. Drop an egg from the middle floor, if it breaks, then you know every floor above it would also result in breakage, so you eliminate the half above the _f_ you began at.
+
+If it doesn't break, you know that every floor below it won't result in breakage either, so eliminate those lower floors. Split the remaining floors in half, and drop it from the new middle of those floors. Continue to do this splitting and eliminating until you find your culprit _f_.
+
+This results in far fewer eggs dropped than if you had started from the first floor and continuously dropped an egg on each floor until you observed breakage.
