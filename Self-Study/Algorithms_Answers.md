@@ -34,3 +34,7 @@ for i in range(n):
 c) O(n)
 
 `bunnies` decrements by 1 each time the function recurses.
+
+## Exercise II
+
+Looks like we'd want to start in the middle. Then we'd drop from the middle of the top half if the egg doesn't break, or the bottom half if the egg does break. This feels like a binary search to me, so it'd have a time complexity of O(log n).
