@@ -6,7 +6,7 @@ def heapsort(arr):
   for i in arr: #O(n) * O(log n) = O(n log n)
     new_arr.insert(0, heap.delete())  #O(n) + O(log n) = O(n)
   return new_arr #O(1)
-    
+
 class Heap:
   def __init__(self):
     self.storage = []
