@@ -34,3 +34,12 @@ c. The most important thing to note here is that bunnyEars is recursive so the r
 Since all we're doing here is returning a value and then decreasing "bunnies" by 1, we're looking at a basic linear relationship. Whatever our "bunnies" value is, we return a new value for each line until that count hits 0 and the return also becomes 0.
 
 This linear relationship indicates another O(n) runtime.
+
+Eggsercise II
+
+This can be viewed essentially as a binary search algorithm. The best guess we could make on the first turn for minimizing the number of eggs dropped would be an n // 2 guess, meaning we would go to the halfway point up the building and drop our first egg. Two cases arise from this:
+
+n >= f, the egg breaks. We go halfway down from our current (n // 2) floor.
+n < f, the egg does not break. We go up halfway between our current floor and n.
+
+We simply repeat these steps for every egg drop based on the result. Drop the egg, find the appropriate halfway point up or down, and drop another egg. This way we make the most efficient guess each time.
