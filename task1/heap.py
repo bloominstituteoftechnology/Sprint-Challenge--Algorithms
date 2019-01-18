@@ -7,13 +7,14 @@ def heapsort(arr):
   # delete items from heap and add to arr either at front 
   # or end of the array and reverse it
   while len(heap.storage) > 0:
-    heap.delete()
+    deleted_item = heap.delete()
     # for item in arr: 
     #   [item] + heap_arr
-    for item in arr:
-      heap_arr.append(item)
-    
-  return heap_arr.reverse()
+    heap_arr.append(deleted_item)
+  heap_arr.reverse()
+  return heap_arr
+
+# heapsort([2, 4, 4, 5, 7, 1])
  
 class Heap:
   def __init__(self):
