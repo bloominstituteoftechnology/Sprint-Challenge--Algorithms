@@ -7,12 +7,12 @@ pseudocode with respect to the input size n of each of the following:
 
 ```
 a)  a = 0
-    while (a < n * n * n)  O(n^2)
+    while (a < n * n * n)           #O(n)
       a = a + n * n
 ```
 
 ```
-b)  sum = 0 O(n^4)
+b)  sum = 0                         #O(n^3)
     for (i = 0; i < n; i++)
       for (j = i + 1; j < n; j++)
         for (k = j + 1; k < n; k++)
@@ -21,7 +21,7 @@ b)  sum = 0 O(n^4)
 ```
 
 ```
-c)  bunnyEars = function(bunnies) { O(undefined)
+c)  bunnyEars = function(bunnies) { O(n)
       if (bunnies == 0) return 0
       return 2 + bunnyEars(bunnies-1)
     }
