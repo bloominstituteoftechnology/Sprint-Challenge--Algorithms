@@ -10,13 +10,13 @@ Add your answers to the questions below.
    * Heap delete: `O(log n)`
    * Heap get max: `O(1)`
    
-   O(n^2)
+   O(n log n)
    * breakdown in `heap.py`
 
 2. Could one make your algorithm run in better time? If so, how? If not, why
    not?
    
-   Yes, it would cut the time down to O(n log n) if the Heap brought the smallest number to the 0th position instead of the largest. This would eliminate the need to insert the largest numberes at index 0 of the sorted list (which is O(n)), and instead the smallest numbers could just be appended (O(1)) to the end of the sorted list.
+   I don't think so. I cut down on some time complexity by reversing the order of the list at the end (O(n)) instead of inserting each item at index 0 (O(n) each time).
 
 3. What is the space complexity of your `heapsort` function? Recall that your
    implementation should return a new array with the sorted data. (Also remember
