@@ -1,6 +1,35 @@
-def heapsort(arr):
- pass 
+# Considering heapsort parameter simple LIST
+# def heapify(arr, n, i):
+#     # Find largest among root and children
+#     largest = i
+#     left_child = 2 * i + 1
+#     right_child = 2 * i + 2 
  
+#     if left_child < n and arr[i] < arr[left_child]:
+#         largest = left_child
+ 
+#     if right_child < n and arr[largest] < arr[right_child]:
+#         largest = right_child
+ 
+#     # If root is not largest, swap with largest and continue heapifying
+#     if largest != i:
+#         arr[i], arr[largest] = arr[largest], arr[i]
+#         heapify(arr, n, largest)
+ 
+# def heapsort(arr):
+#     n = len(arr)
+ 
+#     # Build max heap
+#     for i in range(n, 0, -1):
+#         heapify(arr, n, i)
+    
+#     for i in range(n-1, 0, -1):
+#         # swap
+#         arr[i], arr[0] = arr[0], arr[i]  
+       
+#         #heapify root element
+#         heapify(arr, i, 0)
+#     return arr
 
 class Heap:
   def __init__(self):
@@ -41,3 +70,32 @@ class Heap:
       return index * 2 + 1
     else:
       return index * 2 + 1 if self.storage[index * 2 + 1] > self.storage[index * 2 + 2] else index * 2 + 2
+
+
+### class should be defined befor using ... so shifting method down
+def heapsort(arr):
+    #print(arr)
+    """ Have to used class heap methods for heapsort... 
+        1. Define heap class instance 
+        2. Pass parameter LIST received to heap class instance
+        3. Using heap-class methods defined get max element or min element and push to new/old list unless the heap is empty.
+        4. return 
+    """
+    # Define heap class instance
+    heap = Heap()
+
+    # Pass parameter LIST received to heap class instance
+    for i in arr: 
+        heap.insert(i)  
+
+    # it-is max-heap so : TOP ROOT WILL BE ALWAYS GREATER THAN ALL CHILDREN 
+    # here delete() function gives largest one so the new formed LIST will be reverse
+    for i in range(0, heap.get_size()):
+        arr[i] = heap.delete() 
+    
+    # print(arr)
+    # as because of max-heap structure need to reverse list to have asecending order-list
+    arr.reverse() 
+  
+    return arr
+ 
