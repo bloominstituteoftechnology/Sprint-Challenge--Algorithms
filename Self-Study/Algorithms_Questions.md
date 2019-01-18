@@ -7,24 +7,30 @@ pseudocode with respect to the input size n of each of the following:
 
 ```
 a)  a = 0
-    while (a < n * n * n) 
+    while (a < n * n * n):
       a = a + n * n
 ```
 
 ```
 b)  sum = 0
-    for (i = 0; i < n; i++)
-      for (j = i + 1; j < n; j++)
-        for (k = j + 1; k < n; k++)
-          for (l = k + 1; l < 10 + k; l++)
-            sum++
+
+    for i in range(n):
+      i += 1
+      for j in range(i + 1, n):
+        j += 1
+        for k in range(j + 1, n):
+          k += 1
+          for l in range(k + 1, 10 + k):
+            l += 1
+            sum += 1
 ```
 
 ```
-c)  bunnyEars = function(bunnies) {
-      if (bunnies == 0) return 0
+c)  def bunnieEars(bunnies):
+      if bunnies == 0:
+        return 0
+
       return 2 + bunnyEars(bunnies-1)
-    }
 ```
 
 ## Exercise II
