@@ -6,8 +6,8 @@ a) a = 0
 while (a < n _ n _ n):
 a = a + n \* n
 
---- A is a constant. The final product of this algo always returns an^2
---- This is 0(n^2) run time.
+--- A is a constant. The final product of this algo always returns a+n no matter the value of n....linear.
+--- This is 0(n) run time.
 
 b) sum = 0
 
@@ -27,7 +27,7 @@ return 0
 
       return 2 + bunnyEars(bunnies-1)
 
--- This is a O(n!) problem as we need to
+-- This is a O(n!) problem as we are recursively calling bunnieEars and decrementing each bunnie by one and then computing another pair of ears for the next bunny.
 
 # Exercise 2
 
