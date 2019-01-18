@@ -1,15 +1,32 @@
+# First answer passes test
+# def heapsort(arr):
+#     heap = Heap()
+#     final = []
+#     for i in arr:
+#         heap.insert(i)
+
+#     while heap.get_size() > 0:
+#         for i in range(heap.get_size()):
+#             heap._sift_down(i)
+#         final.insert(0, heap.delete())
+
+#     return final
+
+# Best run time
+
+
 def heapsort(arr):
     heap = Heap()
     final = []
     for i in arr:
         heap.insert(i)
-
+    i = 0
     while heap.get_size() > 0:
-        for i in range(heap.get_size()):
-            heap._sift_down(i)
-        final.insert(0, heap.delete())
+        heap._sift_down(i)
+        final.append(heap.delete())
+        i += 1
 
-    return final
+    return final[::-1]
 
 
 class Heap:
