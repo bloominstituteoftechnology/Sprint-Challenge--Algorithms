@@ -1,7 +1,12 @@
 def heapsort(arr):
+  sprint = Heap()
   for i in arr:
-    test.insert(i)
-  print(test.get_max())
+    sprint.insert(i)
+  result = []
+  for h in range(sprint.get_size()):
+    result.append(sprint.get_max())
+    sprint.delete()
+  return result
 #  pass 
 
 class Heap:
@@ -43,9 +48,11 @@ class Heap:
       return index * 2 + 1
     else:
       return index * 2 + 1 if self.storage[index * 2 + 1] > self.storage[index * 2 + 2] else index * 2 + 2
+  
+  def __repr__(self):
+    return f'{self.storage}'
 
-test = Heap()
+# test = Heap()
 
-testList = [55, 1, 5, 4, 88, 4, 9, 5, 61,
-            24, 8, 487, 3, 48, 6, 5, 9, 5, 135, 4, 68]
-heapsort(testList)
+# testList = [19,25,58,14,76,7,211,3]
+# print(heapsort(testList))
