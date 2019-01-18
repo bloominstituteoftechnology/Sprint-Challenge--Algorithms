@@ -38,7 +38,7 @@ your project manager to more thoroughly assess your work.
 This Sprint Challenge is split into two separate parts that test your ability to
 write and analyze algorithms.
 
-### 1. Self-Study/Essay Questions
+### 1. Self-Study/Essay Questions (20% of your score)
 
 For this portion of the sprint challenge, you'll be answering questions posed in
 the `Algorithms_Questions.md` document inside the `Self-Study` directory. Write
@@ -47,7 +47,7 @@ answer. This could net you some partial credit if your justification is sound
 but the answer you put down turns out to not be correct. Add your answers to the
 questions in the `Algorithms_Answers.md` file.
 
-### 2. Implement Heapsort
+### 2. Implement Heapsort (65% of your score)
 
 Inside the `task1` directory you'll find the `heap.py` file with a working
 implementation of the heap class--the heap is already written for you.
@@ -74,7 +74,7 @@ data.
 Run `python test_heap.py` to run the tests for your `heapsort` function to
 ensure that your implementation is correct.
 
-### 3. Analyze some runtimes
+### 3. Analyze some runtimes (15% of your score)
 
 Open up the `Analysis_Answers.md` file. This is where you'll jot down your
 answers for the runtimes of the functions you just implemented.
