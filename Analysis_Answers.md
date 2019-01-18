@@ -10,8 +10,42 @@ Add your answers to the questions below.
    * Heap delete: `O(log n)`
    * Heap get max: `O(1)`
 
+   Answer:
+   So, I think that the time complexity is O(n log n)
+
+   I came to this conclusion following this breakdown:
+
+   ```
+    sorted = [] O(1)
+  
+    heap = Heap() O(1)
+    for i in arr: O(n)
+      heap.insert(i) O(log n)
+
+    for i in range(0, heap.get_size()): O(n) + O(1)
+      sorted = [heap.delete()] + sorted O(log n)
+
+    return sorted O(1)
+
+   ```
+
+   Therefore, if we total it all up: 
+   O(1) + O(1) + (O(n) * O(log n)) + ((O(n) + O(1)) * O(log n)) + O(1)...
+   O(3) + O(n log n) + O(n log n) + O(log n)...
+   O(n log n)
+
+   Time Complexity: O(n log n)
+
 2. Could one make your algorithm run in better time? If so, how? If not, why
    not?
+
+   Answer:
+   I honestly don't know. Maybe if, instead of making a Heap class every time, 
+   I had the heap and needed functions integrated into the function. Besides
+   that, I'm really not sure if I could. 
+
+   I say that because I believe that I have the minimum number of nested
+   iterations necessary to complete this. Definitely want feedback here!
 
 3. What is the space complexity of your `heapsort` function? Recall that your
    implementation should return a new array with the sorted data. (Also remember
@@ -20,3 +54,13 @@ Add your answers to the questions below.
 
    Most online sources say that the space complexity of heapsort is `O(1)`. What
    would we have to change in our code to get there?
+
+   Answer:
+   I think that the space complexity is currently O(N) because we are creating a
+   new list each time, AND a Heap object in addition to the list being passed in, 
+   and the space taken by those structure is relative to the size of the original 
+   list passed in.
+
+   In order for our heapsort to be O(1), we'd need to sort the list in place
+   somehow. So we'd have to be able to represent a heap as a list and then modify our
+   heap functions so that they work on the list instead of our Heap class object.
