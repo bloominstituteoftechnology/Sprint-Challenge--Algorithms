@@ -1,6 +1,37 @@
 def heapsort(arr):
- pass 
+
+  #Creates an empty max heap and inserts the items in the array one by one
+  heap = Heap()
+  for i in arr:     # O ( N )
+    heap.insert(i)
+  
+  #Get length of the heap minus one to index 
+  length = len(heap.storage)
+  sorted_list = []
+
+  while length > 0: # O (N)
+    sorted_list.insert(0, heap.get_max())
+    heap.delete() # O (log n)
+    length -= 1
+  return sorted_list
  
+
+ 
+#A max heap - Items are stored in a special order such that the value in a parent node is greater than the values in its two children nodes
+"""
+For example
+4, 10, 3, 5, 1
+
+
+      Finished max heap:
+
+          10 (0 index)
+
+    5 (1)        3 (2)
+
+4 (3)   3 (4)   
+
+"""
 
 class Heap:
   def __init__(self):
