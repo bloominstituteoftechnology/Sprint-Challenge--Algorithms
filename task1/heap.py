@@ -1,4 +1,4 @@
-def heapsort(arr):
+def heapsort(arr): # O(n)
   '''
   description:
     this function uses a Heap class to sort a list
@@ -16,16 +16,19 @@ def heapsort(arr):
   sorted_list = []
 
   # in the insert function, bubble_up function will swap the numbers make sure the largest number is on the left
-  for i in arr:
-      heap.insert(i)
+  # O(n) * O(log n) = O(n log n)
+  for i in arr:        # O(n)
+      heap.insert(i)   # O(log n)
 
   # in the delete function, sift_down function will move the smaller numbers to the right
-  # when the largest # gets popped off, it'll get added to the sorted_list
-  for i in arr:
-    sorted_list.append(heap.delete())
+  # when the largest number gets popped off, it'll get added to the sorted_list in descending order
+  # O(n) * O(log n) = O(n log n)
+  for i in arr:                           # O(n)
+    sorted_list.append(heap.delete())     # O(log n)
 
   # reversing the list from descending to ascending order
-  sorted_list.reverse()
+  # O(n)
+  sorted_list.reverse()    # O(n)
   return sorted_list
 
 
@@ -70,7 +73,7 @@ class Heap:
       return index * 2 + 1 if self.storage[index * 2 + 1] > self.storage[index * 2 + 2] else index * 2 + 2
 
 
-# # try it out:
-# arr = [4, 10, 3, 5, 1]
-# print(arr)
-# print(heapsort(arr))
+# try it out:
+arr = [4, 10, 3, 5, 1]
+print(arr)
+print(heapsort(arr))
