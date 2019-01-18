@@ -1,18 +1,15 @@
 def heapsort(arr):
     result = []
-    seq = list(arr)
-    while seq:
-        heapify(seq)
-        result.append(seq.pop(0))
+    heap = Heap()
 
-    return result[::-1]
+    for x in arr:
+        heap.insert(x)
 
-
-def heapify(seq):
-    for i in reversed(range(1, len(seq))):
-        parent = (i - 1) // 2
-        if seq[i] > seq[parent]:
-            seq[i], seq[parent] = seq[parent], seq[i]
+    while heap.get_size() > 0:
+        v = heap.delete()
+        result.append(v)
+    result.reverse()
+    return result
 
 
 class Heap:
