@@ -1,5 +1,8 @@
 def heapsort(arr):
-    pass
+    x = Heap()
+    for i in arr:
+        x.insert(i)
+    return print(x.get_size())
 
 
 class Heap:
@@ -12,6 +15,7 @@ class Heap:
         self.storage.append(value)
         # Runs method _bubble_up on the length of self.storage - 1
         self._bubble_up(len(self.storage) - 1)
+    # Makes a new variable
 
     def delete(self):
         # ratval is assigned the first item in self.storage
@@ -59,3 +63,6 @@ class Heap:
             # returns index times 2 plus 1 if self.storage at the index of index times 2 plus 1 is greater than
             # self.storage at the index of index times 2 plus 2 else, index times 2 plus 2
             return index * 2 + 1 if self.storage[index * 2 + 1] > self.storage[index * 2 + 2] else index * 2 + 2
+
+
+heapsort([4, 10, 3, 5, 1])
