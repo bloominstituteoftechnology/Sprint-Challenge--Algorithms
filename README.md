@@ -59,15 +59,15 @@ You have to figure out how to use the heap to implement heapsort.
 
 Some hints:
 
-* Initially when you make a new `Heap` data structure, it is empty.
+- Initially when you make a new `Heap` data structure, it is empty.
 
-* You can insert values into the heap with its `insert()` method.
+- You can insert values into the heap with its `insert()` method.
 
-* This is a _max heap_. That is, the `get_max()` and `delete()` methods will
+- This is a _max heap_. That is, the `get_max()` and `delete()` methods will
   return the maximum value stored in the heap. In addition `delete()` also
   removes the value from the heap.
 
-* Pseudocode in Wikipedia or elsewhere will be of little use here. Think
+- Pseudocode in Wikipedia or elsewhere will be of little use here. Think
   conceptually at first; how could you use this information to sort a list of
   numbers? Then code.
 
