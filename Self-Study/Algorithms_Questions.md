@@ -35,17 +35,22 @@ broken if dropped off a floor less than floor _f_. Devise a strategy to
 determine the value of _f_ such that the number of dropped eggs is minimized.
 
 def broken_eggs(n, f):
-  while f in range(10:):
-    saving_eggs(n, f)
+  while f in range(10:100):
     broken_eggs(n - 1, f)
     if n == 0:
     return "You Have Broken All Yo Eggs"
+  else:
+      return you have {n} eggs left
 
 def saving_eggs(n, f):
   f = num_of_floors
   n = num_of_eggs
   for i in range(num_of_floors):
+  broken_eggs(n, num_of_floors)
+  
     if num_of_eggs == num_of_eggs - 1:
       return ("Break starting point", num_of_floors)
+    else:
+      saving_eggs(n, num_of_floors + 1)
 
 Big O === 0(n)
