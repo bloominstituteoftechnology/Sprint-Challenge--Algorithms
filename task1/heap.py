@@ -1,11 +1,11 @@
+#O(n) * O(log n) + O(log n) + O(n) = O(n log n)
 def heapsort(arr):
   if len(arr) > 1:
-    print(arr)
     heap = Heap()
-    for num in arr:
-      heap.insert(num)
-    max = heap.delete()
-    return heapsort(heap.storage) + [max]
+    for num in arr: #O(n)
+      heap.insert(num) #O(log n)
+    max = heap.delete() #O(log n)
+    return heapsort(heap.storage) + [max] #O(n - 1)
   else:
     return [arr[0]]
   
