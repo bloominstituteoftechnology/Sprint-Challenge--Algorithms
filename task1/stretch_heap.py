@@ -149,3 +149,17 @@ class Heap:
 
 
 print(heapsort([2, 6, 1, 7, 3, 4, 5]))
+
+'''
+It did break after I changed the delete(). One thing I had to change was the bubble up.
+Because it was bubbling the bigger numbers to the front of the array, that was messing
+up the sort_down method. So I had to change that as well as the sort_down and the min_child.
+
+I don't believe it does change the time complexity except for making it were you have one less 
+O(n) when you finish. Because the items are being pushed as minimum first, we do not need to 
+reverse the array at the end or put an insert insetad of append in the middle. Not a change to 
+the big O notation but it does take out a O(n) that we do not see.
+
+The min heap should be working faster because of how I described above. It is taking out a O(n)
+which would make it quicker.
+'''
