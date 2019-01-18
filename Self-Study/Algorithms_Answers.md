@@ -34,19 +34,21 @@ return number of drops needed to find breaking floor
 
 
 getDrops(eggs, floors):
-    if floors is 0 or floors is 1:
+    if floors is 0 or floors is 1:  #O(1)
         return the floors
 
-    if eggs is 1:
+    if eggs is 1:    #O(1)
         return floors
 
-    pivot is floors//2
+    pivot is floors//2  #O(1)
 
     if egg breaks at pivot:
-        for n in range floors[:-pivot]:
+        for n in range floors[:-pivot]:  #O(n)
             if egg does not break at n:
                 return n + 1
-    else:
-        for n in range floors[pivot:]:
-            if egg breaks at n:
-                return n
+   
+    else: 
+        getDrops(eggs, floors[0:pivot]) #O( log n)
+
+
+        ### O(n log n)?
