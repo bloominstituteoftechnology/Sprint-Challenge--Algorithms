@@ -1,18 +1,31 @@
+# def heapsort(arr):
+#     result = []
+#     list_returned = list(arr)
+#     while list_returned:
+#         heapify(list_returned)
+#         result.append(list_returned.pop(0))
+
+#     return result[::-1]
+
+
+# def heapify(list_returned):
+#     for i in reversed(range(1, len(list_returned))):
+#         parent = (i - 1) // 2
+#         if list_returned[i] > list_returned[parent]:
+#             list_returned[i], list_returned[parent] = list_returned[parent], list_returned[i]
+
 def heapsort(arr):
-    result = []
-    list_returned = list(arr)
-    while list_returned:
-        heapify(list_returned)
-        result.append(list_returned.pop(0))
+  result = []
+  heap = Heap()
 
-    return result[::-1]
+  for item in arr:
+    heap.insert(item)
 
+  while heap.get_size() > 0:
+    value = heap.delete()
+    result.insert(0, value)
 
-def heapify(list_returned):
-    for i in reversed(range(1, len(list_returned))):
-        parent = (i - 1) // 2
-        if list_returned[i] > list_returned[parent]:
-            list_returned[i], list_returned[parent] = list_returned[parent], list_returned[i]
+  return result
 
 class Heap:
   def __init__(self):
