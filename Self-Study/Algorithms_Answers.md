@@ -13,16 +13,16 @@ a) O(n)
   a = nn^2
 ```
 
-b) O(n/2)
+b) O(n^3)
 
 ```python
-# O(n/2) because i increments by 2 each step
+# O(n^3)
 for i in range(n):
   i += 1
-  # O(n/2) because j increments by 2 each step. The range also goes from n-2 to 0 as i approaches n.
+  # O(n)
   for j in range(i + 1, n):
     j += 1
-    # O(n/2)
+    # O(n)
     for k in range(j + 1, n):
       k += 1
       # O(1)
