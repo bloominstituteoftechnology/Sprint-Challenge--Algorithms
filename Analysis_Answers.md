@@ -81,4 +81,23 @@ After seeing that O(1) is possible with `heapsort` I could probably refactor it,
 as I add an item to the heap, it is removed from the origional array. Then when I get the
 results back, add them to the now empty origional array. Think I will go do that now.
 
+#### UPDATE:
+
+Refactored `heapsort` to not use an additional array
+
+```
+def heapsort(arr):
+  # result = []
+  length = len(arr)
+
+  for i in range(0, length -1):
+    my_heap.insert(arr.pop())
+
+  for i in range(0, length -1):
+    biggest = my_heap.delete()
+    arr = [biggest] + arr
+
+  return arr
+```
+
 ---
