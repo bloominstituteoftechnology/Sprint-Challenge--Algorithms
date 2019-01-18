@@ -59,3 +59,23 @@ def heapsort(arr):
 
 
 print(heapsort([4, 3, 2, 5, 44, 12]))
+
+#   Better Optimization
+
+#   Nevermind I'm not sure if there is a better way to do it
+
+# def heapsort_opt(arr):
+#     if not len(arr):
+#         return []
+#
+#     returned = []
+#     new_list = Heap()
+#     new_list.storage(i for i in arr)
+#     #  Creates new Heap.storage with all values from arr
+#     for j in range(len(arr)):
+#         returned.append(new_list.get_max())
+#         new_list.delete()
+#     return returned
+#
+#
+# print("MHS: ", heapsort_opt([2, 5, 1, 6, 9]))
