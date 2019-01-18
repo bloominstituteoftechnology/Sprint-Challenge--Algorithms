@@ -1,6 +1,24 @@
 def heapsort(arr):
- pass 
- 
+  # Make a new heap
+  heap = Heap()
+  
+  for item in arr:	# O(n)
+      heap.insert(item) # O(log n)
+    
+  # total so far = O(n*log n)
+      
+    # loop backward starting from the bottom of the array, (_, -1, -1) so it includes index 0, and 11, 10, 9, ...
+  for i in range(len(arr) - 1, -1, -1):	# O(n)
+    # Get largest item and delete it	
+    largestItem = heap.delete() # O(log n)
+    arr[i] = largestItem	# O(1)
+    
+    # total here = O(n) * (O(log n) + O(1)) = O(n * (log(n) + 1)) => O(n * log(n))
+    
+  return arr
+    
+  # final total = O(n * log(n)) + O(n * log(n)) => O(2n*log(n))
+
 
 class Heap:
   def __init__(self):
