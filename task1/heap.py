@@ -1,11 +1,21 @@
 def heapsort(arr):
+    # O(1)
     my_heap = Heap()
+    # O(1)
     result = []
+
+    # O(n * log n)
+    # O(n)
     for x in arr:
+        # O(log n)
         my_heap.insert(x)
 
+    # O(n * log n)
+    # O(n)
     while len(my_heap.storage) > 0:
-        result.insert(0, my_heap.get_max())
+        # O(1)
+        result = [my_heap.get_max()] + result
+        # O(log n)
         my_heap.delete()
 
     return result
