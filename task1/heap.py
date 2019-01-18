@@ -1,17 +1,16 @@
 def heapsort(arr):
-    result = []                 # O(1)
-    heap = Heap()               # O(1)
+    result = []
+    heap = Heap()
 
     # O(n log n)
     for x in arr:
         heap.insert(x)
 
     # O(n^2) largest
-    while heap.get_size() > 0:  # O(n)
+    while heap.get_size() > 0:
         v = heap.delete()
         result.insert(0, v)
 
-    print(result)
     return result
 
 
