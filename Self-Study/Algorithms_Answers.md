@@ -1,3 +1,5 @@
+## Exercise I
+
 ```
 a)  # O(n)
     a = 0   # O(1)
@@ -29,7 +31,7 @@ stops when a = 1000
 10. 900+100 = 1000
 
 ```
-b)  O(1 + n * n * n * 8 * 1) or O(n^3)
+b)  # O(1 + n * n * n * 8 * 1) or O(n^3)
     # O(1)
     sum = 0
     # runs n times O(n)
@@ -52,3 +54,13 @@ c)  # O(n)
       return 2 + bunnyEars(bunnies-1)
     }
 ```
+
+## Exercise II
+
+Take how many floors and split in half
+If number of floors equal to one then that is the result
+go to half way point
+drop egg
+if egg breaks
+take all floors below half way point and repeat
+else take all floors above half way point and repeat
