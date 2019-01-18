@@ -1,5 +1,5 @@
 def heapsort(arr):
- pass 
+ heap = Heap()
  
 
 class Heap:
