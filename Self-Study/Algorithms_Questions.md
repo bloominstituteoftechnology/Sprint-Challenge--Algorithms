@@ -27,6 +27,7 @@ c)  bunnyEars = function(bunnies) {
     }
 ```
 
+
 ## Exercise II
 
 Suppose that you have an _n_-story building and plenty of eggs. Suppose also
