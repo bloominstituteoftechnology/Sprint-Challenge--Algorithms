@@ -6,8 +6,8 @@ a) a = 0
 while (a < n _ n _ n):
 a = a + n \* n
 
-A is a constant. The final product of this algo always returns an^2
-This is 0(n^2) run time.
+--- A is a constant. The final product of this algo always returns an^2
+--- This is 0(n^2) run time.
 
 b) sum = 0
 
@@ -21,11 +21,17 @@ b) sum = 0
             l += 1
             sum += 1
 
-
 c) def bunnieEars(bunnies):
 if bunnies == 0:
 return 0
 
       return 2 + bunnyEars(bunnies-1)
 
+-- This is a O(n!) problem as we need to
+
 # Exercise 2
+
+Suppose that you have an _n_-story building and plenty of eggs. Suppose also
+that an egg gets broken if it is thrown off floor _f_ or higher, and doesn't get
+broken if dropped off a floor less than floor _f_. Devise a strategy to
+determine the value of _f_ such that the number of dropped eggs is minimized.
