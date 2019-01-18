@@ -9,7 +9,7 @@ def heapsort(arr):
     # loop until heap dissolves
     while heap.get_size() > 0:
         # insert biggest item into front of array
-        output.insert(0, heap.storage[0])
+        output.insert(0, heap.get_max())
         # delete that node and max heap
         heap.delete()
 
