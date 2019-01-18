@@ -24,13 +24,13 @@ class Heap:
         self._bubble_up(len(self.storage) - 1)
 
     def delete(self):
-        retval = self.storage[0]
-        self.storage[0] = self.storage[len(self.storage) - 1]
+        retval = self.storage[len(self.storage) - 1]
+        self.storage[0] = self.storage[0]
         self.storage.pop()
-        self._sift_down(0)
+        self._sift_down(len(self.storage) - 1)
         return retval
 
-    def get_max(self):
+    def get_min(self):
         return self.storage[0]
 
     def get_size(self):
