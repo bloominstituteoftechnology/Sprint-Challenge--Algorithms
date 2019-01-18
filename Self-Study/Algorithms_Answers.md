@@ -33,3 +33,5 @@ bunnyEars = function(bunnies) {
 ```
 
 ## Exercise II
+
+Start dropping an egg in the middle floor of the building. If the egg breaks, adjust to second half of the floor lower than the floor that you're currently in. If the egg didn't break, adjust to the second half of the floor higher than the floor you're currently in. Until you find the eggs stop breaking and you find f floor.
