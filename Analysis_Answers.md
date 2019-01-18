@@ -9,6 +9,8 @@ Add your answers to the questions below.
    * Heap insert: `O(log n)`
    * Heap delete: `O(log n)`
    * Heap get max: `O(1)`
+   
+   
 
 2. Could one make your algorithm run in better time? If so, how? If not, why
    not?
@@ -20,3 +22,14 @@ Add your answers to the questions below.
 
    Most online sources say that the space complexity of heapsort is `O(1)`. What
    would we have to change in our code to get there?
+   
+   
+   
+ANSWERS
+
+1. O(n log n)
+
+2. I think no, since the root of the tree needs to be rearranged everytime an index is deleted.
+
+3. I would have to sort heap.storage and return that instead of creating a results array
+to achieve O(1). Right now my implementation is O(n).
