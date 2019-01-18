@@ -96,3 +96,7 @@ fix it?
 How does the time complexity change?
 
 In terms of wall clock time, is the min heap version faster or slower?
+
+### Stretch Problem
+
+Modify the `Heap` class and your `heapsort()` algorithm to run in `O(1)` space.
