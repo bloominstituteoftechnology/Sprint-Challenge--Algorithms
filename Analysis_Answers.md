@@ -25,4 +25,6 @@ I believe so. I feel like there might be a way to do this without sifting down o
    Most online sources say that the space complexity of heapsort is `O(1)`. What
    would we have to change in our code to get there?
 
-The space complexity here is unfortunately not O(1) yet. It seems to be O(n),given that I created a new list (result) and appended information to that rather than work with the existing storage. It's not the most efficient solution yet but given the spirit of this week I wanted to get a basic version down on paper in order to solve the problem before worrying about optimization.
+The space complexity here is unfortunately not O(1) yet. It seems to be O(n), given that I created a new list (result) and appended information to that rather than work with the existing storage. It's not the most efficient solution yet but given the spirit of this week I wanted to get a basic version down on paper in order to solve the problem before worrying about optimization.
+
+Addendum to question 3: I've now implemented what appears to be a solution with O(1) space complexity. My hunch from before was correct in that I was able to get test_heap.py to pass using only the insert() and delete() functions while working with the new heap and the original array, completely bypassing my previous step of creating the "result" list and using that to store values.
