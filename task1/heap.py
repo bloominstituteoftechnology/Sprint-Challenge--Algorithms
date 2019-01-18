@@ -1,36 +1,3 @@
-# Considering heapsort parameter simple LIST
-# def heapify(arr, n, i):
-#     # Find largest among root and children
-#     largest = i
-#     left_child = 2 * i + 1
-#     right_child = 2 * i + 2 
- 
-#     if left_child < n and arr[i] < arr[left_child]:
-#         largest = left_child
- 
-#     if right_child < n and arr[largest] < arr[right_child]:
-#         largest = right_child
- 
-#     # If root is not largest, swap with largest and continue heapifying
-#     if largest != i:
-#         arr[i], arr[largest] = arr[largest], arr[i]
-#         heapify(arr, n, largest)
- 
-# def heapsort(arr):
-#     n = len(arr)
- 
-#     # Build max heap
-#     for i in range(n, 0, -1):
-#         heapify(arr, n, i)
-    
-#     for i in range(n-1, 0, -1):
-#         # swap
-#         arr[i], arr[0] = arr[0], arr[i]  
-       
-#         #heapify root element
-#         heapify(arr, i, 0)
-#     return arr
-
 class Heap:
   def __init__(self):
     self.storage = []
