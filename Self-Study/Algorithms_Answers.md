@@ -4,10 +4,11 @@ Add your answers to the Algorithms exercises here.
 
 a) 	O(n)
 
-b) O(n^4)??
+b) O(n^4)
 
 c) O(n)
 
+* notes in `self_study_notes.py`
 
 # Exercise II
 
@@ -15,7 +16,7 @@ Suppose that you have an n-story building and plenty of eggs. Suppose also that 
 
 building_stories = n
 
-def what_floor(n):
+def find_floor(n):
 	first = 1
 	last = n
 	found = False
@@ -23,9 +24,13 @@ def what_floor(n):
 		midpoint = (first + last) // 2
 		if egg break at midpoint and egg !break at (midpoint - 1):  # found f
 			found = True
+			return midpoint
 		else:
 			if egg break at midpoint:
 				last = midpoint - 1  # check lower floors
 			else:
 				first = midpoint + 1  # check higher floors
-	return found
+	return None
+
+Since this is using a binary search approach, the time complexity would be O(log n).
+(The number of floors will be divided in half each time the correct floor is not found)

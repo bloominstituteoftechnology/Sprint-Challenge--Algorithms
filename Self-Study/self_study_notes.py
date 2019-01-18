@@ -9,37 +9,35 @@ while a < n * n * n:  # O(n^3) (if incremented by 1)
 print("A", len(a_list))
 
 # b
-b_list = []
 sum_int = 0
 i = 0
 while i < n:  # O(n)
-	b_list.append(i)
 	j = i + 1  # O(1)
 	while j < n:  # O(n - 1)
-		b_list.append(j)
 		k = j + 1  # O(1)
 		while k < n:  # O(n - 2)
-			b_list.append(k)
 			l = k + 1  # O(1)
 			while l < 10 + k:  # O(n)
-				b_list.append(l)
 				sum_int += 1  # O(1)
 				l += 1  # O(1)
 			k += 1  #(O1)
 		j += 1  # O(1)
 	i += 1  # O(1)
 # O(n) * O(n) * O(n) * O(n) = O(n^4)
+print("B", sum_int)
 print("B", len(b_list))
-
+# there's four nested loops each counting to ~n which would mean it was O(n^4)
+# not sure why sum_int is 10260 when n is 20
+# maybe my interpretation from javascript syntax to python is wrong 
+# or I'm wrongly interpereting what the algorithm is doing
+# If my interpretation is not wrong, that would lead me to believe that it is actually O(n^3)
+# (20^3 == 8000 which is somewhere ~ 10000)
 
 # prac O(n^4)
 prac_list = []
 for i in range(n):
-	prac_list.append(i)
 	for j in range(n):
-		prac_list.append(j)
 		for k in range(n):
-			prac_list.append(k)
 			for l in range(n):
 				prac_list.append(l)
 print("PRAC", len(prac_list))

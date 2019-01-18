@@ -42,8 +42,20 @@ class Heap:
 def heapsort(l):
     heap = Heap()
     result = []
+    # O(n)
     for n in l:
+        # O(log n)
         heap.insert(n)  # converts list into heap
+    # O(n)
     while heap.get_size() > 0:
+        # insert: O(n) + delete: O(log n)
         result.insert(0, heap.delete())  # inserts laragest number into results and deletes it from heap
     return result
+
+# ( O(n) * O(log n) ) + ( O(n) * ( O(n) + O(log n) ) )
+# compare inner siblings
+# ( O(n) * O(log n) ) + ( O(n) * O(n) )
+# combine children
+# O(n log n) and O(n^2)
+# compare remaining siblings
+# O(n^2)
