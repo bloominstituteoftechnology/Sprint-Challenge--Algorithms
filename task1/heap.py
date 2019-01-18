@@ -1,7 +1,4 @@
-def heapsort(arr):
-  
- pass 
- 
+
 
 class Heap:
   def __init__(self):
@@ -42,3 +39,11 @@ class Heap:
       return index * 2 + 1
     else:
       return index * 2 + 1 if self.storage[index * 2 + 1] > self.storage[index * 2 + 2] else index * 2 + 2
+      
+def heapsort(arr):
+ # First, let's 'heapify' our array data.
+  heap = Heap()
+  for i in arr:
+  
+
+# print(heapsort([1, 4, 10, 7, 70, 16, 56756, 34, 456, 99, 3567]))
