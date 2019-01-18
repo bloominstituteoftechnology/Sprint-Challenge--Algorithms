@@ -1,6 +1,5 @@
-def heapsort(arr):
- pass 
- 
+
+
 
 class Heap:
   def __init__(self):
@@ -41,3 +40,21 @@ class Heap:
       return index * 2 + 1
     else:
       return index * 2 + 1 if self.storage[index * 2 + 1] > self.storage[index * 2 + 2] else index * 2 + 2
+
+
+import collections
+
+def heapsort(arr):
+ heap = Heap()
+ sorted_arr = collections.deque()
+ print(sorted_arr)
+ for item in arr:
+   heap.insert(item)
+
+ while heap.get_size() > 0:
+   sorted_arr.appendleft(heap.delete())
+
+ return list(sorted_arr)
+
+
+
