@@ -15,4 +15,32 @@ Add your answers to the Algorithms exercises here.
  c) With recursion in the bunnyEars function, we loop through the input -1 each iteration. 
   So the runtime is O(n)
 
+
+2. ## use a binary search 
+   ## create drop variable and base cases for no drops and floors
+   ## find mid floor level which will be my floors //2
+   ## if egg breaks at mid floor, drop again from floor //2
+   ## if egg doesn't break, drop again at mid floor + midfloor //2
+   
+
+eggDrops( eggs, floors ):
+    if floors == 0 or floors == 1:
+        retrun floors
     
+    if eggs == 1: return floors
+
+    
+    midfloor == floors //2
+
+    if egg_breaks at midfloor:
+         midfloor = midfloor //2
+    
+    if egg_survives at midfloor:
+        midfloor = midfloor + midfloor //2
+
+I am going to the halfway mark and dropping the egg. If it breaks, I go halfway down again and drop it. if it survives, go up halfway from the previous drop and see if it breaks, or repeat the first process if it breaks. I should be able to get this in ~ 10 tries, though i may break a few eggs. I don't optimize eggs survived, but number of eggs dropped. 
+    
+
+    
+
+
