@@ -40,7 +40,7 @@ write and analyze algorithms.
 
 ### 1. Self-Study/Essay Questions (20% of your score)
 
-For this portion of the sprint challenge, you'll be answering questions posed in
+[x] For this portion of the sprint challenge, you'll be answering questions posed in
 the `Algorithms_Questions.md` document inside the `Self-Study` directory. Write
 down your answer and also write down a justification for _why_ you put down that
 answer. This could net you some partial credit if your justification is sound
@@ -59,27 +59,27 @@ You have to figure out how to use the heap to implement heapsort.
 
 Some hints:
 
-* Initially when you make a new `Heap` data structure, it is empty.
+- Initially when you make a new `Heap` data structure, it is empty.
 
-* You can insert values into the heap with its `insert()` method.
+- You can insert values into the heap with its `insert()` method.
 
-* This is a _max heap_. That is, the `get_max()` and `delete()` methods will
+- This is a _max heap_. That is, the `get_max()` and `delete()` methods will
   return the maximum value stored in the heap. In addition `delete()` also
   removes the value from the heap.
 
-* Pseudocode in Wikipedia or elsewhere will be of little use here. Think
+- Pseudocode in Wikipedia or elsewhere will be of little use here. Think
   conceptually at first; how could you use this information to sort a list of
   numbers? Then code.
 
-Your `heapsort` function should return a new list containing all of the sorted
+[x] Your `heapsort` function should return a new list containing all of the sorted
 data.
 
-Run `python test_heap.py` to run the tests for your `heapsort` function to
+[x] Run `python test_heap.py` to run the tests for your `heapsort` function to
 ensure that your implementation is correct.
 
 ### 3. Analyze some runtimes (15% of your score)
 
-Open up the `Analysis_Answers.md` file. This is where you'll jot down your
+[x] Open up the `Analysis_Answers.md` file. This is where you'll jot down your
 answers for the runtimes of the functions you just implemented.
 
 ### Stretch Problem: Min versus Max

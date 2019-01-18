@@ -1,6 +1,6 @@
 import unittest
 from random import randint
-from heap import heapsort
+from heap_min import heapsort
 
 
 def gen_random_input(length, max):
