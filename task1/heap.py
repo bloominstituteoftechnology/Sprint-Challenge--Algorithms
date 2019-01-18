@@ -41,8 +41,17 @@ class Heap:
 
 
 def heapsort(arr):
+  result = []
   heap = Heap()
   for i in arr:
-    heap.insert(arr[i])
+    heap.insert(i)
 
-  print(heap.storage)
+  while heap.get_size() > 0:
+    result.insert(0, heap.get_max())
+    heap.delete()
+
+  return result
+
+
+#test
+heapsort([5, 1, 9, 6, 4])
