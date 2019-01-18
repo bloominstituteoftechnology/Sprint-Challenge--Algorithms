@@ -8,4 +8,4 @@
 | 1,000      | 0.010811030000000003   |
 | 10,000     | 0.26099945300000005    |
 
-[logo]: ./max_graph.png "Max Heap Times"
+![alt text](./max_graph.png "Logo Title Text 1")
