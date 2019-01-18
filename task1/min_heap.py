@@ -11,8 +11,8 @@ def heapsort(arr):
     # Loop through each element in heap.storage
     while len(heap.storage) > 0:
         # delete each element from heap.storage then
-        # prepend each element to sorted
-        sorted.insert(0, heap.delete())
+        # append each element to sorted
+        sorted.append(heap.delete())
 
     return sorted
 
@@ -32,7 +32,7 @@ class Heap:
         self._sift_down(0)
         return retval
 
-    def get_max(self):
+    def get_min(self):
         return self.storage[0]
 
     def get_size(self):
@@ -40,7 +40,8 @@ class Heap:
 
     def _bubble_up(self, index):
         while (index - 1) // 2 >= 0:
-            if self.storage[(index - 1) // 2] < self.storage[index]:
+            # changed < to >
+            if self.storage[(index - 1) // 2] > self.storage[index]:
                 self.storage[index], self.storage[(index - 1) // 2] = (
                     self.storage[(index - 1) // 2],
                     self.storage[index],
@@ -49,24 +50,26 @@ class Heap:
 
     def _sift_down(self, index):
         while index * 2 + 1 <= len(self.storage) - 1:
-            mc = self._max_child(index)
-            if self.storage[index] < self.storage[mc]:
+            mc = self._min_child(index)
+            # changed < to >
+            if self.storage[index] > self.storage[mc]:
                 self.storage[index], self.storage[mc] = (
                     self.storage[mc],
                     self.storage[index],
                 )
             index = mc
 
-    def _max_child(self, index):
+    def _min_child(self, index):
         if index * 2 + 2 > len(self.storage) - 1:
             return index * 2 + 1
         else:
             return (
                 index * 2 + 1
-                if self.storage[index * 2 + 1] > self.storage[index * 2 + 2]
+                # changed < to >
+                if self.storage[index * 2 + 1] < self.storage[index * 2 + 2]
                 else index * 2 + 2
             )
 
 
-print(heapsort([5, 3, 2, 1, 4]))
+print(heapsort([2, 3, 1, 5]))
 
