@@ -19,7 +19,6 @@ class HeapTests(unittest.TestCase):
     length = randint(100, 1000)
     input = gen_random_input(length, 1000)
     output = heapsort(input)
-
     self.assertEqual(len(output), length)
     self.assertTrue(is_sorted(output))
 
