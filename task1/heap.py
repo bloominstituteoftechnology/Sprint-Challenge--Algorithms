@@ -1,6 +1,9 @@
+import timeit
+
 def heapsort(arr):
   heap = Heap()
   heap.storage = arr
+
   if len(arr) == 0:
     return arr
   for i in range(heap.get_size() - 1, -1, -1):
