@@ -7,13 +7,11 @@ def heapsort(arr):
         # insert each element to heap.storage
         heap.insert(i)
 
-    # return heap.storage
-
     sorted = []
     # Loop through each element in heap.storage
     while len(heap.storage) > 0:
         # delete each element from heap.storage then
-        # prepend each element to sorted
+        # append each element to sorted
         sorted.append(heap.delete())
 
     return sorted
