@@ -1,7 +1,7 @@
 Add your answers to the Algorithms exercises here.
 ```
 1a) a = 0
-    while (a < n * n * n) 
+    while (a < n * n * n) #O(n)
       a = a + n * n
 ```
 There is one loop which has a time complexity of O(n). You multiply the nested time complexities to get O(1) * O(n) = O(n). O(n) dominates the O(1) (from a = O); O(n) would be the time complexity of the entire code. 
@@ -11,10 +11,10 @@ There is one loop which has a time complexity of O(n). You multiply the nested t
     for (i = 0; i < n; i++)    O(n)   
       for (j = i + 1; j < n; j++)    O(n)
         for (k = j + 1; k < n; k++)      O(n)
-          for (l = k + 1; l < 10 + k; l++)  O(n)
+          for (l = k + 1; l < 10 + k; l++)  # O(1)
             sum++    O(1)
 ```
-For all of the nested for loops you multiply their time complexities to get O(n) * O(n) * O(n) * O(n) * O(1) = O(n^4). This dominates O(1) from the first line, O(n^4) becomes the overall time complexity.
+For all of the nested for loops you multiply their time complexities to get O(n) * O(n) * O(n) * O(1) * O(1) = O(n^3). This dominates O(1) from the first line, O(n^4) becomes the overall time complexity.
 
 
 ```
