@@ -1,6 +1,8 @@
 def heapsort(arr):
- pass 
- 
+  for i in arr:
+    test.insert(i)
+  print(test.get_max())
+#  pass 
 
 class Heap:
   def __init__(self):
@@ -41,3 +43,9 @@ class Heap:
       return index * 2 + 1
     else:
       return index * 2 + 1 if self.storage[index * 2 + 1] > self.storage[index * 2 + 2] else index * 2 + 2
+
+test = Heap()
+
+testList = [55, 1, 5, 4, 88, 4, 9, 5, 61,
+            24, 8, 487, 3, 48, 6, 5, 9, 5, 135, 4, 68]
+heapsort(testList)
