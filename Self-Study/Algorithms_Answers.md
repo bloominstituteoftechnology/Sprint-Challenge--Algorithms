@@ -27,7 +27,7 @@ return 0
 
       return 2 + bunnyEars(bunnies-1)
 
--- This is a O(n!) problem as we are recursively calling bunnieEars and decrementing each bunnie by one and then computing another pair of ears for the next bunny.
+-- This is a O(n) problem as we are recursively calling bunnieEars and decrementing each bunnie by one and then computing another pair of ears for the next bunny.
 
 # Exercise 2
 
