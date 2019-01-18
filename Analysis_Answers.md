@@ -7,5 +7,9 @@ Add your answers to the questions below.
 2. Could you make your algorithm run in better time? If so, how?
 
 3. What is the space complexity of the `heapsort` function? Recall that your
-   implementation should return a new array with the sorted data. What would be
-   the space complexity if your function instead altered the input array?
+   implementation should return a new array with the sorted data. (Also remember
+   that the size of the input array passed to the `heapsort()` function does
+   _not_ contribute to the size complexity.)
+
+   Most online sources say that the space complexity of heapsort is `O(1)`. What
+   would we have to change in our code to get there?

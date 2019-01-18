@@ -52,10 +52,26 @@ questions in the `Algorithms_Answers.md` file.
 #### Task 1. Implement Heapsort
 
 Inside the `task1` directory you'll find the `heap.py` file with a working
-implementation of the heap class. Your second task is to implement a sorting
-method called [heapsort](https://en.wikipedia.org/wiki/Heapsort) that uses the
-heap data structure in order to sort an array of numbers. Your `heapsort`
-function should return a new list containing all of the sorted data.
+implementation of the heap class--the heap is already written for you.
+
+You have to figure out how to use the heap to implement heapsort.
+
+Some hints:
+
+* Initially when you make a new `Heap` data structure, it is empty.
+
+* You can insert values into the heap with its `insert()` method.
+
+* This is a _max heap_. That is, the `get_max()` and `delete()` methods will
+  return the maximum value stored in the heap. In addition `delete()` also
+  removes the value from the heap.
+
+* Pseudocode in Wikipedia or elsewhere will be of little use here. Think
+  conceptually at first; how could you use this information to sort a list of
+  numbers? Then code.
+
+Your `heapsort` function should return a new list containing all of the sorted
+data.
 
 Run `python test_heap.py` to run the tests for your `heapsort` function to
 ensure that your implementation is correct.
@@ -65,17 +81,16 @@ ensure that your implementation is correct.
 Open up the `Analysis_Answers.md` file. This is where you'll jot down your
 answers for the runtimes of the functions you just implemented.
 
-### Stretch Problems
-
-#### Min versus Max
+### Stretch Problem: Min versus Max
 
 The heap presented in the code is called a _max heap_, because `delete()` always
 returns the maximum value in the heap.
 
 Modify it to be a _min heap_, so that `delete()` always returns the _minimum_
-value in the heap.
+value in the heap. Also change `get_max()` to `get_min()`.
 
-Fix your heapsort after you do this. What did you have to modify?
+Your heapsort probably broke after you did this. What did you have to modify to
+fix it?
 
 How does the time complexity change?
 
