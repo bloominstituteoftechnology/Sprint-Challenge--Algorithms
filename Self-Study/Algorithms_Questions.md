@@ -35,7 +35,7 @@ broken if dropped off a floor less than floor _f_. Devise a strategy to
 determine the value of _f_ such that the number of dropped eggs is minimized.
 
 def broken_eggs(n, f):
-  while f in range(10:100):
+  while f in range(10, 100):
     broken_eggs(n - 1, f)
     if n == 0:
     return "You Have Broken All Yo Eggs"
@@ -45,12 +45,34 @@ def broken_eggs(n, f):
 def saving_eggs(n, f):
   f = num_of_floors
   n = num_of_eggs
-  for i in range(num_of_floors):
-  broken_eggs(n, num_of_floors)
+  for i in range(0, num_of_floors):
   
     if num_of_eggs == num_of_eggs - 1:
-      return ("Break starting point", num_of_floors)
+      return ("Break starting point", i)
     else:
       saving_eggs(n, num_of_floors + 1)
 
+----------------------------------------------------------
+
 Big O === 0(n)
+
+def eggnary_search(floors, egg, humpty_dumpty):
+  #humpty_dumpty == minimum egg_break limit == floors[25]
+  if len(floors) == 0:
+    return -1 # array empty
+  
+
+  low = 0
+  high = len(floors)-1
+  
+
+  while low <= high:
+    middle = (low+high)//2
+    if floors[middle] > humpty_dumpty:
+      egg = egg - 1
+      high = middle - 1
+    elif floors[middle] < humpty_dumpty:
+      high = middle + 1
+    else:
+      return middle
+  return -1 # not broken
