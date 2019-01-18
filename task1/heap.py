@@ -1,5 +1,14 @@
 def heapsort(arr):
- pass 
+  heap = Heap()
+  heap.storage = arr
+  if len(arr) == 0:
+    return arr
+  for i in range(heap.get_size() - 1, -1, -1):
+    if heap.storage[i] < heap.get_max():
+      temp = heap.storage[i]
+      heap.storage[i] = heap.get_max()
+      heap.storage[0] = temp
+  return [heap.get_max()] + heapsort(arr[1:])
  
 
 class Heap:
