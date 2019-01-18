@@ -35,4 +35,4 @@ bunnyEars(10 - 1)
 ## Exercise II
 
 We can take a binary search approach. Go to the half way point of the floors and throw the egg. If it breaks, then we walk down from the middle and do it again. If it doesn't break, go half way up from the middle and throw the egg.
-We will repeat that until we find floor f where the egg breaks if it gets thrown off floor f and higher, and wouldn't break if it's thrown off floor f and lower.
+We will repeat that until we find floor f where the egg breaks if it gets thrown off floor f and higher, and wouldn't break if it's thrown off floor f and lower. O(log n)
