@@ -13,6 +13,20 @@
 #     return final
 
 # Best run time
+# def heapsort(arr):
+#     heap = Heap()
+#     final = []
+#     for i in arr:
+#         heap.insert(i)
+#     i = 0
+#     while heap.get_size() > 0:
+#         heap._sift_down(i)
+#         final.append(heap.delete())
+#         i += 1
+
+#     return final[::-1]
+
+# Even less code
 
 
 def heapsort(arr):
@@ -21,8 +35,8 @@ def heapsort(arr):
     for i in arr:
         heap.insert(i)
     i = 0
+
     while heap.get_size() > 0:
-        heap._sift_down(i)
         final.append(heap.delete())
         i += 1
 
@@ -71,4 +85,4 @@ class Heap:
             return index * 2 + 1 if self.storage[index * 2 + 1] > self.storage[index * 2 + 2] else index * 2 + 2
 
 
-print(heapsort([2, 6, 1, 7, 3, 4, 5]))
+# print(heapsort([2, 6, 1, 7, 3, 4, 5]))
