@@ -41,3 +41,6 @@ class Heap:
       return index * 2 + 1
     else:
       return index * 2 + 1 if self.storage[index * 2 + 1] > self.storage[index * 2 + 2] else index * 2 + 2
+
+if __name__ == "__main__":
+  print(heapsort([2,9,5,7,1,8,5,6,3,1,9,5,0,1,2,1]))
