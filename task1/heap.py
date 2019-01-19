@@ -1,21 +1,29 @@
 def heapsort(arr):
-  heap_arr = []
-  heap = Heap()
-  for item in arr: 
+  heap_arr = []  # O(1)
+  heap = Heap()  # O(1) size n heap
+
+  #O(nlog(n))
+  for item in arr:   # O(n)
   # insert item to heap one at a time
-    heap.insert(item)
+    heap.insert(item)  # O(log(n))
   # delete items from heap and add to arr either at front 
   # or end of the array and reverse it
-  while len(heap.storage) > 0:
-    deleted_item = heap.delete()
-    # for item in arr: 
-    #   [item] + heap_arr
-    heap_arr.append(deleted_item)
-  heap_arr.reverse()
+
+  #O(nlog(n)) and O(n^2) if you do insert at front
+  while len(heap.storage) > 0:  # O(n)
+  # while heap.get_size() > 0
+    deleted_item = heap.delete()  # O(log(n))
+    # delete returns the max items in a list
+    heap_arr.append(deleted_item)  #O(1)
+    # can do insert at the beginning instead: heap_arr.insert(0, deleted_item) #O(n) 
+    # wouldn't need to reverse it
+  heap_arr.reverse() #O(n)
   return heap_arr
 
 # heapsort([2, 4, 4, 5, 7, 1])
- 
+
+# heap stored as tight array
+# can find child by doing i * 2 + 1, i *2 + 2
 class Heap:
   def __init__(self):
     self.storage = []

@@ -14,6 +14,9 @@ Add your answers to the questions below.
 2. Could one make your algorithm run in better time? If so, how? If not, why
    not?
    You could make this algorithm have a smaller time complexity by removing the nested loops and use an alterantive approach to delete/insert.
+   Using delete and appending at the end instead of the front has a faster run time.
+   No n(log(n)) is the fastest.
+   Insert within while loop so it would be O(n^2)
 
 3. What is the space complexity of your `heapsort` function? Recall that your
    implementation should return a new array with the sorted data. (Also remember
@@ -21,5 +24,7 @@ Add your answers to the questions below.
    _not_ contribute to the size complexity.)
 
    Most online sources say that the space complexity of heapsort is `O(1)`. What
-   would we have to change in our code to get there?
+   would we have to change in our code to get there? #O(n) because we create an array and allocate space by creating a heap instance
    The data doesn't have to be stored anywhere, if we remove the step creating a new array to store our data and swap in place the space complexity would be O(1).
+
+   Creates a size n heap thats stored in a size n, so you would allocate space in memory 
