@@ -51,7 +51,8 @@ def heapsort(l):
         # append: O(1) + delete: O(log n)
         result.append(heap.delete())  # appends laragest number onto results and deletes it from heap
     # O(n)
-    return result.reversed()  # returns reversed result
+    result.reverse()
+    return result  # returns reversed result
 
 # ( O(n) * O(log n) ) + ( O(n) * O(log n) )
 # combine children
