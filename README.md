@@ -50,14 +50,56 @@ questions in the `Algorithms_Answers.md` file.
 ### 2. Implement Heapsort (65% of your score)
 
 Inside the `task1` directory you'll find the `heap.py` file with a working
-implementation of the heap class--the heap is already written for you.
+implementation of the `Heap` class.
+
+_Note: this challenge does not expect you to know how to implement a heap, or
+even to have heard of one before._
 
 A heap is a tree-like data structure that can rapidly tell you what the largest
-or smallest number is within that set of data.
+number is within a set of data. (_Max heaps_ give you the largest number in
+the set; _min heaps_ give you the smallest. Here we use a max heap.)
 
-You have to figure out how to use the heap to implement heapsort.
+For example, if I fill a heap with these numbers:
 
-Some hints:
+    7 2 9 3 4 7 1 0
+
+then I can ask it what the biggest number in the heap is, and it will tell me
+`9`.
+
+_The exact details about how the heap works are not important. You do not need
+to know them. You do not need to modify the `Heap` class unless you're doing
+stretch goals._ 
+
+What you _do_ need to know is what the heap can do for you. It can:
+
+1. Store a number in the heap (`O(log n)` time)
+2. Tell you what the maximum value is in the heap so far (`O(1)` time)
+3. Delete the maximum value from the heap (`O(log n)` time)
+4. Tell you how many items there are in the heap (`O(1)` time)
+
+**The task**: write a function `heapsort()` that takes an unsorted list of
+numbers and makes use of the heap to produce a _heapsort_ running in `O(n log
+n)` time.
+
+Highly recommended hints:
+
+* Don't code yet.
+
+* Get out a piece of paper (or your editor) and write down 5 unsorted numbers.
+
+* Figure out how you can use the 4 heap functions, above, to turn that unsorted
+  list into a sorted list. This is _the_ leap. Get this idea hammered out and
+  working on paper before you start to code it.
+
+* Once you feel solid on your approach and have done test runs on paper, then
+  code it up.
+
+* Feel free to declare more lists if you need them, and use as many loops as you
+  want.
+
+_Do not use Python's built-in `sort()` method._
+
+Additional hints:
 
 * Initially when you make a new `Heap` data structure, it is empty.
 
