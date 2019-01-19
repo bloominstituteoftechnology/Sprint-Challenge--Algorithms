@@ -1,7 +1,3 @@
-def heapsort(arr):
- pass 
- 
-
 class Heap:
   def __init__(self):
     self.storage = []
@@ -41,3 +37,17 @@ class Heap:
       return index * 2 + 1
     else:
       return index * 2 + 1 if self.storage[index * 2 + 1] > self.storage[index * 2 + 2] else index * 2 + 2
+
+new_heap = Heap()
+
+def heapsort(arr):
+  sorted = []
+
+  for i in arr:
+    new_heap.insert(i)
+
+  for i in arr:
+    max = new_heap.delete()
+    sorted = [max] + sorted
+
+  return sorted
