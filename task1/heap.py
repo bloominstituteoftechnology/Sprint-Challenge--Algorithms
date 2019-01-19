@@ -1,5 +1,17 @@
+import timeit
+
 def heapsort(arr):
- pass 
+  heap = Heap()
+
+  sorted_list = []
+
+  for element in arr:
+    heap.insert(element)
+
+  while len(heap.storage) > 0:
+    sorted_list.insert(0, heap.delete())
+
+  return sorted_list
  
 
 class Heap:

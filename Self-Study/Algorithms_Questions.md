@@ -33,6 +33,7 @@ c)  def bunnieEars(bunnies):
       return 2 + bunnyEars(bunnies-1)
 ```
 
+
 ## Exercise II
 
 Suppose that you have an _n_-story building and plenty of eggs. Suppose also
