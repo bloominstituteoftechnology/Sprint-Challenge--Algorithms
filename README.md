@@ -1,4 +1,4 @@
-# Sprint Challenge: Algorithms
+#  Sprint Challenge: Algorithms
 
 In this week's Sprint you explored and implemented some classic algorithmic
 approaches and used them to solve novel problems. You also implemented some
