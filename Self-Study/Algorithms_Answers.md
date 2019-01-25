@@ -10,5 +10,15 @@ c) This looks like a recursion I think it's O(n) because n is linear
 
 #Exercise II
 
-We have a building with story = n , and the f would be f = middle point
-So f is the middle point because 
+We have a building with story = n , if x > f, eggs will break more. x < f eggs would break less
+
+
+use binary search sort
+
+def broken_eggs(n, f):
+    n is an array of the building
+    n = [1, 2, 3, 4, 5, 6, 7]
+    x = n / 2 to choose mid point
+    for i in range(len(n)):
+        if n[i] < f:
+        

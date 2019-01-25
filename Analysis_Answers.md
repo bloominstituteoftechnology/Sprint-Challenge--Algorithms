@@ -22,6 +22,8 @@ B) It seems to run pretty fast already
    that the size of the input array passed to the `heapsort()` function does
    _not_ contribute to the size complexity.)
 
+   I think my space complexity is O(1)
+
    Most online sources say that the space complexity of heapsort is `O(1)`. What
    would we have to change in our code to get there?
 
