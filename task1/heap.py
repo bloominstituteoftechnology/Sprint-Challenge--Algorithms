@@ -2,10 +2,10 @@ def heapsort(arr):
 
   heap = Heap()
   print(heap.storage)
-  
   for i in range(len(arr)):
     heap.storage.insert(i, arr[i])
   
+ 
  
   return heap.storage
 
