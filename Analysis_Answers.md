@@ -4,6 +4,8 @@ Add your answers to the questions below.
    Python built-in functions, you can find their time complexities here:
    https://wiki.python.org/moin/TimeComplexity )
 
+   Answer: O(n)
+
    Other hints, to save you some searching:
 
    * Heap insert: `O(log n)`
