@@ -50,5 +50,16 @@ def heapsort(arr):
     sorted.append(heap.delete())
   sorted.reverse()
   return sorted
- 
-print(heapsort([13, 85, 2, 10, 27]))
+
+def heapsort_inplace(arr):
+  heap = Heap()
+  for num in arr:
+    if len(heap.storage) == len(arr):
+      break
+    heap.insert(num)
+
+  for idx in range(len(arr)):
+    arr[idx] = heap.delete()
+  arr.reverse()
+  return arr
+print(heapsort_inplace([13, 85, 2, 10, 27]))
