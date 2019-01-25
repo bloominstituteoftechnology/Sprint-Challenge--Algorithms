@@ -4,4 +4,4 @@ a: O(n)
 
 b: O(n^3) Because there are 3 nested loops inside of the body
 
-c: O(1)
+c: O(n) because this is a recursive loop
