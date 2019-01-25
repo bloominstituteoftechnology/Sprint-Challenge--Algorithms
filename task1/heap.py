@@ -1,13 +1,17 @@
 def heapsort(arr):
 
   heap = Heap()
+  new_sorted = []
   print(heap.storage)
   for i in range(len(arr)):
     heap.storage.insert(i, arr[i])
+    print(heap.storage)
+  if heap.get_size() > 0:
+    for i in range(heap.get_size()):
+      new_sorted.append(heap.delete())
+  new_sorted.reverse()
+  return new_sorted
   
- 
- 
-  return heap.storage
 
  
 
