@@ -1,5 +1,4 @@
 
-
 class Heap:
   def __init__(self):
     self.storage = []
@@ -43,7 +42,19 @@ class Heap:
 def heapsort(arr):
  # First, let's 'heapify' our array data.
   heap = Heap()
+
+  sorted = []
+
   for i in arr:
+      heap.insert(i)
+
+  for i in arr:
+    
+    sorted.append(heap.delete())
+
+  sorted.reverse()
+
+  return sorted
   
 
-# print(heapsort([1, 4, 10, 7, 70, 16, 56756, 34, 456, 99, 3567]))
+print(heapsort([1, 4, 10, 7, 70, 16, 56756, 34, 456, 99, 3567]))
