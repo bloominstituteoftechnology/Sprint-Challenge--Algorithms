@@ -10,4 +10,5 @@ c) This looks like a recursion I think it's O(n) because n is linear
 
 #Exercise II
 
-def broken_eggs(n, e, f)
+We have a building with story = n , and the f would be f = middle point
+So f is the middle point because 
