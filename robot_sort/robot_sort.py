@@ -123,6 +123,7 @@ class SortingRobot:
             c. it will swap the duplicate with the pair number that is NOT a duplicate.
             d. after the duplicates are side by side, robot should continue right to check the rest of the numbers.
         """
+        # turn the light off
         while not self.light_is_on():
             self.set_light_on()
             while self.can_move_right():
@@ -147,6 +148,7 @@ class SortingRobot:
                     self.swap_item()
                     self.move_right()
             if not self.light_is_on():
+                # allow the robot to move left to go back over the numbers
                 while self.can_move_left():
                     self.move_left()
 
