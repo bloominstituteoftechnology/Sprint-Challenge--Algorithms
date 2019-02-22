@@ -1,8 +1,8 @@
 Add your answers to the Algorithms exercises here.
 
 I.
-a) O(n\*\*2)
-b) O(n!)
+a) O(n)
+b) O(n)
 c) O(log n)
 
 II.

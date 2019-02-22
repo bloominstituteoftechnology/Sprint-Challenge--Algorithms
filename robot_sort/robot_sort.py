@@ -105,30 +105,68 @@ class SortingRobot:
         print(self._list)
         while self._light == "ON":
             self.set_light_off()
-            for i in range(0, len(self._list)-1):
-                #print(f"index:{i}, item: {self._item}posValue:{self._list[self._position]}")
-                self.swap_item()
-                self.move_right()
-                print(f"next--index:{i}, item: {self._item}posValue:{self._list[self._position]}")
+            #print("next while")
+            while self._position <= len(self._list)-1:
+                
+                #print(f"first index:, position: {self._position} item: {self._item}posValue:{self._list[self._position]}")
+                
+                
+                
+                #print(f"first index:, position: {self._position} item: {self._item}posValue:{self._list[self._position]}")
                 if (self._item == None) and (not self.can_move_right()):
                     
-                    print("Cant move",self._list)
-                    self.move_left()
-                    self.swap_item()
-                    self.move_left()
-                    if self.compare_item() < 0:
-                        self.swap_item()
-                        self.move_right
+                    for i in range(len(self._list)):
+                        #print("in",self._item, self._list)
+                        if not self.can_move_left():
+                            #print("break")
+                            break
+                        self.move_left()
+                    break 
+                    """ while self.can_move_left():
+                        print(self._list, "position", self._position, "item", self._item)
+                        if self.compare_item() == None:
+                            self.swap_item()
+                            self.move_left()
+                            print('azxinner')
+                            
+
+                        elif self.compare_item() > 0:
+                            print('az')
+                            self.move_right()
+                            
+
+                        elif self.compare_item() < 0:
+                            print("swap", self._list)
+                            self.swap_item()
+                            self.move_right()
+                            self.swap_item()
+                            self.move_left()
+                            self.set_light_on()
+
+                        elif self.compare_item() == 0:
+                            self.move_right()
+                            self.swap_item()
+                            self.set_light_on() 
+
+                            
+                        else:
+                            #print('else')
+                            pass """   
+                    
 
                 elif self.compare_item() == None:
+                    self.swap_item()
+                    self.move_right()
+                    #print('azx')
                     pass
 
                 elif self.compare_item() < 0:
+                    #print('az')
                     self.move_left()
                      
 
                 elif self.compare_item() > 0:
-                    print("swap", self._list)
+                    #print("swap", self._list)
                     self.swap_item()
                     self.move_left()
                     self.swap_item()
@@ -142,7 +180,7 @@ class SortingRobot:
 
                     
                 else:
-                    
+                    #print('else')
                     pass
 
 
@@ -152,7 +190,7 @@ if __name__ == "__main__":
 
     l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
     r = [15, 41, 58, 49, 26, 4]
-    robot = SortingRobot(r)
+    robot = SortingRobot(l)
 
     robot.sort()
     print(robot._list)
