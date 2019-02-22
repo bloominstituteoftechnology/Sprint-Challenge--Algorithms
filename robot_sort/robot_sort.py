@@ -110,18 +110,17 @@ class SortingRobot:
         # set_light_off
         # light_is_on
 
-        # my robot observes an item/index in the list.
+        # for item in listofItems:
+        # if cml=False:
+            # if cmr = True:
+                # mr
+                # compare item
+                    # if left > right, swap
+                    # else move to next index/item
+            # else cmr = False:
+                # start over at beginning of array
 
-    # for item in list:
-        # if can_move_left = true and item value > robot item value:
-            # swap
-        # elif can_move_left = false and can_move_right = true, 
-            #   move_right
-            #   compare, if robot item < item, swap
-                # else continue
-                # if robot value is more than last item in list, swap
 
-        pass
 
 
 if __name__ == "__main__":
