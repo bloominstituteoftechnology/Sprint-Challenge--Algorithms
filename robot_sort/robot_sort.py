@@ -100,7 +100,24 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
+        # can_move_right
+        # can_move_left
+        # move_right
+        # move_left
+        # swap_item
+        # compare_item
+        # set_light_on
+        # set_light_off
+        # light_is_on
+
+        # my robot observes an item/index in the list.
+
+    # for item in list:
+        # if can_move_left = true and item value > robot item value:
+            # swap
+        # elif can_move_left = false and can_move_right = true, 
+            #   move_right
+
         pass
 
 
