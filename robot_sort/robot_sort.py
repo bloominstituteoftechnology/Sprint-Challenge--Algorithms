@@ -107,8 +107,17 @@ class SortingRobot:
         # move right through the given list (maybe with a while loop that checks if the robot can still move right)
         # might be able to partition for optimized smaller sorting with a helper function (merge sort maybe?)
         # once I get the partitioned sorted list, push it to a cache to save it
-        print(self._position)
-        pass
+        while self.can_move_right():
+            for item in l:
+                self._item = item
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    print(item)
+                #     self.move_right()
+                # if self.compare_item() == 0:
+                #     self.move_right()
+                # if self.compare_item() == -1:
+                #     self.move_right()
 
 
 if __name__ == "__main__":
