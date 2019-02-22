@@ -117,6 +117,9 @@ class SortingRobot:
             # swap
         # elif can_move_left = false and can_move_right = true, 
             #   move_right
+            #   compare, if robot item < item, swap
+                # else continue
+                # if robot value is more than last item in list, swap
 
         pass
 
