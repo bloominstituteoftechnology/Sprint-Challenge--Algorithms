@@ -41,5 +41,9 @@ As n increases the number of steps greatly increases
 
 ---------------------------------------------------------------------------------
 
+c)O(2^n) - exponential time because the function will call itself until it recursion has happened n amount of times.
+
+----------------------------------------------------------------------------------
+
 
 
