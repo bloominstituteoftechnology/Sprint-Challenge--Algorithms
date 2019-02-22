@@ -118,13 +118,15 @@ class SortingRobot:
             b. move the robot right until it finds a 1 and drop that item.
             c. continue right to check next item.
         3.  While the light is on and the compared item is equal expect to get 0 from the compare method.
-            a. nothing should be done in this case??
-            b. Ignore the items and just move the robot forward.
+            a. it will pick up the duplicate at.
+            b. it will move left to where the duplicate is.
+            c. it will swap the duplicate with the pair number that is NOT a duplicate.
+            d. after the duplicates are side by side, robot should continue right to check the rest of the numbers.
         """
         while not self.light_is_on():
             self.set_light_on()
             while self.can_move_right():
-                # first item in self._list is None, need to swap that garbage out.
+                # first item in self._list is None, need to swap that garbage out. Pick it up, move right to compare the first item with it.
                 self.swap_item()
                 self.move_right()
                 # step1 (a - f) = if the current item returns as 1
@@ -139,11 +141,9 @@ class SortingRobot:
                     self.move_left()
                     self.swap_item()
                     self.move_right()
-                # step3 (a) = if the current item returns as 0
+                # step3 (a - d) = if the current item returns as 0
                 if self.compare_item() == 0:
-                    self.move_right()
-                    self.swap_item()
-                    self.move_right()
+                    self.move_left()
                     self.swap_item()
                     self.move_right()
             if not self.light_is_on():
