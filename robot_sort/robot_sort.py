@@ -113,7 +113,10 @@ class SortingRobot:
             d. move left to the item that needs to be swapped, then swap it.
             e. move right again and keep comparing.
             f. if nothing is left to compare as a 1, turn the light off and end loop.
-
+         2. While the light is on and the compared item is less than, expect to get -1 from the compare method.
+            a. move the robot left and grab that item.
+            b. move the robot right and drop that item.
+            c. continue right to swap the item.
         """
         while not self.light_is_on():
             self.set_light_on()
