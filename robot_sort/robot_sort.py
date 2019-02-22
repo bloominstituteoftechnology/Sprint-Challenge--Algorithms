@@ -85,11 +85,13 @@ class SortingRobot:
         Turn on the robot's light
         """
         self._light = "ON"
+
     def set_light_off(self):
         """
         Turn off the robot's light
         """
         self._light = "OFF"
+
     def light_is_on(self):
         """
         Returns True if the robot's light is on and False otherwise.
@@ -97,22 +99,72 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
-        """
-        Sort the robot's list.
-        """
-        # Fill this out
-        pass
+        # loop through list
+
+        for i in range(0, len(self._list)):
+            self.swap_item()
+            self.helper()
+
+            #
+            # while self.can_move_left():
+            #     self.move_left()
+            #     if self.compare_item() == None:
+            #         self.swap_item()
+            # return
+            # else:
+            #     self.move_left()
+
+            #
+            # self.assign()
+            # self.move_right()
+        return self._list
+
+    def helper(self):
+        if self.can_move_right():
+            self.move_right()
+            if self.compare_item() == 1:
+                self.swap_item()
+            self.helper()
+        return
 
 
-if __name__ == "__main__":
-    # Test our your implementation from the command line
-    # with `python robot_sort.py`
+arr = [3, 8, 9, 5, 2, 6, 7, 1, 4]
+arr0 = [1]
 
-    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+robot1 = SortingRobot(arr)
 
-    robot = SortingRobot(l)
+# print(robot1._list)
+# print(robot1.can_move_right())
+print(robot1.sort())
 
-    robot.sort()
-    print(robot._list)
+# start at beginning of array, swap item with curr index, at the beginning it would be index 0
+# arr will shrink by 1
+
+# robot can move left or right
+# robot can pick up an item, if it tries to pick up an item while holding one, it will swap the items instead
+# it can compare the item it's holding to the item in front of it
+# it can switch a light on its head on or off
+# sort a list using only these abilities
+# rules
+# you may use any pre defined robot methods
+# you may not modify any pre-defined robot methods
+# you may use logical operators (if, and, or, not)
+# you may use comparison operators (>, >=, < , <=, ==)
+# you may use iterators (while, for, break, continue)
+# you may NOT store variables
+# you may NOT access any instance variables directly (self.anything)
+# you may NOT use Python libraries or class methods (sorted())
+# you may define robot helper methods, as long as they follow all the rules
 
 
+# if __name__ == "__main__":
+#     # Test our your implementation from the command line
+#     # with `python robot_sort.py`
+
+#     l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1,
+#          45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+
+#     robot = SortingRobot(l)
+
+#     robot.sort()
+#     print(robot._list)
