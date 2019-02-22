@@ -5,8 +5,7 @@ approaches and used them to solve novel problems. You also implemented some
 classic and fundamental sorting algorithms and learned about how to go about
 evaluating their respective runtimes and performance. This Sprint Challenge aims
 to assess your comfort with these topics through exercises that build on the
-data structures you implemented and the algorithmic intuition you've started to
-build up.
+algorithmic intuition you've started to build up.
 
 ## Instructions
 
@@ -38,7 +37,15 @@ your project manager to more thoroughly assess your work.
 This Sprint Challenge is split into two separate parts that test your ability to
 write and analyze algorithms.
 
-### 1. Self-Study/Essay Questions (20% of your score)
+### 0. Weekly Participation (10 points)
+
+Have you been showing up to lecture, stand-ups and whiteboarding? Have you been
+putting effort into the homework assignments? Have you been engaging and asking
+questions? If so, this should be an easy 10 points.
+
+These points will be awarded at your PM's discretion.
+
+### 1. Self-Study/Essay Questions (25 points)
 
 For this portion of the sprint challenge, you'll be answering questions posed in
 the `Algorithms_Questions.md` document inside the `Self-Study` directory. Write
@@ -47,98 +54,67 @@ answer. This could net you some partial credit if your justification is sound
 but the answer you put down turns out to not be correct. Add your answers to the
 questions in the `Algorithms_Answers.md` file.
 
-### 2. Implement Heapsort (65% of your score)
+### 2. Implement Robot Sort (60 points)
 
-Inside the `task1` directory you'll find the `heap.py` file with a working
-implementation of the `Heap` class.
+You have been given a robot with very basic capabilities:
 
-_Note: this challenge does not expect you to know how to implement a heap, or
-even to have heard of one before._
+  * It can move left or right.
+  * It can pick up an item
+    * If it tries to pick up an item while already holding one, it will
+      swap the items instead.
+  * It can compare the item it's holding to the item in front of it.
+  * It can switch a light on its head on or off.
 
-A heap is a tree-like data structure that can rapidly tell you what the largest
-number is within a set of data. (_Max heaps_ give you the largest number in
-the set; _min heaps_ give you the smallest. Here we use a max heap.)
+Your task is to program this robot to sort lists using ONLY these abilities.
 
-For example, if I fill a heap with these numbers:
+#### Details
 
-    7 2 9 3 4 7 1 0
+Inside the `task1` directory you'll find the `robot_sort.py` file. Open it
+up and read through each of the robot's abilities. Once you've understood
+those, start filling out the `sort()` method following these rules:
 
-then I can ask it what the biggest number in the heap is, and it will tell me
-`9`.
+  * You may use any pre-defined robot methods
+  * You may NOT modify any pre-defined robot methods
+  * You may use logical operators (`if`, `and`, `or`, `not`, etc.)
+  * You may use comparison operators (`>`, `>=`, `<`, `<=`, `==`, `is`, etc.)
+  * You may use iterators (`while`, `for`, `break`, `continue`)
+  * You may NOT store any variables (`=`)
+  * You may NOT access any instance variables directly (`self._anything`)
+  * You may NOT use any Python libraries or class methods (`sorted()`, etc.)
+  * You may define robot helper methods, as long as they follow all the rules
 
-_The exact details about how the heap works are not important. You do not need
-to know them. You do not need to modify the `Heap` class unless you're doing
-stretch goals._ 
 
-What you _do_ need to know is what the heap can do for you. It can:
+#### Hints
 
-1. Store a number in the heap (`O(log n)` time)
-2. Tell you what the maximum value is in the heap so far (`O(1)` time)
-3. Delete the maximum value from the heap (`O(log n)` time)
-4. Tell you how many items there are in the heap (`O(1)` time)
+* Make sure you understand the problem and all of the rules! A solution that
+  breaks the rules will receive no credit.
 
-**The task**: write a function `heapsort()` that takes an unsorted list of
-numbers and makes use of the heap to produce a _heapsort_ running in `O(n log
-n)` time.
+* If you're unsure if an operator or method is allowed, ask.
 
-Highly recommended hints:
+* Lay out some numbered cards in a line and try sorting them as if you were
+  the robot.
 
-* Don't code yet.
+* Come up with a plan and write out your algorithm before coding. If your
+  plan is sound but you don't reach a working implementation in three hours,
+  you may receive partial credit.
 
-* Get out a piece of paper (or your editor) and write down 5 unsorted numbers.
+* There is no efficiency requirement but you may lose points for an
+  unreasonably slow solution. Tests should run in far less than 1 second.
 
-* Figure out how you can use the 4 heap functions, above, to turn that unsorted
-  list into a sorted list. This is _the_ leap. Get this idea hammered out and
-  working on paper before you start to code it.
+* We discussed a sorting method this week that might be useful. Which one?
 
-* Once you feel solid on your approach and have done test runs on paper, then
-  code it up.
+* The robot has exactly one bit of memory: its light. Why is this important?
 
-* Feel free to declare more lists if you need them, and use as many loops as you
-  want.
-
-_Do not use Python's built-in `sort()` method._
-
-Additional hints:
-
-* Initially when you make a new `Heap` data structure, it is empty.
-
-* You can insert values into the heap with its `insert()` method.
-
-* This is a _max heap_. That is, the `get_max()` and `delete()` methods will
-  return the maximum value stored in the heap. In addition `delete()` also
-  removes the value from the heap.
-
-* Pseudocode in Wikipedia or elsewhere will be of little use here. Think
-  conceptually at first; how could you use this information to sort a list of
-  numbers? Then code.
-
-Your `heapsort` function should return a new list containing all of the sorted
-data.
-
-Run `python test_heap.py` to run the tests for your `heapsort` function to
+Run `python test_robot.py` to run the tests for your `robot sort` function to
 ensure that your implementation is correct.
 
-### 3. Analyze some runtimes (15% of your score)
+### Stretch (8 points)
 
-Open up the `Analysis_Answers.md` file. This is where you'll jot down your
-answers for the runtimes of the functions you just implemented.
+Uncomment the `test_stretch_times()` test in `test_robot.py`. Can you optimize
+your robot sort to perform better than the given times?
 
-### Stretch Problem: Min versus Max
+## Grading Rubric
 
-The heap presented in the code is called a _max heap_, because `delete()` always
-returns the maximum value in the heap.
-
-Modify it to be a _min heap_, so that `delete()` always returns the _minimum_
-value in the heap. Also change `get_max()` to `get_min()`.
-
-Your heapsort probably broke after you did this. What did you have to modify to
-fix it?
-
-How does the time complexity change?
-
-In terms of wall clock time, is the min heap version faster or slower?
-
-### Stretch Problem
-
-Modify the `Heap` class and your `heapsort()` algorithm to run in `O(1)` space.
+*1*: 0-69
+*2*: 70-89
+*3*: 90+
