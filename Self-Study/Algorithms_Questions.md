@@ -26,7 +26,7 @@ b)  sum = 0
 ```
 
 ```
-c)  def bunnieEars(bunnies):
+c)  def bunnyEars(bunnies):
       if bunnies == 0:
         return 0
 
