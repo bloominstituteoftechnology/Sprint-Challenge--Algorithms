@@ -115,6 +115,6 @@ your robot sort to perform better than the given times?
 
 ## Grading Rubric
 
-*1*: 0-69
-*2*: 70-89
-*3*: 90+
+* *1*: 0-69
+* *2*: 70-89
+* *3*: 90+
