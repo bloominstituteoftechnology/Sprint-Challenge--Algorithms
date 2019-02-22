@@ -67,7 +67,7 @@ You have been given a robot with very basic capabilities:
 
 Your task is to program this robot to sort lists using ONLY these abilities.
 
-#### Details
+#### Rules
 
 Inside the `task1` directory you'll find the `robot_sort.py` file. Open it
 up and read through each of the robot's abilities. Once you've understood
