@@ -115,20 +115,27 @@ class SortingRobot:
             f. if nothing is left to compare as a 1, turn the light off and end loop.
          2. While the light is on and the compared item is less than, expect to get -1 from the compare method.
             a. move the robot left and grab that item.
-            b. move the robot right and drop that item.
-            c. continue right to swap the item.
+            b. move the robot right until it finds a 1 and drop that item.
+            c. continue right to check next item.
         """
         while not self.light_is_on():
             self.set_light_on()
             while self.can_move_right():
+                # first item in self._list is None, need to swap that garbage out.
                 self.swap_item()
                 self.move_right()
+                # step1 (a - f) = if the current item returns as 1
                 if self.compare_item() == 1:
                     self.swap_item()
                     self.move_left()
                     self.swap_item()
                     self.move_right()
                     self.set_light_off()
+                # step2 (a - c) = if the current item returns as -1
+                if self.compare_item() == -1:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
 
 
 if __name__ == "__main__":
