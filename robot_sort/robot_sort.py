@@ -109,6 +109,24 @@ class SortingRobot:
         # If the robot can't move left or right because it's at the beginning and end of the list, we will turn it off and exit the loop
             if self.can_move_left() and self.can_move_right() == False:
                 self.set_light_off()
+            if self.can_move_right() == True:
+                self.swap_item()
+                self.move_right()
+                self.compare_item()
+                if self.compare_item() == 1:
+                    self.swap_item()
+            elif self.can_move_right() == False:
+                self.move_left()
+                if self.can_move_left() == False:
+                    return self.sort()
+
+        # Turn robot on
+        # While the robot is still on items are not sorted
+        # Start with the left size pick up item
+        # move right, if item in list is greater than item held, swap them
+        # continue until end of list, if at end of list and no item was greater we will drop item and move back to the start
+        # if item is equal keep moving right until we find an item greater than item held
+
 
 
 
