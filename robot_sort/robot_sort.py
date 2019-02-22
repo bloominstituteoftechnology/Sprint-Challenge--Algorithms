@@ -101,7 +101,53 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+
+        # Turn the robot on
+        self.set_light_on()
+        # While the set_light_on == 'ON' the items are not sorted
+        while self.light_is_on() == True:
+          if self.compare_item() == -1 or self.compare_item() == None or self.compare_item() == 0:
+            self.swap_item()
+          self.move_right()
+          self.compare_item()
+          if self.compare_item() == 1:
+            self.swap_item()
+            continue
+            self.set_light_off()
+          if self.can_move_right() == False:
+            self.swap_item()
+          if self.can_move_left() == True:
+            self.move_left()
+          if self.can_move_left() == False:
+            self.sort()
+
+            
+
+        # Turn robot on
+        # While the robot is still on items are not sorted
+        # Start with the left side pick up item
+        # move right, if item in list is greater than item held, swap them
+        # continue until end of list, if at end of list and no item was greater we will drop item and move back to the start
+        # if item is equal keep moving right until we find an item greater than item held
+
+
+        # if self.can_move_left() and self.can_move_right() == False:
+        #         self.set_light_off()
+        #     if self.can_move_right() == True:
+        #         self.swap_item()
+        #         self.move_right()
+        #         self.compare_item()
+        #         if self.compare_item() == 1:
+        #             self.swap_item()
+        #     elif self.can_move_right() == False:
+        #         self.move_left()
+        #         if self.can_move_left() == False:
+        #             return self.sort()
+
+
+
+
+        
 
 
 if __name__ == "__main__":
