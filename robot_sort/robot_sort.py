@@ -100,30 +100,29 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        print(self._list)
+        
         self.set_light_on()
         while self._light == "ON":
             self.set_light_off()
             for i in range(0, len(self._list)):
-                print(i)
+                
                 if i == 0:
                     self._position = i
                     continue
                 self._item = self._list[self._position]
                 self.move_right()
                 if self.compare_item() < 0:
-                    print(f"{self._item} < {self._list[self._position]}")
+                    
                     pass        
                 elif self.compare_item() > 0:
-                    print(f"{self._item} > {self._list[self._position]}")
+                    
                     self.swap_item()
                     self.move_left()
                     self.swap_item()
                     self.move_right()
                     self.set_light_on()
                 else:
-                    print("pass")
-                    print(f"{self._item} == {self._list[self._position]}")
+                    
                     pass
 
 
