@@ -100,8 +100,19 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this outa
-        pass
+        # Fill this out
+
+        # Turn the robot on
+        self.set_light_on()
+        # While the set_light_on == 'ON' the items are not sorted
+        while self.light_is_on() == True:
+        # If the robot can't move left or right because it's at the beginning and end of the list, we will turn it off and exit the loop
+            if self.can_move_left() and self.can_move_right() == False:
+                self.set_light_off()
+
+
+
+        
 
 
 if __name__ == "__main__":
