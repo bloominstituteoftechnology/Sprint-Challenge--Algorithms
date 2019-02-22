@@ -127,9 +127,9 @@ class SortingRobot:
                     if self.can_move_left() == False:
                 #         # self.swap_item()
                 #         print("what")
-                        def is_sorted(lst, key=lambda x: x):
+                        def is_sorted(lst):
                             for i, el in enumerate(lst[1:]):
-                                if key(el) < key(lst[i]): # i is the index of the previous element
+                                if el < lst[i]: # i is the index of the previous element
                                     return False
                             return True
                         if is_sorted(l) == True:
