@@ -45,5 +45,24 @@ c)O(2^n) - exponential time because the function will call itself until it recur
 
 ----------------------------------------------------------------------------------
 
+n = # of stories
+egg is broken if floor >= f
+egg is safe if floor < f
+
+n = 30
+
+take 30 / 2 
+if at floor 15 the egg breaks we will split in half again, n is now equal to 8(rounded up)
+
+if at floor 8 the egg is safe we can go start to come up, 15 - 8 = 7. Divide the num / 2. We can now move to the 4th floor(rounded up)
+
+if at floor 12 the egg breaks, we can now find the difference between 12 and 8 = 4 and divide by 2. 
+
+If at floor 10 we can go ahead and check 11 which is the last number between 10 and 12
+
+if at floor 11 we break the egg we know floor 10 is the last floor before the egg breaks
+
+Conclusion: This algorithm is very similar to how a binary search would work which would make this function O(o log n ) 
+
 
 
