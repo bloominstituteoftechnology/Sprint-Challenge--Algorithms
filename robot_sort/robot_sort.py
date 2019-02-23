@@ -118,7 +118,7 @@ class SortingRobot:
                 self.swap_item()
                 self.move_left()
                 self.set_light_on()
-                print("When light is off: ",l,"\n")
+                print("When light is on: ",l,"\n")
 
             elif self.can_move_right() == False:
 
