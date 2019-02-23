@@ -100,49 +100,33 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
+
         self.light_is_on()
         self.set_light_on()
         while self.can_move_right() == True:
             if self.compare_item() == None:
-                # print("##############################")
+
                 self.swap_item()
                 self.move_right()
             if self.compare_item() == -1:
-                # print("#######$%^^^$^%$^^$^$%^#####")
+
                 self.move_left()
                 self.swap_item()
                 self.move_right()
             if self.compare_item() == 1:
-                # print("####&*(&(*&*(*&*(*(&((###")
+
                 self.swap_item()
                 self.move_left()
                 self.set_light_on()
-                print("When light is off: ",l)
+                print("When light is off: ",l,"\n")
 
-
-            # if self.compare_item() is not -1 and 1:
-            #     print('Doh')
-            
             elif self.can_move_right() == False:
 
-                # print(l)
-                
-                # print("whatsss")
                 while self.light_is_on() == True:
                     self.move_left()
-                    print("whats in here")
+
                     if self.can_move_left() == False:
-                #         # self.swap_item()
-                #         print("what")
-                        # def is_sorted(lst):
-                        #     for i in lst[0:]:
-                        #         for j in lst[1:]: # i is the index of the previous element
-                        #             print(i,j)
-                        #     return True
-                        # if is_sorted(l) == True:
-                        #     return l
-                        # else:
+
                         self.set_light_off()
 
         
