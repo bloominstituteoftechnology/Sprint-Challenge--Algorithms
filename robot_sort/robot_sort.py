@@ -119,6 +119,16 @@ class SortingRobot:
                     # else move to next index/item
             # else cmr = False:
                 # start over at beginning of array
+        
+        # for i in l:
+        while self.can_move_left() == False:
+            if self.can_move_right() == True:
+                if i > l[i + 1]:
+                    print(f"if2", i, i[self.move_right])
+                    self.move_right()
+                    self.swap_item()
+                    
+        return i
 
 
 
