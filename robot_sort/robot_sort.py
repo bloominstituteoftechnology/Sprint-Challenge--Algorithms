@@ -103,6 +103,15 @@ class SortingRobot:
         # Fill this out
         pass
 
+# sorting robot sort functions are similar to bubblesort
+# robot starts with:
+#   a list to sort
+#   not holding an item
+#   index 0 at the beginning of the list
+#   its light is off
+
+     
+
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
