@@ -111,13 +111,29 @@ class SortingRobot:
         while not self.light_is_on():
             self.set_light_on()
 
-            if self.can_move_right():
+            while self.can_move_right(): # will stop at end of list
                 self.swap_item() # pick up an item
                 self.move_right()
 
-                if self.compare_item() == 1:
+                if self.compare_item() == 1: #first num is 15, 15 not greater
+                    self.swap_item() # pick up item/holding item
+                    self.move_right() #move to next item
                     self.swap_item()
-                    self.set_light_off()
+                    # move left and put it down item and pick up item at index
+                    self.move_left()
+                    self.swap_item()
+
+                    self.set_light_off() # set false to go again
+                
+                if self.compare_item() == -1: # if item to right is less than
+                    self.move_left() # move to left(since it less than right)
+                    self.swap_item() # swap with left
+                    self.move_right() # move back right
+
+                
+                if self.compare_item() == 0:
+                    self.move_right()
+
 # sorting robot sort functions are similar to bubblesort
 # robot starts with:
 #   a list(l) to sort / the list is NOT Sorted
