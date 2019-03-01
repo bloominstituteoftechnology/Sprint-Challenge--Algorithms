@@ -111,11 +111,15 @@ class SortingRobot:
         while not self.light_is_on():
             self.set_light_on()
 
+            print("move left:", self.can_move_left())
             while self.can_move_right(): # will stop at end of list
+                print(f"if can move right position:", self._position)
                 self.swap_item() # pick up an item
+                print(self._item)
                 self.move_right()
 
                 if self.compare_item() == 1: #first num is 15, 15 not greater
+                    print("in 1")
                     self.swap_item() # pick up item/holding item
                     self.move_left() #move to next item
                     self.swap_item()
@@ -124,16 +128,44 @@ class SortingRobot:
                     self.swap_item()
 
                     self.set_light_off() # set false to go again
+                    print(f"1 light:", self.light_is_on())
+                    print(f"position greater than:", self._position)
                 
                 if self.compare_item() == -1: # if item to right is less than
+                    # self.swap_item()
+                    print("in -1")
                     self.move_left() # move to left(since it less than right)
                     self.swap_item() # swap with left
+                    print(self._item)
                     self.move_right() # move back right
-       
+
+                    self.set_light_off()    # flip light false again
+
+                    print(f"-1 light:", self.light_is_on())
+                    print(f"position less than:", self._position)
+
                 if self.compare_item() == 0: # if same num
+                    print("in 0")
                     self.move_left() # move back to place
                     self.swap_item()    # swap
                     self.move_right()    # move back left position
+
+                    self.set_light_off()
+                    print(f"0 light:", self.light_is_on())
+                    print(f"position same value", self._position)
+            
+            
+                
+                # if self.compare_item() == None:
+                #     print("in None")
+                #     self.move_right()
+                #     self.swap_item()
+                #     self.set_light_off()
+                #     print(f"0 light:", self.light_is_on())
+                #     print(f"position same value", self._position)
+            
+                
+            
 
 # sorting robot sort functions are similar to bubblesort
 # robot starts with:
@@ -150,18 +182,13 @@ class SortingRobot:
 # swap_item = swap index
 # compare_item = compare index with item, returns 1 if greater
 
-
-
-
-
-
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
-    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60]
-    
-    #  65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 6, 58]
+
+    # l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
 
     robot = SortingRobot(l)
 
