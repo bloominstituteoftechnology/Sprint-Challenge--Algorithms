@@ -100,9 +100,23 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+    # while not light_is_on: as long as false(starts false)
+        # set_light_on  /set it to true/ 
 
+        # if can_move_right: /if items in array until end array
+            # move_right
+            # if compare_item == True:
+                # swap_item
+
+        while not self.light_is_on():
+            self.set_light_on()
+
+            if self.can_move_right():
+                self.move_right()
+
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.set_light_off()
 # sorting robot sort functions are similar to bubblesort
 # robot starts with:
 #   a list(l) to sort / the list is NOT Sorted
@@ -119,13 +133,9 @@ class SortingRobot:
 # compare_item = compare index with item, returns 1 if greater
 
 
-# while not light_is_on: as long as false(starts false)
-    # set_light_on  /set it to true/ 
 
-    # if can_move_right: /if items in array until end array
-        # move_right
-        # if compare_item == True:
-            # swap_item
+
+
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
