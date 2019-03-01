@@ -112,6 +112,7 @@ class SortingRobot:
             self.set_light_on()
 
             if self.can_move_right():
+                self.swap_item() # pick up an item
                 self.move_right()
 
                 if self.compare_item() == 1:
