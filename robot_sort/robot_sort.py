@@ -117,10 +117,10 @@ class SortingRobot:
 
                 if self.compare_item() == 1: #first num is 15, 15 not greater
                     self.swap_item() # pick up item/holding item
-                    self.move_right() #move to next item
+                    self.move_left() #move to next item
                     self.swap_item()
                     # move left and put it down item and pick up item at index
-                    self.move_left()
+                    self.move_right()
                     self.swap_item()
 
                     self.set_light_off() # set false to go again
@@ -131,9 +131,9 @@ class SortingRobot:
                     self.move_right() # move back right
        
                 if self.compare_item() == 0: # if same num
-                    self.move_right() # move back to place
+                    self.move_left() # move back to place
                     self.swap_item()    # swap
-                    self.move_left()    # move back left position
+                    self.move_right()    # move back left position
 
 # sorting robot sort functions are similar to bubblesort
 # robot starts with:
