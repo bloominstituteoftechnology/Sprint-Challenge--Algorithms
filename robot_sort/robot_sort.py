@@ -129,10 +129,11 @@ class SortingRobot:
                     self.move_left() # move to left(since it less than right)
                     self.swap_item() # swap with left
                     self.move_right() # move back right
-
-                
-                if self.compare_item() == 0:
-                    self.move_right()
+       
+                if self.compare_item() == 0: # if same num
+                    self.move_right() # move back to place
+                    self.swap_item()    # swap
+                    self.move_left()    # move back left position
 
 # sorting robot sort functions are similar to bubblesort
 # robot starts with:
