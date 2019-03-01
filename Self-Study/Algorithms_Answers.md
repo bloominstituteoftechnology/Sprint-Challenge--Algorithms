@@ -1,5 +1,5 @@
-Add your answers to the Algorithms exercises here.
 
+## Exercise I
 
 ```
 a)  a = 0
@@ -40,3 +40,12 @@ c)  def bunnyEars(bunnies):
 # O(n)
 
 # the function is constant at the first return. the second return alters the value of bunnies, causing a loop to run bunnies number of times.
+
+## Exercise II
+
+    n = floors of our building
+
+    # for every floor(f) in n
+        # if f < brokeneggfloor:
+            return True
+        # return False
