@@ -3,9 +3,12 @@ Add your answers to the Algorithms exercises here.
 
 ```
 a)  a = 0
-    while (a < n * n * n):
+    while (a < n * n * n):  # O(n)
       a = a + n * n
 ```
+# O(n)
+
+# The while loop takes the n input only runs n number of times.
 
 ```
 b)  sum = 0
