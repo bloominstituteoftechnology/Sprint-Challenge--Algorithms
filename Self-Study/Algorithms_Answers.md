@@ -23,8 +23,11 @@ b)  sum = 0
             l += 1
             sum += 1
 ```
+# O(n**3)
 
-# b contains a nested loops. the n input is required for 3 of the 4 loops.
+# n * n * n
+
+# b contains a nested loops. the n input is required for 3 of the 4 loops. Loop one is loop one is needed to iterate for all 3 loops, loop two for itself and the inner loop, and loop 3 for itself.
 
 ```
 c)  def bunnyEars(bunnies):
@@ -33,3 +36,4 @@ c)  def bunnyEars(bunnies):
 
       return 2 + bunnyEars(bunnies-1)
 ```
+
