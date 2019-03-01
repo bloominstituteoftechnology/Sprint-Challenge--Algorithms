@@ -37,3 +37,6 @@ c)  def bunnyEars(bunnies):
       return 2 + bunnyEars(bunnies-1)
 ```
 
+# O(n)
+
+# the function is constant at the first return. the second return alters the value of bunnies, causing a loop to run bunnies number of times.
