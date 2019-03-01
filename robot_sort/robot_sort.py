@@ -105,12 +105,19 @@ class SortingRobot:
 
 # sorting robot sort functions are similar to bubblesort
 # robot starts with:
-#   a list to sort
+#   a list(l) to sort / the list is NOT Sorted
 #   not holding an item
 #   index 0 at the beginning of the list
 #   its light is off
 
-     
+# setlighton = turns to true
+# set light off = turns to false
+# light is on = returns status True (on) or False (off)
+# can_move_right = return True if can move right or False if at end of list
+# move_right = if can move right, move right and return True
+# swap_item = swap index
+# compare_item = compare index with item, returns 1 if greater
+
 
 
 if __name__ == "__main__":
