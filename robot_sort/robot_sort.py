@@ -100,15 +100,34 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-    # while not light_is_on: as long as false(starts false)
-        # set_light_on  /set it to true/ 
+        while self.light_is_on is False:
+            print("while 1 light on?", self.light_is_on())
 
-        # if can_move_right: /if items in array until end array
-            # move_right
-            # if compare_item == True:
-                # swap_item
+            while self.can_move_right():
+                print(f"while 2", self.can_move_right())
+                self.swap_item() # swap the None for a num
+                self.move_right()
 
-#                   49  26  4   28  8  58  6  61
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+
+                    self.
+
+                
+                if self.compare_item() == -1:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    # self.swap_item()
+
+                if self.compare_item() == 0:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+
 
 # starting position index 0/15, holding None, light is OFF
 
@@ -161,93 +180,61 @@ class SortingRobot:
 #             swap (drop the num and pickup None)
 #             move_right
 
-        while self.light_is_on == False:
 
-            while self.can_move_right():
-                self.swap_item() # swap the None for a num
-                self.move_right()
-
-                if self.compare_item() == 1:
-                    self.move_left()
-                    self.swap_item()
-                    self.move_right()
-                    self.swap_item()
-                    self.move_left()
-                    self.swap_item()
-                    self.move_right()
-                    self.swap_item()
-                
-                if self.compare_item() == -1:
-                    self.move_left()
-                    self.swap_item()
-                    self.move_right()
-                    # self.swap_item()
-
-                if self.compare_item() == 0:
-                    self.move_left()
-                    self.swap_item()
-                    self.move_right()
-
-            else:
-                while self.can_move_left():
-                    self.swap_item()
-                    self.move_left()
-
-
-        self.set_light_off()
-        while not self.light_is_on():
+        # self.set_light_off()
+        # while not self.light_is_on():
             
-            self.set_light_on()
-            print("move left:", self.can_move_left())
+        #     self.set_light_on()
+        #     print("move left:", self.can_move_left())
 
-            while self.can_move_right(): # will stop at end of list
-                # print(f"if can move right position:", self._position)
-                print(self._item)
-                self.swap_item() # pick up an item
-                print(self._item)
-                self.move_right()
+        #     while self.can_move_right(): # will stop at end of list
+        #         # print(f"if can move right position:", self._position)
+        #         print(self._item)
+        #         self.swap_item() # pick up an item
+        #         print(self._item)
+        #         self.move_right()
 
-                if self.compare_item() == 1: #first num is 15, 15 not greater
-                    print("in 1")
-                    self.swap_item() # pick up item/holding item
-                    print(self._item)
-                    self.move_left() #move to next item
-                    self.swap_item()
-                    print(self._item)
-                    # move left and put it down item and pick up item at index
-                    self.move_right()
-                    self.swap_item()
-                    print(self._item)
+        #         if self.compare_item() == 1: #first num is 15, 15 not greater
+        #             print("in 1")
+        #             self.swap_item() # pick up item/holding item
+        #             print(self._item)
+        #             self.move_left() #move to next item
+        #             self.swap_item()
+        #             print(self._item)
+        #             # move left and put it down item and pick up item at index
+        #             self.move_right()
+        #             self.swap_item()
+        #             print(self._item)
 
-                    self.set_light_off() # set false to go again
-                    # print(f"1 light:", self.light_is_on())
-                    # print(f"position greater than:", self._position)
+        #             self.set_light_off() # set false to go again
+        #             # print(f"1 light:", self.light_is_on())
+        #             # print(f"position greater than:", self._position)
                 
-                if self.compare_item() == -1: # if item to right is less than
-                    # self.swap_item()
-                    # print("in -1")
-                    self.move_left() # move to left(since it less than right)
-                    self.swap_item() # swap with left
-                    # print(self._item)
-                    self.move_right() # move back right
+        #         if self.compare_item() == -1: # if item to right is less than
+        #             # self.swap_item()
+        #             # print("in -1")
+        #             self.move_left() # move to left(since it less than right)
+        #             self.swap_item() # swap with left
+        #             # print(self._item)
+        #             self.move_right() # move back right
 
-                    # self.set_light_off()    # flip light false again
+        #             # self.set_light_off()    # flip light false again
 
-                    # print(f"-1 light:", self.light_is_on())
-                    # print(f"position less than:", self._position)
+        #             # print(f"-1 light:", self.light_is_on())
+        #             # print(f"position less than:", self._position)
 
-                if self.compare_item() == 0: # if same num
-                    # print("in 0")
-                    self.move_left() # move back to place
-                    self.swap_item()    # swap
-                    self.move_right()    # move back left position
+        #         if self.compare_item() == 0: # if same num
+        #             # print("in 0")
+        #             self.move_left() # move back to place
+        #             self.swap_item()    # swap
+        #             self.move_right()    # move back left position
 
-                    self.set_light_off()
-                    # print(f"0 light:", self.light_is_on())
-                    # print(f"position same value", self._position)
+        #             self.set_light_off()
+        #             # print(f"0 light:", self.light_is_on())
+        #             # print(f"position same value", self._position)
 
-                else:
-                    self.set_light_off()
+        #         else:
+        #             self.set_light_off()
    
                 # if self.compare_item() == None:
                 #     print("in None")
