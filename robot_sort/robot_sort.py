@@ -108,13 +108,99 @@ class SortingRobot:
             # if compare_item == True:
                 # swap_item
 
+#                   49  26  4   28  8  58  6  61
+
+# starting position index 0/15, holding None, light is OFF
+
+# as long as its OFF:
+
+#     start iterating through my list:
+#         swap with first item in list - NONE is in index 0, I hold 15
+#         compare 15 to value to the right, which is 41 at index 1
+#         15 is less than 41, so I go back to index 0, drop the 15, pick up None,
+#             move to the right (to index 1 again), drop the None and pick up the 41.
+
+#         compare 41 to value on right, which is 49 at index 2
+#         41 is less than 49, so I go back to index 1, drop the 41, pick up None, move right to index 2, drop the None and pick up the 49
+
+#         now im holding 49
+
+#         compare 49 to value on the right, which is 58 at index 3
+#         49 is less than 58, so I go back to index 2, drop the 49, pickup the None, move right to index 3, drop the None and pick up the 58
+
+#         now Im holding the 58.
+
+#         compare the 58 to value on the right, which is 26 at index 4.
+#         58 is greater than 26. I move left to index 3, drop 58 and pick up None at index 3. Move right, drop None at index 4, pickup 26. Move left, drop the 28 at the index 3, pick up 58. Move right, drop the 58 and pickup None.
+
+#         now I'm holding None.
+
+# while light_is_on is False: #light off
+#     while can_move_right:
+#         swap None with item at current position/index
+#         move_right
+
+#         if item I hold > item at position:
+#             move_left to previous position
+#             swap (drop the highnum and pickup None)
+#             move_right
+#             swap ( drop the None and pickup lownum)
+#             move_left
+#             swap (drop the lownum, pickup the highnum)
+#             move_right (to position+1, None)
+#             swap (drop the 58, pickup the None)
+
+#         if item I hold < item at position:
+#             move_left to previous position
+#             swap (drop the lownum and pickup None)
+#             move_right
+#             swap (drop the None, pickup the highnum)
+
+#         if item I hold == item at position:
+#             move_left
+#             swap (drop the num and pickup None)
+#             move_right
+
+        while self.light_is_on == False:
+
+            while self.can_move_right():
+                self.swap_item() # swap the None for a num
+                self.move_right()
+
+                if self.compare_item() == 1:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    self.swap_item()
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    self.swap_item()
+                
+                if self.compare_item() == -1:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    # self.swap_item()
+
+                if self.compare_item() == 0:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+
+            else:
+                while self.can_move_left():
+                    self.swap_item()
+                    self.move_left()
+
+
         self.set_light_off()
         while not self.light_is_on():
             
             self.set_light_on()
             print("move left:", self.can_move_left())
 
-            if self.can_move_right(): # will stop at end of list
+            while self.can_move_right(): # will stop at end of list
                 # print(f"if can move right position:", self._position)
                 print(self._item)
                 self.swap_item() # pick up an item
@@ -145,7 +231,7 @@ class SortingRobot:
                     # print(self._item)
                     self.move_right() # move back right
 
-                    self.set_light_off()    # flip light false again
+                    # self.set_light_off()    # flip light false again
 
                     # print(f"-1 light:", self.light_is_on())
                     # print(f"position less than:", self._position)
@@ -160,6 +246,8 @@ class SortingRobot:
                     # print(f"0 light:", self.light_is_on())
                     # print(f"position same value", self._position)
 
+                else:
+                    self.set_light_off()
    
                 # if self.compare_item() == None:
                 #     print("in None")
