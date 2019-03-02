@@ -104,18 +104,18 @@ class SortingRobot:
 
         print(f"before while", self.light_is_on()) # False
         print(f"holding", self._item)
-
-        while self.light_is_on() is False:
+        # remember robot light starts off
+        while self.light_is_on() is False:  # as long as light is off
             print("while 1 light on?", self.light_is_on())
-            self.set_light_on()
+            self.set_light_on() # flip light on, then
             
-            while self.can_move_right():
+            while self.can_move_right(): # while can move right, do these executions
                 print(f"while 2", self.can_move_right())
                 self.swap_item()
                 self.move_right()
                 print(f"is light on?", self.light_is_on())
 
-                if self.compare_item() == 1:
+                if self.compare_item() == 1: # if robot number greater, do this
                     print(f"if > holding: ", self._item)
                     self.swap_item()
                     print(f"if > swap 1: ", self._item)
@@ -124,25 +124,40 @@ class SortingRobot:
                     print(f"if > swap 2: ", self._item)
                     self.move_right()
 
-                    self.set_light_off() # flip off is make a greater than flip
+                    self.set_light_off() # flip the light off
+                    # light will stay off as long as in while2
+                    # in its final pass, there should NOT be any greater than numbers on the left.
+                    # we continue iterating through while2, the while2 else and back to the while1, where the light flips on.
+                    # because there are no longer any nums greater than on the left, the light is not flipped off.
+                    # it makes its way to while2/if, doesn't execute because light is on == True
+                    # goes to while1, doesn't execute because lightison == True, not False, which ends while1
             
-                if self.compare_item() == -1:
+                if self.compare_item() == -1 or 0: # if robot number less than, do this 
                     print(f"if < holding: ", self._item)
                     self.move_left()
                     self.swap_item()
                     print(f"if < swap: ", self._item)
                     self.move_right()
 
-                if self.compare_item() == 0:
+                if self.compare_item() == 0: # if robot number the same, do this
                     print(f"if same holding: ", self._item)
                     self.move_left()
                     self.swap_item()
                     print(f"if same swap: ", self._item)
                     self.move_right()
             
+            # moves robot back back to the beginning of array
+            # the if loop checks if the light is off, if it is then
+            # while there is space to move left
+            # move left.
+            # 
+            # this if statement works with the inner while loop (while2).
+            # while2 is checking cmr. As long as cmr, do this (the swaps, the inner ifs)
+            # this IF is while2's else. When this else executes, the inner while stops, moves to while1
+            # is the lightoff? then start while1 again.
             if self.light_is_on() is False: # if the light is off/set to false
                 while self.can_move_left(): #as long as there is space to move left, then:
-                    self.move_left() # move_left
+                    self.move_left() # move_left / position-1
             
                 
 
