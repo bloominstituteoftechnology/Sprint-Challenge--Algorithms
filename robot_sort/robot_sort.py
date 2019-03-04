@@ -96,7 +96,7 @@ class SortingRobot:
         """
         return self._light == "ON"
 
-    #  l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 6, 58]
+
     def sort(self):
         """
         Sort the robot's list.
