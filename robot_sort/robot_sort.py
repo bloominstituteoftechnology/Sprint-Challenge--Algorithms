@@ -3,11 +3,11 @@ class SortingRobot:
         """
         SortingRobot takes a list and sorts it.
         """
-        self._list = l   # The list the robot is tasked with sorting
-        self._item = None   # The item the robot is holding
-        self._position = 0    # The list position the robot is at
-        self._light = "OFF"    # The state of the robot's light
-        self._time = 0   # A time counter (stretch)
+        self._list = l          # The list the robot is tasked with sorting
+        self._item = None       # The item the robot is holding
+        self._position = 0      # The list position the robot is at
+        self._light = "OFF"     # The state of the robot's light
+        self._time = 0          # A time counter (stretch)
 
     def can_move_right(self):
         """
@@ -51,6 +51,21 @@ class SortingRobot:
         else:
             return False
 
+    def pickup_item(self):
+        """
+        The robot picks up the item at its current position if it isn't holding one already.
+        If it is holding one already, it swaps the item it's currently holding with the 
+        item in front of it. 
+
+        This will increment the time counter by 1.
+        """
+        if not self._item:
+            self._time += 1
+            self._item = self._list[self._position]
+            self._list[self._position] = None
+        else:
+            self.swap_item()
+
     def swap_item(self):
         """
         The robot swaps its currently held item with the list item in front
@@ -85,11 +100,13 @@ class SortingRobot:
         Turn on the robot's light
         """
         self._light = "ON"
+
     def set_light_off(self):
         """
         Turn off the robot's light
         """
         self._light = "OFF"
+
     def light_is_on(self):
         """
         Returns True if the robot's light is on and False otherwise.
@@ -100,8 +117,7 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        pass 
 
 
 if __name__ == "__main__":
@@ -114,5 +130,3 @@ if __name__ == "__main__":
 
     robot.sort()
     print(robot._list)
-
-
