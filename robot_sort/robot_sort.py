@@ -27,7 +27,6 @@ class SortingRobot:
         """
         If the robot can move to the right, it moves to the right and
         returns True. Otherwise, it stays in place and returns False.
-
         This will increment the time counter by 1.
         """
         self._time += 1
@@ -41,7 +40,6 @@ class SortingRobot:
         """
         If the robot can move to the left, it moves to the left and
         returns True. Otherwise, it stays in place and returns False.
-
         This will increment the time counter by 1.
         """
         self._time += 1
@@ -51,26 +49,10 @@ class SortingRobot:
         else:
             return False
 
-    def pickup_item(self):
-        """
-        The robot picks up the item at its current position if it isn't holding one already.
-        If it is holding one already, it swaps the item it's currently holding with the 
-        item in front of it. 
-
-        This will increment the time counter by 1.
-        """
-        if not self._item:
-            self._time += 1
-            self._item = self._list[self._position]
-            self._list[self._position] = None
-        else:
-            self.swap_item()
-
     def swap_item(self):
         """
         The robot swaps its currently held item with the list item in front
         of it.
-
         This will increment the time counter by 1.
         """
         self._time += 1
@@ -80,7 +62,6 @@ class SortingRobot:
     def compare_item(self):
         """
         Compare the held item with the item in front of the robot:
-
         If the held item's value is greater, return 1.
         If the held item's value is less, return -1.
         If the held item's value is equal, return 0.
@@ -100,13 +81,11 @@ class SortingRobot:
         Turn on the robot's light
         """
         self._light = "ON"
-
     def set_light_off(self):
         """
         Turn off the robot's light
         """
         self._light = "OFF"
-
     def light_is_on(self):
         """
         Returns True if the robot's light is on and False otherwise.
@@ -117,7 +96,8 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        pass 
+        # Fill this out
+        pass
 
 
 if __name__ == "__main__":

@@ -24,8 +24,9 @@ This Sprint Challenge is split into two separate parts that test your ability to
 
 ### 1. Short Answer Questions (30 points)
 
-For this portion of the sprint challenge, you'll be answering questions posed in the `Algorithms_Questions.md` document inside the `Self-Study` directory. Write down your answer and also write down a justification for _why_ you put down that
-answer. This could net you some partial credit if your justification is sound but the answer you put down turns out to not be correct. Add your answers to the questions in the `Algorithms_Answers.md` file.
+ > It is recommended that you spend no more than 1 hour on this portion of the Sprint Challenge.
+
+For this portion of the Sprint Challenge, you'll be answering questions posed in the `Algorithms_Questions.md` document inside the `Short-Answer` directory. Write down your answer and also write down a justification for _why_ you put down that answer. This could net you some partial credit if your justification is sound but the answer you put down turns out to not be correct. Add your answers to the questions in the `Algorithms_Answers.md` file.
 
 ### 2. Implement Robot Sort (60 points)
 
