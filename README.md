@@ -69,7 +69,7 @@ Your task is to program this robot to sort lists using ONLY these abilities.
 
 #### Rules
 
-Inside the `task1` directory you'll find the `robot_sort.py` file. Open it
+Inside the `robot_sort` directory you'll find the `robot_sort.py` file. Open it
 up and read through each of the robot's abilities. Once you've understood
 those, start filling out the `sort()` method following these rules:
 

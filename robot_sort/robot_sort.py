@@ -96,40 +96,70 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+
     def sort(self):
         """
         Sort the robot's list.
         """
-        # can_move_right
-        # can_move_left
-        # move_right
-        # move_left
-        # swap_item
-        # compare_item
-        # set_light_on
-        # set_light_off
-        # light_is_on
 
-        # for item in listofItems:
-        # if cml=False:
-            # if cmr = True:
-                # mr
-                # compare item
-                    # if left > right, swap
-                    # else move to next index/item
-            # else cmr = False:
-                # start over at beginning of array
-        
-        for i in l:
-            while self.can_move_left() == False:
-                if self.can_move_right() == True:
-                    if i > l[i + 1]:
-                        print(f"if2", i, i[self.move_right])
-                        self.move_right()
-                        self.swap_item()
-                        
-        return i
+        print(f"before while", self.light_is_on()) # False
+        print(f"holding", self._item)
+        # remember robot light starts off
+        while self.light_is_on() is False:  # as long as light is off
+            print("while 1 light on?", self.light_is_on())
+            self.set_light_on() # flip light on, then
+            
+            while self.can_move_right(): # while can move right, do these executions
+                print(f"while 2", self.can_move_right())
+                self.swap_item()
+                self.move_right()
+                print(f"is light on?", self.light_is_on())
 
+                if self.compare_item() == 1: # if robot number greater, do this
+                    print(f"if > holding: ", self._item)
+                    self.swap_item()
+                    print(f"if > swap 1: ", self._item)
+                    self.move_left()
+                    self.swap_item()
+                    print(f"if > swap 2: ", self._item)
+                    self.move_right()
+
+                    self.set_light_off() # flip the light off
+                    # light will stay off as long as in while2
+                    # in its final pass, there should NOT be any greater than numbers on the left.
+                    # we continue iterating through while2, the while2 else and back to the while1, where the light flips on.
+                    # because there are no longer any nums greater than on the left, the light is not flipped off.
+                    # it makes its way to while2/if, doesn't execute because light is on == True
+                    # goes to while1, doesn't execute because lightison == True, not False, which ends while1
+            
+                if self.compare_item() == -1 or 0: # if robot number less than, do this 
+                    print(f"if < holding: ", self._item)
+                    self.move_left()
+                    self.swap_item()
+                    print(f"if < swap: ", self._item)
+                    self.move_right()
+
+                if self.compare_item() == 0: # if robot number the same, do this
+                    print(f"if same holding: ", self._item)
+                    self.move_left()
+                    self.swap_item()
+                    print(f"if same swap: ", self._item)
+                    self.move_right()
+            
+            # moves robot back back to the beginning of array
+            # the if loop checks if the light is off, if it is then
+            # while there is space to move left
+            # move left.
+            # 
+            # this if statement works with the inner while loop (while2).
+            # while2 is checking cmr. As long as cmr, do this (the swaps, the inner ifs)
+            # this IF is while2's else. When this else executes, the inner while stops, moves to while1
+            # is the lightoff? then start while1 again.
+            if self.light_is_on() is False: # if the light is off/set to false
+                while self.can_move_left(): #as long as there is space to move left, then:
+                    self.move_left() # move_left / position-1
+            
+                
 
 
 
@@ -137,7 +167,7 @@ if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
-    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 6, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
 
     robot = SortingRobot(l)
 
