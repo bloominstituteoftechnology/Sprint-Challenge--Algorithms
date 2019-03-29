@@ -96,8 +96,40 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        #assumes robot starts with empty hands
+        #assumes starts at position 0
+
+        #begin sort
+        #pick up item
+        self.swap_item()
+
+        #main sort loop
+        while(True==True):
+            self.set_light_off()
+            while(self.can_move_right()==True):
+                self.move_right()
+                #if item in front of robot < what robot is holding
+                print(self._item)
+                if(self.compare_item()==1):
+                    #swap
+                    self.swap_item()
+                    self.set_light_on()
+                #regardless go back to previous (empty) position and place object
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+                self.swap_item()
+            #put last item down
+            self.swap_item()
+            #if no swaps were made, we are done
+            if(self.light_is_on()==False):
+                break
+            #if not, go all the way back to 0
+            while(self.can_move_left()):
+                self.move_left()
+            #pick up 1st item
+            self.swap_item()
+
 
 
 if __name__ == "__main__":
@@ -105,7 +137,6 @@ if __name__ == "__main__":
     # with `python robot_sort.py`
 
     l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
-
     robot = SortingRobot(l)
 
     robot.sort()
