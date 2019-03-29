@@ -109,7 +109,6 @@ class SortingRobot:
             while(self.can_move_right()==True):
                 self.move_right()
                 #if item in front of robot < what robot is holding
-                print(self._item)
                 if(self.compare_item()==1):
                     #swap
                     self.swap_item()
