@@ -118,7 +118,7 @@ class SortingRobot:
                 self.swap_item()
                 self.move_right()
                 self.swap_item()
-            #put last item down
+            #put last item down it
             self.swap_item()
             #if no swaps were made, we are done
             if(self.light_is_on()==False):
