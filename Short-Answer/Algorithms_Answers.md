@@ -1,1 +1,11 @@
 Add your answers to the Algorithms exercises here.
+
+a) O(n).
+    this is because the loop is dependent on the value of n. As the number of n grows we will have n operations within the loop.
+b) O(n^4).
+    this is because within the complexity is the length of the loop times the complexity of whatever happens within the loop. O(n) * O(n) * 0(n) * O(n)
+c) 0(2^n).
+    this is because this is a recursive algorithm that is solving a problem of size n by recursively solving a smaller problem of size n-1 
+d)
+    we ill have a base case of whether the egg breaks to return a set value. then we can go to the middle floor and check if the egg breaks from that floor... if the egg doesnt back we can keep moving up until the egg breaks but if the egg does break we move down until we find the floor that the egg doesnt break from.
+    0(2^n)
