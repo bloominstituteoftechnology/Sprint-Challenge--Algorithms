@@ -98,21 +98,47 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        for i in range(0, len(self._list)-1): 
-            # self._item = self._list[i]
-            # print(f'self.item: {self._item}')
-            self._position = i
-            for j in range(i, len(self._list)): 
-                print(f'self._position: {self._position}')
-                # print(f'self.compare_item(): {self.compare_item()}')
-                # print(f'self._list[self._position]: {self._list[self._position]}')
-                print(f'self._list[j]: {self._list[j]}')
-                print(f'self._list[self._position]: {self._list[self._position]}')
-                if self._list[j] < self._list[self._position]: 
-                    self._position = j
-                    print(f'self._position2: {self._position}')
-            self._list[i], self._list[self._position] = self._list[self._position] ,self._list[i] 
-            print(f'self._list: {self._list}')
+        # for i in range(0, len(self._list)-1): 
+        #     # self._item = self._list[i]
+        #     # print(f'self.item: {self._item}')
+        #     self._position = i
+        #     for j in range(i, len(self._list)): 
+        #         print(f'self._position: {self._position}')
+        #         # print(f'self.compare_item(): {self.compare_item()}')
+        #         # print(f'self._list[self._position]: {self._list[self._position]}')
+        #         print(f'self._list[j]: {self._list[j]}')
+        #         print(f'self._list[self._position]: {self._list[self._position]}')
+        #         if self._list[j] < self._list[self._position]: 
+        #             self._position = j
+        #             print(f'self._position2: {self._position}')
+        #     self._list[i], self._list[self._position] = self._list[self._position] ,self._list[i] 
+        #     print(f'self._list: {self._list}')
+        # return self._list
+
+        while self.light_is_on() == False:  
+            self.set_light_on()
+
+            # print("first while")
+            # for i in range(1, len(self._list)):  
+            #     if self._list[i - 1] > self._list[i]:  
+            #         self._list[i], self._list[i-1] = self._list[i-1] ,self._list[i]
+
+            if self.can_move_right() == False:
+                while self.can_move_left() == True:
+                    self.move_left()
+            while self.can_move_right() == True:
+                self.move_right()
+                # print(f'self.compare_item: {self.compare_item()}')
+                # if self.compare_item() == None:
+                #     self._item = self._list[0]
+                # if self.compare_item() == 1:
+                #     self.swap_item()
+                    # self._list[self._position], self._list[self._position - 1] = self._list[self._position - 1] ,self._list[self._position]
+
+                if self._list[self._position - 1] > self._list[self._position]: 
+                    self._list[self._position], self._list[self._position - 1] = self._list[self._position - 1] ,self._list[self._position]
+
+                    self.set_light_off()
         return self._list
 
 if __name__ == "__main__":
