@@ -124,6 +124,7 @@ class SortingRobot:
                 self.move_left()
                 print(self._position)
             self.set_light_on()
+    
 
 
 
