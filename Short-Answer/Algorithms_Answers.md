@@ -8,12 +8,11 @@ a = a + n \* n
       n=3 Will run three times
       0(n)
 
-
 b) There are 4 nested loops 0(n^4)
 
 c) O(N) as it is a recursive function
 
-I would apprach this problem in a similar way to finding a word in a dictionary, that is to use a recursive algorithim to half the number of floors until the correct floor is found.
+I would apprach this problem in a similar way to finding a word in a dictionary, that is to use a recursive algorithim (binary serach) to half the number of floors until the correct floor is found.
 
 For an n story building, in order to found floor f, I would drop the egg off of floor n/2
 
