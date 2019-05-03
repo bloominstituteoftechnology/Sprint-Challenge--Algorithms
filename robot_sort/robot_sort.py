@@ -115,11 +115,15 @@ class SortingRobot:
             # Once you come to the end of the list turn the light off
             if self.can_move_right() == False:
                 self.move_left()
-                
-                if self.can_move_left() == False:
-                    self.set_light_off()
+                self.set_light_off()
             if self.can_move_left() == False:
                 self.set_light_on()
+        print(self.light_is_on())
+        if self.light_is_on() == False:
+            while self.can_move_left():
+                self.move_left()
+                print(self._position)
+            self.set_light_on()
 
 
 
