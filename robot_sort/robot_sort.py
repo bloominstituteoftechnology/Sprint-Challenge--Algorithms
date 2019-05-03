@@ -99,24 +99,27 @@ class SortingRobot:
         Sort the robot's list.
         """
         for i in range(0, len(self._list)-1): 
-            self._item = self._list[i]
+            # self._item = self._list[i]
             # print(f'self.item: {self._item}')
+            self._position = i
             for j in range(i, len(self._list)): 
                 print(f'self._position: {self._position}')
                 # print(f'self.compare_item(): {self.compare_item()}')
                 # print(f'self._list[self._position]: {self._list[self._position]}')
-                print(f'self._item: {self._item}')
+                print(f'self._list[j]: {self._list[j]}')
+                print(f'self._list[self._position]: {self._list[self._position]}')
                 if self._list[j] < self._list[self._position]: 
                     self._position = j
                     print(f'self._position2: {self._position}')
             self._list[i], self._list[self._position] = self._list[self._position] ,self._list[i] 
-            print("inner loop stop")
+            print(f'self._list: {self._list}')
+        return self._list
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
-    l = [15, 6, 2, 41, 6, 58]
+    l = [5, 4, 3, 2, 1]
 
     robot = SortingRobot(l)
 
