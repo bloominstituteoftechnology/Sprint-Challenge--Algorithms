@@ -98,54 +98,32 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # for i in range(0, len(self._list)-1): 
-        #     # self._item = self._list[i]
-        #     # print(f'self.item: {self._item}')
-        #     self._position = i
-        #     for j in range(i, len(self._list)): 
-        #         print(f'self._position: {self._position}')
-        #         # print(f'self.compare_item(): {self.compare_item()}')
-        #         # print(f'self._list[self._position]: {self._list[self._position]}')
-        #         print(f'self._list[j]: {self._list[j]}')
-        #         print(f'self._list[self._position]: {self._list[self._position]}')
-        #         if self._list[j] < self._list[self._position]: 
-        #             self._position = j
-        #             print(f'self._position2: {self._position}')
-        #     self._list[i], self._list[self._position] = self._list[self._position] ,self._list[i] 
-        #     print(f'self._list: {self._list}')
-        # return self._list
-
         while self.light_is_on() == False:  
             self.set_light_on()
-
-            # print("first while")
-            # for i in range(1, len(self._list)):  
-            #     if self._list[i - 1] > self._list[i]:  
-            #         self._list[i], self._list[i-1] = self._list[i-1] ,self._list[i]
-
             if self.can_move_right() == False:
                 while self.can_move_left() == True:
                     self.move_left()
             while self.can_move_right() == True:
-                self.move_right()
-                # print(f'self.compare_item: {self.compare_item()}')
-                # if self.compare_item() == None:
-                #     self._item = self._list[0]
-                # if self.compare_item() == 1:
-                #     self.swap_item()
-                    # self._list[self._position], self._list[self._position - 1] = self._list[self._position - 1] ,self._list[self._position]
-
-                if self._list[self._position - 1] > self._list[self._position]: 
-                    self._list[self._position], self._list[self._position - 1] = self._list[self._position - 1] ,self._list[self._position]
-
-                    self.set_light_off()
+                if self.compare_item() == None:
+                    self.swap_item()
+                    self.move_right()
+                    if self.compare_item() == 1:
+                        self.swap_item()
+                        self.move_left()
+                        self.swap_item()
+                        self.move_right()
+                        self.set_light_off()
+                    elif self.compare_item() == -1 or self.compare_item() == 0:
+                        self.move_left()
+                        self.swap_item()
+                        self.move_right()
         return self._list
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
-    l = [5, 4, 3, 2, 1]
+    l = [1, -38, -95, 4, 23, -73, -65, -36, 85, 2, 58, -26, -55, 96, 55, -76, 64, 45, 69, 36, 69, 47, 29, -47, 13, 89, -57, -88, -87, 54, 60, 56, -98, -78, 59, 93, -41, -74, 73, -35, -23, -79, -35, 46, -18, -18, 37, -64, 14, -57, -2, 15, -85, 45, -73, -2, 79, -87, -100, 21, -51, 22, 26, -59, 81, 59, -24, 24, -81, 43, 61, 52, 38, -88, -95, 87, -57, -37, -65, -47, -3, 21, -77, 98, 25, 1, -36, 39, 78, 47, -35, -40, -69, -81, 11, -47, 21, 25, -53, -31]
 
     robot = SortingRobot(l)
 
