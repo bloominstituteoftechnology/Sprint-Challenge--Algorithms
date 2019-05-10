@@ -96,8 +96,83 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # set the light on to get into the first loop
+        self.set_light_on()
+
+        # this will loop until the robot has traversed
+        # the array and has not turned its light on,
+        # meaning that it hasn't found any items that
+        # are out of order and, thus, the array is sorted
+        while self.light_is_on():
+            self.set_light_off()
+            # pick up the first item in the list
+            if self.compare_item() == -1:
+                self.swap_item()
+
+            # move left until the robot can't move left anymore
+            # compare the item the robot is holding
+            # if the item in the list is greater than the item the
+            # robot is holding, swap the items and turn the robot's light
+            # into the on position
+            while self.can_move_right():
+                self.move_right()
+                if self.compare_item() == None:
+                    self.swap_item()
+                elif self.compare_item() == -1:
+                    if self.can_move_left:
+                        self.move_left()
+                        if self.compare_item() == None:
+                            self.swap_item()
+                            self.move_right()
+                        else:
+                            self.move_right()
+                            self.swap_item()
+                            if not self.light_is_on():
+                                self.set_light_on()
+                else:
+                    continue
+                    
+            # when the robot cannot move right anymore, it
+            # is at the end of the list
+            # on the first pass it will hold the largest value of 
+            # the list at the last position
+            # so it will need to do one last swap with the value 
+            # currently in the last position
+            # on subsequent passes the largest value will always be
+            # in the last position so the code below will always fail
+            if self.compare_item() == 1:
+                self.swap_item()
+                self.move_left()
+            elif self.swap_item() == None:
+                self.swap_item()
+                self.move_left()
+            
+            # now the robot has to traverse back to the first position
+            # it will also have to "drop" the item that it is currently
+            # holding in the first empty position it finds.
+            # move left until the robot can't move left anymore
+            # the first empty spot the robot sees, drop the 
+            # item it was holding.
+            while self.can_move_left():
+                if self.compare_item() == None:
+                    self.swap_item()
+                elif self.compare_item() == 1:
+                    self.move_right()
+                    if self.compare_item() == None:
+                        self.swap_item()
+                        self.move_left()
+                        if self.can_move_left():
+                            self.move_left()
+                        else:
+                            self.swap_item()
+                    else:
+                        self.move_left()
+                        self.swap_item()
+                self.move_left()
+            
+            # finally, if the robot has reached the beginning of the 
+            # list, then swap
+            self.swap_item()
 
 
 if __name__ == "__main__":
