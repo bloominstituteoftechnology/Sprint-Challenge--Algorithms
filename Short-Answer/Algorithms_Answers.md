@@ -44,7 +44,7 @@ Each for loop (except the last) is a key operation that itself scales at O(n). T
 
 Interestingly, the last for loop is actually just an O(1) operation. Why? Well, the range for l is `range(k+1, 10 + k)`, i.e., it does not depend on n. In fact, we know that this for loop with will only ever loop 9 times, for all values of n.
 
-(c) O(2^n)
+(c) O(n)
 ``` python
 def bunnyEars(bunnies):
     if bunnies == 0:
@@ -52,7 +52,9 @@ def bunnyEars(bunnies):
 
     return 2 + bunnyEars(bunnies-1)
 ```
-This scales at O(2^n) because the key operation.
+This scales at O(n) because the key operation.
+
+
 
 ## Exercise II
 
