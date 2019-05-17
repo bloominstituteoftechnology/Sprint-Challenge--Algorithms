@@ -14,26 +14,36 @@ class Test(unittest.TestCase):
     def test_sorting_small_list(self):
         robot = SortingRobot(self.small_list)
         robot.sort()
+        print(robot.sort())
+        print(sorted(self.small_list))
         self.assertEqual(robot._list, sorted(self.small_list))
 
     def test_sorting_medium_list(self):
         robot = SortingRobot(self.medium_list)
         robot.sort()
+        print(robot.sort())
+        print(sorted(self.medium_list))
         self.assertEqual(robot._list, sorted(self.medium_list))
 
     def test_sorting_large_list(self):
         robot = SortingRobot(self.large_list)
         robot.sort()
+        print(robot.sort())
+        print(sorted(self.large_list))
         self.assertEqual(robot._list, sorted(self.large_list))
 
     def test_sorting_large_varied_list(self):
         robot = SortingRobot(self.large_varied_list)
         robot.sort()
+        print(robot.sort())
+        print(sorted(self.large_varied_list))
         self.assertEqual(robot._list, sorted(self.large_varied_list))
 
     def test_sorting_random_list(self):
         robot = SortingRobot(self.random_list)
         robot.sort()
+        print(robot.sort())
+        print(sorted(self.random_list))
         self.assertEqual(robot._list, sorted(self.random_list))
 
     # def test_stretch_times(self):
