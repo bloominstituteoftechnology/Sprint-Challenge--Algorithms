@@ -1,5 +1,7 @@
 Add your answers to the Algorithms exercises here.
 
+a) O(n)
 
+b) O(n^3)
 
-b) O(n * (n-1) * (n-2) * 10)  -> O(n^3)
+c) O(n)
