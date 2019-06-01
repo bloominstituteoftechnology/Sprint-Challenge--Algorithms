@@ -96,7 +96,14 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
+        for x in range(len(self._list)-1, 0, -1):
+            for i in range(x):
+                if self._list[i] > self._list[i+1]:
+                    self._position = i
+                    self._item = self._list[i]
+                    self.move_right()
+                    self.swap_item()
+                    self.move_left()
         pass
 
 
