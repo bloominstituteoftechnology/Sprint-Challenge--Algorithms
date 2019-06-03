@@ -110,9 +110,7 @@ class SortingRobot:
                 if SortingRobot.compare_item(self) == 1:
                     SortingRobot.swap_item(self)
                 if SortingRobot.can_move_left(self) == False:
-                    SortingRobot.swap_item(self)
-            if SortingRobot.swap_item(self) == None:
-                pass
+                    SortingRobot.swap_item(self)    
             print(self._list)
 
 
