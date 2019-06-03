@@ -96,7 +96,25 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
+        #turn light on
+        self.set_light_on()
+        #start loop- while on. lopp cont while off
+            #turn light off
+            #while able to move right
+                #swap held with floor and move right
+                #if held > floor move right
+                    #swap 
+                    #move left
+                    #swap
+                    #move right
+                    #turn light on
+                #else
+                    #move left
+                    #swap
+                    #move right
+            # while light is off
+                #while robot can move left
+                    #move left
         pass
 
 
