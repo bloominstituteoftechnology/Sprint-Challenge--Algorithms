@@ -96,22 +96,26 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        while SortingRobot.light_is_on(self) == False:
-            if SortingRobot.compare_item(self) == None:
-                SortingRobot.swap_item(self)
-            while SortingRobot.can_move_right(self) == True:
+        
+        SortingRobot.set_light_on(self)
+        while SortingRobot.light_is_on(self):
+            SortingRobot.set_light_off(self)
+            SortingRobot.swap_item(self)
+            while SortingRobot.can_move_right(self):
                 SortingRobot.move_right(self)
-                if SortingRobot.compare_item(self) == -1:
-                    SortingRobot.swap_item(self)#this will select highest number
-                if SortingRobot.can_move_right(self) == False:
-                    SortingRobot.swap_item(self)
-            while SortingRobot.can_move_left(self) == True:
-                SortingRobot.move_left(self)
                 if SortingRobot.compare_item(self) == 1:
                     SortingRobot.swap_item(self)
-                if SortingRobot.can_move_left(self) == False:
-                    SortingRobot.swap_item(self)    
-            print(self._list)
+                    SortingRobot.set_light_on(self)
+            while SortingRobot.can_move_left(self):
+                SortingRobot.swap_item(self)
+                SortingRobot.move_left(self)
+                if SortingRobot.compare_item(self) == -1:
+                    SortingRobot.swap_item(self)
+                    SortingRobot.set_light_on(self)
+                SortingRobot.move_right(self)
+                SortingRobot.swap_item(self)
+                SortingRobot.move_left(self)
+
 
 
 if __name__ == "__main__":
