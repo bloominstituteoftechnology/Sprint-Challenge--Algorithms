@@ -11,4 +11,4 @@ Exercise II
 function minimizeNumberOfDroppedEggs(n, f):
     return f
 
-This function is of O(1) time complexity.
+This function is of O(1) time complexity. Returning the floor at which eggs are thrown instead of dropped minimizes the number of dropped eggs to 0.
