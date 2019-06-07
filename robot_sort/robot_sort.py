@@ -94,124 +94,105 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+
     def sort(self):
         """
         Sort the robot's list.
         """
+        # loop = 0
         # Fill this out
-        while self.move_left():
-            pass
+        # while self.move_left():
+        #     pass
         self.set_light_on()
         while self.light_is_on():
             # print('while self.light')
             self.set_light_off()
-            while self.move_left():
-                pass
-     
-            while True:
-                self.swap_item()  # 0 is None, _item = @0                   
-                if self.move_right() == False:
-                    # print('inner loop can\'t more right', self._position, len(self._list), self._list[self._position], self._list, self._item)
-                    self.swap_item() 
-                    break
+            # while self.move_left():
+            #     pass
 
-                # print('comparing',self._item, self._list[self._position])
-                if self.compare_item() == 1:
-                    self.move_left()
-                    self.swap_item()
-                    # print('greater None item?', self._item)
-                    self.swap_item() # 0 to None, item to @0
-                    self.move_right()
-                    # print('before swap',self._position, self._list[self._position], self._item)
-                    self.swap_item() # @1 gets @0, _item = @1
-                    self.move_left() # back to 0
-                    self.swap_item() # @0 gets @1, item is None
-                    # print('after swap',self._position, self._list[self._position], self._item)                    
-                    self.set_light_on()
-                    if self.can_move_right():
+            if self.can_move_right() == False:
+                # print('backwards initial list', self._list)
+                # print('going backwards')
+                while True:
+                    # loop += 1
+                    # if loop > 200:
+                    #     print('loop exit')
+                    #     self.set_light_off()
+                    #     break
+                    self.swap_item()  # 0 is None, _item = @0                   
+                    if self.move_left() == False:
+                        # print('inner loop can\'t more left', self._position, len(self._list), self._list[self._position], self._list, self._item, 'loop:', loop)
+                        if self._item is not None:
+                            self.swap_item() 
+                        break
+
+                    # print('comparing',self._item, self._list[self._position],self._list, 'loop', loop)
+                    if self.compare_item() == -1:
                         self.move_right()
+                        self.swap_item()
+                        # print('greater None item?', self._item)
+                        self.swap_item() # 0 to None, item to @0
+                        self.move_left()
+                        # print('before swap',self._position, self._list[self._position], self._item)
+                        self.swap_item() # @1 gets @0, _item = @1
+                        self.move_right() # back to 0
+                        self.swap_item() # @0 gets @1, item is None
+                        # print('after swap',self._position, self._list[self._position], self._item)                    
+                        self.set_light_on()
+                        if self.can_move_left():
+                            self.move_left()
+                        else:
+                            # print('greater breaking for can\'t more left', self._position )
+                            break
                     else:
+                        self.move_right()
+                        self.swap_item()
+                        # print('not greater None item?', self._item)
+                        self.move_left()                    
+                        # print('nums + 1 not greater',self._position, self._list[self._position], self._item)
+                        if self.can_move_left() == False:
+                            # print('not greater breaking for can\'t more left', self._position )
+                            break
+            else:
+                while True:
+                    self.swap_item()  # 0 is None, _item = @0                   
+                    if self.move_right() == False:
+                        # print('inner loop can\'t more right', self._position, len(self._list), self._list[self._position], self._list, self._item)
+                        if self._item is not None:                        
+                            self.swap_item() 
                         break
-                else:
-                    self.move_left()
-                    self.swap_item()
-                    # print('not greater None item?', self._item)
-                    self.move_right()                    
-                    # print('nums + 1 not greater',self._position, self._list[self._position], self._item)
-                    if self.can_move_right() == False:
-                        # print('breaking for can\'t more right', self._position )
-                        break
+
+                    # print('comparing',self._item, self._list[self._position])
+                    if self.compare_item() == 1:
+                        self.move_left()
+                        self.swap_item()
+                        # print('greater None item?', self._item)
+                        self.swap_item() # 0 to None, item to @0
+                        self.move_right()
+                        # print('before swap',self._position, self._list[self._position], self._item)
+                        self.swap_item() # @1 gets @0, _item = @1
+                        self.move_left() # back to 0
+                        self.swap_item() # @0 gets @1, item is None
+                        # print('after swap',self._position, self._list[self._position], self._item)                    
+                        self.set_light_on()
+                        if self.can_move_right():
+                            self.move_right()
+                        else:
+                            break
+                    else:
+                        self.move_left()
+                        self.swap_item()
+                        # print('not greater None item?', self._item)
+                        self.move_right()                    
+                        # print('nums + 1 not greater',self._position, self._list[self._position], self._item)
+                        if self.can_move_right() == False:
+                            # print('breaking for can\'t more right', self._position )
+                            break
         # while self.move_right():
         #     pass
         # print('before end swap', self._position, self._list[self._position], self._item)
-        if self._item is not None:
-            self.swap_item()
-        # else:
-        #     print('skip end swap, null item')
-        # print('after end swap', self._position, self._list[self._position], self._item)
-        # if self._item is None:
-        #     print('correct last setitem')
-        # else:
-        #     print('wrong last setitem',self._position, self._item)
-        # print('last position', self._position, self._list[self._position], self._item)
-
-
-
-
-
-
-        # self.move_right()
-        # self.swap_item()  # second from left now is None; _item == second from left
-        # print(self._list[1], self._item)
-        # while self.move_right():
-        #     if self.compare_item() == -1:
-        #         print('moving right',self._position, self._list[self._position], self._item)
-        #         # self.move_right()
-        #         print(self._position)
-        #         self.swap_item()
-        #         print('moving right after swap',self._position, self._list[self._position], self._item)
-        #     else:
-        #         self.move_left()
-        #         print('backing up before swap',self._position, self._list[self._position], self._item)
-        #         self.swap_item()  # 3 from left = 2 from left; item = 3 from left
-        #         print('backing up', self._position, self._list[self._position],self._list[self._position+1], self._item)
-        #         # self.move_left()
-        #         self.swap_item()  # 2 from left = 3 from left; _item == None 
-
-        # while(self.move_left())
-        # self.swap_item() # first left has None; _iten == first_left
-
-        # self.move_right()
-        # self.swap_item()  # 1st right has None _item == 1st right
-        # if self.compare_item() == 1:
-        #     self.swap_item() # previous 1st right is in < postion; _item == < item
-
-        # while(self.move_left())
-        # self.move_right()
-        # self.swap_item()  # pivot - low   1st right == < item; _item == None
-        # self.move_left() # on pivot
-        # self.swap_item()  # pivot position == None; _item == pivot
-        # self.move_right() # on 1st right
-        # self.swap_item()  # pivot goes to 1st right
-        # self.move_left()
-        # self.swap_item() # < item goes to first left _item == None
-        # while(self.move_left()):
-        #     pass
-        # self.swap_item() # last left position is None; _item = last left
-
-        # while self.move_right():
-        #     if self.compare_item() == -1:
-        #         self.swap_item()
-        #         if self.move_right == False:
-        #             self.swap_item() # put the largest back
-        #         while(self.move_left()) # suppress the next swap
-        # if self.move_left():
-        #     self.move_right()
-        #     self.swap_item() # last right has largest; _item == previous last right
-        # while(self.move_left()):
-
-
-
+            if self._item is not None:
+                self.swap_item()
 
 
 
