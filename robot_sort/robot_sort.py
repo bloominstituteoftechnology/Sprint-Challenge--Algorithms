@@ -101,25 +101,60 @@ class SortingRobot:
         # Fill this out
         while self.move_left():
             pass
-
         self.set_light_on()
-        while self.light_is_on()
+        while self.light_is_on():
+            # print('while self.light')
             self.set_light_off()
+            while self.move_left():
+                pass
+     
             while True:
-                self.swap_item()  # 0 is None, _item = @0
-                self.move_right()
+                self.swap_item()  # 0 is None, _item = @0                   
+                if self.move_right() == False:
+                    # print('inner loop can\'t more right', self._position, len(self._list), self._list[self._position], self._list, self._item)
+                    self.swap_item() 
+                    break
+
+                # print('comparing',self._item, self._list[self._position])
                 if self.compare_item() == 1:
+                    self.move_left()
+                    self.swap_item()
+                    # print('greater None item?', self._item)
+                    self.swap_item() # 0 to None, item to @0
+                    self.move_right()
+                    # print('before swap',self._position, self._list[self._position], self._item)
                     self.swap_item() # @1 gets @0, _item = @1
-                    self.move_left() # bacj to 0
+                    self.move_left() # back to 0
                     self.swap_item() # @0 gets @1, item is None
+                    # print('after swap',self._position, self._list[self._position], self._item)                    
                     self.set_light_on()
-                    if self.can_move_right()
+                    if self.can_move_right():
                         self.move_right()
                     else:
                         break
                 else:
+                    self.move_left()
+                    self.swap_item()
+                    # print('not greater None item?', self._item)
+                    self.move_right()                    
+                    # print('nums + 1 not greater',self._position, self._list[self._position], self._item)
                     if self.can_move_right() == False:
+                        # print('breaking for can\'t more right', self._position )
                         break
+        # while self.move_right():
+        #     pass
+        # print('before end swap', self._position, self._list[self._position], self._item)
+        if self._item is not None:
+            self.swap_item()
+        # else:
+        #     print('skip end swap, null item')
+        # print('after end swap', self._position, self._list[self._position], self._item)
+        # if self._item is None:
+        #     print('correct last setitem')
+        # else:
+        #     print('wrong last setitem',self._position, self._item)
+        # print('last position', self._position, self._list[self._position], self._item)
+
 
 
 
@@ -187,7 +222,7 @@ if __name__ == "__main__":
     l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1,
         45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
 
-    l = [15, 41, 58, 49]
+    # l = [41,15, 58, 49, 4, 28, 8, 61, 60, 21]
 
     robot = SortingRobot(l)
 
