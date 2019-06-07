@@ -96,25 +96,34 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Light on once the robot begins to sort
-
+        # Initially swaps None in hand
+        # for first item in list
+        self.set_light_on()
+        self.swap_item()
+        while self.light_is_on():
+            # Now will move right till the end checking each item
             while self.can_move_right():
                 self.move_right()
+                # if item in hand is greater then swap
                 if self.compare_item() == 1:
                     self.swap_item()
-                    self.set_light_on()
-
+            # Once it reaches end, will start moving left
+            # checking each till it finds a None
             while self.can_move_left():
-                self.swap_item()
                 self.move_left()
-                if self.compare_item() == -1:
+                # if item in hand is greater then swap
+                # and now lowest number should be None
+                if self.compare_item() == 1:
                     self.swap_item()
-                    self.set_light_on()
-                self.move_right()
-                self.swap_item()
-                self.move_left()
-        # Light off once the robot is done sorting
-        self.set_light_off()
+                    
+                # _ TODO __ TODO __ TODO ______________________________
+                # ->>> NEED SOMETHING HERE TO BREAK <<<-
+                # -> WHEN ALL HAVE BEEN SORTED AND ITEM IN HAND IS NONE <-
+
+            self.move_right()
+            self.swap_item()
+    # Light off once the robot is done sorting
+    # self.set_light_off()
 
 
 if __name__ == "__main__":
