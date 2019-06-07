@@ -59,6 +59,7 @@ class SortingRobot:
         # Swap the held item with the list item at the robot's position
         self._item, self._list[self._position] = self._list[self._position], self._item
 
+
     def compare_item(self):
         """
         Compare the held item with the item in front of the robot:
@@ -96,8 +97,23 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+
+        while self.can_move_right():
+            if self.compare_item() == -1 or self.compare_item() is None:
+                self.swap_item()
+                self.move_right()
+            else:
+                self.move_right()
+
+        while self.can_move_left():
+            if self.compare_item() == 1:
+                self.swap_item()
+                self.move_left()
+            else:
+                self.move_left()
+
+        if self._item is not None:
+            self.sort()
 
 
 if __name__ == "__main__":
