@@ -81,11 +81,13 @@ class SortingRobot:
         Turn on the robot's light
         """
         self._light = "ON"
+
     def set_light_off(self):
         """
         Turn off the robot's light
         """
         self._light = "OFF"
+
     def light_is_on(self):
         """
         Returns True if the robot's light is on and False otherwise.
@@ -97,14 +99,71 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        while self.move_left():
+            pass
+        self.move_right()
+        self.swap_item()  # second from left now is None; _item == second from left
+        print(self._list[1], self._item)
+        while self.move_right():
+            if self.compare_item() == -1:
+                print('moving right',self._position, self._list[self._position], self._item)
+                # self.move_right()
+                print(self._position)
+                self.swap_item()
+                print('moving right after swap',self._position, self._list[self._position], self._item)
+            else:
+                self.move_left()
+                print('backing up before swap',self._position, self._list[self._position], self._item)
+                self.swap_item()  # 3 from left = 2 from left; item = 3 from left
+                print('backing up', self._position, self._list[self._position],self._list[self._position+1], self._item)
+                # self.move_left()
+                self.swap_item()  # 2 from left = 3 from left; _item == None 
+
+        # while(self.move_left())
+        # self.swap_item() # first left has None; _iten == first_left
+
+        # self.move_right()
+        # self.swap_item()  # 1st right has None _item == 1st right
+        # if self.compare_item() == 1:
+        #     self.swap_item() # previous 1st right is in < postion; _item == < item
+
+        # while(self.move_left())
+        # self.move_right()
+        # self.swap_item()  # pivot - low   1st right == < item; _item == None
+        # self.move_left() # on pivot
+        # self.swap_item()  # pivot position == None; _item == pivot
+        # self.move_right() # on 1st right
+        # self.swap_item()  # pivot goes to 1st right
+        # self.move_left()
+        # self.swap_item() # < item goes to first left _item == None
+        # while(self.move_left()):
+        #     pass
+        # self.swap_item() # last left position is None; _item = last left
+
+        # while self.move_right():
+        #     if self.compare_item() == -1:
+        #         self.swap_item()
+        #         if self.move_right == False:
+        #             self.swap_item() # put the largest back
+        #         while(self.move_left()) # suppress the next swap
+        # if self.move_left():
+        #     self.move_right()
+        #     self.swap_item() # last right has largest; _item == previous last right
+        # while(self.move_left()):
+
+
+
+
 
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
-    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1,
+        45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+
+    l = [15, 41, 58, 49]
 
     robot = SortingRobot(l)
 
