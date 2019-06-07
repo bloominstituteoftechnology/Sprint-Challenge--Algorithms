@@ -37,3 +37,9 @@ c)  def bunnyEars(bunnies):
 Suppose that you have an _n_-story building and plenty of eggs. Suppose also that an egg gets broken if it is thrown off floor _f_ or higher, and doesn't get broken if dropped off a floor less than floor _f_. Devise a strategy to determine the value of _f_ such that the number of dropped eggs is minimized.
 
 Write out your proposed algorithm in plain English or pseudocode and give the runtime complexity of your solution.
+
+Starting from the floor 1 and going up drop the egg from each floor except the last.   The first time the egg breaks  _f_ == floor #. This process consumes 1 egg.
+If the egg never breaks on all floors tested and it is a fact that an egg is broken at some floor then _f_ == last floor.  This process consumes no eggs.
+
+This is an O(_n_/2) or O(n) runtime process.
+
