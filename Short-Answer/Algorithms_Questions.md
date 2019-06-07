@@ -42,3 +42,4 @@ Starting from the floor 1 and going up drop the egg from each floor except the l
 If the egg never breaks on all floors tested and it is a fact that an egg is broken at some floor then _f_ == last floor.  This process consumes no eggs.
 
 This is an O(_n_/2) or O(n) runtime process.
+

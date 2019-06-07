@@ -101,23 +101,47 @@ class SortingRobot:
         # Fill this out
         while self.move_left():
             pass
-        self.move_right()
-        self.swap_item()  # second from left now is None; _item == second from left
-        print(self._list[1], self._item)
-        while self.move_right():
-            if self.compare_item() == -1:
-                print('moving right',self._position, self._list[self._position], self._item)
-                # self.move_right()
-                print(self._position)
-                self.swap_item()
-                print('moving right after swap',self._position, self._list[self._position], self._item)
-            else:
-                self.move_left()
-                print('backing up before swap',self._position, self._list[self._position], self._item)
-                self.swap_item()  # 3 from left = 2 from left; item = 3 from left
-                print('backing up', self._position, self._list[self._position],self._list[self._position+1], self._item)
-                # self.move_left()
-                self.swap_item()  # 2 from left = 3 from left; _item == None 
+
+        self.set_light_on()
+        while self.light_is_on()
+            self.set_light_off()
+            while True:
+                self.swap_item()  # 0 is None, _item = @0
+                self.move_right()
+                if self.compare_item() == 1:
+                    self.swap_item() # @1 gets @0, _item = @1
+                    self.move_left() # bacj to 0
+                    self.swap_item() # @0 gets @1, item is None
+                    self.set_light_on()
+                    if self.can_move_right()
+                        self.move_right()
+                    else:
+                        break
+                else:
+                    if self.can_move_right() == False:
+                        break
+
+
+
+
+
+        # self.move_right()
+        # self.swap_item()  # second from left now is None; _item == second from left
+        # print(self._list[1], self._item)
+        # while self.move_right():
+        #     if self.compare_item() == -1:
+        #         print('moving right',self._position, self._list[self._position], self._item)
+        #         # self.move_right()
+        #         print(self._position)
+        #         self.swap_item()
+        #         print('moving right after swap',self._position, self._list[self._position], self._item)
+        #     else:
+        #         self.move_left()
+        #         print('backing up before swap',self._position, self._list[self._position], self._item)
+        #         self.swap_item()  # 3 from left = 2 from left; item = 3 from left
+        #         print('backing up', self._position, self._list[self._position],self._list[self._position+1], self._item)
+        #         # self.move_left()
+        #         self.swap_item()  # 2 from left = 3 from left; _item == None 
 
         # while(self.move_left())
         # self.swap_item() # first left has None; _iten == first_left
