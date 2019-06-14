@@ -35,4 +35,16 @@ c)
 
 Exercise II
 
+initialize boolean value of broken egg to false
+intialize counter variable to 0
 
+while "egg is unbroken" loop:
+    drop the egg
+
+    if egg breaks:
+        change boolean value to true 
+        log counter variable as being floor f
+    else:
+        repeat function with counter increased by 1
+
+The Big O of this should be O(n)        

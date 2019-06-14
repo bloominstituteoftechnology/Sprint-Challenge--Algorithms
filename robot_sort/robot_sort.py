@@ -97,25 +97,28 @@ class SortingRobot:
         Sort the robot's list.
 
         """
-        
-        
-        while self.can_move_right:
-            self.swap_item()
-            self.move_right()
-            #if held item is larger than current position item, swap items, move left, place item, move back right
-            if self.compare_item() == 1:
-                self.swap_item()
-                self.move_left()
+        self.set_light_on()
+        while self.light_is_on():
+            self.set_light_off()
+            while self.can_move_right():
                 self.swap_item()
                 self.move_right()
-            if self.compare_item() == -1 or self.compare_item() == 0:
-                self.move_left()
-                self.swap_item()
-                self.move_right()
-        pass
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    self.set_light_on()
+                else:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+            if self.light_is_on():
+                while self.can_move_left():
+                    self.move_left()
+        
         
 
-#
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
