@@ -96,18 +96,38 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        if self.compare_item() == None:
-            while self.can_move_right():
-                self.move_right()
+ 
+        while self.can_move_left():
+            self.move_left()
+            
+       
 
-            self.swap_item()   
-            while self.can_move_left():
+        if self.compare_item() == None:
+            if self.can_move_right():
+                
+                self.swap_item()
+                self.move_right()
+                self.swap_item()
+                self.sort()
+        
+        while self.compare_item() == 1:
+            if self.can_move_right():
+                self.move_right()
+        if self.compare_item() == -1:
+            self.swap_item()
+
+        elif self.compare_item() == 0:
+            while self.compare_item() == 0:
                 self.move_left()
-            self.sort()
-             
+            self.swap_item()
+
+        self.sort()
+
+
+
 
         
-        print(self._list)
+        
 
 
             
