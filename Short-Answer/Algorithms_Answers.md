@@ -12,3 +12,26 @@ We can ignore line 15 because we know the nested for loops will create a larger 
     c) 
 2)
 
+Pseudocode for problem:
+
+    def eggDropped(f)
+        if egg is broken:
+            return True
+        else :
+            return False
+
+    start = math.floor(len(n)/2)
+    if eggDropped(start):
+        for i in range(start, 0, -1):
+            if eggDropped(i) == False :
+                return i+1
+    else :
+        for i in range(start, len(n-1)):
+            if eggDropped(i) :
+                return i
+
+Runtime Complexity:
+
+O(n)
+
+The eggDropped function is O(1) and each for loop is O(n) so I believe my runtime complexity is O(n)
