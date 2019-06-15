@@ -97,6 +97,43 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
+        #Checks if items is none and if so swaps the item
+        if self.compare_item() == None:
+            self.swap_item()
+            print(self._item)
+            if self.can_move_right():
+                self.move_right()
+                self.swap_item()
+                self.move_left()
+                self.sort()
+
+            print(self._item)
+
+        elif self.compare_item() == 1 and self.can_move_right():
+            self.move_right()
+            self.sort()
+            print(self._item)
+        elif self.compare_item() == -1 and self.can_move_left():
+            self.move_left()
+            
+            self.sort()
+            print(self._item)
+        elif self.compare_item() == 0 and self.can_move_left():
+            self.move_left()
+            self.sort()
+        elif self.compare_item() == 0:
+            self.move_right()
+            self.sort()
+        else:
+            self.swap_item()
+            self.sort()
+            print(self._item)
+            
+
+            
+        
+        
+        
         pass
 
 
