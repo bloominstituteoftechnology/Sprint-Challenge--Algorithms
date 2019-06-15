@@ -98,24 +98,38 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # turn on light
+        # turn on the light to get into the first while loop
         self.set_light_on
-        # While light_is_on is equal to true run robot operations
-        # set_light_off after while loop is done
-        # create another while loop for while the robot can move right
-        # create another while loop for while the robot can move left
-        # if can_move_right while loop or can_move_left while loop return true, then robot can swap_item and then move_right or move_left
-        # compare the value of the item in front of the robot to the item that is held using compare_item method
-        # if the value of the item is equal to one while comparing the item to the right, then swap it
-        # if the value of the item is equal to -1 while comparing the item to the left, than swap it
-
+        #
         while self.light_is_on():
+            # turn off the light, if it stays off then the sorting is done
             self.set_light_off()
 
             while self.can_move_right():
-                pass
+                # pick up the item at current index and "move" to the right
+                self.swap_item()
+                self.move_right()
+                # if the value at this index is greater than the held item than swap and turn the light back on. The light indicates the robot has more operations to complete
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.set_light_on()
+                # Whether or not the if statement on line 113 evaluates to True, move to the left, swap the item, and then move right
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+
             while self.can_move_left():
-                pass
+                # pick up the item at current index and "move" to the left
+                self.swap_item()
+                self.move_left()
+                # if the value at this index is less than than the held item than swap and turn the light back on. The light indicates the robot has more operations to complete
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.set_light_on()
+                # # Whether or not the if statement on line 113 evaluates to True, move to the right, swap the item, and then move left
+                self.move_right()
+                self.swap_item()
+                self.move_left()
 
 
 if __name__ == "__main__":
