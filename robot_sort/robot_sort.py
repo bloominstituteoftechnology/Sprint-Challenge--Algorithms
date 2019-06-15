@@ -64,7 +64,7 @@ class SortingRobot:
         Compare the held item with the item in front of the robot:
         If the held item's value is greater, return 1.
         If the held item's value is less, return -1.
-        If the held item's value is equal, return 0.
+        If the held item's value is equal, return 0. 
         If either item is None, return None.
         """
         if self._item is None or self._list[self._position] is None:
@@ -96,8 +96,78 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
+        # should take in a list
+
+        # self.swap_item()
+
+        self.compare_item()
+        print(self.compare_item())
+        
+        # algo 
+        # turn on light, when light is on run
+        # when light is off the sorting is done
+        # 1. check if light is off if off set on 
+        # 2. while light is on do the comparison
+        # 3. call can move left. if you can start while iterator going from left to right on the array
+        # 4. start comparing
+        # 4a) if the held item is greater than the next n + 1 then swap them
+        # 4b) if the held item is the same move right
+        # 4c) if the held item is less than move right
+        # 4d) if you can not move right end and set light off 
+
+        # 5. i think i need something recursive because I found while writing the code I wanted to keep
+        # diving down an if then else tree but I can not do that when the tree size is unknown
+
+        if self.light_is_on() == False:
+            self.set_light_on()
+            print(self.light_is_on())
+
+        # print(self.light_is_on())
+
+        while self.light_is_on() == True:
+            
+            if self.can_move_left() == False:
+                while self.can_move_right() == True:
+                    
+                    if self.compare_item() == 1:
+                        self.swap_item()
+                        # need to continue the move right somehow
+                    elif self.compare_item() == 0:
+                        
+                        if self.can_move_right() == True: 
+                            self.move_right()
+                        else:
+                            self.set_light_off()
+                           
+                    elif self.compare_item() = -1:
+                        self.move_right()
+                    else:
+                        
+                        if self.can_move_right() == False:
+                            self.set_light_off()
+                          
+                    
+        
+
+        # need a move right or move left function?
+
+        #  is False: 
+            # start
+            # compare_item()
+        
+        
+
+        # can use if and or not
+        # can use comparison operators
+        # can use while for break and continue statements
+        # can not store values
+        # can not access values via self
+
+
+
+
         # Fill this out
-        pass
+        # pass
 
 
 if __name__ == "__main__":

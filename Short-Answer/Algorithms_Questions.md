@@ -10,7 +10,7 @@ a)  a = 0
     while (a < n * n * n):
       a = a + n * n
 ```
-
+5+27 
 ```
 b)  sum = 0
     for i in range(n):
