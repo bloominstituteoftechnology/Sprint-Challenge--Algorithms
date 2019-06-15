@@ -97,9 +97,24 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
-
-
+        self.set_light_on() # We're using the light to check if any swaps occured
+        self.swap_item() # Pickup the first item in the list swapping it with 'None'
+        # List now starts with 'None'
+        # We currently hold 15 from the example list
+        # If we go right until self.compare_items() == -1 (Held items value is less)
+        # Swap for the larger value...
+        # Go right until either we can't anymore or we find another larger value
+        # Swap that value and continue right
+        while self.light_is_on():
+            self.set_light_off()
+            while self.can_move_right():
+                if self.compare_item() == None: # Beginning of list so skip
+                    self.move_right()
+                elif self.compare_item() == -1: #Held item is smaller than the current item we're at.
+                    self.set_light_on()
+                    self.swap_item()
+                    self.move_right()
+                    
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
