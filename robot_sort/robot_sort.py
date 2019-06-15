@@ -96,39 +96,19 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        #Checks if items is none and if so swaps the item
         if self.compare_item() == None:
-            self.swap_item()
-            print(self._item)
-            if self.can_move_right():
+            while self.can_move_right():
                 self.move_right()
-                self.swap_item()
-                self.move_left()
-                self.sort()
 
-            print(self._item)
+            self.swap_item()   
+            while self.can_move_left():
+                self.move_left()
+            self.sort()
+             
 
-        elif self.compare_item() == 1:
-            while self.compare_item == 1 and self.can_move_right():
-                self.move_right()
-            self.swap_item()
-            #self.sort()
-            print(self._item)
-        elif self.compare_item() == -1:
-            while self.compare_item == -1 and self.can_move_left():
-                self.move_left()
-            self.swap_item()
-            self.sort()
-            print(self._item)
-        elif self.compare_item() == 0:
-            while self.compare_item() == 0 and self.can_move_left():
-                self.move_left()
-            if self.can_move_left == False:
-                while self.compare_item() == 0:
-                    self.move_right()
-            self.swap_item()
-            self.sort()
+        
+        print(self._list)
+
 
             
 
