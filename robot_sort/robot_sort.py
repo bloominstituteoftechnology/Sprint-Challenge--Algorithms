@@ -97,7 +97,65 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        self.swap_item()
+
+        self.set_light_on()
+
+        while True:
+
+            if self.can_move_right() == False:
+                print(other_l)
+                print("break")
+                break
+            self.move_right()
+
+            print(self._position)
+            print(self._list[0: self._position + 1])
+            print(self._item)
+
+            while self.light_is_on() == True:
+
+                if self.compare_item() == -1 and self.can_move_left() == True: # if held card is less than
+                    if self.can_move_left() == True:
+                        self.move_left()
+                elif self.compare_item() == -1 and self.can_move_left() == False:
+                    self.swap_item()
+                else:
+                    self.set_light_off()
+
+            self.set_light_on()
+
+            while self.light_is_on() == True:
+                if self.compare_item() == 1: # if held card is greater than
+                    self.swap_item()
+                    print(self._item)
+                else:
+                    print("light off")
+                    self.set_light_off()
+
+            self.set_light_on()
+            print("light goes on")
+
+            while self.light_is_on() == True:
+                print("start none and equal while loop.")
+                if self.compare_item() == 0: # equal to
+                    self.move_left()
+                    self.swap_item()
+                    self.set_light_off()
+
+                elif self.compare_item() == None: # held item or non-held item is None
+                    print("swap item in none")
+                    self.swap_item()
+                    self.set_light_off()
+
+                else:
+                    print("else statment reached")
+                    self.set_light_off()
+
+
+            self.set_light_on()
+
+
 
 
 if __name__ == "__main__":

@@ -64,3 +64,32 @@ The last line of code is O(n) because it starts a recursive loop that runs a cer
 Exercise II
 
 `n = 5`
+
+
+Understand
+__________
+
+
+The goal is to come up with an algorithm to determine the value of `f` so that we can minimize the number of broken eggs
+Each individual egg has a different value of `f` that it will break at?
+No, `f` will be the same for every egg.
+    
+The building has a finite number of stories -- `n` is finite.
+There are no basement levels - `f` and `n` are nonnegative integers.
+Plan
+__________
+Guard against negative numbers for `n` and `f`, just in case someone wants to put in the wrong thing.
+have variables for broken eggs and dropped eggs.
+Pseudo Code
+__________
+def minimize_broken_eggs(n, eggs):
+    f = 0 # --> O(1)
+    for i in range(0, n): # --> O(n)
+        is_broken = drop_egg() # --> O(1)
+        if is_broken: # --> O(1)
+            f = n # --> O(1)
+            return f # --> O(1/None?)
+```
+
+
+The above pseudo code has an O(n) complexity, due to the `for` loop that scales with the size of `n`. Everything else is only called a set amount of times, either inside or outside of the `for` loop. It's not very efficient, as we will probably have to drop a ton of eggs, but it's done! I'll come back to it and improve it. If I had more time I would change this to have a while loop, and the while loop would continually divide `n` in half(as an array of numbers) and check the middle of the array. Depending on whether or not the egg broke after being dropped I would divide the array in half again keeping either the bottom half or the top half. It's like trying to find a number in an array and you just keep dividing in half, choosing which half you continue in depending on if you need to go higher or lower.
