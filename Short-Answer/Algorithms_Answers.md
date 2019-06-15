@@ -40,7 +40,25 @@ c) O(n)
 Write out your proposed algorithm in plain English or pseudocode and give the runtime complexity of your solution. -->
 
 n = max height of building
-f <= broken egg
-<f = unbroken egg
-x = current floor
 
+def drop_that_egg(n):
+    if (drop egg from top floor and it doesn't break):
+        return "You have unbreakable eggs.  Please find a higher building to throw them from."
+
+    elif (drop egg from bottom floor and it breaks):
+        return "All your eggs are weak.  Please find better eggs."
+    
+    else:
+
+    current_floor = n/2  to find midpoint
+    if(drop egg and egg doesn't break):
+        current_floor += 1 and repeat
+        if(egg breaks)
+            return current_floor - 1 and end function
+    
+    else: 
+        current_floor -= 1 and repeat
+        if (egg doesn't break)
+            return current_floor and end
+
+Algothrim has a Big O of O(n)
