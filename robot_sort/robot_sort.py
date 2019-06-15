@@ -97,8 +97,68 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
 
+        #FIRST ATTEMPT, WHICH PASSES BUT IS LONGER THAN I WANT IT. SEE SECOND ATTEMPT BELOW THIS ONE
+        # self.set_light_on()
+        # while self.light_is_on():
+        #     self.set_light_off()
+        #     self.swap_item()
+
+        #     while self.can_move_right():
+        #         self.move_right()
+        #         if self.compare_item() == -1:
+        #             self.swap_item()
+        #         elif self.compare_item() == 1:
+        #             if not self.light_is_on():
+        #                 self.set_light_on()
+        #             continue
+        #         else:
+        #             continue
+
+        #     if self.compare_item() == 1:
+        #         self.swap_item()
+
+        #     while self.can_move_left():
+        #         self.move_left()
+        #         if self.compare_item() == 1:
+        #             self.swap_item()
+        #         elif self.compare_item() == -1:
+        #             if not self.light_is_on():
+        #                 self.set_light_on()
+        #             continue
+        #         else:
+        #             continue
+
+        #     if not self.can_move_left():
+        #         self.swap_item()
+
+        # return self._list
+
+
+        # SHORTER SOLUTION, BUT IT RUNS FOR .017 SECONDS LONGER, HMPH..... 
+        self.set_light_on()
+        while self.light_is_on():
+            self.set_light_off()
+            while self.can_move_right():
+                self.swap_item()
+                self.move_right()
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.set_light_on()
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+            while self.can_move_left():
+                self.swap_item()
+                self.move_left()
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.set_light_on()
+                self.move_right()
+                self.swap_item()
+                self.move_left()
+
+        pass
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
