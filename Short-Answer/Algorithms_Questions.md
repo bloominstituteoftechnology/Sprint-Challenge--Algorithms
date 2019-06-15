@@ -6,14 +6,14 @@ Give an analysis of the running time of each snippet of
 pseudocode with respect to the input size n of each of the following:
 
 ```
-a)  a = 0
-    while (a < n * n * n):
+a)  a = 0                       
+    while (a < n * n * n):      
       a = a + n * n
 ```
 
 ```
-b)  sum = 0
-    for i in range(n):
+b)  sum = 0                                 0(1)
+    for i in range(n):                      O(n)
       i += 1
       for j in range(i + 1, n):
         j += 1
