@@ -96,13 +96,56 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # assume the robot is not finished while light is still off
+        # pass though items, moving from left to right, if an item is larger the robot should swap the item with the one to it's right.
+        # pass though items, moving from right to left, if an item is smaller it should be swapped with the number to its left.
+        # robot light should turn on when there are no more items left to sort
+
+        while self.light_is_on() == False:
+            #robot starts empty handed
+            self.set_light_on()
+            #if the sort has not reached the end of the list
+            while self.can_move_right():
+                self.swap_item()
+                self.move_right()
+
+                #if held item is larger swap
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.set_light_off()
+
+                #push item to the next spot
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+
+            if self.light_is_on():
+                break
+
+            self.set_light_on()
+
+            #while the sort is not at the begining of the list
+            while self.can_move_left():
+                self.swap_item()
+                self.move_left()
+
+                #if held item is smaller
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.set_light_off()
+
+                #push item to the next spot
+                self.move_right()
+                self.swap_item()
+                self.move_left()
 
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
+
+    a = [5, 4, 3, 2, 1]
+    b = [11, 13, 7, 17, 9, 20, 1, 21, 2, 4, 22, 16, 15, 10, 23, 19, 8, 3, 5, 14, 6, 0, 24, 12, 18]
 
     l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
 
