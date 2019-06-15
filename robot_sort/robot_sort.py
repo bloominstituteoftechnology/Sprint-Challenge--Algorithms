@@ -97,9 +97,17 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
-
-
+        if self.light_is_on() == False: # Start by checking if the light is on
+            self.set_light_on() # Turn the light on if it isn't
+        
+        while self.light_is_on() == True: # As long as the light is on
+            while self.can_move_right: # begin iteration
+                
+                self.swap_item() # start at first item and pick it up
+                self.move_right() # move to next item
+                if self.compare_item() == 1: # do a comparison
+                    self.swap_item() # replace next if current item is higher than next
+                
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
