@@ -57,7 +57,7 @@ What I envision being the best and most effective way to minimize egg loss is to
 
 
 def egg_toss(n, f):
-    floors = [1,n]
+    floors = [1,n] 
     u = floors[1]
     l = floors[0]
     while floors[1]-floors[0] > 1:
@@ -72,3 +72,26 @@ def egg_toss(n, f):
         return print(u)
     else:
         return print(l)
+
+
+
+def egg_toss(n, f):
+    floors = [1,n] -- O(1)
+    u = floors[1] -- O(1)
+    l = floors[0] -- O(1)
+    while floors[1]-floors[0] > 1: -- between O(log(n)) and O(n)
+        mid = l + (u-l + 1)//2 -- O(1)
+        if mid >=f: -- O(1)
+            u = mid -- O(1)
+            floors = [l,u] -- O(1)
+        else: -- O(1)
+            l = mid -- O(1)
+            floors = [l,u] -- O(1)
+    if u == f: -- O(1)
+        return print(u) -- O(1)
+    else: -- O(1)
+        return print(l) -- O(1)
+
+
+#Because there are many assignments and if conditions that run once, many of the big O numbers resolve to a constant run time. The only part that is a factor in the big O number is the while loop. I estimated it to be between
+O(log(n)) and O(n).
