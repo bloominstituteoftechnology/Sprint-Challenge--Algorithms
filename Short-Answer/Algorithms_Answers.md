@@ -47,4 +47,28 @@ c)  def bunnyEars(bunnies):
 
 
 
-  
+  ## Exercise II
+
+Suppose that you have an _n_-story building and plenty of eggs. Suppose also that an egg gets broken if it is thrown off floor _f_ or higher, and doesn't get broken if dropped off a floor less than floor _f_. Devise a strategy to determine the value of _f_ such that the number of dropped eggs is minimized.
+
+Write out your proposed algorithm in plain English or pseudocode and give the runtime complexity of your solution.
+
+What I envision being the best and most effective way to minimize egg loss is to base my algorithm on halves. Based on the half floor result, we can adjust our target by half each time to find the exact floor which breaks the egg. Each time, the algorithm will limit the range to search from by half the number, previously.
+
+
+def egg_toss(n, f):
+    floors = [1,n]
+    u = floors[1]
+    l = floors[0]
+    while floors[1]-floors[0] > 1:
+        mid = l + (u-l + 1)//2
+        if mid >=f:
+            u = mid
+            floors = [l,u]
+        else:
+            l = mid
+            floors = [l,u]
+    if u == f:
+        return print(u)
+    else:
+        return print(l)
