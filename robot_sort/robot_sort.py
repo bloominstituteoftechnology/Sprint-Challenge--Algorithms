@@ -99,27 +99,28 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        self.swap_item()
+        self.swap_item()  # Swaps None with first item in list
         self.set_light_on()
         while self.light_is_on():
-            self.set_light_off()
+            self.set_light_off()    # Sets light off so that if light comes on again, the list is still unsorted
             # Sorting right
             while self.can_move_right():
                 self.move_right()
-                if self.compare_item() == 1:
-                    self.set_light_on()
-                elif self.compare_item()==-1:
-                    self.swap_item()
+                if self.compare_item() == 1:    
+                    self.set_light_on() # If item in hand is bigger, turn light on; list is unsorted
+                elif self.compare_item()==-1:   
+                    self.swap_item()    # If item in hand is smaller, swap item.
 
 
             # Sorting left
             while self.can_move_left():
-                if self.compare_item() == -1:
-                    self.set_light_on()
+                if self.compare_item() == -1:   
+                    self.set_light_on() # If item in hand is smaller, turn light on; list is unsorted
                 elif self.compare_item()==1:
-                    self.swap_item()
+                    self.swap_item()    # If item in hand is bigger, swap item.
                 self.move_left()
-        self.swap_item()
+        
+        self.swap_item()   # The list is now sorted and position is at 0. Swap held item (0) with the first item in the array (None).
 
 
 if __name__ == "__main__":
