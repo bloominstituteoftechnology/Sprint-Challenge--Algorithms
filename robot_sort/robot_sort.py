@@ -100,10 +100,17 @@ class SortingRobot:
         self.swap_item()
         self.move_right()
         while light_is_on() == False:
-            while self.move_right():
+            while self.can_move_right():
                 if self.compare_item() == -1:
                     self.swap_item()
                 self.move_right()
+            if self.compare_item() == -1:
+                    self.swap_item()
+            self.move_left()
+            while self.move_left() and self.compare_item() != None:
+                if self.compare_item() == 1:
+                    self.swap_item()
+                self.move_left()
             if 
 
                 if self.can_move_right() == False and self.compare_item() == None:
@@ -124,8 +131,8 @@ if __name__ == "__main__":
     # with `python robot_sort.py`
 
     # l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
-            [2]
-    l = [1,None,4,3,5,6]
+         [1]
+    l = [None,7,6,3,8,10]
     robot = SortingRobot(l)
 
     robot.sort()
