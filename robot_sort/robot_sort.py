@@ -108,15 +108,11 @@ class SortingRobot:
                 self.move_right()
                 if self.compare_item() == 1:
                     self.swap_item()
-                    self.move_left()
-                    self.swap_item()
-                    self.move_right()
                     self.set_light_on()
-
-                elif self.compare_item() == -1:
-                    self.move_left()
-                    self.swap_item()
-                    self.move_right()
+                
+                self.move_left()
+                self.swap_item()
+                self.move_right()
                 
 
             ## Sorting left
@@ -125,14 +121,11 @@ class SortingRobot:
                 self.move_left()
                 if self.compare_item() == -1:
                     self.swap_item()
-                    self.move_right()
-                    self.swap_item()
-                    self.move_left()
                     self.set_light_on()
-                elif self.compare_item() == 1:
-                    self.move_right()
-                    self.swap_item()
-                    self.move_left()
+                    
+                self.move_right()
+                self.swap_item()
+                self.move_left()
                     
 
 if __name__ == "__main__":
