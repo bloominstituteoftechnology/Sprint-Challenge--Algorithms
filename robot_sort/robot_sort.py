@@ -111,8 +111,8 @@ class SortingRobot:
                 print('moved right')
                 if self.compare_item()== 1:
                     self.set_light_on()
-                if self.compare_item() == -1:
                     self.swap_item()
+                if self.compare_item() == -1:
                     self.set_light_on()
             while self.can_move_left():
                 self.move_left()
@@ -121,6 +121,9 @@ class SortingRobot:
                     self.swap_item()
                     print('item swapped while moving left')
                     self.set_light_on()
+                if self.compare_item() == -1:
+                    self.move_left()
+                    self.swap_item()
                 print('end of code')
 
 
