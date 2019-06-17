@@ -9,7 +9,10 @@ pseudocode with respect to the input size n of each of the following:
 a)  a = 0
     while (a < n * n * n):
       a = a + n * n
+
+      
 ```
+The amount of steps increases as n is increased so it in linear so it would be O(n) 
 
 ```
 b)  sum = 0
@@ -23,6 +26,7 @@ b)  sum = 0
             l += 1
             sum += 1
 ```
+There are 4 for loops and each loops makes n more complex with the exception of the last loop so on this case it would be 0(n^3)
 
 ```
 c)  def bunnyEars(bunnies):
@@ -31,6 +35,7 @@ c)  def bunnyEars(bunnies):
 
       return 2 + bunnyEars(bunnies-1)
 ```
+bunnies represents n, the problem is similar to a in that it is growing in a linear fashion. even though it is recursive. So 0(n)
 
 ## Exercise II
 
