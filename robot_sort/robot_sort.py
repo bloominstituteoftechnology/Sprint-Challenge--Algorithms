@@ -96,37 +96,38 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
+        #Checks if light is on. If it is not on it loops
         while self.light_is_on() == False:
-        
+            #turns robots light on
             self.set_light_on()
-            
+            #checks if robot can move right if it can it loops.
             while self.can_move_right():
+                #It swaps the item it has and moves right
                 self.swap_item()
                 self.move_right()
-
+                #it will then compare the item it has. If the held item is greater than the item in it's position. It swaps item and turns the light off.
                 if self.compare_item() == 1:
                     self.swap_item()
                     self.set_light_off()
-
+                #Swaps item held item with item to the left of it and moves back to current positoin.
                 self.move_left()
                 self.swap_item()
                 self.move_right() 
   
 
-            if self.light_is_on():
-                break      
-    
-            self.set_light_on()
-
+ 
+               
+            
+            #Now checks if robot can move left if so it loops and until it can't.
             while self.can_move_left():
-                    
+                #swaps item and moves left.
                 self.swap_item()
                 self.move_left()
-
+                #if the held item is less than the current item it swaps the item and turns off the light.
                 if self.compare_item() == -1:
                       self.swap_item()
                       self.set_light_off()
-                    
+                #It moves right swaps the item and moves left.
                 self.move_right()
                 self.swap_item()
                 self.move_left()                    
