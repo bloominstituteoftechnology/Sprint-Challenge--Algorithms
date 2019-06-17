@@ -101,6 +101,8 @@ class SortingRobot:
         # intially has no items.
         self.set_light_on()
         self.swap_item()
+       
+        
         print('light turned on initially')
         while self.light_is_on():
             self.set_light_off()
@@ -115,17 +117,17 @@ class SortingRobot:
                 elif self.compare_item()==-1:
                     self.swap_item()
             while self.can_move_left():
-                print('moving left')
                 if self.compare_item()== -1:
                     self.set_light_on()
                     self.move_left()
-                    print('moving left')
+                    print('moved left')
                 elif self.compare_item()==1:
                     self.swap_item()
-                    print('swapped moving left')
+                    print('swapped item left')
                 self.move_left()
 
                 print('end of code')
+        self._list.pop(0)
 
 
 if __name__ == "__main__":
