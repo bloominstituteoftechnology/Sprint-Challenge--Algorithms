@@ -113,39 +113,50 @@ class SortingRobot:
         # Turn light off if swap happens
         # Use light to determine if swaps have taken place
         # How to do this without using a temp variable in for loop?
-        
+        print("Sorting...")
         self.swap_item()
         self.set_light_on()
+        #print("light on")
 
         while(self.can_move_right() == True):
+        
             # Move forward 1
             self.move_right()
 
             if self.compare_item() == -1:
                 # Held item is lower - move back & then swap
-                print(f"{self._item} is lower than {self._list[self._position]}")
+                #print(f"{self._item} is lower than {self._list[self._position]}")
                 self.move_left()
                 self.swap_item()
                 self.move_right()
                 self.swap_item()
             else:
                 # Held item is higher - swap & move lower number back
-                print(f"{self._item} is higher than {self._list[self._position]}")
+                #print(f"{self._item} is higher than {self._list[self._position]}")
                 self.swap_item()
                 self.move_left()
                 self.swap_item()
                 self.move_right()
-                self.swap_item()
                 self.set_light_off()
+
+                if self.can_move_right():
+                    self.swap_item()
+                
+                #print(f"light off: {self._light}")
 
         if self.light_is_on():
             # List is sorted
-            self.return_to_start()
-            self.swap_item()
+            #self.return_to_start()
+            #self.swap_item()
+            print(self._list)
+            print("Light is on")
             return
         else:
             # Do it again
-            self.sort()
+            self.return_to_start()
+            print("Back to beginning")
+            print(self._list)
+            return self.sort()
                 
 
 if __name__ == "__main__":
