@@ -91,14 +91,62 @@ class SortingRobot:
         Returns True if the robot's light is on and False otherwise.
         """
         return self._light == "ON"
+    def sort_with_next(self):
+        self.swap_item()
+        self.move_right()
+        if self.compare_item() == 1:
+            self.swap_item()
+            self.set_light_on()
+            self.move_left()
+            self.swap_item()
+        elif self.compare_item() == -1 or self.compare_item() == 0:
+            self.move_left()
+            self.swap_item()
+
+    def return_to_beginning(self):
+        while self.can_move_left():
+            self.move_left()
+
+
+    def do_sort_pass(self):
+        while self.can_move_right():
+            self.sort_with_next()
+            self.move_right()
+        if self.light_is_on():
+            self.return_to_beginning()
+            self.set_light_off()
+        else:
+            self.set_light_on()
+
 
     def sort(self):
         """
         Sort the robot's list.
         """
         # Fill this out
+        while self.light_is_on() == False:
+           
+            self.do_sort_pass()
+        # while not self.light_is_on():
+        #     self.swap_item()
+        #     while self.can_move_right():
+        #         self.move_right()
+        #         if self.compare_item() == 1:
+        #             self.swap_item()
+        #     self.set_light_on()
+        #     while self.light_is_on():
+        #         if self.compare_item() == None:
+        #             self.swap_item()
+        #             self.set_light_off()
+        #         else:
+        #             self.move_left()
+        #     if not self.can_move_right():
+        #         self.set_light_on()
+        #     else:
+        #         self.move_right()
+        
         pass
-
+    
 
 if __name__ == "__main__":
     # Test our your implementation from the command line

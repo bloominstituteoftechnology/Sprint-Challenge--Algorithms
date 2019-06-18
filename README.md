@@ -1,6 +1,8 @@
 # Sprint Challenge: Algorithms
 
-In this week's Sprint you explored and implemented some classic algorithmic approaches and used them to solve novel problems. You also implemented some classic and fundamental sorting algorithms and learned about how to go about evaluating their respective runtimes and performance. This Sprint Challenge aims to assess your comfort with these topics through exercises that build on the algorithmic intuition you've started to build up.
+Griffin Huth 
+
+In this week's Sprint you explored and implemented some classic algorithmic approaches and used them to solve novel problems. You also implemented some classic and fundamental sorting algorithms and learned about how to go about evaluating their respective run times and performance. This Sprint Challenge aims to assess your comfort with these topics through exercises that build on the algorithmic intuition you've started to build up.
 
 ## Instructions
 
@@ -81,3 +83,11 @@ Uncomment the `test_stretch_times()` test in `test_robot.py`. Can you optimize y
 * *1*: 0-69
 * *2*: 70-89
 * *3*: 90+
+
+
+def sort(self):
+        """
+        Sort the robot's list.
+        """
+        # Fill this out
+       
