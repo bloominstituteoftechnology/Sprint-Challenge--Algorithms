@@ -96,8 +96,13 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # Bubble sort:
+        # Pick up item
+        # Move forward one
+        # Compare item
+        # Swap if needed
+        # Use light to determine if swaps have taken place
+        # How to do this without using a temp variable in for loop?
 
 
 if __name__ == "__main__":
