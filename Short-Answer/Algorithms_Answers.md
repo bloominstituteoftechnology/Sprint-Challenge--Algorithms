@@ -17,7 +17,7 @@ a.)
   This line is a variable assignment, meaning it's run-time is constant, or O(1).
 
   So we have: 
-  
+   
   O(1) + O(n) * O(1).
 
   We multiply O(n) and O(1), giving us O(n), and add to that O(1), giving us O(n+1),
