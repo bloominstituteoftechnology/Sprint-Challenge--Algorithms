@@ -1,0 +1,7 @@
+[
+  "robot_sort/test_robot.py::Test::test_sorting_large_list",
+  "robot_sort/test_robot.py::Test::test_sorting_large_varied_list",
+  "robot_sort/test_robot.py::Test::test_sorting_medium_list",
+  "robot_sort/test_robot.py::Test::test_sorting_random_list",
+  "robot_sort/test_robot.py::Test::test_sorting_small_list"
+]
