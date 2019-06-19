@@ -24,7 +24,7 @@ This Sprint Challenge is split into two separate parts that test your ability to
 
 ### 1. Short Answer Questions (30 points)
 
- > It is recommended that you spend no more than 1 hour on this portion of the Sprint Challenge.
+> It is recommended that you spend no more than 1 hour on this portion of the Sprint Challenge.
 
 For this portion of the Sprint Challenge, you'll be answering questions posed in the `Algorithms_Questions.md` document inside the `Short-Answer` directory. Write down your answer and also write down a justification for _why_ you put down that answer. This could net you some partial credit if your justification is sound but the answer you put down turns out to not be correct. Add your answers to the questions in the `Algorithms_Answers.md` file.
 
@@ -32,11 +32,11 @@ For this portion of the Sprint Challenge, you'll be answering questions posed in
 
 You have been given a robot with very basic capabilities:
 
-  * It can move left or right.
-  * It can pick up an item
-    * If it tries to pick up an item while already holding one, it will swap the items instead.
-  * It can compare the item it's holding to the item in front of it.
-  * It can switch a light on its head on or off.
+- It can move left or right.
+- It can pick up an item
+  - If it tries to pick up an item while already holding one, it will swap the items instead.
+- It can compare the item it's holding to the item in front of it.
+- It can switch a light on its head on or off.
 
 Your task is to program this robot to sort lists using ONLY these abilities.
 
@@ -44,31 +44,31 @@ Your task is to program this robot to sort lists using ONLY these abilities.
 
 Inside the `Robot_Sort` directory you'll find the `robot_sort.py` file. Open it up and read through each of the robot's abilities. Once you've understood those, start filling out the `sort()` method following these rules:
 
-  * You may use any pre-defined robot methods.
-  * You may NOT modify any pre-defined robot methods.
-  * You may use logical operators. (`if`, `and`, `or`, `not`, etc.)
-  * You may use comparison operators. (`>`, `>=`, `<`, `<=`, `==`, `is`, etc.)
-  * You may use iterators. (`while`, `for`, `break`, `continue`)
-  * You may NOT store any variables. (`=`)
-  * You may NOT access any instance variables directly. (`self._anything`)
-  * You may NOT use any Python libraries or class methods. (`sorted()`, etc.)
-  * You may define robot helper methods, as long as they follow all the rules.
+- You may use any pre-defined robot methods.
+- You may NOT modify any pre-defined robot methods.
+- You may use logical operators. (`if`, `and`, `or`, `not`, etc.)
+- You may use comparison operators. (`>`, `>=`, `<`, `<=`, `==`, `is`, etc.)
+- You may use iterators. (`while`, `for`, `break`, `continue`)
+- You may NOT store any variables. (`=`)
+- You may NOT access any instance variables directly. (`self._anything`)
+- You may NOT use any Python libraries or class methods. (`sorted()`, etc.)
+- You may define robot helper methods, as long as they follow all the rules.
 
 #### Hints
 
-* Make sure you understand the problem and all of the rules! A solution that breaks the rules will receive no credit.
+- Make sure you understand the problem and all of the rules! A solution that breaks the rules will receive no credit.
 
-* If you're unsure if an operator or method is allowed, ask.
+- If you're unsure if an operator or method is allowed, ask.
 
-* Lay out some numbered cards in a line and try sorting them as if you were the robot.
+- Lay out some numbered cards in a line and try sorting them as if you were the robot.
 
-* Come up with a plan and write out your algorithm before coding. If your plan is sound but you don't reach a working implementation in three hours, you may receive partial credit.
+- Come up with a plan and write out your algorithm before coding. If your plan is sound but you don't reach a working implementation in three hours, you may receive partial credit.
 
-* There is no efficiency requirement but you may lose points for an unreasonably slow solution. Tests should run in far less than 1 second.
+- There is no efficiency requirement but you may lose points for an unreasonably slow solution. Tests should run in far less than 1 second.
 
-* We discussed a sorting method this week that might be useful. Which one?
+- We discussed a sorting method this week that might be useful. Which one?
 
-* The robot has exactly one bit of memory: its light. Why is this important?
+- The robot has exactly one bit of memory: its light. Why is this important?
 
 Run `python test_robot.py` to run the tests for your `robot sort` function to ensure that your implementation is correct.
 
@@ -78,6 +78,6 @@ Uncomment the `test_stretch_times()` test in `test_robot.py`. Can you optimize y
 
 ## Grading Rubric
 
-* *1*: 0-69
-* *2*: 70-89
-* *3*: 90+
+- _1_: 0-69
+- _2_: 70-89
+- _3_: 90+
