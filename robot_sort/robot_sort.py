@@ -97,6 +97,28 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
+
+        """
+            Understand:
+                Objective is to sort list elements.
+
+                What are the provided functions:
+                Can move right - returns True unless at end of list
+                Can move left - returns True unless at beginning of list
+                Move right - increments position and returns True if possible
+                Move left - decrements position and returns True if possible
+                Swap item - exchanges item for el at position
+                Compare item - compare item to el at position 
+                    1 if item is larger
+                    -1 if item is smaller
+                    None if None
+                    else 0
+                Set light on
+                Set light off
+                Light is on
+                
+        """
+
         pass
 
 
