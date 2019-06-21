@@ -97,7 +97,175 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+
+        """
+            Understand:
+                Objective is to sort list elements.
+
+                What are the provided functions:
+                Can move right - returns True unless at end of list
+                Can move left - returns True unless at beginning of list
+                Move right - increments position and returns True if possible
+                Move left - decrements position and returns True if possible
+                Swap item - exchanges item for el at position
+                Compare item - compare item to el at position 
+                    1 if item is larger
+                    -1 if item is smaller
+                    None if None
+                    else 0
+                Set light on
+                Set light off
+                Light is on
+
+            Plan:
+                - turn on light
+                - loop in while loop of is light on
+                    - pick up item
+                    - while can move right
+                        - move right
+                        - compare
+                            - if -1 (less)
+                                - swap
+
+                    if can not move right
+                        light is off
+                                    
+                    - while can move left
+                        - move left
+                        - compare
+                            if 1 ( greater )
+                                light is on
+                        - pick up item
+
+            New Plan:
+                - turn on light
+                - loop while light is on
+                    - pick up item
+                    - if can move right
+                        - move right
+                    -while can move right
+                        - is item in hand greater than el in position? (1)
+                            -swap
+                        - move right
+                    
+                    - if can move left
+                        - move left
+                    
+                    - turn light off
+
+                    -while can move left
+                        - is item in hand greater than in position? (1)
+                            - turn light on
+                            - if can move right
+                                - move right
+                                - swap
+
+            Yet another plan:
+                - set light on
+
+                - swap
+
+                - while can move right
+                    - move right
+                    - is item greater than next item? (1)
+                        swap
+
+                if can NOT move right AND compare == None:
+                    set light off
+
+                - while can move left
+
+                    - is item less than? (-1)
+                        - move left
+                    - is item greater than the next item? (1)
+                        - move right
+                        - swap
+                        - set light on
+                    - is None
+                        swap
+            
+
+            Another NEW Plan:
+
+                - set light on
+                
+                while light is on
+                    
+                    if None:
+                        swap
+
+
+                    while can move right is True
+                        move right
+
+                        if 1:
+                            Don't swap!
+
+                        elif -1:
+                            swap!
+                        
+                        if can NOT move right AND 1:
+                            swap!
+
+                    while can move left is True
+                        move left
+
+                        if 1:
+                            Swap!
+
+                        elif -1:
+
+                            Don't swap!
+
+                        elif None and can move right:
+                            Swap!
+                            
+                            move right
+
+                            break
+
+                        elif None and can NOT move right:
+                            set light off
+                            break
+        """
+
+        self.set_light_on()
+        
+        while self.light_is_on() == True:
+
+            if self.compare_item() == None:
+                self.swap_item()
+
+            while self.can_move_right() == True:
+
+                self.move_right()
+
+                if self.compare_item() == -1 and self.can_move_right() == True:
+                    self.swap_item() 
+
+                elif self.can_move_right() == False and self.compare_item() == 1:
+                    self.swap_item() # Will this work??
+
+
+            while self.can_move_left() == True:
+
+                self.move_left()
+
+                if self.compare_item() == 1:
+                    self.swap_item()
+
+                elif self.compare_item() == None and self.can_move_right() == True:
+                    self.swap_item()
+                    self.move_right()
+
+                    if self.can_move_right() == False and self.compare_item() == None:
+                        self.set_light_off()
+
+                    break
+
+                elif self.compare_item() == None and self.can_move_right() == False:
+                    self.set_light_off()
+                    break
 
 
 if __name__ == "__main__":
