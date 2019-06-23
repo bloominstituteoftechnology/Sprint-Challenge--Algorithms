@@ -102,13 +102,16 @@ class SortingRobot:
                 self.move_right()
             else: 
                 self.move_right()
-                
+
         while self.can_move_left():
             if self.compare_item() == 1:
                 self.swap_item()
                 self.move_left()
             else:
                 self.move_left()
+
+        if self._item != None:
+            self.sort()
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
