@@ -38,26 +38,4 @@ Suppose that you have an _n_-story building and plenty of eggs. Suppose also tha
 
 Write out your proposed algorithm in plain English or pseudocode and give the runtime complexity of your solution.
 
-Well, I assumed the floors are sorted and will do a binary search to determine the value of the middle floor to determin the break point f.
-
-def searchFloors(floors, elem):
-
-  first = 0
-  last = len(floors)-1
-  
-  found = False
-
-  while first <= last and not found:
-
-    middle = (first + last)/2
-
-    if floors[middle] == elem:
-      found == True
-    else:
-      if elem < floors[middle]:
-        last = middle-1
-        else:
-          first = middle +1
-
-    return found
 
