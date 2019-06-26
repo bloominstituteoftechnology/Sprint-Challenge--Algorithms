@@ -97,8 +97,38 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
 
+        self.set_light_on() # Turn on the light
+        while self.light_is_on(): # While light is on, begin loop
+            self.set_light_off() # looper switch
+            # PART A
+            while self.can_move_right(): # if robot can move right
+                self.swap_item() # pick up item
+                self.move_right() # begin iteration
+            # PART B
+                if self.compare_item() == 1: # compare values
+                    # reset item/position
+                    self.swap_item()
+                    self.move_left() 
+                    self.swap_item() 
+                    self.move_right()
+                    self.set_light_on() # looper switch
+                else:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+
+            if self.light_is_on():
+                while self.can_move_left():
+                    self.move_left()
+
+            """ HELPER REFERENCE PSUDOCODE, iterative sort
+            for i in range(0, len(arr)-1): PART A
+                PART B
+                if arr[i] > arr[i+1]: 
+                    arr[i], arr[i+1] = arr[i+1], arr[i]
+
+            """
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
