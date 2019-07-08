@@ -94,27 +94,32 @@ class SortingRobot:
 
     def sort(self):
         """Sort the robot's list. """
-        # Fill this out
-        # starts at index 0 - lights are off - holds nothing -- initially has no items in it.
-        # Plan of action --> Turn the light on
+        # if the robot holds no item - then swap the item so it will have item at the index "0"
+        if self._item is None:
+            self.swap_item()
+        # Turn the light on - it works as a flag    
         self.set_light_on()
-        # while light is on can
-        while self.light_is_on()==True:
-            self.set_light_off()    
-            print("self.item before any move", self._item)
-            # if you can move to the right...then grab the items then move to the right again.
-            if self.can_move_right():
-                self.swap_item()
-                # Move to the right
+        # As long as the light is on ..keep moving right and keep swaping the smaller items to the left
+        while self.light_is_on():
+            self.set_light_off()
+            while self.can_move_right():
                 self.move_right()
-                print("self.item after swipe", self._item)
+                if self.compare_item() == 1:
+                    self.set_light_on()
+                elif self.compare_item() == -1:
+                    self.swap_item()
+
+            while self.can_move_left():
+                if self.compare_item() == 1:
+                    self.swap_item()
+                elif self.compare_item() == -1:
+                    self.set_light_on()
+                self.move_left()
+        self.swap_item()
+    
                 
 
-        #Turn the light off - so that you can come out of while loop
-        print(self.set_light_off())
-        self.set_light_off()
-           
-
+       
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
