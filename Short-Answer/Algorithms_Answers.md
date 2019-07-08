@@ -32,3 +32,26 @@ c)  def bunnyEars(bunnies):
       return 2 + bunnyEars(bunnies-1)
 ```
 C)  Answer:- Linear --> 0(n)
+
+```## Exercise II
+Suppose that you have an _n_-story building and plenty of eggs. Suppose also that an egg gets broken if it is thrown off floor _f_ or higher, and doesn't get broken if dropped off a floor less than floor _f_. Devise a strategy to determine the value of _f_ such that the number of dropped eggs is minimized.
+Write out your proposed algorithm in plain English or pseudocode and give the runtime complexity of your solution.```
+
+Answer:-
+n --> n story building (Already ordered)
+eggs --> Unlimited
+f ---> floor number
+
+# Start at the ground floor i.e., f = 0
+f = 0
+# Start a loop from f=0 to n(number of stores in the building)
+for f in range(0,n):
+  # if eggs are broken for a given f then return that "f" value
+  if eggs_broken is True:
+     return f
+  else:
+     return None
+        
+
+
+
