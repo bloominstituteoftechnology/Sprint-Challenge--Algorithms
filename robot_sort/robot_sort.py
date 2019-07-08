@@ -93,12 +93,27 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
-        """
-        Sort the robot's list.
-        """
+        """Sort the robot's list. """
         # Fill this out
-        pass
+        # starts at index 0 - lights are off - holds nothing -- initially has no items in it.
+        # Plan of action --> Turn the light on
+        self.set_light_on()
+        # while light is on can
+        while self.light_is_on()==True:
+            self.set_light_off()    
+            print("self.item before any move", self._item)
+            # if you can move to the right...then grab the items then move to the right again.
+            if self.can_move_right():
+                self.swap_item()
+                # Move to the right
+                self.move_right()
+                print("self.item after swipe", self._item)
+                
 
+        #Turn the light off - so that you can come out of while loop
+        print(self.set_light_off())
+        self.set_light_off()
+           
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
@@ -109,4 +124,4 @@ if __name__ == "__main__":
     robot = SortingRobot(l)
 
     robot.sort()
-    print(robot._list)
+    # print(robot._list)
