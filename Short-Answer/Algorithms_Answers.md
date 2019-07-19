@@ -31,11 +31,13 @@ c)
 ```
 
 a. linear - O(n)
+Linear, operations scale with input
 
-b. exponential - O(2^n)
+b. exponential - O(n^3)
+Number of nested loops on input
 
-c. linear - O(n),
-It prints 2 while recursively deincrimenting 
+c. quadatic - O(n),
+It prints 2 while recursively deincrimenting
 
 
 Exercise 2:
