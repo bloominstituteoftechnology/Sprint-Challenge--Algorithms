@@ -2,10 +2,12 @@ Add your answers to the Algorithms exercises here.
 
 ## Exercise I
 
-a)  a = 0
+a)
+'''
+    a = 0
     while (a < n * n * n):
       a = a + n * n
-
+'''
 O(n). While it may be trying to trick you into thinking it's O(n^3) by referencing
 n * n * n in the while loop, that has to be divided by the n * n in "a = a + n * n"
 
