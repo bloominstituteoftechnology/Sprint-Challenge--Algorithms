@@ -29,6 +29,20 @@ c)  def bunnyEars(bunnies):
 
       return 2 + bunnyEars(bunnies-1)
 
-O(n). Same as a factorial. bunnyEars gets called bunnies times.
+O(n). Same as a factorial. bunnyEars gets called bunnies(n) times.
 
+## Exercise II
 
+Suppose that you have an _n_-story building and plenty of eggs. Suppose also that an egg gets broken if it is thrown off floor _f_ or higher, and doesn't get broken if dropped off a floor less than floor _f_. Devise a strategy to determine the value of _f_ such that the number of dropped eggs is minimized.
+
+Write out your proposed algorithm in plain English or pseudocode and give the runtime complexity of your solution.
+
+Answer:
+Use a binary search algorithm:
+	Start at the middle floor and drop the egg
+	Recursively do:
+		If the egg breaks, go halfway down and repeat
+		If the egg doesn't break, go halfway up and repeat
+		Do this until you find the highest floor where it doesn't break.
+
+Runtime complexity: O(logn), where n is number of floors.
