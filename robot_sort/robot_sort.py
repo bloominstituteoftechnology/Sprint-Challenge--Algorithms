@@ -94,10 +94,26 @@ class SortingRobot:
 
     def sort(self):
         """
-        Sort the robot's list.
+        while robot moves right, compare item is -1 then swap and move right
+        else left
+        while robort moves left, compare item is 1 swap and move left
+        else move left
+        
         """
-        # Fill this out
-        pass
+        while self.can_move_right():
+            if self.compare_item() == -1 or self.compare_item() is None:
+                self.swap_item()
+                self.move_right()
+            else:
+                self.move_right()
+        while self.can_move_left():
+            if self.compare_item() == 1:
+                self.swap_item()
+                self.move_left()
+            else:
+                self.move_left()
+        if self._item is not None:
+            self.sort()
 
 
 if __name__ == "__main__":
