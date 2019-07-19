@@ -29,6 +29,10 @@ c)  def bunnyEars(bunnies):
       if bunnies == 0:
         return 0
 
+    def bunnyEars(bunnies):
+      if bunnies == 0:
+        return 0
+	
       return 2 + bunnyEars(bunnies-1)
 
 O(n). Same as a factorial. bunnyEars gets called bunnies(n) times.
