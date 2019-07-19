@@ -94,10 +94,32 @@ class SortingRobot:
 
     def sort(self):
         """
-        Sort the robot's list.
+        I think its like the iterative bubble sort with the light being used as a way to iterate.  
+        I believe that going all the way back is a problem in this but couldn't figure it out
         """
-        # Fill this out
-        pass
+        self.set_light_on() # start first loop
+        while self.light_is_on():
+            self.set_light_off() # turn off light while going list
+            while self.can_move_right(): # check if robot can keep moving right until it cannot
+                self.swap_item() # pick up item.
+                self.move_right() # move one step to the right
+                # check if we should move this item right and if so turn on the light.
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.set_light_on() # iterate
+                self.move_left() 
+                self.swap_item() # swap or drop the item into the empty position
+                self.move_right() 
+            # now we can go back.  
+            while self.can_move_left():
+                self.swap_item()
+                self.move_left()
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.set_light_on()
+                self.move_right()
+                self.swap_item()
+                self.move_left()
 
 
 if __name__ == "__main__":
