@@ -45,10 +45,11 @@ Write out your proposed algorithm in plain English or pseudocode and give the ru
 
 Answer:
 Use a binary search algorithm:
-	Start at the middle floor and drop the egg
-	Recursively do:
-		If the egg breaks, go halfway down and repeat
-		If the egg doesn't break, go halfway up and repeat
-		Do this until you find the highest floor where it doesn't break.
+
+    Start at the middle floor and drop the egg
+    Recursively do:
+      If the egg breaks, go halfway down and repeat
+      If the egg doesn't break, go halfway up and repeat
+      Do this until you find the highest floor where it doesn't break.
 
 Runtime complexity: O(logn), where n is number of floors.
