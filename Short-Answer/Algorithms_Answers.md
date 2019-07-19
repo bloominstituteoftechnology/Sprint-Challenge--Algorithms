@@ -1,4 +1,5 @@
 1(a)The first line is of O(1), the second line is O(n) and the third line is O(1)
+
 making the worst case time complexity O(n)
 
 1(b)
