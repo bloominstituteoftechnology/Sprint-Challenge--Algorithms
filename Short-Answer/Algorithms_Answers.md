@@ -20,6 +20,7 @@ B) sum =  0
 C) O(n) - The recursive function is being called n times before reaching the base case of bunnies == 0, so it runs linearly.
 
 
+## Exercise II
 To begin with the naive solution would have to be as follows...
 
 Starting from floor 1 until top of building __n__ drop an egg and have a function return whether the egg is safe or broken. If it is broken return the story number from which the egg was dropped. If not the loop continues until it reaches the story where the egg is broken, this is __f__ the floor we want.
