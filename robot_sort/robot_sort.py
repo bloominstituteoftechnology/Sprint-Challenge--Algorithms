@@ -103,6 +103,23 @@ class SortingRobot:
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
+    '''
+     Bubble Sort Algo
+
+     Pick up first item, if can move right then compare it to the item immediately adjacent to the one picked up.
+     If held item is bigger than the item in the list then swap for the smaller item then put the smaller item in the
+     empty list index to the left. Next go back to the adjacent item that was bigger and pick it up again then continue
+     this comparison/swapping for bigger item all the way until the end of the list. Once at the end put down the largest
+     item that was found using this process in the last position and put the item previously in that spot into the next-to-last
+     index position that is empty.
+     After this return all the way to the beginning of the list by moving left until you can't anymore. Pick up the first item
+     and begin this process all over again. 
+
+     To know when the list is finished being sorted, on each pass of the comparison loop, if two items in the list swap positions
+     even once then the light on the robot's head is turned on. That way once the list is completely sorted, what will happen
+     is that the robot will reach the right most position of the list with its light off and when it does so we know that
+     the list is completely sorted and we can exit the function.
+    '''
 
     l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
 
