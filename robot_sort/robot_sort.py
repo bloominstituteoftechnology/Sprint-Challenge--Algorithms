@@ -92,12 +92,47 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+    def bubble_compare(self):
+        self.move_right()
+        self.swap_item()
+        self.move_left()
+        return self.compare_item()
+    
+    def bubble_swap(self):
+        self.swap_item()
+        self.move_right()
+        self.swap_item()
+        self.set_light_on()
+        #print("swapped, light ON")
+
+    def bubble_put_back(self):
+        self.move_right()
+        self.swap_item()
+    
+    def reset_position(self):
+        self.set_light_off()
+        while self.can_move_left():
+            self.move_left()
+
     def sort(self):
-        """
-        Sort the robot's list.
-        """
-        # Fill this out
-        pass
+        
+        if self.can_move_right() == False and self.light_is_on() == True:
+            self.reset_position()
+            #print("Position reset at 0, light OFF")
+        if self.can_move_right() == False and self.light_is_on() == False:
+            if self.bubble_compare() == 1:
+                self.bubble_put_back()
+            else:
+                self.bubble_swap()
+            #print("list sorted")
+            return
+        while self.can_move_right() == True:
+            if self.bubble_compare() == 1:
+                self.bubble_put_back()
+            else:
+                self.bubble_swap()
+            #print(self._list)
+        self.sort()
 
 
 if __name__ == "__main__":

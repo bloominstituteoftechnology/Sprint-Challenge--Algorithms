@@ -23,6 +23,7 @@ b)  sum = 0
             l += 1
             sum += 1
 ```
+# O(n^3)
 
 ```
 c)  def bunnyEars(bunnies):
