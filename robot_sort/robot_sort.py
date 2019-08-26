@@ -92,17 +92,74 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+    def bubble_compare(self):
+        self.move_right()
+        self.swap_item()
+        self.move_left()
+        return self.compare_item()
+    
+    def bubble_swap(self):
+        self.swap_item()
+        self.move_right()
+        self.swap_item()
+        self.set_light_on()
+        #print("swapped, light ON")
+
+    def bubble_put_back(self):
+        self.move_right()
+        self.swap_item()
+    
+    def reset_position(self):
+        self.set_light_off()
+        while self.can_move_left():
+            self.move_left()
+
     def sort(self):
-        """
-        Sort the robot's list.
-        """
-        # Fill this out
-        pass
+        
+        if self.can_move_right() == False and self.light_is_on() == True:
+            self.reset_position()
+            #print("Position reset at 0, light OFF")
+        if self.can_move_right() == False and self.light_is_on() == False:
+            if self.bubble_compare() == 1:
+                self.bubble_put_back()
+            else:
+                self.bubble_swap()
+            #print("list sorted")
+            return
+        while self.can_move_right() == True:
+            if self.bubble_compare() == 1:
+                self.bubble_put_back()
+            else:
+                self.bubble_swap()
+            #print(self._list)
+        self.sort()
 
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
+    '''
+     Bubble Sort Algo
+
+     Pick up first item, if can move right then compare it to the item immediately adjacent to the one picked up.
+     If held item is bigger than the item in the list then swap for the smaller item then put the smaller item in the
+     empty list index to the left. If its smaller than the one not being held then you put the held item back into its original index
+     and then pick up the item in the second index and compare it to the third index item. Continue this until  you're at the end
+     of the list.
+     
+     Once at the end put down the largest
+     item that was found using this process in the last position and put the item previously in that spot into the next-to-last
+     index position that is empty.
+     After this return all the way to the beginning of the list by moving left until you can't anymore. Pick up the first item
+     and begin this process all over again. 
+
+     To know when the list is finished being sorted, on each pass of the comparison loop, if two items in the list swap positions
+     even once then the light on the robot's head is turned on. That way once the list is completely sorted, what will happen
+     is that the robot will reach the right most position of the list with its light off and when it does so we know that
+     the list is completely sorted and we can exit the function.
+    '''
+
+
 
     l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
 
