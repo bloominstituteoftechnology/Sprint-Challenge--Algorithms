@@ -97,6 +97,7 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
+
         pass
 
 
