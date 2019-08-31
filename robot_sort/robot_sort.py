@@ -96,8 +96,18 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
+        list = self._list
+
+        # print(list)
+
+        for i in range(len(list)-1):
+            for j in range((len(list) - i)-1):
+                if list[j] > list[j+1]:
+                    list[j], list[j+1] = list[j+1], list[j]
+                    # list[j+1] = list[j]
+        return list
         # Fill this out
-        pass
+
 
 
 if __name__ == "__main__":
