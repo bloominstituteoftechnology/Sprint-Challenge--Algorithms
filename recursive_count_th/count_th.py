@@ -6,11 +6,10 @@ Your function must utilize recursion. It cannot contain any loops.
 
 
 def count_th(word, sum=0):
-    count = sum
     if "th" not in word:
-        return count
+        return sum
 
     if "th" in word:
         index = word.find("th")
-        count += 1
-        return count_th(word[index + 2:], count)
+        sum += 1
+        return count_th(word[index + 2:], sum)
