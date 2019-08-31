@@ -2,13 +2,13 @@
 
 ## Exercise I
 
-a) O(n^3)
+a) O(n) n doesn't get modified, therefore it grows linearly.
 
 
-b) O(n^2)
+b) O(n^2) There are two loops, each with a O(n), therefore they get multiplied together.
 
 
-c) O(n-1)
+c) O(n-1)/ "O(n)" in every recursive call n is subracted by 1. 
 
 ## Exercise II
 break_points = {}
