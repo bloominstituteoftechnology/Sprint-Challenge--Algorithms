@@ -8,7 +8,7 @@ a)  O(n<sup>3</sup> + n<sup>2</sup>)
 b)  O(c<sup>n</sup>)
 
 
-c)  
+c)  O(c)
 
 ## Exercise II
 
