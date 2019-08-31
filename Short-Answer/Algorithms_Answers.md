@@ -2,13 +2,13 @@
 
 ## Exercise I
 
-a)
+a)  O(n<sup>3</sup> + n<sup>2</sup>)
 
 
-b)
+b)  O(c<sup>n</sup>)
 
 
-c)
+c)  
 
 ## Exercise II
 
