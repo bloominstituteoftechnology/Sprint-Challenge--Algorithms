@@ -95,10 +95,31 @@ class SortingRobot:
     def sort(self):
         """
         Sort the robot's list.
+
+         Plan:
+        - going from beginning of the list
+        - take current number and compare it to rest of list
+        - if smaller to the compared number, switch and keep going thru the list
+        - if end of list, go back where started, insert number roto is holding and do the same like abov
         """
         # Fill this out
-        pass
-
+         self.set_light_on()
+        while self.light_is_on():
+            self.swap_item()
+            while self.can_move_right():
+                self.move_right()
+                if self.compare_item() == 1:
+                    # if smaller number is found
+                    self.swap_item()
+            while self.can_move_left():
+                self.move_left()
+                if self.compare_item() == None:
+                    self.swap_item()
+                    break
+                if self.can_move_right():
+                    self.move_right()
+                if not self.can_move_right():
+                        self.set_light_off()
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
