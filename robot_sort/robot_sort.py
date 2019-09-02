@@ -96,6 +96,60 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
+        while True:
+
+            # Turn off light to start with
+            # Light on indicated that one swap was done in this move
+            self.set_light_off()
+
+            # Keep moving until we can
+            while self.can_move_right():
+
+                # Pick up item at current position and move right
+                self.swap_item()
+                self.move_right()
+
+                # If this position is lower that what we are holding now, swap it
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.set_light_on()
+
+                # Move to left to drop value. It will either earlier value or swapped value from current
+                # position
+                self.move_left()
+                self.swap_item()
+
+                # We are done comparing and swapping ( If need be) at current position.
+                # Move to right
+                self.move_right()
+
+            # If no values were swapped, then we are dong sorting
+            if self.light_is_on() == False:
+                return
+
+            # We run the same above alogrithm, this time left to right.
+            self.set_light_off()
+            # print(self._item)
+            self.move_left() #Since one right pass moves the largest number rightmost, we don't need to compare and swap this, so start from leftmost - 1
+            while self.can_move_left():
+                self.swap_item()
+                self.move_left()
+
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.set_light_on()
+
+                self.move_right()
+                self.swap_item()
+
+                self.move_left()
+
+            # print("Done left")
+            if self.light_is_on() == False:
+                return
+
+        print(self._list)
+
         # Fill this out
         pass
 
