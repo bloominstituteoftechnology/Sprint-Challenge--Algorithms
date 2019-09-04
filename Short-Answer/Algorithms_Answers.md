@@ -15,7 +15,7 @@ We can perform binary search in this case, where n is number of florrs in the bu
 pseudo code:
 
 finding mid:
-mi = floors / 2 - splitting top and bottom midway
+mid = floors / 2 - splitting top and bottom midway
 
 lower_floors = floors[:mid +1 ]
 top_floors = floors[mid + 1 ]
