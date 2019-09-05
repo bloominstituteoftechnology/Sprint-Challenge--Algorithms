@@ -12,4 +12,4 @@ c) O(n) - because the recursion decreases each time through.  Even though the sp
 
 ## Exercise II
 
-I would start at the first floor and throw an egg seeing if it broke.  Then I would go up, a floor at a time, throwing an egg to see if it breaks.  Once an egg breaks, then I would know the earliest floor that an egg breaks on.  The time complexity would be O(n) because I am iterating over the building stories loop only once to find my answer.
+I would start at the middle floor and see if an egg breaks from there.  If not, then I can instantly exclude all the floor below from consideration and only check the top half of the floors.  I would then take my resulting top floors and divide them in half again and throw an egg from there and continue until I found the right floor.  This should give O(log n) runtime
