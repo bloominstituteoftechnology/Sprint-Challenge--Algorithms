@@ -5,8 +5,8 @@ Your function must utilize recursion. It cannot contain any loops.
 '''
 
 def count_th(word):
-    word_length = len(word)
-    if word_length == 0 or word_length < 2:
+    word_leng = len(word)
+    if word_leng == 0 or word_leng < 2:
         return 0
     elif word[0:2] == "th":
         return count_th(word[1::]) + 1
