@@ -97,7 +97,40 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        # Bubble Sort
+        self.set_light_on()
+        while self.light_is_on():
+            while(self.can_move_left()): #reset to the far left
+                self.move_left()
+            self.sort_to_right()
+        
+
+    def sort_to_right(self):
+        self.set_light_off()
+        while(self.can_move_right()):
+            self.swap_item()
+            self.move_right()
+            if (self.compare_item() > 0):
+                self.swap_item()
+                self.set_light_on()
+            self.move_left()
+            self.swap_item()
+            self.move_right()
+
+'''    def sort_to_left(self): #Ultimately didn't work, not implemented
+        self.set_light_off()
+        while(self.can_move_right()):
+            self.move_right()
+        while(self.compare_item() != None): # None will always be furthest left, so this is essential can_move_left -1
+            if(self.compare_item() > 0):
+                self.swap_item()
+                self.set_light_on()
+            self.move_left()
+        if(self.light_is_on()):
+            self.move_right()
+            self.swap_item()'''
+
+
 
 
 if __name__ == "__main__":
