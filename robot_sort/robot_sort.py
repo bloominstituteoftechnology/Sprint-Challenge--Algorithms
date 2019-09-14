@@ -96,10 +96,8 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        
             
         self.set_light_on()
-        
         
         self.swap_item()
         

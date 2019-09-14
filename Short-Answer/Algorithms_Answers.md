@@ -2,13 +2,13 @@
 
 ## Exercise I
 
-a) Logarithmin)(lon n) is the run time for this, the size of the input increses the space used will grow at a slightly slower rate.
+a)0(n) :Linear Time , because we are only 2 things for this code and it's a constant addition of 2.
 
 
-b) Polynomial , as the size of n increase the space use will grow as well.
+b) o(logn)
 
 
-c) Linear Time , because we are only 2 things for this code and it's a constant addition of 2.
+c) 0(n) :Linear Time , because we are only 2 things for this code and it's a constant addition of 2.
 
 ## Exercise II
 
