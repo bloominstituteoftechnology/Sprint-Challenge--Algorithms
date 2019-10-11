@@ -5,10 +5,10 @@
 a) O(1*n) because the while loop will iterate exactly n times. 
 
 
-b)
+b) O(n logn) 
 
 
-c)
+c) O(n)
 
 ## Exercise II
 
