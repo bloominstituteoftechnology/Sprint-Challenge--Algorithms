@@ -2,7 +2,7 @@
 
 ## Exercise I
 
-a)
+a) O(1*n) because the while loop will iterate exactly n times. 
 
 
 b)
