@@ -7,7 +7,7 @@ class SortingRobot:
         self._item = None       # The item the robot is holding
         self._position = 0      # The list position the robot is at
         self._light = "OFF"     # The state of the robot's light
-        self._time = 0          # A time counter (stretch)
+        self._time = 0          # A time counter ( stretch ) 
 
     def can_move_right(self):
         """
@@ -96,8 +96,53 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # Let's start this loop off. 
+        while True:
+
+        # Moving to the right. Grabbing progressively bigger items
+            while True:
+                    
+            # Hitting the wall. Breaking the rightward movement loops
+                if self.can_move_right() == False:
+                    break               
+
+                # swapping iems
+                self.swap_item()
+
+                # If the next item is bigger, swap again
+                self.move_right()
+                if self.compare_item() < 0:
+                    self.swap_item()
+
+                # Largest item goes at the end
+                # break righward loop
+                if self.can_move_right() == False:
+                    self.swap_item()
+                    break
+            
+            # Other ending conditions:
+            # If the robot is all the way at the end and NOT carrying anything
+            # Break that loop, as there is nothing else to do. 
+            if self.compare_item() == None and self.can_move_right() == False:
+                break
+
+
+            # Move smallenst item to where this is nothing.
+            while True:
+                self.move_left()
+                # Swap smallest item
+                if self.compare_item() == None:
+                    self.swap_item()
+                    break
+
+                # keep swapping for progressively smaller items. 
+                
+                if self.compare_item() > 0:
+                    self.swap_item()
+
+            if self.move_right() == False:
+                break
+
 
 
 if __name__ == "__main__":
