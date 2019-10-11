@@ -96,7 +96,13 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
+        # Output should be a sorted list. i.e. [3, 1, 2] -> return [1, 2, 3]
+
+
+
+
+
+
         pass
 
 
