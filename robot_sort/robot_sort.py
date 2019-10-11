@@ -97,7 +97,24 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        while True: # let's simulate a do-while loop in python
+            while self.can_move_right(): # until it's not at the end should compare items 
+                self.swap_item()    # pick an item 
+                self.move_right()   # and move to the next one
+                if self.compare_item() == 1: # if the held item is bigger
+                    self.swap_item()    # it's swapped
+                    self.set_light_on() # light is turned on to remeber a swap happened
+                self.move_left() # go back
+                self.swap_item() # place the item back
+                self.move_right() # move to the right to start the loop again
+            if self.light_is_on(): # if we are at the end of the list and the light is on
+                self.set_light_off() # we reset the light 
+                while self.can_move_left(): # we move to the left until we are at the begenning of the list
+                    self.move_left()
+            else: # if the light is off we can break the loop because no swap happened (list is already sorted)
+                return
+            
+
 
 
 if __name__ == "__main__":
