@@ -99,59 +99,41 @@ class SortingRobot:
         #  turns off the swap flag
         self.set_light_off()
 
-        print('starting right pass')
-        print('item', self._item)
-        print('position', self._position)
-        print('list', self._list)
+        # print('starting right pass')
+        # print('item', self._item)
+        # print('position', self._position)
+        # print('list', self._list)
 
         #Move to the last position of the list
         while self.can_move_right():
-            # we want to swap items in one situation, if the held item is smaller, 
-            if self.compare_item() == -1:
+            # we want to swap items in one situation, if the held item is smaller, this moves items to the right
+            if self.compare_item() < 0:
                 
-                print('swapping right') 
-                print('item', self._item)
-                print('position', self._position)
-                print('list', self._list)
+                # print('swapping right') 
+                # print('item', self._item)
+                # print('position', self._position)
+                # print('list', self._list)
                 
                 self.swap_item()
                 self.move_right()
                 
-                print('swapped right now holding')
-                print('item', self._item)
-                print('position', self._position)
-                print('list', self._list)   
+                # print('swapped right now holding')
+                # print('item', self._item)
+                # print('position', self._position)
+                # print('list', self._list)   
 
                 # set our light on as a flag to iterate again
                 self.set_light_on()
 
             # if held item is equal or > next item, just move right
             else:
-                print('no swap', self._item, self._position)
+                # print('no swap', self._item, self._position)
                 self.move_right()
             
-        # we are now at the end of the list, we want to check the final term and iterate back
-        if self.compare_item() == -1:
-                
-                print('swapping right') 
-                print('item', self._item)
-                print('position', self._position)
-                print('list', self._list)
-                
-                self.swap_item()
-                self.move_right()
-                
-                print('swapped right now holding')
-                print('item', self._item)
-                print('position', self._position)
-                print('list', self._list)   
-
-                # set our light on as a flag to iterate again
-                self.set_light_on()
         
-        print('end of right pass', self._item, self._position)
-        print('light equals', self._light)
-        print(self._list)
+        # print('end of right pass', self._item, self._position)
+        # print('light equals', self._light)
+        # print(self._list)
 
         # we always call a left pass b/c that picks up the nonetype
         self.swap_left()
@@ -160,36 +142,34 @@ class SortingRobot:
         """
         Iterates to the first position of the list, swapping backwards, grabs the none if the light is off.
         """
-        print('starting left pass')
-        print('item', self._item)
-        print('position', self._position)
-        print('list', self._list)
+        # print('starting left pass')
+        # print('item', self._item)
+        # print('position', self._position)
+        # print('list', self._list)
 
-        # we step back once to avoid a mximum recursion issue
-        self.move_left()
-        
+
         # moves left to the first position
         while self.can_move_left():
 
             # now we are moving left and comparing right
             # this means that if the item we are holding is bigger, we want to swap it right to take the smallest item back
-            if self.compare_item() == 1:
-                print('swapping left ', self._item, self._position)
+            if self.compare_item() > 0:
+                # print('swapping left ', self._item, self._position)
                 self.swap_item()
                 self.move_left()
-                print('swapped left now holding x at x ', self._item, self._position)
+                # print('swapped left now holding x at x ', self._item, self._position)
                 
-                # set our light on as a flag to iterate again
-                self.set_light_on()
+                # set our light off as backwards swaps can be the smallest item percolating downwards
+                self.set_light_off()
             
             # if our held item is less or equal we want to hold it and move left
             else:
-                print('no swap', self._item, self._position)
+                # print('no swap', self._item, self._position)
                 self.move_left()
         
-        print('end of left pass', self._item, self._position)
-        print('light equals', self._light)
-        print(self._list)
+        # print('end of left pass', self._item, self._position)
+        # print('light equals', self._light)
+        # print(self._list)
 
         # at the begining of the list, we should be 'over' the nonetype but have the smallest element in our hand
         # so if there were no swaps right, we should swap the smallest for the nonetype, otherwise we iterate again with the smallest element
@@ -198,28 +178,47 @@ class SortingRobot:
         if self.compare_item() == None and self.light_is_on() == False:
             # this is the situation where we pick up the none type if the light is off
             self.swap_item()    
-            print('Got the None! No more swaps!', self._item)
-            print('light equals', self._light)
+            # print('Got the None! No more swaps!', self._item)
+            # print('light equals', self._light)
          
         else:
             # if there has been a swap we call a right pass
-            print('calling another right swap')
-            print('light equals', self._light)
+            # print('calling another right swap')
+            # print('light equals', self._light)
             self.swap_right()
+
+    def bubble_sort(self):
+        "bubble sorts the list using a recursive call right"
+        # we swap once to get rid of the None type in our hand
+        self.swap_item()
+        # iterate to the end of the list
+        self.swap_right()
+
+
+    # def selection_sort(self):
+    #     """
+    #     Performs insertion sort on the robo list.
+    #     """
+        # grab first item to get rid of NoneType
+        self.swap_item()
+
+    #     # first loop to iterate along list
+    #     while self.can_move_right() == True:
+
+
 
        
     def sort(self):
         """
         Sort the robot's list.
         """
-        print('sorting list: ', self._list)
-        # we swap once to get rid of the None type in our hand
-        self.swap_item()
-        # iterate to the end of the list
-        self.swap_right()
+        # print('sorting list: ', self._list)
+        
+        # This is the bubble sort implementation
+        self.bubble_sort()
+        
 
-        print('end of list holding', self._item)
-        # now that we are at the end of the list, we need iterate again if there has been a swap
+        # selection_sort implementation
         
 
        
@@ -233,11 +232,11 @@ if __name__ == "__main__":
     6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 
     37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
 
-    l2 = [3, 4]
+    l2 = [3, 2, 1]
 
     l3 = [5, 4, 3, 2, 1]
 
-    robot = SortingRobot(l3)
+    robot = SortingRobot(l)
 
     robot.sort()
     print(robot._list)

@@ -35,3 +35,40 @@ c) O(n), the function is being called recursively n times so it is linear.
 ## Exercise II
 
 
+The simplest solution is to start incrementing from the first or the last floor and stop when and egg breaks/survives. This solution gives us O(n) complexity since the worst case is if we start at 0 and f = n, so we iterate through the entire list once.
+
+
+Let's say floors is a list of floors, so every floor under f returns 1 egg, but f and every floor afterwards returns 0 eggs.
+
+This means that I'm looking for a sequence of 10, and the 0 in that sequence == f.
+
+I can break up the floors into sequences of 2 and then binary search accross these sequences until I find one that matches '10'
+
+find_f(floors, target='10'):
+
+    sequences = [floors[i:i+1] for i in range(0, len(floors))]
+
+    target_sequence = binary_search_recursive(sequences, target, 0, len(sequences)):
+
+        if high >= low:
+          middle = (low + (high - low)) // 2
+
+        # Catches the issue of the sequence getting stuck at 1
+        if middle == low:
+            middle +=1
+
+        item = sequences[middle]
+
+        if item == target:
+            return middle
+        
+        elif item == '11':
+            return binary_search_recursive(arr, target, middle+1, high )
+      
+        else: #IF THE ITEM = '00'
+            return binary_search_recursive(arr, target, low, middle-1)
+
+
+    return floors.index(target_sequence[1])
+    
+
