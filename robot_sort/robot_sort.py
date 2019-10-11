@@ -137,39 +137,58 @@ class SortingRobot:
 
             # Loop terminates when canMoveRight == false
 
-        # Move robot over to the right to make list[0] be sorted
-        robot.move_right()
-
         # Move over every item in the list
-        for i in range(self._list):
-            # Swap first unsorted item with None
+        for i in range(len(self._list)):
+            # If robot can move to the right, do so to create a further sorted list
+            if robot.can_move_right() == True:
+                robot.move_right()
+            # If robot cannot move to the right, we're at the end of the list, which means everything should be sorted.
+            else:
+                return robot._list
 
+            # Swap first unsorted item with 
+            robot.swap_item()
+            
             # Move to the left
-                # If item in inventory > item in list (This means that the item in inventory is the biggest in the so-far sorted list)
-                    # Move right
-                    # Swap items.
+            for pos in range(robot._position, 0, -1):
+                robot.move_left()
+                print(robot._position)
+                print(robot._item)
+                print(robot._list[robot._position])
+                print("\n")
+
+                # If item in inventory >= item in list (This means that the item in inventory is the biggest in the so-far sorted list or equal to it and should be placed on the right)
+                if robot._item >= robot._list[robot._position]:
+                    robot.move_right()
+                    robot.swap_item()
+                    # We have to loop over the remaining stuff until we get to none
 
                 # elif item in list <= item in inventory 
-                # OR 
-                # If we're at index o of the array (can_move_left == False)
+                elif robot._item < robot._list[robot._position]:
                     # Swap item in inventory with the one in list
-                    # loop to the right
+                    robot.swap_item()
+                    print(robot._list)
+
+                    # Push all the items between the current position and None to the right
+                    for j in range(len(robot._list)):
+                        robot.move_right()
                         # Swap item in inventory with the one in list
-                    
+                        robot.swap_item()
 
                         # If item in inventory is None,
                             # break
-
-
-
-        pass
+                        if robot._item == None:
+                            break
+                    
 
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
-    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+    l = [4, 3, 2, 1]
+
+    # l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
 
     robot = SortingRobot(l)
 
