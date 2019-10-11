@@ -9,3 +9,4 @@ def count_th(word):
         return 1 + count_th(word[i + 2:])
     else:
         return 0
+
