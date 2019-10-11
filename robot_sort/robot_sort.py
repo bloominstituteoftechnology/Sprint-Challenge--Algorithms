@@ -167,7 +167,7 @@ class SortingRobot:
                 elif robot._item < robot._list[robot._position]:
                     # Swap item in inventory with the one in list
                     robot.swap_item()
-                    print(robot._list)
+
 
                     # Push all the items between the current position and None to the right
                     for j in range(len(robot._list)):
