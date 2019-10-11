@@ -96,9 +96,92 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
 
+        """
+        
+        I would use a bubble sort here since the robot can only traverse one position at a time.
+        Compare position zero to position one. Swap if necessary and continue until the list's end is reach.
+        
+        Continue until list is fully sorted.
+        
+        
+        """
+
+        """
+        # Run this code to evaluate and move past the first position
+        print(self._position)
+        self.swap_item()
+        self.move_right()
+        #print(self.compare_item())
+        #print(self._position)
+        self.move_left()
+        self.swap_item()
+     
+
+
+        
+        # Use this to evaluate the next pair and flip positions
+        # Move over
+        print(self._position)
+        self.move_right()
+        self.move_right()
+        self.swap_item()
+        self.move_right()
+        self.swap_item()
+        self.move_left()
+        self.swap_item()
+
+
+        # Evaluate and move to next position
+        self.move_right()
+        self.swap_item()
+        self.move_right()
+        print(self.compare_item())
+        print(self._position)
+        self.move_left()
+        self.swap_item()
+        
+
+
+
+        
+        # Evaluate, switch, move to next position
+        self.move_right()
+        self.move_right()
+        self.swap_item()
+        self.move_right()
+        print(self.compare_item())
+        print(self._position)
+        self.swap_item()
+        self.move_left()
+        self.swap_item()
+        """
+
+
+        unsorted = True
+        while unsorted == True:
+
+            """
+            Bubble sort here
+            """
+
+
+
+        return self._list
+
+"""
+        self.move_right()
+        self.swap_item()
+        self.move_right()
+        print(self.compare_item())
+        print(self._position)
+        self.move_left()
+        self.swap_item()
+        print(self.compare_item())
+        print(self._position)
+
+
+"""
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
@@ -110,3 +193,5 @@ if __name__ == "__main__":
 
     robot.sort()
     print(robot._list)
+    print(len(robot._list))
+
