@@ -137,6 +137,29 @@ class SortingRobot:
 
             # Loop terminates when canMoveRight == false
 
+        # Move robot over to the right to make list[0] be sorted
+        robot.move_right()
+
+        # Move over every item in the list
+        for i in range(self._list):
+            # Swap first unsorted item with None
+
+            # Move to the left
+                # If item in inventory > item in list (This means that the item in inventory is the biggest in the so-far sorted list)
+                    # Move right
+                    # Swap items.
+
+                # elif item in list <= item in inventory 
+                # OR 
+                # If we're at index o of the array (can_move_left == False)
+                    # Swap item in inventory with the one in list
+                    # loop to the right
+                        # Swap item in inventory with the one in list
+                    
+
+                        # If item in inventory is None,
+                            # break
+
 
 
         pass
