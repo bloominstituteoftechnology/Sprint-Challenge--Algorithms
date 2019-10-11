@@ -23,4 +23,4 @@ def count_th(word):
 
     return count_th(word[1:])
 
-print(count_th("ht"))
+print(count_th("abcthxyzt"))
