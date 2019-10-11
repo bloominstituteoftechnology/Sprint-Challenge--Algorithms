@@ -104,6 +104,10 @@ class SortingRobot:
                 if self.compare_item() == 1:    # if the held item is bigger
                     self.swap_item()                # it's swapped
                     self.set_light_on()             # light is turned on to remeber a swap happened
+                if not self.can_move_right():
+                    self.move_left()                # go back
+                    self.swap_item()
+                    break
                 self.move_left()                # go back
                 self.swap_item()                # place the item back
                 self.move_right()               # move to the right to start the loop again
@@ -119,7 +123,7 @@ class SortingRobot:
                     self.move_left()
             else:                           # if the light is off we can break the loop because no swap happened (list is already sorted)
                 return
-            
+        
 
 
 
