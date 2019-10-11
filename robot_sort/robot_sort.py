@@ -96,10 +96,46 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Output should be a sorted list. i.e. [3, 1, 2] -> return [1, 2, 3]
+        # CONSTRAINTS
+            # Output should be a sorted list. i.e. [3, 1, 2] -> return [1, 2, 3]
+
+            # What sorting algorithm to use?
+                # Bubble? (Fit nicely with the swappig methon)
+                # Insertion? (Dioes not seem to mesh well with the 'swap items')
+                # Selection sort is impossible since we're not allowed to declare any variables
+
+            # No efficiency requirement, but should run in less than 1 second
+            # The user swaps a 'None' with the value in the list
+            # What use does the light have? Is it to indicate it is carrying something?
+            # Robot starts at list[0]
+
+        # APPROACH W/ INSERTION SORT
+            # Example list = [2,4,1,3]
+            # item = None
+            # Move over to the right (list[1] = 4)
+
+            # Loop over the remaining unsorted list
+                # Swap item at list[1]
+                    # list = [2, None, 1, 3]
+                    # item = 4
+
+                # Move left until item in list <= item in inventory (which means that we've reached the correct location for the item)
+                    # Move left (robot.position = 0)
+                    # robot.compare == 1 (hence, item is larger than item in list, so no need to swap - same with being equal)
+                    # If it were smaller, we would swap
+
+                # Then loop over all items between robot.location and the right until we run into None
+                    # Move one to the right and swap those items. (list = [2, 4, 1, 3], item = None)
+
+                    # if robot.item == None:
+                    #     break
+
+
+                # Then move one to the right
 
 
 
+            # Loop terminates when canMoveRight == false
 
 
 
