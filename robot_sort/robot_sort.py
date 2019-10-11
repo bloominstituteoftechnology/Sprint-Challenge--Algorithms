@@ -100,7 +100,7 @@ class SortingRobot:
         pass
 
 
-if __name__ == "__main__":
+'''if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
@@ -109,4 +109,4 @@ if __name__ == "__main__":
     robot = SortingRobot(l)
 
     robot.sort()
-    print(robot._list)
+    print(robot._list)'''

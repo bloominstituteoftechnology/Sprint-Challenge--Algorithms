@@ -42,3 +42,5 @@ Since the floors are in order we could utilize Binary Search algorithm to find t
 
 6) ELSE there are only 2 floors left AND the egg SURVIVES from the floor you throw it off of then
     j = the floor you are on + 1
+    
+Runtime Complexity = O(log n) Logarithmic time. We are dividing the possibilities by half every time the code loops therefore increasing time performance.
