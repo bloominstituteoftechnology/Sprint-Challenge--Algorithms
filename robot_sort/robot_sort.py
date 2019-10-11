@@ -96,9 +96,29 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
-
+        # Use the robot's light as a boolean to control our loop.
+        # When the light is on the robot is moving right.
+        # As robot moves right we compare items and swap if item is smaller.
+        # When the light is off the robot will move left back to the starting position.
+        while self.light_is_on() == False:
+            self.set_light_on()
+            while self.can_move_right():
+                self.swap_item()
+                self.move_right()
+                if self.compare_item() > 0:
+                    self.swap_item()
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    self.set_light_off()
+                else:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+            # Loop is finished. Robot return left.
+            if self.light_is_on() == False:
+                while self.can_move_left():
+                    self.move_left()
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
@@ -110,3 +130,18 @@ if __name__ == "__main__":
 
     robot.sort()
     print(robot._list)
+
+#------------------Notes------------------
+# 1. Understand the question
+# 2. Create a Plan
+# 3. Implement plan
+# 4. Revise and improve
+
+# Robot Sort sounds similar to bubble sort
+# def bubble_sort( arr ):
+#     for i in range(0, len(arr) - 1):
+#         for x in range(0, len(arr) - 1 - i):
+#             if arr[x] > arr[x + 1]:
+#                 arr[x], arr[x + 1] = arr[x + 1], arr[x]
+                
+#     return arr
