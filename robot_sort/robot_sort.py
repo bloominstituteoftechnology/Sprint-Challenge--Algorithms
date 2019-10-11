@@ -99,22 +99,28 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
+        # set the light on
+        # move the position to the 0th position, off the light
+        # while it can move right, keep swapping and move right
         # loop while the robot can move right
-        while self.can_move_right():
-            if self.compare_item() == 1:
-                self.swap_item()
-                self.move_right()
-            elif self.compare_item() == -1:
-                self.swap_item()
+        self.set_light_on()
+
+        while self.light_is_on():
+            while self.can_move_left():
                 self.move_left()
-            elif self.compare_item == 0:
+            self.set_light_off()
+            while self.can_move_right():
+                self.swap_item()
                 self.move_right()
-            elif self.can_move_right == False:
-                break
-
-        self.swap_item()
-
-        pass
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.move_left()
+                    self.swap_item()
+                    self.set_light_on()
+                else:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
 
 
 if __name__ == "__main__":
