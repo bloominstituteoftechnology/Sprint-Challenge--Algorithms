@@ -94,14 +94,15 @@ class SortingRobot:
 
     def sort(self):
 
-        if (self.can_move_right() == False):
-            if self.light_is_on == False:
-                return self._list
-            else: 
-                while self.can_move_left():
-                    self.move_left()
-                self.set_light_off
-        else:
+        # if (self.can_move_right() == False):
+        #     if self.light_is_on == False:
+        #         print('done')
+        #         return self._list
+        #     else: 
+        #         self.set_light_off
+        #         while self.can_move_left():
+        #             self.move_left()
+        # else:
             while self.can_move_right():
                 self.swap_item()
                 self.move_right()
@@ -111,11 +112,17 @@ class SortingRobot:
                     self.swap_item()
                     self.set_light_on()
                     self.move_right()
-                elif self.compare_item() == 0 or self.compare_item == 1:
+                elif self.compare_item() == 0 or self.compare_item() == -1:
                     self.move_left()
                     self.swap_item()
                     self.move_right()
-        self.sort()
+            if self.light_is_on() == False:
+                return self._list
+            else:
+                self.set_light_off()
+                while self.can_move_left():
+                    self.move_left()
+                self.sort()
 
     # solution that works but exceeds maximum recursion depth
 
@@ -148,7 +155,7 @@ if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
-    l = [15, 41, 58, 49, 26]
+    l = [14, 16]
 
     robot = SortingRobot(l)
 
