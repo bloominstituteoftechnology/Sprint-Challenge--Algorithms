@@ -118,6 +118,10 @@ class SortingRobot:
                     self.move_left()
                     if self.compare_item() <= 0:
                         self.swap_item()
+                    if not self.can_move_left():
+                        self.move_right()                # go back
+                        self.swap_item()
+                        break
                     self.move_right()
                     self.swap_item()
                     self.move_left()
