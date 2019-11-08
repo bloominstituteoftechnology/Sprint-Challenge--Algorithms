@@ -2,13 +2,13 @@
 
 ## Exercise I
 
-a)
+a)O(n )
 
 
 b)O(n^2)
 
 
-c)
+c)O(c^n)
 
 ## Exercise II
 
