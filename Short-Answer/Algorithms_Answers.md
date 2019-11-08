@@ -8,12 +8,14 @@ a)  O(n)
     Originally thought O(n^5), but now I don't think it's actually that complex
 
 
-b)  O(n)
-    The for loop is O(n) because it will increase in size linearly with n. The rest of the function is O(1), so the overall complexity is O(n)
+b)  O(n^2)
+    The for loop is O(n) because it will increase in size linearly with n. The while loop is also O(n),
+    since they both need to run through it's O(n * n) or O(n^2)
 
 
-c)  O(1)
-    Function will always execute in the same time/space, no matter the size of bunnies
+c)  O(n)
+
+    First part of the function will is O(1) bc it always execute in the same time/space, no matter the size of bunnies, but the second part iterating over (bunnies -1 ) is O(n), so the whole function is
 
 ## Exercise II
 
