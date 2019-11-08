@@ -8,12 +8,23 @@ def count_th(word):
     word = str(word)
     th = 0
 
-    # check if empty
-    if not word:
+    # in case word isn't long enough to contain 'th'
+    if len(word) < 2:
         return 0
+    # check first two letters of string, add to count if 'th'
+    elif word[0:2] == 'th':
+        return count_th(word[1:]) + 1
+    # move on if not
+    else:
+        return count_th(word[1:])
 
-    elif word[0:1] == 'th':
-        # return 1 + count_th(word[1:])
-        th += 1
+    # check if empty
+    # if not word:
+    #     return 0
 
-    return th
+    # # doesn't work
+    # # elif word[0:1] == 'th':
+    #     return 1 + count_th(word[1:])
+    #     th += 1
+
+    # return th
