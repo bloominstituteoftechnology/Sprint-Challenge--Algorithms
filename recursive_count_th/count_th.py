@@ -5,7 +5,6 @@ Your function must utilize recursion. It cannot contain any loops.
 '''
 def count_th(word):
     try:
-        th_loc = word.index("th")
-        return 1 + count_th(word[th_loc+2:])
+        return 1 + count_th(word[word.index("th")+2:])
     except:
         return 0
