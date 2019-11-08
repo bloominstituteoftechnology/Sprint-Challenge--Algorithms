@@ -5,7 +5,7 @@
 a)O(n)
 
 
-b) O(n^2)
+b) nlogn
 
 
 c) O(n)
