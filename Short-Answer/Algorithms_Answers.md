@@ -6,4 +6,4 @@ a) This will run in O(n) as "a" will calculate as many times as the value of n
 
 b) This will run in O(n) as the outer loop will run for every value of n
 
-c)
+c) This recursive function will run in O(n)
