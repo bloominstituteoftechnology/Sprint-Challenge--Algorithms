@@ -2,7 +2,7 @@
 
 ## Exercise I
 
-a)
+a) n^3
 
 
 b)

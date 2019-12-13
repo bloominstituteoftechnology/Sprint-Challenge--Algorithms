@@ -3,3 +3,7 @@ node_modules
 *.pyc
 .vscode/
 __pycache__
+/recursive_count_th/Pipfile
+/recursive_count_th/Pipfile.lock
+/Pipfile
+/Pipfile.lock
