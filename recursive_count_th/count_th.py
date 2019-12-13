@@ -23,24 +23,46 @@ print('RUNNING')
 
 
 
+# ADDS SECOND PARAMETER
+# def count_th(word, count = 0):
+#     print('count_th START', word)
+#     # count = 0
+#     if len(word) == 0:
+#         return count
+#     if word[0] == 't' and word[1] == 'h':
+#         count += 1
+#         return count_th(word[2:], count)
+#     else:
+#         return count_th(word[1:], count)
+#
+#
 
-def count_th(word, count = 0):
-    print('count_th START', word)
-    # count = 0
-    if len(word) == 0:
-        return count
-    if word[0] == 't' and word[1] == 'h':
-        count += 1
-        return count_th(word[2:], count)
+
+# DOES NOT ACCOUNT FOR CASE
+# def count_th(word):
+#     up = word.upper()
+#     if len(up) == 0:
+#         return 0
+#     elif up[0] == "T" and up[1] == "H":
+#         up = up[2:]
+#         return 1 + count_th(up)
+#     else:
+#         up = up[1:]
+#         return count_th(up)
+# print(count_th("thabcthth"))
+
+
+
+#   WINNER
+def count_th(word):
+    if len(word) <= 1:
+        return 0
+    elif word[0] == "t" and word[1] == "h":
+        word = word[2:]
+        return 1 + count_th(word)
     else:
-        return count_th(word[1:], count)
-
-
-
-
-
-
-
+        word = word[1:]
+        return count_th(word)
 
 
 
@@ -114,4 +136,4 @@ def count_th(word, count = 0):
 
     # REFLECT
 print('FUNCTION CALL')
-print(count_th('basdfasdfasdfasdfasdfasdfaevavatetrthththththththththth'))
+print(count_th('basdfasdfasdfasdfasdfasdfaevavatetrthththththhththththththththththththththTHTHTHTtHtHHtHtTHTHTHTTHTHTHTHTH'))
