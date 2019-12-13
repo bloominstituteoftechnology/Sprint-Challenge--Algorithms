@@ -59,6 +59,7 @@ def count_th(word):
         return 0
     elif word[0] == "t" and word[1] == "h":
         word = word[2:]
+        print('+1')
         return 1 + count_th(word)
     else:
         word = word[1:]
