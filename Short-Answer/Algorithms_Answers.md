@@ -2,13 +2,13 @@
 
 ## Exercise I
 
-a) n^3
+a) n^3 because it has to go through each instance of n
 
 
 b)
 
 
-c)
+c) fastest, basically instant 
 
 ## Exercise II
 

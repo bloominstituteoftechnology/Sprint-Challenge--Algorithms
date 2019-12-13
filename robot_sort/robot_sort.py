@@ -10,6 +10,7 @@ class SortingRobot:
         self._time = 0          # A time counter (stretch)
 
     def can_move_right(self):
+        print('can_move_right SUCCESS')
         """
         Returns True if the robot can move right or False if it's
         at the end of the list.
@@ -17,6 +18,7 @@ class SortingRobot:
         return self._position < len(self._list) - 1
 
     def can_move_left(self):
+        print('can_move_left SUCCESS')
         """
         Returns True if the robot can move left or False if it's
         at the start of the list.
@@ -24,6 +26,7 @@ class SortingRobot:
         return self._position > 0
 
     def move_right(self):
+        print('move_right SUCCESS')
         """
         If the robot can move to the right, it moves to the right and
         returns True. Otherwise, it stays in place and returns False.
@@ -37,6 +40,7 @@ class SortingRobot:
             return False
 
     def move_left(self):
+        print('move_left SUCCESS')
         """
         If the robot can move to the left, it moves to the left and
         returns True. Otherwise, it stays in place and returns False.
@@ -50,6 +54,7 @@ class SortingRobot:
             return False
 
     def swap_item(self):
+        print('swap_item SUCCESS')
         """
         The robot swaps its currently held item with the list item in front
         of it.
@@ -60,6 +65,7 @@ class SortingRobot:
         self._item, self._list[self._position] = self._list[self._position], self._item
 
     def compare_item(self):
+        print('compare_item SUCCESS')
         """
         Compare the held item with the item in front of the robot:
         If the held item's value is greater, return 1.
@@ -77,16 +83,19 @@ class SortingRobot:
             return 0
 
     def set_light_on(self):
+        print('set_light_on SUCCESS')
         """
         Turn on the robot's light
         """
         self._light = "ON"
     def set_light_off(self):
+        print('set_light_off SUCCESS')
         """
         Turn off the robot's light
         """
         self._light = "OFF"
     def light_is_on(self):
+        print('light_is_on SUCCESS')
         """
         Returns True if the robot's light is on and False otherwise.
         """
@@ -96,9 +105,39 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
-
+        # CHECK IF LIGHT ON
+        print('light_is_on REQUEST')
+        self.light_is_on()
+        # TURN LIGHT ON
+        print('set_light_on REQUEST')
+        self.set_light_on()
+        # COMPARES
+        print('compare_item REQUEST')
+        self.compare_item()
+        # SWAPS
+        print('swap_item REQUEST')
+        self.swap_item()
+        # MOVE => RIGHT
+        print('can_move_right REQUEST')
+        self.can_move_right()
+        print('move_right REQUEST')
+        self.move_right()
+        # COMPARE AND SWAP
+        print('compare_item REQUEST')
+        self.compare_item()
+        print('swap_item REQUEST')
+        self.swap_item()
+        # MOVE <= LEFT
+        print('can_move_right REQUEST')
+        self.can_move_left()
+        print('move_right REQUEST')
+        self.move_left()
+        # COMPARE AND SWAP
+        print('compare_item REQUEST')
+        self.compare_item()
+        print('swap_item REQUEST')
+        self.swap_item()
+        return
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
