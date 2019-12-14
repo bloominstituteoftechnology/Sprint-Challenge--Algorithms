@@ -2,13 +2,15 @@
 
 ## Exercise I
 
-a)
+a) O(n) * O(1) = O(n)
 
 
-b)
+b) O(n) * (O(n) + O(1) + O(1))
+   O(n) * (O(2n))
+   O(n) * O(n) = O(n^2)
 
 
-c)
+c) Three steps and no loops so: O(3) ?
 
 ## Exercise II
 
