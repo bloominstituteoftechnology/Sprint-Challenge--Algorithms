@@ -81,30 +81,76 @@ class SortingRobot:
         Turn on the robot's light
         """
         self._light = "ON"
+
     def set_light_off(self):
         """
         Turn off the robot's light
         """
         self._light = "OFF"
+
     def light_is_on(self):
         """
         Returns True if the robot's light is on and False otherwise.
         """
         return self._light == "ON"
 
+
+# Pseudo
+# First we want to swap so we are holding the first number
+# Then want to set light on so we can have a continous loop like a video game
+# ALways check if we can move right. If we can move right then we move right
+# Now compare the item we have to the item we are on.
+# Swap items
+
+
+# Function works by looping with a false light
+# We set the light on which means once we come back to top loop it will stop everything
+# AS long as we are holding a number greater we will always turn light back off meaning we will restart the loop
+# When the entire list is sorted we will always be holding "None" so will never call the set_light_off meaning the light will be on, meaning the loop will finish once comes back to outer while loop
+
+# We move all the way to the right while swapping
+# Once hit the end, we then move all the way back left
+# We start loop over again until array fully sorted
+# Once fully sorted will only be holding "None" meaning never calling set_light_off in self.compare_item() == 1
+# Loop ends and list is sorted
+
     def sort(self):
         """
         Sort the robot's list.
-        """
-        # Fill this out
-        pass
+        # """
+        while self.light_is_on() == False:
+            # Setting light to true so when array is finished sorting will end the loop
+            self.set_light_on()
+
+            while self.can_move_right():
+                # swap item first then move right
+                self.swap_item()
+                self.move_right()
+                # If item held is greater in value then lets swap
+                if self.compare_item() == 1:
+                    # Greater value so swap and place lower to left and place higher number in that position
+                    self.swap_item()
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    # Turning lights off because we need will have to restart loop
+                    self.set_light_off()
+                else:
+                    # If smaller then place held item to the left
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+
+            while self.can_move_left():
+                self.move_left()
 
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
-    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1,
+         45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
 
     robot = SortingRobot(l)
 
