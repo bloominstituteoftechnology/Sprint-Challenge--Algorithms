@@ -7,8 +7,8 @@ pseudocode with respect to the input size n of each of the following:
 
 ```python
 a)  a = 0
-    while (a < n * n * n):
-      a = a + n * n
+    while (a < n * n * n):  # the loop is based on n*n*n => O(n^3)
+      a = a + n * n         # this makes loop go faster by n*n, we do multiplipply first from PEMDAS
 ```
 
 
