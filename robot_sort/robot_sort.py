@@ -54,6 +54,10 @@ class SortingRobot:
             return False
 
     def swap_item(self):
+        print('self._item::::::')
+        print(self._item)
+        print('self._list:::::')
+        print(self._list)
         print('swap_item SUCCESS')
         """
         The robot swaps its currently held item with the list item in front
@@ -105,45 +109,75 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
+        if self._item == None:
+            self.item = 0
+        while self.light_is_on() == False:
+            # bubble sort
         # CHECK IF LIGHT ON
-        print('light_is_on REQUEST')
-        self.light_is_on()
+            print('light_is_on REQUEST')
+            self.light_is_on()
         # TURN LIGHT ON
-        print('set_light_on REQUEST')
-        self.set_light_on()
-        # COMPARES
-        print('compare_item REQUEST')
-        self.compare_item()
-        # SWAPS
-        print('swap_item REQUEST')
-        self.swap_item()
+            print('set_light_on REQUEST')
+            self.set_light_on()
+        # # COMPARES
+        #     print('compare_item REQUEST')
+        #     self.compare_item()
+        # # SWAPS
+        #     print('swap_item REQUEST')
+        #     self.swap_item()
         # MOVE => RIGHT
-        print('can_move_right REQUEST')
-        self.can_move_right()
-        print('move_right REQUEST')
-        self.move_right()
+            print('can_move_right REQUEST')
+            while self.can_move_right() == True:
+                print('move_right REQUEST')
+                self.move_right()
+                self.compare_item()
         # COMPARE AND SWAP
-        print('compare_item REQUEST')
-        self.compare_item()
-        print('swap_item REQUEST')
-        self.swap_item()
+                print('compare_item REQUEST')
+        # BUBBLE SORT
+        #         self.compare_item()
+                arr = self._list
+                n = len(arr)
+                print('n ====>')
+                print(n)
+                for i in range(n):
+                    # if self._item == None:
+                    #     self.item = 0
+                    print('i ====>')
+                    print(i)
+                    for j in range(0, n-i-1):
+                        print('j ====>')
+                        print(j)
+                        if arr[j] > arr[j+1]:
+                            print('arr[j] ====>')
+                            print(arr[j])
+                            print('arr[j+1] ====>')
+                            print(arr[j+1])
+                            arr[j], arr[j+1] = arr[j+1], arr[j]
+
+                            print('self.compare_item')
+                            self.compare_item()
+                            print('swap_item REQUEST')
+                            self.swap_item()
+                            print('LIST')
+                            print(self._list)
         # MOVE <= LEFT
-        print('can_move_right REQUEST')
-        self.can_move_left()
-        print('move_right REQUEST')
-        self.move_left()
+            print('can_move_right REQUEST')
+            while self.can_move_left() == False:
+                print('move_right REQUEST')
+                self.move_left()
         # COMPARE AND SWAP
-        print('compare_item REQUEST')
-        self.compare_item()
-        print('swap_item REQUEST')
-        self.swap_item()
+                print('compare_item REQUEST')
+                self.compare_item()
+                print('swap_item REQUEST')
+                self.swap_item()
         return
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
-    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+    # l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+    l = [15, 41, 58, 49, 26, 4, 28, 8]
 
     robot = SortingRobot(l)
 
