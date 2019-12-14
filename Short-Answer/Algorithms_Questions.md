@@ -11,6 +11,23 @@ a)  a = 0
       a = a + n * n
 ```
 
+// n = 5
+5*5*5 = 125
+1st loop: a = 0 + 25
+1 = 25
+2nd loop
+a = 25 + 25
+a = 50
+3rd loop
+a = 50 + 25
+a = 75
+4th loop
+a = 75 + 25
+a = 100
+5th loop
+a = 100 + 25
+a = 125
+Loop finishes
 
 ```
 b)  sum = 0
