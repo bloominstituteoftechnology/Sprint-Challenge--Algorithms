@@ -49,4 +49,6 @@ A better approach would be like a binary search using midpoints
    IF egg doesn't break, repeat steps 2-5 on upper half
 6) When finally down to 2 floors, the floor where it breaks points to floor where it should not break   
 
+This should have a complexity of O(log n) like a binary search
+
 
