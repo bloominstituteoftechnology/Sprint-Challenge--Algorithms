@@ -21,7 +21,7 @@ def count_th(word):
     
     return count_th(word[2 - 1:])    # advance to next pair
     
-    pass
+    # pass
 
 # str = "tthTH"
 str = ""
