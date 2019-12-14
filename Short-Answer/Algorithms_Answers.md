@@ -2,13 +2,13 @@
 
 ## Exercise I
 
-a)
+a) O(n) - Here `n` is constant.
 
 
-b)
+b) O(n^2) - Here `n` has to go through a nested loop.
 
 
-c)
+c) O(n) - Here "bunnies" are constant as well.
 
 ## Exercise II
 
