@@ -4,7 +4,7 @@
 
 a) This will run in O(n) as "a" will calculate as many times as the value of n
 
-b) This will run in O(n logn) as the outer loop will run for every value of n, while the inner while will run in half the iterations due to j \*= 2 reaching the value of n twice as fast.
+b) This will run in O(n logn) as the outer loop will run for every value of n, while the inner while will run in half the iterations due to j reaching the value of n twice as fast.
 
 c) This recursive function will run in O(n). There is a space complexity due to the recursion, but the runtime is still O(n)
 
