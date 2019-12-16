@@ -1,3 +1,7 @@
+import random
+from functools import lru_cache
+
+
 class SortingRobot:
     def __init__(self, l):
         """
@@ -94,18 +98,48 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+    @lru_cache(maxsize=500)
     def sort(self):
         """
         Sort the robot's list.
         """
+        self.set_light_on()  # set on to start sort loop
+        while self.light_is_on():  # as long as the light is on, need to make a pass
+            self.set_light_off()  # only turn back on if a swap is made
+            while self.can_move_right():
+                self.swap_item()  # pick up card in front of it
+                self.move_right()  # go look at the next card in order to compare
+                if self.compare_item() == 1:  # swap needs to be made
+                    self.set_light_on()  # since a swap needs to be made
+                    self.swap_item()
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()  # to start at the next element
+                else:
+                    self.move_left()  # move back to the left
+                    self.swap_item()  # put the card back
+                    self.move_right()  # move to the next item
+            while self.can_move_left():
+                self.swap_item()
+                self.move_left()  # return back to the start for the next iteration
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.move_right()
+                    self.swap_item()
+                    self.move_left()
+                else:
+                    self.move_right()
+                    self.swap_item()
+                    self.move_left()
+        return self._list
 
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
-    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1,
-         45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+    l = [1, -38, -95, 4, 23, -73, -65, -36, 85, 2, 58, -26, -55, 96, 55, -76, 64, 45, 69, 36, 69, 47, 29, -47, 13, 89, -57, -88, -87, 54, 60, 56, -98, -78, 59, 93, -41, -74, 73, -35, -23, -79, -35, 46, -18, -18, 37, -
+         64, 14, -57, -2, 15, -85, 45, -73, -2, 79, -87, -100, 21, -51, 22, 26, -59, 81, 59, -24, 24, -81, 43, 61, 52, 38, -88, -95, 87, -57, -37, -65, -47, -3, 21, -77, 98, 25, 1, -36, 39, 78, 47, -35, -40, -69, -81, 11, -47, 21, 25, -53, -31]
 
     robot = SortingRobot(l)
 
