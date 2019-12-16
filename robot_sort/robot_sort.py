@@ -118,20 +118,20 @@ class SortingRobot:
                     self.swap_item()  # put the card back
                     self.move_right()  # move to the next item
             while self.can_move_left():
-            '''
-                originally wanted to sort on the way back, but resulted in worse runtime
-            '''
-            # self.swap_item()
-            self.move_left()  # return back to the start for the next iteration
-            # if self.compare_item() == -1:  # sort on the way back
-            #     self.swap_item()
-            #     self.move_right()
-            #     self.swap_item()
-            #     self.move_left()
-            # else:
-            #     self.move_right()
-            #     self.swap_item()
-            #     self.move_left()
+                '''
+                originally wanted to sort on the way back left, but resulted in worse runtime
+                '''
+                # self.swap_item()
+                self.move_left()  # return back to the start for the next iteration
+                # if self.compare_item() == -1:  # sort on the way back
+                #     self.swap_item()
+                #     self.move_right()
+                #     self.swap_item()
+                #     self.move_left()
+                # else:
+                #     self.move_right()
+                #     self.swap_item()
+                #     self.move_left()
         return self._list
 
 
