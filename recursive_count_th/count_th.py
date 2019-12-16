@@ -17,7 +17,7 @@ def count_th(word):
     # look at first 2 positions of string for a 'th'
     if word[0] + word[0+1] == 'th':
         # return count of 1 + recursively passing the string minus 1st 2 chars
-        return 1 + count_th(str(word[2:]))
+        return 1 + count_th(word[2:])
     else:
         # recursively call again minus the first char
         return count_th(word[1:])
