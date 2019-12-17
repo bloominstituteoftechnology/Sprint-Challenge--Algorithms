@@ -27,4 +27,4 @@ def count_th(word, n = 0, count = []):
     return adder(count)
     
 
-print(count_th("abcthefthghith"))
+print(count_th("abcthefthghith")) # count = 3
