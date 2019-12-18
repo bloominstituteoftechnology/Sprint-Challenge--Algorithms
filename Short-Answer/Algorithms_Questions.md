@@ -34,3 +34,23 @@ c)  def bunnyEars(bunnies):
 Suppose that you have an n-story building and plenty of eggs. Suppose also that an egg gets broken if it is thrown off floor f or higher, and doesn't get broken if dropped off a floor less than floor f. Devise a strategy to determine the value of f such that the number of dropped + broken eggs is minimized.
 
 Write out your proposed algorithm in plain English or pseudocode AND give the runtime complexity of your solution.
+
+This can be done as O(n)
+
+def safeFloor(n):
+  dropped = 1
+  broken = false
+
+While (broken == false AND dropped <=n):
+    drop egg from dropped
+    if egg breaks:
+        broken = true
+    else:
+        dropped =+ 1
+
+    if dropped == 1
+        return 0
+    elif dropped > n:
+        return "Egg didn't break"
+    else:
+        return dropped
