@@ -96,8 +96,63 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
+        for item in l:
+            print(l)
+            print(f'robot is holding {self._item}')
+            print(l)
+            SortingRobot.swap_item(self)
+            print(f'Robot picked up item {item}')
+            print(l)
+            if SortingRobot.compare_item(self) == None:
+                if SortingRobot.light_is_on(self) == False:
+                    print(f'Robot holding item {self._item}; None on list')
+                elif SortingRobot.light_is_on(self) == True:
+                    print('Robot not holding item (None); Item on list')
+            # if item is None:
+            #     SortingRobot.swap_item(self)
+            # if SortingRobot.compare_item(self) is None:
+            #     SortingRobot.swap_item(self)
+            # print(item)
+            # print('first swapped')
+            if SortingRobot.move_right(self):
+                if SortingRobot.compare_item(self) == 1:
+                    SortingRobot.swap_item(self)
+                    # print(item)
+                    print(l[0])
+                    print('second swapped')
+                    print(l[0])
+                    if SortingRobot.can_move_right(self) == False:
+                        if SortingRobot.can_move_left(self) == True:
+                            for i in range(len(l)):
+                                SortingRobot.move_left(self)
+                                print(self._position)
+                                if SortingRobot.can_move_left(self) == False:
+                                    SortingRobot.swap_item(self)
+
+            print(l)
         pass
+
+    # def sort(self):
+    #     """
+    #     Sort the robot's list.
+    #     """
+    #     for item in l:
+    #         print(l)
+    #         SortingRobot.swap_item(self)
+    #         print('swapped')
+    #         if SortingRobot.move_right(self):
+    #             if SortingRobot.compare_item(self) == 1:
+    #                 SortingRobot.swap_item(self)
+    #                 print(item)
+    #                 print('THANKYOU')
+    #                 if SortingRobot.can_move_right(self) == False:
+    #                     if SortingRobot.can_move_left(self) == True:
+    #                         for i in range(len(l)):
+    #                             SortingRobot.move_left(self)
+    #                             print(self._position)
+    #
+    #         print(l)
+
 
 
 if __name__ == "__main__":
