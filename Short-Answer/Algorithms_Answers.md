@@ -4,12 +4,12 @@
 
 a) O(n)
 
-If the input is increased, the runtime will grow at the same rate
+(Linear) If the input is increased, the runtime will grow at the same rate
 
 
-b)
+b) O(n^c)
 
-
+(Polynomial) The run time will grow at a faster rate, (generally only good for small inputs)
 c)
 
 ## Exercise II
