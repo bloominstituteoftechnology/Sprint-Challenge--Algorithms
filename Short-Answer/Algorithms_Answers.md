@@ -10,7 +10,10 @@ a) O(n)
 b) O(n^c)
 
 (Polynomial) The run time will grow at a faster rate, (generally only good for small inputs)
-c)
+
+c) O(log n)
+
+(Logarithmic) The run time will grow at a slightly slower rate
 
 ## Exercise II
 
