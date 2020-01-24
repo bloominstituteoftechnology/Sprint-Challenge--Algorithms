@@ -17,4 +17,4 @@ c) O(log n)
 
 ## Exercise II
 
-
+Find the middle of the array, (or middle floor) then drop an egg. If it breaks, eliminate the floors above as well as the one we're on. If the egg doesn't break, eliminate the floors below. Return to the new "middle" and repeat.
