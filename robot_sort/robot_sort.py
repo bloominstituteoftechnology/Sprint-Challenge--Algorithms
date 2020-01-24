@@ -98,9 +98,45 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-    # fill this out
-        pass
 
+        self.set_light_on()
+        # start by setting the light off
+        while self.light_is_on():
+            self.set_light_off()
+            # keeps moving right until no longer can, swaps items and continues to move right
+            # swap and compare items right to left
+            while self.can_move_right():
+                self.swap_item()
+                self.move_right()
+                if self.compare_item() == 1:
+                    # compares item, if it == then keep if not swap
+                    self.swap_item()
+                    self.set_light_on()
+            # swap and compare items left to right
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+            while self.can_move_left():
+                self.swap_item()
+                self.move_left()
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.set_light_on()
+                # setting light to on
+                self.move_right()
+                self.swap_item()
+                self.move_left()
+
+
+# You may use any pre-defined robot methods.
+# You may NOT modify any pre-defined robot methods.
+# You may use logical operators. (if, and, or, not, etc.)
+# You may use comparison operators. (>, >=, <, <=, ==, is, etc.)
+# You may use iterators. (while, for, break, continue)
+# You may NOT store any variables. (=)
+# You may NOT access any instance variables directly. (self._anything)
+# You may NOT use any Python libraries or class methods. (sorted(), etc.)
+# You may define robot helper methods, as long as they follow all the rules.
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
