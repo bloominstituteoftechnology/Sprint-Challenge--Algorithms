@@ -2,7 +2,9 @@
 
 ## Exercise I
 
-a)
+a) O(n)
+
+If the input is increased, the runtime will grow at the same rate
 
 
 b)
