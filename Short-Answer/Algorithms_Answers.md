@@ -41,3 +41,9 @@ from TK:
 O(n) As the size of the input increases, the runtime or space used is will grow at the same rate
 
 ## Exercise II
+
+I would start by thinking the algorithm would have two parameters, egg and floor
+if we are on the first floor or the ground floor no eggs would be broken.
+if the floor is > than floor_0 then return the floor and a boolean if the egg broke or not: true, false
+this would consist of a loop that returns true or false for egg being broken and the floor_number that would return
+this would probably be a O(n) runtime complexity but it's difficult to know for sure because we do not have set values or know how many times to loop through the function.
