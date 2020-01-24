@@ -2,10 +2,10 @@
 
 ## Exercise I
 
-a) If we are to assume that n = len(whatever we're working with), then the running time should be O(n). Everytime the while loop is evaluated, we check to see if a < n^3 and if it is, we increase a by n^2. So if we use the substitution method, where a = a + n^2, then while (a + n^2 < n^3) = while(a < n). Thus, time complexity = O(n)
+a) If we are to assume that n = len(whatever we're working with), then the running time should be O(n). Everytime the while loop is evaluated, we check to see if a < n^3 and if it is, we increase a by n^2. Thus, time complexity = O(n)
 
 
-b)The running time will be O(n^2) since the for loop is O(n) and the while loop is O(n-1) which is close enough to O(n).
+b)The running time will be O(n^2) since the for loop is O(n) and the while loop is O(n-1) which is close enough to O(n). **Actually O(nlogn) because the second loop cuts n in half.**
 
 
 c)The time complexity would be O(n) since for the value of bunnies, we would recursively call bunnyEars the same number of times as the value of bunnies.
