@@ -12,51 +12,60 @@
 #
 #
 
-def finder2(n):
-    a = 0
-    while (a < n * n * n):
-        a = a + n * n
-        # print(a)
-
-
-# def bunnyEars(n):
-#     if n == 0:
-#         return 0
-#     print(n)
-#     return 2 + bunnyEars(n - 1)
+sum = 0
+n = 100
+for i in range(n):
+  j = 1
+  while j < n:
+    j *= 2
+    sum += 1
+  print(sum)
+#
+# def finder2(n):
+#     a = 0
+#     while (a < n * n * n):
+#         a = a + n * n
+#         # print(a)
 #
 #
+# # def bunnyEars(n):
+# #     if n == 0:
+# #         return 0
+# #     print(n)
+# #     return 2 + bunnyEars(n - 1)
+# #
+# #
+# #
+# import time
+# start_time = time.time()
+# print(finder2(100))
+# end_time = time.time()
+# print(f'runtime: {end_time - start_time}')
 #
-import time
-start_time = time.time()
-print(finder2(100))
-end_time = time.time()
-print(f'runtime: {end_time - start_time}')
-
-# import time
-start_time = time.time()
-print(finder2(1000))
-end_time = time.time()
-print(f'runtime: {end_time - start_time}')
-
-# import time
-start_time = time.time()
-print(finder2(10000))
-end_time = time.time()
-print(f'runtime: {end_time - start_time}')
-
-# import time
-start_time = time.time()
-print(finder2(100000))
-end_time = time.time()
-print(f'runtime: {end_time - start_time}')
-
-start_time = time.time()
-print(finder2(1000000))
-end_time = time.time()
-print(f'runtime: {end_time - start_time}')
-
-start_time = time.time()
-print(finder2(10000000))
-end_time = time.time()
-print(f'runtime: {end_time - start_time}')
+# # import time
+# start_time = time.time()
+# print(finder2(1000))
+# end_time = time.time()
+# print(f'runtime: {end_time - start_time}')
+#
+# # import time
+# start_time = time.time()
+# print(finder2(10000))
+# end_time = time.time()
+# print(f'runtime: {end_time - start_time}')
+#
+# # import time
+# start_time = time.time()
+# print(finder2(100000))
+# end_time = time.time()
+# print(f'runtime: {end_time - start_time}')
+#
+# start_time = time.time()
+# print(finder2(1000000))
+# end_time = time.time()
+# print(f'runtime: {end_time - start_time}')
+#
+# start_time = time.time()
+# print(finder2(10000000))
+# end_time = time.time()
+# print(f'runtime: {end_time - start_time}')

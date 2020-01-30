@@ -3,13 +3,16 @@
 ## Exercise I
 
 a)
-O(n^2); because the number iterations for j goes up in tandem as the input n increases.
+O(n); because the n^3 and the n^2 reduce to n
+
 
 b)
-O(n); because there is one simple while loop therefore the number of operations grows linearly with the number input data.
+O(n log n); because the j < n is a log n function but only until j meets n; after that, it is only the n iterating with no j
+
 
 c)
 O(n); because although it is a recursive function, the number of operations grows linearly with the number input data (bunnies to ears)
+Correct
 
 ## Exercise II
 
@@ -20,16 +23,10 @@ Suppose that you have an n-story building and plenty of eggs. Suppose also that 
 
 Write out your proposed algorithm in plain English or pseudocode AND give the runtime complexity of your solution.
 
-inputs = building_height, eggs
-constraint = f (threshold floor for broken egg)
-
-def something(building_height, eggs, f):
-    e = eggs
-    broken_eggs = 0
-    for floor in building_height:
-        if (floor >= f) and (e > 0):
-            e -= 1
-            broken_eggs += 1
-        if (floor < f) and (e > 0)):
-            pass
-
+First, go to the middle floor (1st middle). Drop an egg. If it breaks, go lower to the middle floor (2nd middle) in
+between the initial middle floor (1st middle) and the ground floor.Drop an egg, if it breaks, go again to the middle
+floor (3rd middle) but this time between the second middle floor (2nd middle) and the ground floor. If it does not
+break,go up to the floor in the middle of the second middle floor (2nd middle) and the third middle floor (3rd middle).
+Continue this process until we reach the highest floor that the egg will not break on (which we would narrow down by
+the above process and eventually find the cutoff floor where the egg survives below the cutoff and the egg breaks
+above the cutoff).
