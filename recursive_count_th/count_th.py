@@ -10,5 +10,3 @@ def count_th(word):
         return 0
 
     return 1 + count_th(word[th_words + 2:])
-
-    pass
