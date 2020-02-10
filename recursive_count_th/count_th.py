@@ -6,17 +6,12 @@ Your function must utilize recursion. It cannot contain any loops.
 
 
 def count_th(word):
-
-    count = 0
-    for x in range(len(word)):
-        if word[x] == 't' and word[x+1] == 'h':
-            count += 1
-    return count
-
-    if word == 0:
-        return 0
-    
+    counter = 0
+    if len(word) <= 1:
+        return counter
+    elif word[0] + word[1] == 'th':
+        counter = count_th(word[1:]) + 1
+    else:
+        counter = count_th(word[1:])
+    return counter
     pass
-
-
-print(count_th("thdddtghtdh"))
