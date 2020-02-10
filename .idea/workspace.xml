@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10cf5db7-bdd5-4311-8815-260a6168dbd1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Short-Answer/Algorithms_Answers.md" beforeDir="false" afterPath="$PROJECT_DIR$/Short-Answer/Algorithms_Answers.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Short-Answer/Algorithms_Questions.md" beforeDir="false" afterPath="$PROJECT_DIR$/Short-Answer/Algorithms_Questions.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recursive_count_th/count_th.py" beforeDir="false" afterPath="$PROJECT_DIR$/recursive_count_th/count_th.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +25,35 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
+  <component name="RunManager">
+    <configuration name="count_th" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Sprint-Challenge--Algorithms" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../Sprint-Challenge--Intro-Python/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/recursive_count_th" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/recursive_count_th/count_th.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.count_th" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -32,7 +64,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1581310891200</updated>
-      <workItem from="1581310893400" duration="2137000" />
+      <workItem from="1581310893400" duration="2896000" />
     </task>
     <servers />
   </component>
@@ -40,9 +72,32 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="572" y="100" key="#count_th" timestamp="1581313742027">
+      <screen x="0" y="23" width="1680" height="958" />
+    </state>
+    <state x="572" y="100" key="#count_th/0.23.1680.958@0.23.1680.958" timestamp="1581313742027" />
+    <state width="1560" height="247" key="GridCell.Tab.0.bottom" timestamp="1581313965654">
+      <screen x="0" y="23" width="1680" height="958" />
+    </state>
+    <state width="1560" height="247" key="GridCell.Tab.0.bottom/0.23.1680.958@0.23.1680.958" timestamp="1581313965654" />
+    <state width="1560" height="247" key="GridCell.Tab.0.center" timestamp="1581313965648">
+      <screen x="0" y="23" width="1680" height="958" />
+    </state>
+    <state width="1560" height="247" key="GridCell.Tab.0.center/0.23.1680.958@0.23.1680.958" timestamp="1581313965648" />
+    <state width="1560" height="247" key="GridCell.Tab.0.left" timestamp="1581313965647">
+      <screen x="0" y="23" width="1680" height="958" />
+    </state>
+    <state width="1560" height="247" key="GridCell.Tab.0.left/0.23.1680.958@0.23.1680.958" timestamp="1581313965647" />
+    <state width="1560" height="247" key="GridCell.Tab.0.right" timestamp="1581313965652">
+      <screen x="0" y="23" width="1680" height="958" />
+    </state>
+    <state width="1560" height="247" key="GridCell.Tab.0.right/0.23.1680.958@0.23.1680.958" timestamp="1581313965652" />
     <state x="542" y="225" width="670" height="676" key="search.everywhere.popup" timestamp="1581313169818">
       <screen x="0" y="23" width="1680" height="956" />
     </state>
     <state x="542" y="225" width="670" height="676" key="search.everywhere.popup/0.23.1680.956@0.23.1680.956" timestamp="1581313169818" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Sprint_Challenge__Algorithms$count_th.coverage" NAME="count_th Coverage Results" MODIFIED="1581313965605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/recursive_count_th" />
   </component>
 </project>
