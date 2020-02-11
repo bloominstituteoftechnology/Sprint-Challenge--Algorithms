@@ -11,9 +11,28 @@ c)This example is 0(n) due to the fact that recursion is being used and will run
 
 ## Exercise II
 
-# I would start thinking that this problem would have to have 2 different parameters; the egg and the floor.
-# If I am on the ground floor then no eggs would be broken.
-# If floor > g_floor then return the floor and a boolean if the egg broke or not: true or false
-# This would have a loop that returns true or false for the egg to see if it broke or not & the floor that it broke on.
-# This would most likely be 0(n) runtime but since we dont have set values or know how many times itll loop, its hard to tell.
+ - I would start thinking that this problem would have to have 2 different parameters; the egg and the floor.
+ - If I am on the ground floor then no eggs would be broken.
+ - If floor > g_floor then return the floor and a boolean if the egg broke or not: true or false
+ - This would have a loop that returns true or false for the egg to see if it broke or not & the floor that it broke on.
+ - This would most likely be 0(n) runtime but since we dont have set values or know how many times itll loop, its hard to tell.
 
+This can be done as O(n)
+
+def safeFloor(n)
+dropped = 1
+broken = false
+
+while (broken == false AND dropped <= n):
+    drop egg from dropped
+    if egg breaks:
+        broken = true
+    else:
+        dropped =+ 1
+        
+if dropped == 1
+    return 0
+elif dropped > n:
+    return "Egg didn't break"
+else:
+    return dropped
