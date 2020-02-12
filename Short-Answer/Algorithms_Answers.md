@@ -11,9 +11,9 @@ c) O(n-1)
 ## Exercise II
 
 
-Our low point would be 0 for the ground. Our high point would be "n" for the top of the building. Our midpoint would be "f" for the floor that the eggs can safely be dropped.
+Set up: Our low point would be 0 for the ground. Our high point would be "n" for the top of the building. Our midpoint would be "f" for the floor that the eggs can safely be dropped.
 
-For each floor if the floor number is equal to or less than "f" and we have eggs to drop we will drop an egg.
+Base case: for each floor if the floor number is equal to or less than "f" and we have eggs to drop we will drop an egg.
 
 If the floor number is greater than "f", then we do not drop and egg.
 
