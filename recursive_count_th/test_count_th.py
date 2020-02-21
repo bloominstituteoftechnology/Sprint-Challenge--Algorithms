@@ -32,6 +32,5 @@ class Test(unittest.TestCase):
         count = count_th(self.word)
         self.assertEqual(1, count)
 
-
 if __name__ == '__main__':
     unittest.main()
