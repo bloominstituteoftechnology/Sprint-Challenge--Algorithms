@@ -7,5 +7,5 @@ def count_th(word):
     n = word.find("th")
     if n == -1:
         return 0 #if no th in word then return 0
-    return 1 + count_th(word[n + 2:]) #if th is there it will keep calling it till there are no more "th"
+    return 1 + count_th(word[n + 2:]) #if th is there it will keep calling it till there are no more "th" because we are adding i+2
  

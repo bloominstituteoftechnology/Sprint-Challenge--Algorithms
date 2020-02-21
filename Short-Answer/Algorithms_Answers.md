@@ -2,7 +2,7 @@
 
 ## Exercise I
 
-a)
+a) 0(n) Linear function doesnt matter the size of N it will run only once and doesnt get modified
 
 
 b) 0(n^2) because performance is directly proportional to the square of the size of the input data set and there is a inner while loop nested in a outer loop. ( so if it was cubed then it would be 0(n^3) )
