@@ -95,7 +95,7 @@ class SortingRobot:
     def sort(self):
         """
         Sort the robot's list.
-        Bubble sort can be used, the robot will move from the right and compare pairs the largest number will bubble to the end and the the smallest will remain in the front 
+        Bubble sort can be used, the robot will move from the right and compare pairs the largest number will bubble to the end and the the smallest will remain in the front.
     
         """
         while self.can_move_right():       
@@ -103,12 +103,16 @@ class SortingRobot:
             self.set_light_on()              # the light indicates the sorting has started
             self.move_right()                # move right to start our first comparison
 
-            if self.compare_item ==  1:      #if what robot is holding is greater swap if not keep moving
+            if self.compare_item ==  1:      # if what robot is holding is greater swap if not keep moving
                 self.swap_item()
                 self.move_right()
 
-            if self.compare_item == -1:    #if what robot is holding is less than item its standing in front of keep moving 
+            if self.compare_item == -1:      # if what robot is holding is less than item its standing in front of keep moving 
                 self.move_right()
+                self.set_light_off()         # turn the light off to indicate the first round of sorting is done 
+        
+        while self.can_move_left():
+            
         # compare 
         
 
