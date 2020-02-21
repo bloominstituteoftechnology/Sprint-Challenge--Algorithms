@@ -2,14 +2,22 @@
 
 ## Exercise I
 
-a)
+a) O(n)
 
 
-b)
+b) O(n^4)
 
 
-c)
+c) O(1^n)
 
 ## Exercise II
 
+n is num of stories 
+f is height egg breaks
+if n is greater than f then egg is broken
 
+while f is less than n O(n)
+drop egg  O(1)
+move up another floor O(1)
+
+total runtime = O(n)
