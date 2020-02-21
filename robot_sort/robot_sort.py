@@ -95,9 +95,14 @@ class SortingRobot:
     def sort(self):
         """
         Sort the robot's list.
+        Bubble sort can be used, the robot will move from the right and compare each element then repeat the process on the left hand side 
+    
         """
-        # Fill this out
-        pass
+        while self.can_move_right():       # Start from the right side robot hands are empty so use swap to pick an item up
+            self.swap_item()
+            self.set_light_on()            # the light indicates the sorting has started
+        # compare 
+        
 
 
 if __name__ == "__main__":
