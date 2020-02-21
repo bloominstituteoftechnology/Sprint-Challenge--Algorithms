@@ -6,13 +6,10 @@ Your function must utilize recursion. It cannot contain any loops.
 
 # BELOW CONTAINS NO PRINT STATEMENTS
 def count_th(word):
-    if len(word) < 1:
+    if len(word) < 2:
         return 0
-    if (word[0] == 't') and (len(word) > 1):
-        if word[1] == 'h':
-            return 1 + count_th(word[2:])
-        else:
-            return 0 + count_th(word[1:])
+    elif (word[0:2] == 'th'):
+        return 1 + count_th(word[2:])
     else:
         return 0 + count_th(word[1:])
 

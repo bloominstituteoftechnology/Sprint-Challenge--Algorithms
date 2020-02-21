@@ -129,7 +129,7 @@ class SortingRobot:
         """
         return self._light == "ON"
 
-# # ITERATION 3
+# ITERATION 3
     def sort(self):
         """
         Sort the robot's list.
@@ -158,18 +158,124 @@ class SortingRobot:
                 while SortingRobot.can_move_left(self) == True:
                     SortingRobot.move_left(self)
                     SortingRobot.swap_item(self)
-            if (SortingRobot.compare_item(self) == -1) and (
-                    SortingRobot.can_move_right(self) == False):
+            if (SortingRobot.compare_item(self) == -1) and (SortingRobot.can_move_right(self) == False):
                 while SortingRobot.can_move_left(self) == True:
                     SortingRobot.move_left(self)
                     SortingRobot.swap_item(self)
-            if SortingRobot.compare_item(self) == 1 and (
-                    SortingRobot.can_move_right(self) == False):
+            if SortingRobot.compare_item(self) == 1 and (SortingRobot.can_move_right(self) == False):
                 SortingRobot.swap_item(self)
                 while SortingRobot.can_move_left(self) == True:
-
                     SortingRobot.swap_item(self)
                     SortingRobot.move_left(self)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# # ITERATION 5
+#     def sort(self):
+#         """
+#         Sort the robot's list.
+#         """
+#         SortingRobot.swap_item(self)
+#         SortingRobot.move_right(self)
+#         while SortingRobot.light_is_on(self) == False:
+#             SortingRobot.set_light_on(self)
+#             while SortingRobot.can_move_right(self) == True:
+#                 if SortingRobot.compare_item(self) == None:
+#                     SortingRobot.swap_item(self)
+#                     SortingRobot.move_right(self)
+#                 if (SortingRobot.compare_item(self) == None) and (SortingRobot.can_move_left(self) == False):
+#                     break
+#                 if (SortingRobot.compare_item(self) == -1) and (SortingRobot.can_move_right(self) == True):
+#                     SortingRobot.swap_item(self)
+#                     SortingRobot.move_right(self)
+#                 if (SortingRobot.compare_item(self) == 1) and (SortingRobot.can_move_right(self) == False):
+#                     SortingRobot.swap_item(self)
+#                 if SortingRobot.compare_item(self) == 0:
+#                     SortingRobot.move_right(self)
+#                     SortingRobot.swap_item(self)
+#                     pass
+#                 if SortingRobot.compare_item(self) == 1 and (SortingRobot.can_move_right(self) == True):
+#                     SortingRobot.swap_item(self)
+#                     SortingRobot.set_light_off(self)
+#             if SortingRobot.can_move_right(self) == False:
+#                 while SortingRobot.can_move_left(self) == True:
+#                     SortingRobot.move_left(self)
+#                     SortingRobot.swap_item(self)
+#             if (SortingRobot.compare_item(self) == -1) and (
+#                     SortingRobot.can_move_right(self) == False):
+#                 while SortingRobot.can_move_left(self) == True:
+#                     SortingRobot.move_left(self)
+#                     SortingRobot.swap_item(self)
+#             if SortingRobot.compare_item(self) == 1 and (
+#                     SortingRobot.can_move_right(self) == False):
+#                 SortingRobot.swap_item(self)
+#                 while SortingRobot.can_move_left(self) == True:
+#                     SortingRobot.swap_item(self)
+#                     SortingRobot.move_left(self)
+
+
+
+
+
+# # ITERATION 4
+#     def sort(self):
+#         """
+#         Sort the robot's list.
+#         """
+#         SortingRobot.swap_item(self)
+#         SortingRobot.move_right(self)
+#         # while SortingRobot.light_is_on() == True:
+#         while SortingRobot.can_move_right(self) == True:
+#             if SortingRobot.compare_item(self) == None:
+#                 SortingRobot.swap_item(self)
+#                 SortingRobot.move_right(self)
+#             if (SortingRobot.compare_item(self) == None) and (SortingRobot.can_move_left(self) == False):
+#                 break
+#             if (SortingRobot.compare_item(self) == -1) and (SortingRobot.can_move_right(self) == True):
+#                 SortingRobot.swap_item(self)
+#                 SortingRobot.move_right(self)
+#             if (SortingRobot.compare_item(self) == 1) and (SortingRobot.can_move_right(self) == False):
+#                 SortingRobot.swap_item(self)
+#             if SortingRobot.compare_item(self) == 0:
+#                 SortingRobot.move_right(self)
+#                 SortingRobot.swap_item(self)
+#                 pass
+#             if SortingRobot.compare_item(self) == 1 and (SortingRobot.can_move_right(self) == True):
+#                 SortingRobot.move_right(self)
+#         if SortingRobot.can_move_right(self) == False:
+#             while SortingRobot.can_move_left(self) == True:
+#                 SortingRobot.move_left(self)
+#                 SortingRobot.swap_item(self)
+#         if (SortingRobot.compare_item(self) == -1) and (
+#                 SortingRobot.can_move_right(self) == False):
+#             while SortingRobot.can_move_left(self) == True:
+#                 SortingRobot.move_left(self)
+#                 SortingRobot.swap_item(self)
+#         if SortingRobot.compare_item(self) == 1 and (
+#                 SortingRobot.can_move_right(self) == False):
+#             SortingRobot.swap_item(self)
+#             while SortingRobot.can_move_left(self) == True:
+#                 SortingRobot.swap_item(self)
+#                 SortingRobot.move_left(self)
+
+
+# NEED 2 IF STATEMENTS FOR LIGHT IS ON/OFF AND BREAK/CONTINUE
+
+
+
+
 
 
 
