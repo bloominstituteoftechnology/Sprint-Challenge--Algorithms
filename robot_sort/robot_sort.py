@@ -98,9 +98,14 @@ class SortingRobot:
         Bubble sort can be used, the robot will move from the right and compare each element then repeat the process on the left hand side 
     
         """
-        while self.can_move_right():       # Start from the right side robot hands are empty so use swap to pick an item up
-            self.swap_item()
+        while self.can_move_right():       
+            self.swap_item()               # Start from the right side robot hands are empty so use swap to pick an item up
             self.set_light_on()            # the light indicates the sorting has started
+            self.move_right()              # move right to start our first comparison
+
+            if self.compare_item ==  1:      #if what robot is holding is greater swap if not keep moving
+                self.swap_item()
+                self.move_right()
         # compare 
         
 
