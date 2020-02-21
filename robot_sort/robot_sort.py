@@ -92,12 +92,42 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+            
+#sorting steps?
+#bubble sort - compares 1 item at time, only immediate neighbors
+#need to run through entire list each pass
+#use light to flag when a swap is made, reset on next pass - done when we make it through the whole way
+#grab an item (swap, from starting state of item==none), move right and compare
+#if item at right bigger: switch and flag (swap, light on, move left, swap)
+#if not bigger, put back (move left, swap)
+#move right and repeat
+#starts at left - when cannot go right any further, check for light on
+#if at end and light on, switch light off, go left till beginning
+#if at end and light off, we are done - return list
+
+
+
     def sort(self):
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        while self.can_move_right():
+            self.swap_item()
+            self.move_right()
+            if self.compare_item() == 1:
+                self.swap_item()
+                self.set_light_on()
+            self.move_left()
+            self.swap_item()
+            self.move_right()
+        if self.light_is_on():
+            self.set_light_off()
+            while self.can_move_left():
+                self.move_left()
+            self.sort()
+        else:
+            return self._list
+
 
 
 if __name__ == "__main__":
