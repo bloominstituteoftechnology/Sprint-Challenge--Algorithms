@@ -13,7 +13,7 @@ def count_th(word):
     # TBC
 
     if 'th' in word:
-        i+2 = word.find('th')                     # the index of the first occurrence of 'th' plus 2
+        i= word.find('th') + 2                     # the index of the first occurrence of 'th' plus 2
         return 1 + count_th(word[i:])             # recurse with slice of string starting after 'th'
 
     else:
