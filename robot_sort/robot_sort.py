@@ -113,21 +113,27 @@ class SortingRobot:
                 if self.compare_item() == 1: #if item held is bigger than one in front 
                     self.swap_item() #swap 'em!
                     self.set_light_off() #turn off the light 
-                    self.light_is_on()
-                    print('light should be turned off 1', self.light_is_on())
-               
-            
-            #second while loop for moving left 
+                    # self.light_is_on() #just checking to make sure this is False  
+                    # print('light should be turned off 1', self.light_is_on())
+                #need to bust out of the infinite loop haha! 
+                self.move_left() #moves number to the left 
+                self.swap_item() 
+                self.move_right()
+                
+            #second while loop for moving left, repeat above 
             while self.can_move_left():
                 self.swap_item() #swap items 
                 self.move_left()
                 
+                
                 if self.compare_item() == -1:
                     self.swap_item()
                     self.set_light_off()
-                    self.light_is_on()
-                    print('light should be turned off -1', self.light_is_on())
-
+                    # self.light_is_on() #just checking to make sure this is False  
+                    # print('light should be turned off -1', self.light_is_on())
+                self.move_right()
+                self.swap_item()
+                self.move_left()
                 
                 
         return self       
