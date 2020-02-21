@@ -96,8 +96,36 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # No storing variables (=) 
+        # No accessing instance variables directly (self._anything)
+        # No Python libraries or class methods (sorted(), etc.)
+
+        # It can move left or right
+        # It can pick up an item
+            # If it tries to pick up an item while already holding one, it will swap the items instead.
+        # It can compare the item it's holding to the item in front of it
+        # It can swit a light on it's head on or off
+
+        while True:
+            self.swap_item()                        # Swap list item in front of robot with current.
+            if self.light_is_on():                  # If the light is on, move to the left
+                if self.compare_item() == 1:        # If current item held is bigger...
+                    self.swap_item()                # ...swap with current item. 
+                if self.compare_item() == None:     # If current item is neither bigger, smaller, or exists...
+                    self.swap_item()                # ...swap with current item...
+                    self.set_light_off()            # ...turn light off... Since everything to left is sorted, we move right
+                else: self.move_left()              # else move to left (unless at start of list)
+            else:                                   # If the light is off, move to the right
+                                                    # MOVE LARGER ITEMS TO RIGHT
+                if self.compare_item() == -1:       # If current item held is smaller...
+                    self.swap_item()                # ...swap with current item
+                if self.can_move_right():           # If not at end of list...
+                    self.move_right()               # ...move right
+                else:                               # If we've reached the end of the list...
+                    self.swap_item()                # ...swap item with current item
+                    if self.compare_item() == None: # This determines if it's sorted! If current item is neither bigger, smaller, or exists...
+                        break                       # Sorting Complete!
+                    self.set_light_on()             # If compare_items doesn't return 'None' (list not sorted). Go back to far left.
 
 
 if __name__ == "__main__":
