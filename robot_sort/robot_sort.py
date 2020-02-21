@@ -96,8 +96,33 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # Selection sort for the robot First we have to pick up an item to be used for comparison.
+        # I will also set the flag to go until we are done.
+        self.swap_item()
+        self.set_light_on()
+
+        while self.light_is_on():
+            # First we move through all the items and find the smallest
+            while self.move_right():
+                if self.compare_item() > 0:
+                    self.swap_item()
+            # Then we check to see if if the list position item, or the item we are holding are None.
+            # we also check that we are at the end of the list. If we are at the end of the list, and the
+            # List position item is None, we can swap the item we are holding for that position.
+            # we set the light to off, and break out of the loop.
+            if self.compare_item() is None and self.can_move_right() is False:
+                self.swap_item()
+                self.set_light_off()
+                break
+            else:
+            # otherwise, we move left until we find the empty spot in the list, put our item in the list
+            # move right pick up the item, and start the whole process over again.
+                while self.move_left():
+                    if self.compare_item() is None:
+                        self.swap_item()
+                        self.move_right()
+                        self.swap_item()
+                        break
 
 
 if __name__ == "__main__":
