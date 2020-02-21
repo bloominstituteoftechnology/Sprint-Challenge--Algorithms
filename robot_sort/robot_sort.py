@@ -100,8 +100,9 @@ class SortingRobot:
         """
         # move right, compare item, if right is smaller, turn on light swap
         # move left, compare item on left, if left is larger, turn on light, swap
-        self.set_light_on()
         self.swap_item()
+        self.set_light_on()
+
         while self.light_is_on():
             while self.move_right():
                 # print(self.compare_item())
