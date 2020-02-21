@@ -111,7 +111,7 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        while self.can_move_right():
+        while self.can_move_right(): #loop runs for each pass through list
             self.swap_item()
             self.move_right()
             if self.compare_item() == 1:
@@ -120,11 +120,11 @@ class SortingRobot:
             self.move_left()
             self.swap_item()
             self.move_right()
-        if self.light_is_on():
+        if self.light_is_on(): #runs when last position reached (cannot move right)
             self.set_light_off()
-            while self.can_move_left():
+            while self.can_move_left(): #loop returns position to zero
                 self.move_left()
-            self.sort()
+            self.sort() #recursion time, above lines ensure called w/ position zero and light off
         else:
             return self._list
 
