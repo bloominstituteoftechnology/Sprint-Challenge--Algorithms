@@ -22,4 +22,5 @@ def count_th(word):
 
     # Otherwise, return the count
     # from the remaining index
+    # repeats
     return count_th(word[n2 - 1:])
