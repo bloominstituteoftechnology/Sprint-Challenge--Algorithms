@@ -96,9 +96,27 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        
+        while not self.light_is_on():
+            self.set_light_on() # built in done checker - if light remains on, bubble sort is complete
 
+            while self.can_move_right():
+                self.swap_item()
+                self.move_right()
+
+                if self.compare_item() == 1: # built in function returns 1 if held item is larger
+                    self.swap_item()
+                    self.set_light_off() # we will need to run again, light off
+                
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+
+            if self.light_is_on():
+                break
+            else:
+                while self.can_move_left():
+                    self.move_left()
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
