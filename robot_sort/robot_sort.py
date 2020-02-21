@@ -98,39 +98,36 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # move right, compare item, if right is smaller, turn on light swap
-        # move left, compare item on left, if left is larger, turn on light, swap
-        self.swap_item()
         self.set_light_on()
-
         while self.light_is_on():
-            while self.move_right():
-                # print(self.compare_item())
-                if self.compare_item() > 0:
+
+            self.swap_item()
+            # Handle moving largest right
+            while self.can_move_right():
+                self.move_right()
+                if self.compare_item() < 0:
                     self.swap_item()
-            if self.compare_item() is None and self.can_move_right is False:
+
+            self.swap_item()
+
+            while self.can_move_left():
+                if self.compare_item() is None:
+                    self.swap_item()
+                    break
+                elif self.compare_item() > 0:
+                    self.swap_item()
+                self.move_left()
+
+            if not self.can_move_left() and self.compare_item() is None:
                 self.swap_item()
+
+            if not self.can_move_right():
                 self.set_light_off()
-                break
-            else:
-                while self.move_left():
-                    if self.compare_item() is None:
-                        self.swap_item()
-                        self.move_right()
-                        self.swap_item()
+                self.swap_item()
 
-                        break
+            self.move_right()
 
-
-            # while self.can_move_right:
-            #     self.move_right()
-            #     if self.compare_item() <= 0:
-            #         self.swap_item()
-            # while self.can_move_left:
-            #     self.move_left()
-            #     if self.compare_item() >= 1:
-            #         self.swap_item()
-            # self.set_light_off()
+         
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
