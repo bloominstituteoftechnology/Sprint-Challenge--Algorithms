@@ -98,35 +98,58 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        arr = self._list
-        num_range = {}
-        new_arr = []
+        # print("LIGHT ON", self.set_light_on())
+        # print("POSITION", self._position)
+        # print("MOVE RIGHT", self.move_right())
+        # print("ITEM", self._item)
+        # print("SWAP", self.swap_item())
+        # print("ITEM", self._item)
+        # print("MOVE RIGHT", self.move_right())
+        # print("POSITION", self._position)
+        # print("COMPARE", self.compare_item())
+        # print("SWAP", self.swap_item())
+        # print("ITEM", self._item)
+        # print("COMPARE", self.compare_item())
+        # print("SWAP", self.swap_item())
+        # print("ITEM", self._item)
 
-        for i in range(0, len(arr) + 1):
-            num_range[i] = 0
+        self.swap_item()
+        if self.can_move_right():
+            self.set_light_on()
+        elif not self.can_move_right():
+            self.set_light_off()
 
-        for i in range(0, len(arr)):
-            if arr[i] < 0:
-                print("Error, negative numbers not allowed in Count Sort")
-                return "Error, negative numbers not allowed in Count Sort"
-            num_range[arr[i]] += 1
-            new_arr.append(0)
-        print(num_range)
-
-        for i in range(1, len(num_range)):
-            num_range[i] = num_range[i-1] + num_range[i]
-        print(num_range)
-
-        for i in range(0, len(arr)):
-            new_arr[num_range[arr[i]]-1] = arr[i]
-            num_range[arr[i]] -= 1
-
-        print(new_arr)
-        self._list = new_arr
+        # if the light is on run a loop
+        # each iteration of the loop the robot picks up an item and carries right
+        # it compares the current item to each item along the way. if it finds a greater item it swaps it..
+        # when the robot reaches the end on the right, it picks up an item and moves left
+        # it compares the current item to to each item going left. if it finds a smaller item, it swaps it..
+        while True:
+            while self.light_is_on():
+                if self.can_move_right():
+                    print("MOVING RIGHT")
+                    self.move_right()
+                    if self.compare_item() == -1:
+                        self.swap_item()
+                        print("SWAPED")
+                        self.move_right()
+                    else:
+                        self.move_right()
+                if self.can_move_right() == False:
+                    self.set_light_off()
+            while self.light_is_on() == False:
+                if self.can_move_left():
+                    print("MOVING LEFT")
+                    self.swap_item()
+                    self.move_left()
+                    print(self._item)
+                if self.can_move_left() == False:
+                    self.set_light_on()
+            else:
+                print("BREAK")
+                break
 
     # Fill this out
-
-
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
@@ -137,4 +160,4 @@ if __name__ == "__main__":
     robot = SortingRobot(l)
 
     robot.sort()
-    print(robot._list)
+    print(f"ROBOT LIST: {robot._list}")
