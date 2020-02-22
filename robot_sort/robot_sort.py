@@ -105,16 +105,16 @@ class SortingRobot:
 
             if self.compare_item ==  1:      # if what robot is holding is greater swap if not keep moving
                 self.swap_item()
+                self.move_left()
+            if self.compare_item == None:
+                self.swap_item()
                 self.move_right()
-
             if self.compare_item == -1:      # if what robot is holding is less than item its standing in front of keep moving 
                 self.move_right()
                 self.set_light_off()         # turn the light off to indicate the first round of sorting is done 
         
-        while self.can_move_left():
             
-        # compare 
-        
+       
 
 
 if __name__ == "__main__":
