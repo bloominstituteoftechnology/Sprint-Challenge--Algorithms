@@ -6,17 +6,13 @@ a)
 O(n)
 
 b)
-O(n + 1/2n)
+O(log n)
 
 c)
 O(n)
 
 ## Exercise II
 
-1. start at floor one
-2. drop an egg
-3. is the egg broken?
-   3.1 yes --> return the floor number
-   3.2 no --> go up one floor
-4. repeat steps 2 and 3
-   O(n-f)
+Use a binary search algorithm
+Find the middle. Drop the egg. if the egg breaks move to the middle of the lower half.
+If it doesn't break at the middle, move to the middle of the higher half.
