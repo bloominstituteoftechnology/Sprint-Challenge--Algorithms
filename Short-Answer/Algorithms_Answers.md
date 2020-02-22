@@ -6,7 +6,7 @@ a)
 O(n)
 
 b)
-O(log n)
+O(n log n)
 
 c)
 O(n)
