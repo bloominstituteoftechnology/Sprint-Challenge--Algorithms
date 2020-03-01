@@ -23,6 +23,43 @@ def count_th(word):
 print(count_th("THtHThth"))
 
 
+def whats_n1(n):
+    a = 0
+    count = 0
+    while (a < n * n * n):
+        count += 1
+        a = a + n * n
+
+    print("n1:10:", count)
+
+
+def whats_n2(n):
+    sum = 0
+    counti = 0
+    countj = 0
+    for i in range(n):
+        j = 1
+        counti += 1
+        while j < n:
+            j *= 2
+            sum += 1
+            countj += 1
+            print("j: ", j)
+    print("n2:10:", counti, countj)
+
+
+def bunnyEars(bunnies):
+    if bunnies == 0:
+        return 0
+    print("ran")
+    return 2 + bunnyEars(bunnies-1)
+
+
+whats_n1(10)
+whats_n2(10)
+bunnyEars(10)
+
+
 """ 
 old code: 
 

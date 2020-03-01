@@ -1,3 +1,6 @@
+import math
+
+
 def deliver_presents_recursively(houses):
     # Worker elf doing his work
     if len(houses) == 1:
@@ -16,9 +19,22 @@ def deliver_presents_recursively(houses):
 
 
 houses = ["Eric's house", "Kenny's house", "Kyle's house", "Stan's house"]
-print(deliver_presents_recursively(houses))
+# print(deliver_presents_recursively(houses))
 
 a = []
 b = [1]
 c = [2]
-print(a + b + c)
+# print(a + b + c)
+
+
+def find_section(n):
+    counter = 1
+    halves = 8
+
+    for halve in range(0, halves):
+        print(f"{halve} half: {n/2**halve}")
+
+
+find_section(100)
+
+print(math.ceil(25.0000001))
