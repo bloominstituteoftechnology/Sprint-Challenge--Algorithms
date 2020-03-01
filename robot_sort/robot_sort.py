@@ -58,6 +58,7 @@ class SortingRobot:
         self._time += 1
         # Swap the held item with the list item at the robot's position
         self._item, self._list[self._position] = self._list[self._position], self._item
+        return "SWAPPED!"
 
     def compare_item(self):
         """
@@ -98,56 +99,51 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # print("LIGHT ON", self.set_light_on())
-        # print("POSITION", self._position)
-        # print("MOVE RIGHT", self.move_right())
-        # print("ITEM", self._item)
-        # print("SWAP", self.swap_item())
-        # print("ITEM", self._item)
-        # print("MOVE RIGHT", self.move_right())
-        # print("POSITION", self._position)
-        # print("COMPARE", self.compare_item())
-        # print("SWAP", self.swap_item())
-        # print("ITEM", self._item)
-        # print("COMPARE", self.compare_item())
-        # print("SWAP", self.swap_item())
-        # print("ITEM", self._item)
 
-        self.swap_item()
-        if self.can_move_right():
-            self.set_light_on()
-        elif not self.can_move_right():
-            self.set_light_off()
+        self.set_light_on()
 
-        # if the light is on run a loop
-        # each iteration of the loop the robot picks up an item and carries right
-        # it compares the current item to each item along the way. if it finds a greater item it swaps it..
-        # when the robot reaches the end on the right, it picks up an item and moves left
-        # it compares the current item to to each item going left. if it finds a smaller item, it swaps it..
-        while True:
-            while self.light_is_on():
-                if self.can_move_right():
-                    print("MOVING RIGHT")
-                    self.move_right()
-                    if self.compare_item() == -1:
-                        self.swap_item()
-                        print("SWAPED")
-                        self.move_right()
-                    else:
-                        self.move_right()
-                if self.can_move_right() == False:
-                    self.set_light_off()
-            while self.light_is_on() == False:
-                if self.can_move_left():
-                    print("MOVING LEFT")
+        while self.light_is_on():
+
+            print(self._list)
+            if not self.can_move_right() and self._item == None:
+                self.swap_item()
+                self.set_light_off()
+            if self._item == None and not self.can_move_left():
+                self.swap_item()
+
+            # RIGHT LOOP
+            while self.can_move_right():
+                if self._item == None:
                     self.swap_item()
+                    self.move_right()
+                elif self.compare_item() == -1:
+                    print(f"COMP: {self.compare_item()}")
+                    print(f"SWAP: {self.swap_item()}")
+                    print(f"item: {self._item}")
+                    self.move_right()
+                else:
+                    self.move_right()
+
+            # LEFT LOOP
+            while self.can_move_left():
+                if self.compare_item() == 1:
+                    print(f"COMP: {self.compare_item()}")
+                    print(f"SWAP: {self.swap_item()}")
+                    print(f"item: {self._item}")
                     self.move_left()
-                    print(self._item)
-                if self.can_move_left() == False:
-                    self.set_light_on()
-            else:
-                print("BREAK")
-                break
+                elif self.compare_item() == None:
+                    self.swap_item()
+                    self.move_right()
+                    print("COMPARE ITEM =========   NONE ")
+                    break
+                else:
+                    self.move_left()
+
+            if not self.can_move_left() and self.compare_item() == None:
+                self.swap_item()
+                self.move_right()
+
+            print(f"item: {self._item}")
 
     # Fill this out
 if __name__ == "__main__":

@@ -2,14 +2,11 @@
 
 ## Exercise I
 
-a)
-O(n)
+a) O(n)
 
-b)
-O(n log n)
+b) O(n log n)
 
-c)
-O(n)
+c) O(n)
 
 ## Exercise II
 
