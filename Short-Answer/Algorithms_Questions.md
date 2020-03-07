@@ -6,9 +6,9 @@ Give an analysis of the running time of each snippet of
 pseudocode with respect to the input size n of each of the following:
 
 ```
-a)  a = 0 // n = 5
-    while (a < n * n * n): // 0 < 125, 25 < 125, 50 < 125, 75 < 125, 100 < 125
-      a = a + n * n // a = 25, 50, 75, 100, 125
+a)  a = 0 // n = 5, 10
+    while (a < n * n * n): // 0 < 125, 25 < 125, 50 < 125, 75 < 125, 100 < 125, 0 < 1000
+      a = a + n * n // a = 25, 50, 75, 100, 125 a = 100, 200, 300, ..., 1000: n times
 ```
 
 ```
@@ -25,11 +25,11 @@ b)  sum = 0 // n = 10
 ```
 
 ```
-c)  def bunnyEars(bunnies):
+c)  def bunnyEars(bunnies): // bunnies = 10
       if bunnies == 0:
         return 0
 
-      return 2 + bunnyEars(bunnies-1)
+      return 2 + bunnyEars(bunnies-1) // 2 + 9, 2 + 8, 2 + 7, ..., 2 + 0 = 10 times
 ```
 
 ## Exercise II
