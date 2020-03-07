@@ -6,22 +6,22 @@ Give an analysis of the running time of each snippet of
 pseudocode with respect to the input size n of each of the following:
 
 ```
-a)  a = 0
-    while (a < n * n * n):
-      a = a + n * n
+a)  a = 0 // n = 5
+    while (a < n * n * n): // 0 < 125, 25 < 125, 50 < 125, 75 < 125, 100 < 125
+      a = a + n * n // a = 25, 50, 75, 100, 125
 ```
 
 ```
-b)  sum = 0
-    for i in range(n):
-      i += 1
-      for j in range(i + 1, n):
-        j += 1
-        for k in range(j + 1, n):
-          k += 1
-          for l in range(k + 1, 10 + k):
-            l += 1
-            sum += 1
+b)  sum = 0 // n = 10
+    for i in range(n): // 0, ..., 9: 9 times, (n)
+      i += 1 // 1, ..., 10
+      for j in range(i + 1, n): // 2, 3, ..., 9: 9 - 2 = 7 times,  (n - 3)
+        j += 1 // 3, 4, ..., 10
+        for k in range(j + 1, n): // 4, 5, ..., 9: 9 - 4 = 5 times, (n/2)
+          k += 1 // 5, 6, ..., 10
+          for l in range(k + 1, 10 + k): // 6, 7, 8, ..., 15: 9 times
+            l += 1 // 7, 8, 9, ...,16
+            sum += 1 // 1, 2, 3, ..., 10
 ```
 
 ```
