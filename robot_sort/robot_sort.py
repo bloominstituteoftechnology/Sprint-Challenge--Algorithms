@@ -96,9 +96,39 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        set_light_on()
+        swap_item()
+        while light_is_on():
+            
+            move_right()
+            if compare_item()==1:
 
+                swap_item()
+            
+# Understand: sort the list using only the robot's methods
+
+# Plan: bubble sort implementation 
+
+# turn on the light
+
+# move right while the light is on
+# as soon as a loop starts, turn off the light
+
+# pick up the item at position zero (to drop the None item you're holding)
+
+# at each new position compare your items
+# if your item is greater than the item at current position continue moving right
+# if while moving right the item at current position greater than your held item, then swap
+# if you swap, then turn on the light
+
+# once you cannot go right anymore, go left until you reach the beginning of the list
+# if you swap and the item is None, then swap again 
+# repeat the above process above
+
+# if the light is off when you try to repeat the loop
+# swap with the first item in the list to pick up None again
+# now the list is sorted
+        
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
