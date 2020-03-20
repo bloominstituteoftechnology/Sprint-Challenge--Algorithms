@@ -9,6 +9,79 @@ pseudocode with respect to the input size n of each of the following:
 a)  a = 0
     while (a < n * n * n):
       a = a + n * n
+    
+    n = 1
+    first pass
+    a = 0 + 1 * 1
+    a = 1
+
+    a < 1 cubed
+
+    second pass
+    a = 1 + 1 * 1
+    a = 2
+
+    a > 1 cubed O(n^n+1)
+
+    n = 2
+    first pass
+    a = 0 + 2 * 2
+    a = 4
+
+    a < 8 
+
+    second pass
+    a = 4 + 2 * 2
+    a = 8
+
+    a = 2 cubed
+
+    third pass
+
+    a = 8 + 2 * 2
+    a = 12
+
+    a > 2 cubed
+
+
+    n = 5
+    first pass
+    a = 0 + 5 * 5
+    a = 25
+
+    a < 5 cubed
+
+    second pass
+    a = 25 + 5 * 5
+    a = 50
+
+    a < 5 cubed
+
+    third pass
+    a = 50 + 5 * 5
+    a = 75
+
+    a < 5 cubed
+
+    fourth pass
+    a = 75 + 5 * 5
+    a = 100
+
+    a < 5 cubed
+
+    fifth pass
+    a = 100 + 5 * 5
+    a = 125
+
+    a < 5 cubed
+
+    sixth pass
+    a = 125 + 5 * 5
+    a = 150
+
+    a > 5 cubed
+
+    
 ```
 
 
