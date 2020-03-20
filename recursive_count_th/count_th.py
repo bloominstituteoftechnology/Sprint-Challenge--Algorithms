@@ -13,7 +13,7 @@ def count_th(word):
     count = 0
     #base any word 
     # string index
-    if len(word) < 2:
+    if len(word)<2 :
         return count
     letters = word[0] + word[1] # get the two letters combined
     
