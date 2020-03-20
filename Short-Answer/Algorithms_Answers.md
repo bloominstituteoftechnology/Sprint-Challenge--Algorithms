@@ -1,4 +1,6 @@
-#### Please add your answers to the ***Analysis of  Algorithms*** exercises here.
+# Sprint Challenge
+
+**Please add your answers to the ***Analysis of  Algorithms*** exercises here.**
 
 ## Exercise I
 
