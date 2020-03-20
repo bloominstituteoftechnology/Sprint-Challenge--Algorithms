@@ -91,13 +91,38 @@ class SortingRobot:
         Returns True if the robot's light is on and False otherwise.
         """
         return self._light == "ON"
+   
 
     def sort(self):
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+
+        # sort the rest of the items
+        while self.can_move_right():
+
+            # pick up first item
+            self.swap_item()
+
+            # move right and swap item if the item in hand is greater
+            while self.can_move_right():
+                self.move_right()   
+                if self.compare_item() > 0:
+                    self.swap_item()
+
+            # put the new item in the spot that you emptied
+            while self.compare_item() != None:
+                self.move_left()
+            self.swap_item()
+
+            # keep moving
+            self.move_right()
+
+
+l = [3, 6, 7, 4, 3, 6, 8, 1,18]
+robot = SortingRobot(l)
+robot.sort()
+print(robot._list)
 
 
 if __name__ == "__main__":
