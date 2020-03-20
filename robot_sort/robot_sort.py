@@ -95,10 +95,80 @@ class SortingRobot:
     def sort(self):
         """
         Sort the robot's list.
+        -Robot can move left right
+        -robot can pick up items
+        -switch on/off lights
+        -may use existing functions
+        -compare items in inventory vs items to pick up 
+        -can ONLY use robot abilities
+         
         """
         # Fill this out
-        pass
+        # right < len(self._list) - 1
+        # left > 0 
+        # counter is _time = 0
+        
+        # check if its there compare item
+        # if self_item is None:
+        # return none
+        # and so on
+        
+        # swap_item is the equation swap 
+        # self._item, self._list[self._position] = self._list[self._position], self_item
 
+        # so it looks like something like this:
+        # right < len(self._list) - 1
+        # left > 0 
+        # counter is _time = 0
+        # if self_item is None:
+        # return none
+        # self._item, self._list[self._position] = self._list[self._position], self_item
+        
+        # have to return true over here if something needs to happen like the item pickup 
+        # so return true
+        # referencing notebook to identify the sort:
+        # it appears to be selection sort so for loop or while statement
+        
+        # my final selection sort guide:
+        # right < len(self._list) - 1
+        # left > 0 
+        # counter is _time = 0
+        # if self_item is None:
+        # return none
+        # self._item, self._list[self._position] = self._list[self._position], self_item
+        # return true
+        while True:
+        # my final selection sort guide:
+        # right < len(self._list) - 1
+            if self.can_move_right():
+                # self._item, self._list[self._position] = self._list[self._position], self_item
+                self.swap_item()
+                # left > 0
+                self.move_right()
+                # if self_item is None:
+                if self.compare_item() == 1:
+                    # self._item, self._list[self._position] = self._list[self._position], self_item
+                    self.swap_item()
+                self.move_left()
+                 # self._item, self._list[self._position] = self._list[self._position], self_item
+                self.swap_item()
+                # left > 0
+                self.move_right()
+            else:
+                if self.can_move_left():
+                    self.move_left():
+                    else:
+                        break
+                break
+
+        # counter is _time = 0
+        # if self_item is None:
+        # return none
+        # self._item, self._list[self._position] = self._list[self._position], self_item
+        # return true
+        
+
+                        
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
