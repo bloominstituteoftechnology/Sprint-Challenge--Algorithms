@@ -36,9 +36,9 @@ c) O(n) - This is just a O(n) loop in recursive form.
 ```python
 def check_break_height(floors):
 	if egg_breaks(floors // 2):
-		return check_break_height(floors // 2) + floors // 2
+		return check_break_height(floors // 4 + floors // 2)
 	else:
-		return check_break_height(floors // 2)
+		return check_break_height(floors // 4)
 ```
 
 This should determine break height in O(log(n)).
