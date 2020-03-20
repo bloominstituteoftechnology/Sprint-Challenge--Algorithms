@@ -122,12 +122,13 @@ class SortingRobot:
 
         
         # Make sure we can move to the next position
-        if self.can_move_right()
+        if self.can_move_right():
             self.move_right()
+            # Get an item
+            self.swap_item
 
-            
-        # Get an item
-        self.swap_item
+        
+
 
 
 
