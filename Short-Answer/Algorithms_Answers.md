@@ -16,6 +16,5 @@ floor f or higher = broken egg
 Below floor f = unbroken egg
 
 def value_of_f(n):
-    number_of_dropped = n
-
-    if 
+    for n in range(0, len())
+return floor
