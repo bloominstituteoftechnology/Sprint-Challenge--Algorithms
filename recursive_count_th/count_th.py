@@ -10,11 +10,11 @@ def count_th(word):
     count = 0
     wrd_size = len(word)
     ptr = 0
+
     s = "th"
     str_size = len(s)
 
-    if (word[ptr : str_size] = s
-
-        print("It is in the word")
+    if (word[ptr : str_size] == s):
+        return count_th(word[wrd_size[str_size - 1:], s)
     else:
-        print("It is NOT in the word")
+        return count_th(word[wrd_size[str_size - 1:], s) 
