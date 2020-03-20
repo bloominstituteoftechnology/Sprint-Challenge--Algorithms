@@ -5,7 +5,7 @@
 a) O(n) - The number of operations is bounded by a multiple of n.
 
 
-b) O(n^2) - The inner loop's n relies on the parent loop.
+b) O(n log n) - The inner loop increases at a multiple of a constant.
 
 
 c) O(n) - Recursion functions act like loops and loops are linear.
@@ -15,17 +15,9 @@ c) O(n) - Recursion functions act like loops and loops are linear.
 floor f or higher = broken egg
 Below floor f = unbroken egg
 
-def value_of_f(n):
-    floor = 0
-    broken_eggs = 0
+Binary Search would start on the middle floor. 
+If on the new middle floor the egg doesn't break, the floor below it can be ignored.
+If on the middle floor eggs are still breaking, the middle floor and all the floors above it can be ignored. 
+This will continue until floor f is found.
 
-    for loop for the floors starting from the bottom:
-        while broken eggs greater than zero:
-            if dropped egg doesn't break:
-                floor += 1
-            if eggs breaks:
-                broken_eggs = 1
-    
-    return the value of the floor
-
-Runtime complexity = O(n^2) 
+Runtime complexity = O(log n) 
