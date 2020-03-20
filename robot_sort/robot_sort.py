@@ -99,11 +99,16 @@ class SortingRobot:
         set_light_on()
         swap_item()
         while light_is_on():
-            
-            move_right()
+            set_light_off()
             if compare_item()==1:
-
                 swap_item()
+                set_light_on()
+            if can_move_right()==False:
+                while can_move_left()=True:
+                    move_left()
+            move_right()
+            
+            
             
 # Understand: sort the list using only the robot's methods
 
