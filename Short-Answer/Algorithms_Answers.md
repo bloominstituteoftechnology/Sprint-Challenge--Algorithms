@@ -2,14 +2,20 @@
 
 ## Exercise I
 
-a)
+a) O(n) - The number of operations is bounded by a multiple of n
 
 
-b)
+b) O(n^2) - The inner loop's n relies on the parent loop
 
 
-c)
+c) O(1) - Bunnies will remain constant
 
 ## Exercise II
 
+floor f or higher = broken egg
+Below floor f = unbroken egg
 
+def value_of_f(n):
+    number_of_dropped = n
+
+    if 

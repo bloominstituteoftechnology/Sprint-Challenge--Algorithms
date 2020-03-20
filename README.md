@@ -13,7 +13,7 @@ You are not allowed to collaborate during the Sprint Challenge. However, you are
 Instructor in your cohort help channel on Slack. Your submitted work reflects your proficiency in the concepts and topics that were covered this sprint.
 
 You have three hours to complete this Sprint Challenge. Plan your time accordingly.
-sdfds
+
 ## Commits
 
 Commit your code regularly and meaningfully. This helps both you (in case you ever need to return to old code for any number of reasons) and it also helps your team lead to more thoroughly assess your work.
