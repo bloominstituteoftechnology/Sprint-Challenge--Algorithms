@@ -56,8 +56,10 @@ class SortingRobot:
         This will increment the time counter by 1.
         """
         self._time += 1
+        print("Swapped ", self._item)
         # Swap the held item with the list item at the robot's position
         self._item, self._list[self._position] = self._list[self._position], self._item
+        print("for ", self._item)
 
     def compare_item(self):
         """
@@ -96,8 +98,53 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
+        while self.can_move_right() == True:
+            self.move_right()
+        self.swap_item()
+        self.set_light_off()
+        while self._light == "OFF":
+            print('Lights off!')
+            self.move_left()
+            if self.can_move_left() == False:
+                self.set_light_on()
+                print('Starting!')
+            while self._light == "ON":
+                print('Light on!')
+                while self.can_move_right() and self.compare_item() != None:
+                    print("Robot sees:", self._list[self._position], "and has:", self._item)
+                    if self.compare_item() == 1:
+                        self.move_right()
+                        print("moved right")
+                    if self.compare_item() == -1:
+                        self.swap_item()
+                        print("main swap")
+                        self.move_right()
+                if self.compare_item() == None:
+                    print('Checking whole list')
+                    print(self._list)
+                    self.move_left()
+                    self.set_light_on()
+                    while self._light == "ON":
+                        if self.compare_item() == 1:
+                            self.move_left()
+                        if self.compare_item() == -1:
+                            self.set_light_off()
+                            # need to restart search somehow
+                        if self.can_move_left() == False:
+                            while self.can_move_right():
+                                self.move_right()
+                            self.swap_item()
+                            print("We're done!")
+                            print(self._list)
+                            self.set_light_off()
+                            break
+                        break
+                    break
+                break
+            break
         pass
+
+
 
 
 if __name__ == "__main__":
