@@ -5,10 +5,10 @@
 a) O(n)
 
 
-b) O(n)
+b) O(nlog(n))
 
 
-c) O(2^n)
+c) O(n)
 
 ## Exercise II
 
