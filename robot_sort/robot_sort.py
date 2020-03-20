@@ -103,6 +103,13 @@ class SortingRobot:
         -can ONLY use robot abilities
          
         """
+        # since move left is a boolean we will be able to move left with a boolean helper
+        # the only boolean helper I have is the light
+        self.set_light_on()
+
+        while self.light_is_on():
+            # so while false    
+            self.set_light_off()        
         # Fill this out
         # right < len(self._list) - 1
         # left > 0 
@@ -137,29 +144,33 @@ class SortingRobot:
         # return none
         # self._item, self._list[self._position] = self._list[self._position], self_item
         # return true
-        while True:
+        
+            while True:
         # my final selection sort guide:
         # right < len(self._list) - 1
-            if self.can_move_right():
+                if self.can_move_right():
                 # self._item, self._list[self._position] = self._list[self._position], self_item
-                self.swap_item()
-                # left > 0
-                self.move_right()
-                # if self_item is None:
-                if self.compare_item() == 1:
-                    # self._item, self._list[self._position] = self._list[self._position], self_item
                     self.swap_item()
-                self.move_left()
-                 # self._item, self._list[self._position] = self._list[self._position], self_item
-                self.swap_item()
                 # left > 0
-                self.move_right()
-            else:
-                if self.can_move_left():
-                    self.move_left():
-                    else:
-                        break
-                break
+                    self.move_right()
+                # if self_item is None:
+                    if self.compare_item() == 1:
+                    # self._item, self._list[self._position] = self._list[self._position], self_item
+                        self.swap_item()
+                        self.set_light_on()
+                        
+                    self.move_left()
+                 # self._item, self._list[self._position] = self._list[self._position], self_item
+                    self.swap_item()
+                # left > 0
+                    self.move_right()
+                else:
+                    while True:
+                        if self.can_move_left():
+                            self.move_left()
+                        else:
+                            break
+                    break
 
         # counter is _time = 0
         # if self_item is None:
