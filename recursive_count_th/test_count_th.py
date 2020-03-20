@@ -1,6 +1,6 @@
 import unittest
 import random
-from count_th import *
+from .count_th import *
 
 cache = {'th':0}
 
