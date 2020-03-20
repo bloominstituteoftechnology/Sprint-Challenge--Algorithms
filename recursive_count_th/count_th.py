@@ -18,6 +18,8 @@ Your function must utilize recursion. It cannot contain any loops.
 # Execute:
 # seems like base case when the len(word) is less than the lenght of "th"
 
+# Reflect:
+# How can I improve this? Use one of the python builtins (:
 
 
 def count_th(word):
