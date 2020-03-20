@@ -22,7 +22,7 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 
 This Sprint Challenge is split into two separate parts that test your ability to analyze and write algorithms.
 
-### Short Answer Questions 
+### Short Answer Questions
 
  > It is recommended that you spend no more than 1 hour on this portion of the Sprint Challenge.
 
@@ -45,7 +45,7 @@ Inside the `recursive_count_th` directory you'll find the `count_th.py` file. In
 
 * Your function should take in a signle parameter (a string `word`)
 * Your function should return a count of how many occurences of ***"th"*** occur within `word`. Case matters.
-* Your function must utilize recursion. 
+* Your function must utilize recursion.
   * It cannot contain any loops.
 
 Run `python test_count_th.py` to run the tests for your `count_th()` function to ensure that your implementation is correct.
@@ -57,7 +57,7 @@ You have been given a robot with very basic capabilities:
 
   * It can move left or right.
   * It can pick up an item
-    * If it tries to pick up an item while already holding one, it will swap the items instead.
+	* If it tries to pick up an item while already holding one, it will swap the items instead.
   * It can compare the item it's holding to the item in front of it.
   * It can switch a light on its head on or off.
 
@@ -95,7 +95,7 @@ Inside the `robot_sort` directory you'll find the `robot_sort.py` file. Open it 
 
 Run `python test_robot.py` to run the tests for your `robot_sort()` function to ensure that your implementation is correct.
 
-### Stretch 
+### Stretch
 
 Uncomment the `test_stretch_times()` test in `test_robot.py`. Can you optimize your robot sort to perform better than the given times?
 
@@ -106,7 +106,7 @@ Uncomment the `test_stretch_times()` test in `test_robot.py`. Can you optimize y
 | _Student should be able to describe the differences between Linear and Binary Searching algorithms_ | 2. Complete Analysis of Algorithms - Exercise II | Student does NOT clearly identify a strategy that would allow us to search for and find floor `f`.<br/><br/>It is either incorrect **OR** requires the TL to make assumptions about how the strategy works. | Student's answer describes a searching strategy **BUT** either i) does NOT correctly identify the runtime **OR** ii) recommends an approach that will work but is not ideal in terms of efficiency |  Student's answer describes a strategy that functions (like Binary Search) and is easy to understand (if their description is in English, all details are provided, if in psuedocode, variables names make sense, code is clean and easy to follow) **AND** performs better than (O(n)) **AND** identifies the runtime correctly. |  |
 | _Student should be able to identify when a problem is amenable to a recursive solution and utilize recursion in order to solve it_ | 3. Utilize recursion to complete `count_th()` | Student's function does not compile & run **OR** <br/><br/>runs but does NOT pass a minimum of **4/5** of test cases. | Student's function passes **4/5** of test cases | Student's function passes **ALL** test cases |  |
 | _Student should be able to demonstrate an understanding of the implementation of various iterative & recursive sorting algorithms_ | 4. Understand and plan an approach to implement the `robot_sort()` function | Student's comments, psuedocode, or solution will not sort a collection of elements because it is incomplete or contains 4 or more errors preventing it from executing as intended.  | Student's comments, psuedocode, or solution has **MOST** of the elements needed for a robot to sort a given collection of items. May contain up to 3 minor errors. <br/><br/> Robot Sort rules violations will not be held against students in this row. | Student's comments, psuedocode, or solution has **ALL** of the elements needed for a robot to sort a given collection of items. Contains no errors or missing logic. Clear & easy to follow algorithm. <br/><br/> Robot Sort rules violations will not be held against students in this row. |  |
-|  _Student should be able to approach a novel problem and come up with a workable first-pass solution._ | 4. Implement the `robot_sort()` function | Student's function does not compile & run **OR** <br/><br/>runs but fails to pass a minimum of **4/5** of test cases. | Student's function follows **ALL** [rules](https://github.com/LambdaSchool/Sprint-Challenge--Algorithms#rules) **BUT** only passes **4/5** of test cases, takes longer than 1 second to run OR the student cannot clearly explain what some segments of the code are doing to the TL. | Student's function follows **ALL** [rules](https://github.com/LambdaSchool/Sprint-Challenge--Algorithms#rules), runs in less than 1 second **AND** passes **ALL** test cases. Code is well-formatted, includes appropriate comments, and student can walk-through their solution and explain their process clearly to the TL. |  | 
+|  _Student should be able to approach a novel problem and come up with a workable first-pass solution._ | 4. Implement the `robot_sort()` function | Student's function does not compile & run **OR** <br/><br/>runs but fails to pass a minimum of **4/5** of test cases. | Student's function follows **ALL** [rules](https://github.com/LambdaSchool/Sprint-Challenge--Algorithms#rules) **BUT** only passes **4/5** of test cases, takes longer than 1 second to run OR the student cannot clearly explain what some segments of the code are doing to the TL. | Student's function follows **ALL** [rules](https://github.com/LambdaSchool/Sprint-Challenge--Algorithms#rules), runs in less than 1 second **AND** passes **ALL** test cases. Code is well-formatted, includes appropriate comments, and student can walk-through their solution and explain their process clearly to the TL. |  |
 | _Student should be able to apply techniques such as memoization or heuristics to improve an existing first-pass solution_ | [STRETCH] Optimize `robot_sort()` to improve runtime  | Student's function passes ALL test cases **AND** <br/> **1/4** stretch tests outperform the benchmark | Student's function passes ALL test cases **AND** <br/> **2/4** stretch tests outperform the benchmark | Student's function passes ALL test cases **AND** <br/> **4/4** stretch tests outperform the benchmark | |
 | **FINAL SCORE** | _(5 tasks + 1 STRETCH goal)_  | **0-7** | **8-12** | **13-18** |  |
 
