@@ -96,16 +96,69 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        self.swap_item()
+        
+        # while self.light_is_on()==False:
+        #     self.set_light_on()
+        #     print(self._list)
+        for _ in range(100):
+            # print(self._list)
 
+            while self.can_move_right()==True:
+                self.move_right()
+                if self.compare_item()==-1:
+                    self.swap_item()
+                    self.set_light_off()
+
+            # robot should be at last list item here
+            if self.compare_item()==1:
+                # print('swapped last item')
+                self.swap_item()
+                self.set_light_off()
+
+            
+            while self.can_move_left()==True:
+                self.move_left()
+                if self.compare_item()==1:
+                    self.swap_item()
+                    self.set_light_off()
+
+            # if self.light_is_on:
+            #     break
+
+        self.swap_item()          
+            
+# Understand: sort the list using only the robot's methods
+
+# Plan: bubble sort implementation 
+
+# turn on the light
+
+# move right while the light is on
+# as soon as a loop starts, turn off the light
+
+# pick up the item at position zero (to drop the None item you're holding)
+
+# at each new position compare your items
+# if your item is greater than the item at current position continue moving right
+# if while moving right the item at current position greater than your held item, then swap
+# if you swap, then turn on the light
+
+# once you cannot go right anymore, go left until you reach the beginning of the list
+# if you swap and the item is None, then swap again 
+# repeat the above process above
+
+# if the light is off when you try to repeat the loop
+# swap with the first item in the list to pick up None again
+# now the list is sorted
+        
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
-    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
-
+    # l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+    l = [5,4,3,2,1]
     robot = SortingRobot(l)
 
     robot.sort()
