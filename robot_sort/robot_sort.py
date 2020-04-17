@@ -113,6 +113,14 @@ class SortingRobot:
             #if true move right
                 self.move_right()
             #?else move left?
+            else:
+                if self.can_move_left() == True:
+                    self.move_left()
+                    #compare
+                    # current_item > item_right
+                    if self.compare_item() == 1:
+                        #swap
+                        self.swap_item()
             
     
         
