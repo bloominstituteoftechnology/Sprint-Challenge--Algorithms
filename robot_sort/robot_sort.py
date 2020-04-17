@@ -96,9 +96,31 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # Base case, it is at last position
+        if(not self.can_move_right()):
+            return
 
+        # First swap item to set placeholder 'None'
+        self.swap_item()
+
+        # Move all the way to the right
+        while(self.can_move_right()):
+            self.move_right()
+
+        # While the item is not None (not at placeholder), compare item
+        # If smaller, swap it with current item and move left, else move 
+        # right. This will find the smallest item
+        while(self.compare_item() is not None):
+            if(self.compare_item() == 1):
+                self.swap_item()
+            self.move_left()
+
+        # Once we reach the None, we should have the smallest remaining item
+        # to the right of the None, so we swap that item with None and move right
+        # Then repeat the process
+        self.swap_item()
+        self.move_right()
+        self.sort()
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
