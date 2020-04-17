@@ -51,3 +51,5 @@ def max_drop(lowest_floor, highest_floor):
 
     # Repeat this process until the target floor is found and return it
 
+## The runtime complexity is O(log n) because it mimics binary search and binary search has a runtime complexity of O(log n)
+
