@@ -18,8 +18,8 @@ def count_th(word):
     # Our search string ("th") matches the beginning of
     # the current sub-string.
     # Add 1 to the total and scroll forward 2 characters.
-    if (word[0] == 't' and word[1] == 'h'):
-        return 1 + count_th(word[2:])
+    if word[:search_length] == search_string:
+        return 1 + count_th(word[search_length:])
 
     # Our search string doesn't match the beginning of the
     # substring. Move forward a character.
