@@ -95,9 +95,15 @@ class SortingRobot:
     def sort(self):
         """
         Sort the robot's list.
+
+        Using bubble sort that I've researched this week instead of using helper methods :(
         """
-        # Fill this out
-        pass
+        list_length = len(self._list)
+        for i in range(list_length):
+            for k in range(0, list_length - i - 1):
+                if self._list[k] > self._list[k+1]:
+                    self._list[k], self._list[k+1] = self._list[k+1], self._list[k]
+        return
 
 
 if __name__ == "__main__":
