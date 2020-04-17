@@ -98,23 +98,24 @@ class SortingRobot:
         """
         # Fill this out
         self.set_light_on()
-        while self.set_light_on():
-            self.set_light_off
-            while self.can_move_right():
-                self.move_right()
-                if self.compare_item() == 1:
-                    self.swap_item()
-                    self.set_light_on()
 
-            while self.can_move_left():
+        #turn light on?
+        if self.light_is_on() == "ON":
+            #do work
+            #compare item
+            #if current_item > item_on_right
+            if self.compare_item() == 1:
+                #swap item
                 self.swap_item()
-                self.move_left()
-                if self.compare_item() == -1:
-                    self.swap_item()
-                    self.set_light_on()
+        #check to move right
+            if self.can_move_right() == True:
+            #if true move right
                 self.move_right()
-                self.swap_item()
-                self.move_left()
+            #?else move left?
+            
+        else:
+            self.set_light_on
+        
 
 
         pass
