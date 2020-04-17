@@ -97,7 +97,56 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        self.bubble_bot()
+    """
+    compare
+    if bigger:
+        swap
+    else:
+        continue
+    if can't move right:
+        if light on:
+            DONE!
+    """
+    def bubble_bot(self):
+        self.swap_item()
+        self.move_right()
+        self.bub_pass()
+
+    def bub_pass(self):
+        self.set_light_on()
+        while self.can_move_right():
+            self.bub_compare()
+        if self.light_is_on():
+            return self._list
+        else:
+            while self.can_move_left():
+                self.move_left()
+            self.bub_pass()
+
+
+    def bub_compare(self):
+        if self.compare_item() == 1:
+            self.bub_swap()
+        else:  # if self.compare_item() == -1:
+            self.bub_continue()
+        if self.compare_item() == None and self.can_move_right():
+            self.swap_item()
+            self.move_right()
+            self.bub_compare()
+
+    def bub_swap(self):
+        self.set_light_off()
+        self.swap_item()
+        self.move_left()
+        self.swap_item()
+        self.move_right()
+
+    def bub_continue(self):
+        self.move_left()
+        self.swap_item()
+        self.move_right()
+
 
 
 if __name__ == "__main__":
