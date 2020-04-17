@@ -2,14 +2,15 @@
 
 ## Exercise I
 
-a)
+a) O(n) Loops based on n.
 
 
-b)
+b) O(n^2)   The range of the function is as large as n is but checked again conditionally.
 
 
-c)
+c) O(n)   This recursive function only happens as many times as n is.
 
 ## Exercise II
 
+Drop the first egg on the first floor and if it doesn't breatk move on to the next floor, else return the floor it broke on recursively
 
