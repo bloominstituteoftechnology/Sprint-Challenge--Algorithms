@@ -93,11 +93,46 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
+        while True:
+            if not self.light_is_on():
+                self.set_light_on()
+                
+                while self.can_move_right():
+                    if self.compare_item() == -1  or self.compare_item() == None:
+                        self.swap_item()
+                    self.move_right()
+                if self.compare_item() == -1:
+                    self.swap_item()
+                while self.can_move_left():
+                    if self.compare_item() == 1:
+                        self.set_light_off()
+                        self.swap_item()
+                    self.move_left()
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.set_light_off()
+            else:
+                break
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # Bubble sort would work best for this one
+        # check if light is on
+        # if it isn't -> turn it on
+        # for as long as it can move right loop through
+        # check if held item is greater or less than next item
+        # if it is greater, swap
+        # move right
+        # check if held item is less than next
+        # yes ? swap
+
+        # robot can only move left or right so do exact opposite of above
+        # while robo can move left
+        # compare current with next
+        # if it is greater turn light off and swap
+        # move left
+        # compare held to next
+        # if greater -> swap and turn off light
 
 
 if __name__ == "__main__":
