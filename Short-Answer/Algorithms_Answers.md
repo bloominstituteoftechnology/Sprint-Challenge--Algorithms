@@ -2,7 +2,7 @@
 
 ## Exercise I
 
-a)0(n)
+a) 0(n)
 It's 0(n) because multiplying is the highest order of operation
 
 b)
