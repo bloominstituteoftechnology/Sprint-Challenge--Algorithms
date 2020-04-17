@@ -96,7 +96,7 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Trying to set up sort method as bubble sort, but failing
+        # Trying to set up sort method as bubble sort, finally suceeded
         self.set_light_on()
         while self.light_is_on():
             self.set_light_off()
