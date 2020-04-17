@@ -140,7 +140,7 @@ class SortingRobot:
         while(self.can_move_left()):
             self.move_left()
 
-        while(self.light_off()):
+        while(self.light_is_on() == False):
             self.bubble_right()
 
 
