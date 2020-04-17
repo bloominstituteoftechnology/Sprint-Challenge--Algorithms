@@ -2,7 +2,7 @@
 
 ## Exercise I
 
-a) O(n^3)?
+a) O(n^3)
 (A geometric math equation called n^3 times.)
 
 b) O(n^2)
