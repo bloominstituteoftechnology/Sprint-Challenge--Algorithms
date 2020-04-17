@@ -97,10 +97,11 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        self.set_light_on()
+        if self.light_is_on() != "ON":
+            self.set_light_on()
 
         #turn light on?
-        if self.light_is_on() == "ON":
+        while self.light_is_on():
             #do work
             #compare item
             #if current_item > item_on_right
@@ -113,8 +114,7 @@ class SortingRobot:
                 self.move_right()
             #?else move left?
             
-        else:
-            self.set_light_on
+    
         
 
 
