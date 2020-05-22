@@ -22,5 +22,5 @@ First thing we need to do is find the midpoint. If the egg breaks, we need to ch
 if the egg doesn't break, we need to check the same way with the upper half discarding the lower half.
 Then continue to recurse until we are left with two floors(which will be our base case), lower half should not break, upper half should break.
 
-`O(n log n)`
+`log(n)` this is log of in because each recursive call, the input gets smaller.
 
