@@ -92,12 +92,31 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+    def sorting_pass(self):
+        if self.compare_item() == None:
+            self.swap_item()
+        while self.can_move_right():
+            self.move_right()
+            if self.compare_item() == -1 or self.compare_item() == None:
+                self.swap_item()              
+        if self.compare_item() == 1 or self.compare_item() == None:
+            self.swap_item()
+        while self.can_move_left():
+            self.move_left()
+            if self.compare_item() == 1 or self.compare_item() == None:
+                self.swap_item()
+        if not self.compare_item() == None:
+            self.swap_item()
+    
     def sort(self):
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        for _ in range(len(self._list)//2):
+            self.sorting_pass()
+            
+                
+            
 
 
 if __name__ == "__main__":
