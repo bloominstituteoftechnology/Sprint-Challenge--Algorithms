@@ -100,7 +100,41 @@ class SortingRobot:
         """
         # Fill this out
 
-        pass
+        # default robot to light on
+        self.set_light_on()
+        while self.light_is_on():
+            # give ability to turn it off
+            self.set_light_off()
+
+            # robot's right movement actions
+            # allow the robot to be able to move to the right (down to the end of the list)
+            while self.can_move_right():
+                # move to the right
+                self.move_right()
+                # check if the item value is 1 (if so stays in position)
+                if self.compare_item() == 1:
+                    # swap held item, still in position
+                    self.swap_item()
+                    # turns the light on
+                    self.set_light_on()
+
+            # robot's left movement actions
+            # allow the robot to be able to move to the left (up to the beginning of the list)
+            while self.can_move_left():
+                # swap held item, changing position
+                self.swap_item()
+                # move to the left
+                self.move_left()
+
+                # check if the item value is -1 (less than next value)
+                if self.compare_item() == -1:
+                    # if so, swap and stay in position
+                    self.swap_item()
+                    self.set_light_on()
+                # if not, have capabilities to move down/up list swapping values
+                self.move_right()
+                self.swap_item()
+                self.move_left()
 
 
 if __name__ == "__main__":
