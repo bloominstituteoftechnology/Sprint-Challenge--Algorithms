@@ -97,7 +97,41 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        # lets move the robot
+        def move_the_robot():
+            while self.can_move_left() == True:
+                self.move_left()
+        
+        #recursion
+        def see():
+            #Base case
+            if self.light_is_on() == False:
+                return
+        
+            self.set_light_off()
+            while self.can_move_right() == True:
+                self.swap_item()
+                self.move_right()
+
+                if self.compare_item() == 1:
+                    self.set_light_on()
+                    self.swap_item()
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                
+                else:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+            
+            move_the_robot()
+            see()
+        
+        self.set_light_on() # light is on, it will go of after completing the sort.
+        see()
+    
+
 
 
 if __name__ == "__main__":
