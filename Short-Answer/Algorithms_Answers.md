@@ -5,7 +5,7 @@
 a) O(n) - You only have one simple math operation. An incerase in the input with not result in an exponential increase.  
 
 
-b) O(log n) - the code is using one while loop. As the size of the input increases it will increase at a slow rate since only one loop is present. 
+b) O(n log n) - the code is using a while loop and has an inner equation that is doubling n. This will cause it to grow at a slightly faster rate. 
 
 
 c) O(n) - the code is performing one recursive function. As the input increases it will always grow at the same rate. 
