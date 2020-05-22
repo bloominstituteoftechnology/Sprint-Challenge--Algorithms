@@ -13,12 +13,26 @@ def count_th(word):
 
     #We should start with a base case
 
-    if word_count == 0 or word_count < wdcheck_count:
+    if word_count < 2:
         return 0
 
-    elif word[0: wdcheck_count] == wdcheck:
-        #move toward base case
-        return count_th(word[wdcheck_count - 1: ]) + 1
     else:
-        return count_th(word[wdcheck_count - 1: ])
+        #check the first two letters from the word
+        #python splice 
+        if word[:2] == wdcheck:
+            return 1 + count_th(word[2:])
+
+        else:
+            return count_th(word[1:])
+
+
+
+    # if word_count == 0 or word_count < wdcheck_count:
+    #     return 0
+
+    # elif word[0: wdcheck_count] == wdcheck:
+    #     #move toward base case
+    #     return count_th(word[wdcheck_count - 1: ]) + 1
+    # else:
+    #     return count_th(word[wdcheck_count - 1: ])
 
