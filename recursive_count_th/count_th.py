@@ -6,5 +6,19 @@ Your function must utilize recursion. It cannot contain any loops.
 def count_th(word):
     
     # TBC
-    
-    pass
+    #Break Down problem into smaller fractions
+    wdcheck = "th"
+    wdcheck_count = len(wdcheck)
+    word_count = len(word)
+
+    #We should start with a base case
+
+    if word_count == 0 or word_count < wdcheck_count:
+        return 0
+
+    elif word[0: wdcheck_count] == wdcheck:
+        #move toward base case
+        return count_th(word[wdcheck_count - 1: ]) + 1
+    else:
+        return count_th(word[wdcheck_count - 1: ])
+
