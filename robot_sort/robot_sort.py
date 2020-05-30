@@ -92,13 +92,55 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+    def go_to_front(self):
+        """
+        Moves robot to the front of the list.
+        """
+        while self.can_move_left():
+            self.move_left()
+
+    def go_to_end(self):
+        """
+        Moves robot to the end of the list.
+        """
+        while self.can_move_right():
+            self.move_right()
+
     def sort(self):
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # If list is bigger than 1 element:
+        # Put None at end of list, move to front, set light on
+        if self.can_move_right():
+            self.go_to_end()
+            self.swap_item()
+            self.go_to_front()
+            self.set_light_on()
 
+        while self.light_is_on():
+
+            if self.compare_item() is None:
+                # If you find none and you can move left,
+                # Drop item, grab none, swap none with previous item
+                if self.can_move_left():
+                    self.swap_item()
+                    self.move_left()
+                    self.swap_item()
+                    self.go_to_front()
+                # If you can't move left, exit sort loop
+                else:
+                    self.swap_item()
+                    self.set_light_off()
+
+            # If held item is bigger or the same, move right
+            elif self.compare_item() >= 0:
+                self.move_right()
+
+            # If held item is smaller, swap item, move to front
+            elif self.compare_item() == -1:
+                self.swap_item()
+                self.go_to_front()
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
