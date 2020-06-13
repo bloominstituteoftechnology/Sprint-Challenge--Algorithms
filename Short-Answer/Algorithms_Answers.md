@@ -2,7 +2,7 @@
 
 ## Exercise I
 
-a)
+a)  IT HAS BEGUN ! ! !
 
 
 b)
