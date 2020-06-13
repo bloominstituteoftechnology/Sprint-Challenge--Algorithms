@@ -2,13 +2,13 @@
 
 ## Exercise I
 
-a)
+a) O(n)
 
 
-b)
+b)O(n^2)
 
 
-c)
+c)O(log n)
 
 ## Exercise II
 
