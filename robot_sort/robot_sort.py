@@ -98,6 +98,33 @@ class SortingRobot:
         """
         # Fill this out
         pass
+        
+        # self.set_light_on()
+        # self.swap_item()
+
+        # while self.can_move_right():
+        #     self.move_right()
+
+        #     if self.compare_item() == 0 or self.compare_item() == 1:
+        #         self.swap_item()
+        #         self.move_right()
+        #     else:
+        #         self.move_right()
+        
+        # while self.can_move_left():
+        #     self.move_left()
+
+        #     if self.compare_item() == -1:
+        #         self.swap_item()
+        #         self.move_left()
+        #     else:
+        #         self.move_left()
+        
+        #         return
+        
+        print("Sorting Robot: ", SortingRobot(l))
+
+        
 
 
 if __name__ == "__main__":
@@ -110,3 +137,14 @@ if __name__ == "__main__":
 
     robot.sort()
     print(robot._list)
+
+    
+################################################################
+"""
+Plan #1:
+    * Start with robot light on and current_position at 0
+    * Work left to right
+    * Examine each item and compare it to items on its left
+    * Insert the item in the correct position in the list
+    """
+
