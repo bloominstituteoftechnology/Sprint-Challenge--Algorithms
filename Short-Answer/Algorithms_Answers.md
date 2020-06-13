@@ -49,5 +49,6 @@ drop and egg on the first floor
 -we follow these steps until we get find the last floor that the egg doesn't break, and the first floor that it does
 
 In a building of 100 floors, if the f floor was 66 we would find it in len[50, 75, 62, 68, 65, 66] = 6 steps
- 
+
+The runtime complexity of a binary search tree is O(logn) 
 

@@ -1,3 +1,14 @@
+# U - I have to stay within the rules and sort a list of numbers 'l' with the robot.
+#     Specifically we do not have the ability to store variables or change the pre defined methods
+
+# P - This robot does remind me of the select sort gypsy video. I think that a select sort algorithm would work within the rules
+#     I have the robot pick up the first card (self.position = 0) and then compare to every card moving to the right
+#     if it is smaller (and only smaller) I have the robot swap the card. When the robot can no longer move to the right,
+#     I'll have the robot move to the left until it finds an empty space (compare_item is None) and put its current card down,
+#     and move one space to the right. Then I repeat. 
+#     Edge cases are empty sets, and sets of only one card
+
+# E
 class SortingRobot:
     def __init__(self, l):
         """
@@ -96,6 +107,30 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
+        # This both breaks the recursion and takes care of the single element list case
+        if self.can_move_right is False:
+            return self._list
+        
+        # First I need to pick up the item in front of the robot
+        self.swap_item()
+        
+        while self.can_move_right is True:
+            self.move_right()
+
+            if self.compare_item == -1:
+                self.swap_item()
+        
+        while self.can_move_left is True:
+            self.move_left()
+            
+            if self.compare_item is None:
+                self.swap_item()
+        
+        self.move_right()
+
+        return self.sort()
+
+
         # Fill this out
         pass
 
