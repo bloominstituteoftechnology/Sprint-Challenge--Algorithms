@@ -146,5 +146,10 @@ Plan #1:
     * Work left to right
     * Examine each item and compare it to items on its left
     * Insert the item in the correct position in the list
+    * Turn light off when list is sorted
+
+
+Plan #2:
+    * Merge Sort in Place
     """
 
