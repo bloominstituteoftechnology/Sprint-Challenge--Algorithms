@@ -18,20 +18,16 @@ Suppose that you have an n-story building and plenty of eggs. Suppose also that 
 Write out your proposed algorithm in plain English or pseudocode AND give the runtime complexity of your solution.
 
 
-# Description of the problem:
+Description of the problem:
 
-floors    dropped    broken
-0        1          0
-.        .          .
-.        .          .
-f        1          1
-.        1          1
-.        1          1
-n        1          1
+floors   0 . . . f . . n 
+
+dropped  1 . . . 1 ....1  
+
+broken   0 . . . 1 ....1
 
 
-
-# Planning an implementation:
+Planning an implementation:
 
 It is better to use binary search for this problem instead linear search basically because it is more efficient and floors is a sorted list. The binary search algorithm will find the position of the target value within a sorted array, in this case the this value of floor such that the number of dropped + broken eggs is minimized. The table shows that this value is floor < f. 
 
