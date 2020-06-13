@@ -8,7 +8,7 @@ a) Runtime complexity is O(n) the while loop is running n times because n is run
 b) Runtime complexity of this is O(n^2) the code goes through the first iteration and then has to run a while loop, making it the second iteration of it running n
 
 
-c)The runtime complexity is  0(1) It only checks to see if bunnies exist.
+c)The runtime complexity is  0(log n)
 
 ## Exercise II
 

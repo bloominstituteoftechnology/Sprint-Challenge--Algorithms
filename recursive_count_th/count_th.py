@@ -9,6 +9,7 @@ def count_th(word):
         return 0
     #Then we set the count
     count = 0 
+    #Then we set it to recurse every two letters everytime it's called
     if word[0] == 't' and word[1] == 'h':
         count = 1
     count = count + count_th(word[1:])
