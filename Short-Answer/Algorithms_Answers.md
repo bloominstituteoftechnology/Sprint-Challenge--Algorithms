@@ -2,13 +2,13 @@
 
 ## Exercise I
 
-a)
+a) O(n) -- run time increases linearly as n increases. Single loop.
 
 
-b)
+b) O(n^2) -- 2 loops. So run time increases twice as n increases. 
 
 
-c)
+c) It is O(n) because the runtime will increase at a constant pace with the size of the input. 
 
 ## Exercise II
 
