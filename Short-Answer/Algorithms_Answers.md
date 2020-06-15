@@ -33,3 +33,6 @@ def drop_at_midpoint(f):
     else:
         drop_at_midpoint(t)
 ```
+
+Time Complexity: O(log n), the number of possible floors is cut in half on each call of the recusive function
+making it n^1/2, or log n
