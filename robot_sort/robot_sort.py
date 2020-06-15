@@ -81,11 +81,13 @@ class SortingRobot:
         Turn on the robot's light
         """
         self._light = "ON"
+
     def set_light_off(self):
         """
         Turn off the robot's light
         """
         self._light = "OFF"
+
     def light_is_on(self):
         """
         Returns True if the robot's light is on and False otherwise.
@@ -96,17 +98,55 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+
+        # Pick up the first item, leaving the `None` marker in its place.
+        self.swap_item()
+
+        while not self.light_is_on():
+
+            # Carry bigger items right. Stop when the rightmost end of the
+            # array is reached.
+            while self.move_right():
+                if self.compare_item() == -1:
+                    self.swap_item()
+
+            # Leave the largest item in the rightmost spot.
+            if self.compare_item() == 1:
+                self.swap_item()
+
+            # Carry smaller items left. Don't pass the `None` marker, as items
+            # to its left, if any, will already be sorted.
+            while self.compare_item() is not None:
+                self.move_left()
+                if self.compare_item() == 1:
+                    self.swap_item()
+
+            # `None` place-marker moves one space right after each round-trip.
+            self.swap_item()
+            self.move_right()
+
+            # When the `None` mark reaches the end, the list is sorted. Until
+            # then, it needs to be swapped back into the list to mark the
+            # lefthand turnaround point.
+            if self.can_move_right():
+                self.swap_item()
+            else:
+                self.set_light_on()
 
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
-    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+    test_list = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90,
+                 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47,
+                 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9,
+                 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84,
+                 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53,
+                 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57,
+                 86, 12, 56, 50, 55, 46]
 
-    robot = SortingRobot(l)
+    robot = SortingRobot(test_list)
 
     robot.sort()
     print(robot._list)
