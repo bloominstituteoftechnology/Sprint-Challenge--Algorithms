@@ -115,46 +115,9 @@ class SortingRobot:
             if self.compare_item() == None:
                 self.swap_item()
                 break
-
-          # Move to the Right
         self.move_right()
-         # Recursivly call ourself
+         #Recurse
         self.sort()
-
- 
-    #     """
-    #     Sort the robot's list.
-    #     """
-    #     # Pick the first num 
-    #     #self.swap_item()
-    #     self.go_to_front()
-    #     #Turn on light 
-    #     self.set_light_on()
-
-    #     if self.can_move_right():
-    #         self.swap_item()
-    #         print ('moving forward')
-    #         print (self._item)
-    #         if self.compare_item() == 1:
-    #              print('item is greter , swapping')
-    #              self.swap_item()	
-    #              self.move_right()
-    #              if self.light_is_on():
-    #                  self.set_light_off()
-    #              print('swapped')
-
-    #         elif self.compare_item == -1:
-    #             print('item lesser')
-    #             self.move_right()
-
-    #         elif self.compare_item == 0:
-    #             print ('item equal')
-    #             self.move_right()
-
-    #     if not self.light_is_on(): 
-    #         print ('next iteration')
-    #         self.go_to_front()
-    #         self.sort()
 
 
 if __name__ == "__main__":
