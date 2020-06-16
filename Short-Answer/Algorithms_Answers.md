@@ -6,7 +6,7 @@ at the same rate.
 The while loop states: as n grows so does the runtime.
 Acceptable Time complexity.
 
-b) O(log n) = This is a logarithmic algorithm, as the size 
+b) O(n*log n) = This is a logarithmic algorithm, as the size 
 of input increases the runtime/space will grow at a slightly 
 slower rate. 
 Because there are two loops in order to satisfy the equation

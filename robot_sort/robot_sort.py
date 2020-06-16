@@ -99,18 +99,67 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        # self._list = l  # The list the robot is tasked with sorting
-        itemlist = self._list
-        # establish the length of the list items so you touch each item
-        list_loop = len(itemlist) - 1
-        # create the range and loop through it
-        for i in range(list_loop):
-            # create a comparison in order to move through list
-            for j in range(list_loop - 1):
-                # now set the order
-                if itemlist[j] > itemlist[j + 1]:
-                    itemlist[j], itemlist[j + 1] = itemlist[j + 1], itemlist[j]
-        return itemlist
+        # use each method then go back to the beginning
+        # swap list item so that you are pushing forward
+        # order: establish the light is on, turn robot light off,
+        # move right, pick up first item with swap
+        # must compare items so that you do not stay in one spot
+        # move right, swap if value is less, move left to put item down
+        # move right, repeat until all items are sorted
+        # move through all items again
+
+        self.set_light_on()
+        while self.light_is_on():
+            self.set_light_off()
+            while self.can_move_right():
+                self.swap_item()
+                self.move_right()
+
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.set_light_on()
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+
+            if not self.light_is_on():
+                return
+            self.set_light_off()
+            self.move_left()
+            while self.can_move_left():
+                self.swap_item()
+                self.move_left()
+
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.set_light_on()
+                self.move_right()
+                self.swap_item()
+                self.move_left()
+
+            if not self.light_is_on():
+                return
+
+        # This method is shorter and works as well:
+        self.set_light_on()
+        while self.light_is_on():
+            self.set_light_off()
+            while self.can_move_right():
+                self.swap_item()
+                self.move_right()
+
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    self.set_light_on()
+                else:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+        while self.can_move_left():
+            self.move_left()
 
 
 if __name__ == "__main__":
