@@ -18,6 +18,6 @@ def count_th(word):
     if index == -1:
         return 0
 
-    # Recursive case - one substring found; look for addition substrings in
+    # Recursive case - one substring found; look for additional substrings in
     # what remains of the input string.
     return count_th(word[index + 2:]) + 1
