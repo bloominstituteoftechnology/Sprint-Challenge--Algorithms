@@ -100,57 +100,71 @@ class SortingRobot:
    
       
 # 1st attempt ( 2nd edition)
-        # print("Starting position:  ",self._position)
-        # print("Item held: ", self._item)
-        # self.set_light_on()             # light is on when there items to sort
-        # self.swap_item()                # Gets the first item
-        # self.move_right()               # Move to the right
-        # print("Position after 1st 'move_right':  ",self._position)
-        # print("Item held: ", self._item)
+        print("Starting position:  ",self._position)
+        print("List at Start: ", self._list)
+        print("Item held: ", self._item)
+        print("Robot Starting: Light is ON")
+        self.set_light_on()             # light is on when there items to sort
+        self.swap_item()                # Gets the first item
+        self.move_right()               # Move to the right
+        print("Position after 1st 'move_right':  ",self._position)
+        print("Item held: ", self._item)
 
-        # while self.can_move_right():    # if you can move to the right
-        #     self.move_right()           # move to the right
+        while self.can_move_right():                # if you can move to the right
+            self.move_right()                       # move to the right
 
-        #     if self.compare_item() == -1:       # if held item is lower
-        #         self.swap_item()            # swap item
-        #         self.move_right()           # move to the right
-        #     else:
-        #         self.move_right()           # if not, just move right
-        #         # print("Position':  ",self._position)
-        #         print("Item held: ", self._item)
+            if self.compare_item() == -1:           # if held item is lower
+                self.swap_item()                    # swap item
+                self.move_right()                   # move to the right
+            elif self.compare_item() == -1:         # if held item is lower
+                self.move_right()                   # move to the right
+                print("Position':  ",self._position)
+                print("Item held: ", self._item)
         
-        # while not self.can_move_right:
-        #     if self.compare_item == None:
-        #         self.set_light_off()
-        #         # print("Position :  ",self._position)
-        #         print("Item held: ", self._item)      
-        # return  
+        while self.can_move_left():                 # if you can move to the left
+            self.move_left()                        # move to the left
+
+            if self.compare_item() == -1:           # if held item is lower
+                self.swap_item()                    # swap item
+                self.move_left()                    # move to the left
+            elif self.compare_item() == -1:         # if held item is lower
+                self.move_left()                    # move to the left
+                
+                break
+                
+            self.set_light_off()
+            self.swap_item()
+            print("Position':  ",self._position)
+            print("Item held: ", self._item)
+            print("Robot Done: Light is OFF")
+
+        return  
 ###############################################################
 #  2nd Attempt:
 #   Bubble Sort 
 #   This works but I didn't use any of the defs to get my answer
        
-        nums = self._list
-        for i in range(len(nums)):
-            # print("Current List:  ",nums)
-            swapped = False
-            i = 0
+        # nums = self._list
+        # for i in range(len(nums)):
+        #     # print("Current List:  ",nums)
+        #     swapped = False
+        #     i = 0
 
-            while i < len(nums) - 1:                   # compare adjacent elements 
-                if nums[i] > nums[i+1]:                   # when the 1st number is greater than the 2nd
-                    nums[i], nums[i+1] = nums[i+1], nums[i]     # swap numbers
-                    # print("Swapped values: ", l[i], l[i+1])
-                    swapped = True                  # swapped tracker
-                i = i+1                             # move to the next indexed numbers
-                # print( i)
+        #     while i < len(nums) - 1:                   # compare adjacent elements 
+        #         if nums[i] > nums[i+1]:                   # when the 1st number is greater than the 2nd
+        #             nums[i], nums[i+1] = nums[i+1], nums[i]     # swap numbers
+        #             # print("Swapped values: ", nums[i], nums[i+1])
+        #             swapped = True                  # swapped tracker
+        #         i = i+1                             # move to the next indexed numbers
+        #         # print( i)
             
-            if swapped == False:                    # no more numbers to swap; at the last index
-                break
-        return
+        #     if swapped == False:                    # no more numbers to swap; at the last index
+        #         break
+        # return
 #########################################################################################
 
 # 3rd Attempt:
-#   Re-did attempt #1 rying to merge the logic of the 1st and 2nd attempts to create MAGIC !
+#   Re-did attempt #1 trying to merge the logic of the 1st and 2nd attempts to create MAGIC !
 
      
 
@@ -158,7 +172,7 @@ if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
-    l = [4,1,5,2,3]
+    l = [2,4,1,3,5]
     # l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
 
     robot = SortingRobot(l)

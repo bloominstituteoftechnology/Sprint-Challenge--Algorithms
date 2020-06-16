@@ -8,14 +8,10 @@ The size of A is dependent on and directly proportional to the
     size of n  ==> O(1 + 2n)
 
 ----------------------------------------------------------------------
-b)O(n^2)
+b)O(logn)
 
-Similar Code (from Training Kit):
-def print_pairs(items):
-    for item_one in items:
-        for item_two in items:
-            print(item_one, item_two)
-Why is this quadratic time? The clue is the nested for loops. These nested for loops mean that for each item in items (the outer loop), we iterate through every item in items (the inner loop). For an input size of n, we have to print n * n times or n^2 times.
+As the size of the input increase, the runtime or space used will grow at
+a slightly slower rate 
 
 ---------------------------------------------------------------------
 
