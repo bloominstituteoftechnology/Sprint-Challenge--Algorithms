@@ -107,8 +107,13 @@ class SortingRobot:
             # Carry bigger items right. Stop when the rightmost end of the
             # array is reached.
             while self.move_right():
-                if self.compare_item() == -1:
-                    self.swap_item()
+                pass
+                # Since we don't have a way to avoid re-checking the sorted
+                # top half of the array, it actually turns out to be more
+                # efficient not to do any sorting on the way up.
+
+                # if self.compare_item() == -1:
+                #    self.swap_item()
 
             # Leave the largest item in the rightmost spot.
             if self.compare_item() == 1:
