@@ -98,49 +98,8 @@ class SortingRobot:
         """
         # Fill this out
 
-      
-# 1st attempt ( 2nd edition)
-        # print("Starting position:  ",self._position)
-        # print("List at Start: ", self._list)
-        # print("Item held: ", self._item)
-        # print("Robot Starting: Light is ON")
-        # self.set_light_on()             # light is on when there items to sort
-        # self.swap_item()                # Gets the first item
-        # self.move_right()               # Move to the right
-        # print("Position after 1st 'move_right':  ",self._position)
-        # print("Item held: ", self._item)
 
-        # while self.can_move_right():                # if you can move to the right
-        #     self.move_right()                       # move to the right
 
-        #     if self.compare_item() == -1:           # if held item is lower
-        #         self.swap_item()                    # swap item
-        #         self.move_right()                   # move to the right
-        #     elif self.compare_item() == -1:         # if held item is lower
-        #         self.move_right()                   # move to the right
-        #         print("Position':  ",self._position)
-        #         print("Item held: ", self._item)
-        
-        # while self.can_move_left():                 # if you can move to the left
-        #     self.move_left()                        # move to the left
-
-        #     if self.compare_item() == -1:           # if held item is lower
-        #         self.swap_item()                    # swap item
-        #         self.move_left()                    # move to the left
-        #     elif self.compare_item() == -1:         # if held item is lower
-        #         self.move_left()                    # move to the left
-                
-        #         break
-                
-        #     self.set_light_off()
-        #     self.swap_item()
-        #     print("Position':  ",self._position)
-        #     print("Item held: ", self._item)
-        #     print("Robot Done: Light is OFF")
-
-        # return  
-###############################################################
-#  2nd Attempt:
 #   Bubble Sort 
 #   This works but I didn't use any of the defs to get my answer
        
@@ -172,23 +131,24 @@ class SortingRobot:
   
         self.set_light_on()                     # turn light on to show that there is still swapping to be done
         
+        
         while self.light_is_on() == True:       # Resets light to off when done
             self.set_light_off()
-        
         
             while self.can_move_right():        # If you can move right:
                 self.swap_item()                # swap items 
                 self.move_right()               # move right
-
-        
+               
                 if self.compare_item() == 1:    # if the item you are holdng is higher than the item in front
                     self.swap_item()            # swap items to place the higher item
-                    self.set_light_on()          
-                
+                    self.set_light_on()         # light is on to show that there is more swapping to do
+                            
                 self.move_left()                # otherwise, move left
                 self.swap_item()                # swap items to place the lower item
                 self.move_right()               # move right
-            
+               
+                # print("Position':  ",self._position)
+                # print("Item held: ", self._item)
             
             while self.can_move_left():         # If you can move left:
                 self.swap_item()                # swap items 
@@ -196,14 +156,17 @@ class SortingRobot:
 
                 if self.compare_item() == -1:   # if the item you are holding is lower than the item in front
                     self.swap_item()            # swap items to place lower item
-                    self.set_light_on()
+                    self.set_light_on()         # light is on to show that there is more swapping to do
 
                 self.move_right()               # otherwise, move right
                 self.swap_item()                # swap items to place the higher item
                 self.move_left()                # move left
-            print("Position':  ",self._position)
-            print("Item held: ", self._item)
-            print("Robot Done: Light is OFF")
+
+                # print("Position':  ",self._position)
+                # print("Item held: ", self._item)
+        print("Ending position':  ",self._position)
+        print("Item held: ", self._item)
+        print("Robot Done: Light is OFF")
                
 
 
@@ -211,8 +174,8 @@ if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
-    # l = [5,3,4,2,1]
-    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+    l = [5,3,1,4,2]
+    #l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
 
     robot = SortingRobot(l)
     # print("Sorting Robot: ", SortingRobot(l))
@@ -233,9 +196,10 @@ Plan #1:
 
 
 Plan #2:
-    * Merge Sort in Place
+    * Merge Sort in Place - This didn't work out so well for me !
 
 Plan #3: 
     *Bubble Sort - would be easiest to implement but very efficient for larger lists
+    * Was able to do this, but need to implement this logic into correct format
     """
 
