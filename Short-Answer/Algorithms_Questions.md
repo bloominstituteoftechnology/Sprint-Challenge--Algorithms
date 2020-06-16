@@ -5,15 +5,17 @@
 Give an analysis of the running time of each snippet of
 pseudocode with respect to the input size n of each of the following:
 
+
+
 ```python
-a)  a = 0
-    while (a < n * n * n):
-      a = a + n * n
+a)  a = 0 O(1)
+    while (a < n * n * n): O(n*3) + 1
+      a = a + n * n O(n*2) + O(1) + assignment 
 ```
 
 
 ```
-b)  sum = 0
+b)  sum = 0  
     for i in range(n):
       j = 1
       while j < n:
@@ -22,11 +24,15 @@ b)  sum = 0
 ```
 
 ```
-c)  def bunnyEars(bunnies):
-      if bunnies == 0:
+count operations: I think there are 3 operations 
+
+
+
+c)  def bunnyEars(bunnies): O(n)
+      if bunnies == 0: O(1n)
         return 0
 
-      return 2 + bunnyEars(bunnies-1)
+      return 2 + bunnyEars(bunnies-1) (2n)
 ```
 
 ## Exercise II

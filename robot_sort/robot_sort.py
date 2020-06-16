@@ -96,10 +96,47 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
-
-
+        self.set_light_off() #set light to off to start 
+        
+        while not self.light_is_on(): #run while light is off 
+            print('initial light value', self.light_is_on()) #value is false so light is off
+            self.set_light_on() #turn on light 
+            self.light_is_on() #should be true, just checking to see if light is on 
+            print('light should be turned on', self.light_is_on()) #it is true...yay! 
+            
+            #first while loop to set up conditions for robot when it can move right
+            while self.can_move_right():
+                self.swap_item() #swap the item it is holding with the item in front 
+                self.move_right() #then move forward to the right if true 
+                
+                #if statement for moving right 
+                if self.compare_item() == 1: #if item held is bigger than one in front 
+                    self.swap_item() #swap 'em!
+                    self.set_light_off() #turn off the light 
+                    # self.light_is_on() #just checking to make sure this is False  
+                    # print('light should be turned off 1', self.light_is_on())
+                #need to bust out of the infinite loop haha! 
+                self.move_left() #moves number to the left 
+                self.swap_item() 
+                self.move_right()
+                
+            #second while loop for moving left, repeat above 
+            while self.can_move_left():
+                self.swap_item() #swap items 
+                self.move_left()
+                
+                
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.set_light_off()
+                    # self.light_is_on() #just checking to make sure this is False  
+                    # print('light should be turned off -1', self.light_is_on())
+                self.move_right()
+                self.swap_item()
+                self.move_left()
+                
+                
+        return self       
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
