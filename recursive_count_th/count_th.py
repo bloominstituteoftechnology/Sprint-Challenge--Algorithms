@@ -21,8 +21,7 @@ def count_th(word):
 # use String.count() method on the main string 
 # with sub-string, 'th', passed as argument.
     else:
-        count = word.count("th")
-    return count
+        return count + count_th(word[1:])
   
         
 
