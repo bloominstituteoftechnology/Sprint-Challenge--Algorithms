@@ -3,7 +3,7 @@ class SortingRobot:
         """
         SortingRobot takes a list and sorts it.
         """
-        self._list = l          # The list the robot is tasked with sorting
+        self._list = l         # The list the robot is tasked with sorting
         self._item = None       # The item the robot is holding
         self._position = 0      # The list position the robot is at
         self._light = "OFF"     # The state of the robot's light
@@ -62,7 +62,7 @@ class SortingRobot:
     def compare_item(self):
         """
         Compare the held item with the item in front of the robot:
-        If the held item's value is greater, return 1.
+        If the held item's value is greater, return 1. 
         If the held item's value is less, return -1.
         If the held item's value is equal, return 0.
         If either item is None, return None.
@@ -97,14 +97,61 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+       
+        while not self.light_is_on():
+            self.set_light_on()
+            
+            while self.can_move_right():
+        
+                self.compare_item()
 
+                if self.compare_item() == None:
+                    self.swap_item()   
+                    self.move_right()
 
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.move_right()
+                       
+                if self.compare_item() == -1:
+                    self.move_right()
+                
+                
+              
+                if not self.can_move_right():
+                       
+                    while self.can_move_left():
+                        
+                        self.move_left()
+
+                        self.compare_item()
+
+                        if self.compare_item() == None:
+                            self.swap_item()
+                            self.move_right()
+                            
+                            # print(self._list)
+                            break
+                        
+                           
+                
+# 1. Swap None with first element
+# 2. Compare first element with second element
+#    a. if first element is greater than next element, swap
+#    b. if first element is smaller, move
+# 3. Restart at None and swap, move forward and go back to step 2
+               
+                    
+                    
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
     l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+
+    ml = [11, 13, 7, 17, 9, 20, 1, 21, 2, 4, 22, 16, 15, 10, 23, 19, 8, 3, 5, 14, 6, 0, 24, 12, 18]
+
+    sl = [5, 6, 7, 3, 2, 4, 1]
 
     robot = SortingRobot(l)
 
