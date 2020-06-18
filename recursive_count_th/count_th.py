@@ -10,22 +10,19 @@ def count_th(word):
 #  Set up the base cases
 #  Length of word less than 2:
     if len(word) < 2:
-        count = 0
+        return count
 
-# Length of word is 2 AND the word is "th":
-    elif len(word) == 2:
-        if word == "th":
-            count = count + 1
+# The word is 'th'
+    if word[0: len("th")] == "th":
+        count = 1 + count_th(word[1:])
+        return count
 
 # Length of word is greater than 2,
-# use String.count() method on the main string 
-# with sub-string, 'th', passed as argument.
     else:
-        count = word.count("th")
-    return count
+        count = count_th(word[1:])
+        return count
   
         
-
 print(count_th(""))
 print(count_th("abcthxyz"))
 print(count_th("abcthefthghith"))
