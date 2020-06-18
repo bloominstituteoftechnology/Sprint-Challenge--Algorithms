@@ -12,16 +12,16 @@ a)  a = 0
 ```
 
 
-```
+```python
 b)  sum = 0
     for i in range(n):
       j = 1
       while j < n:
-        j *= 2
+        j *= 2 
         sum += 1
 ```
 
-```
+```python
 c)  def bunnyEars(bunnies):
       if bunnies == 0:
         return 0
