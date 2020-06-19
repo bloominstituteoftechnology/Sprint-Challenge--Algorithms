@@ -1,3 +1,4 @@
+CTolbert
 # Sprint Challenge: Algorithms
 
 In this week's Sprint you explored and implemented some classic algorithmic approaches and used them to solve novel problems. You also implemented some classic and fundamental sorting algorithms and learned how to go about evaluating their respective runtimes and performance. This Sprint Challenge aims to assess your comfort with these topics through exercises that build on the algorithmic intuition you've started to build up.
