@@ -8,8 +8,11 @@ a) O(n)
 b) O(n log n)
 
 
-c)O(2)
+c)O(n)
 
 ## Exercise II
+
+Binary Search - O(n)
+
 
 
