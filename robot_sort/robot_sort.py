@@ -101,74 +101,29 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # pick up first item
-        self.swap_with_indicator()
+        if not self.can_move_right():
+            return
 
-        # first pass through list
-        # up; picking up largest
+        self.swap_item()
+
         while self.can_move_right():
             self.move_right()
             if self.compare_item() == -1:
-                self.swap_with_indicator()
-        # holding largest item; swap
-        self.swap_with_indicator()
-        print("finished up".upper() + "\n")
-        # down; picking up smallest
-        self.move_left()
-        while self.can_move_left():
+                self.swap_item()
+        self.swap_item()
+
+        while self.can_move_left() and self.compare_item() is not None:
             self.move_left()
             if self.compare_item() == 1:
-                self.swap_with_indicator()
-        # holding smallest; put down in empty spot
-        self.swap_with_indicator()
-        print("finished down; first pass complete".upper() + "\n")
+                self.swap_item()
 
-        # pick up second item
-        self.move_right()
-        self.swap_with_indicator()
-
-        # second pass through list
-        while self.can_move_right():
-            self.move_right()
-            if self.compare_item() == -1:
-                self.swap_with_indicator()
-        # holding second largest item
-        print("finished up again".upper() + "\n")
-        # down; picking up smallest
-        while self.can_move_left():
-            self.move_left()
-            if self.compare_item() == 1 or self.holding_item_at_empty():
-                self.swap_with_indicator()
-
-    def bubble_up(self):
-        while self.can_move_right():
-            self.move_right()
-            if self.compare_item() == -1:
-                self.swap_with_indicator()
-
-    def bubble_down(self):
-        while self.can_move_left():
-            self.move_left()
-            if self.should_pick_up(False):
-                self.swap_with_indicator()
-
-    def swap_with_indicator(self):
-        if self.holding_item_at_empty():
-            self.set_light_off()
-        elif self.empty_handed_at_item():
-            self.set_light_on()
         self.swap_item()
-        print(self._list)
-        print(f"holding {self._item}")
-        print(f"light is {self._light}")
-        print(f"position: {self._position}")
-        print()
+        self.move_right()
+        self.sort()
 
-    def holding_item_at_empty(self):
-        return self.compare_item() is None and self.light_is_on()
 
-    def empty_handed_at_item(self):
-        return self.compare_item() is None and self.light_is_off()
+
+
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
