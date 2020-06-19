@@ -96,9 +96,61 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
-
+        # The Base Case
+        if not self.can_move_right():
+            return
+        
+        # while the robot is able to move right, we want to move across the
+        #. the list to pick up the biggest item and place it at the end
+        while self.can_move_right():
+            
+            # if the item held is smaller, or the robot isn't holding an item
+            if self.compare_item() == -1 or self.compare_item() == None:
+                # swap the item
+                self.swap_item()
+                # and move right
+                self.move_right()
+            
+            # Otherwise, the robot is holding the bigger item and it should
+            #. just move right
+            else:
+                self.move_right()
+        
+        # At the point, robot should not be holding an item and larget item
+        #. should be at the end of the list
+        # Now we want it to move back left and grab the smallest item along
+        #. the way
+        while self.can_move_left() and self.compare_item() != None:
+            
+            # if the item held is bigger:
+            if self.compare_item() == 1:
+                # swap the item
+                self.swap_item()
+                # and move left
+                self.move_left()
+                
+            # otherwise, the robot is holding the smaller item and it should
+            #. just move left
+            else:
+                self.move_left()
+                
+        # At the point, larget item is at end. 
+        #. Robot is at the index it started at, holding the smallest item. So
+        #. we will swap the item, move right, and recur.
+        self.swap_item()
+        self.move_right()
+        self.sort()
+        
+        # # Because robot put largest items at the end and smallest items
+        # #. at the beginning, it really only needs to recur on the first half
+        # #. of the list. Slight runtime upgrade. But since the rules won't
+        # #. allow us to access instance variables directly, I will comment
+        # #. this out.
+        # if self._position < (len(self._list) // 2):
+        #     self.move_right()
+        #     self.sort()
+            
+            
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
@@ -110,3 +162,4 @@ if __name__ == "__main__":
 
     robot.sort()
     print(robot._list)
+    print(robot._position)
