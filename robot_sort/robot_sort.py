@@ -94,16 +94,16 @@ class SortingRobot:
 
     def bubble_right(self):
         while self.can_move_right():
-            self.swap_item()
-            self.move_right()
-            if self.compare_item() == 1:
-                self.swap_item()
-                self.set_light_on()
+            self.swap_item() # grab item to compare
+            self.move_right() # go to next item up
+            if self.compare_item() == 1: # 1 means we are holding a larger item
+                self.swap_item() # so swap because they are out of order
+                self.set_light_on() # turn light on, so we know we made a swap
             self.move_left()
-            self.swap_item()
+            self.swap_item() 
             self.move_right()
     
-    def bubble_left(self):
+    def bubble_left(self): # same as bubble right, but reversed
         while self.can_move_left():
             self.swap_item()
             self.move_left()
