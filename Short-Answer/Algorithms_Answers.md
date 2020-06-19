@@ -18,4 +18,22 @@ c) O(n) even though we're doing recursion, it still requires we create a recursi
 
 ## Exercise II
 
-
+Binary search. O(log n).
+    We could go up floors by one, but that means that we potentially
+    will waste f eggs.
+    If instead, we use binary search logic, we will only, worst case scenario,
+    waste log f eggs.
+    
+    Travel to mid floor
+        if breaks, travel to mid point between floor and  current floor
+            repeat
+        if doesn't break, travel to mid point between current floor and max floor
+            repeat
+    # I'd also like to point out that realistically, we could reach a mid
+    floor that is only 1 floor off, so we'd just need to subtract one
+        if no more floors to divide:
+            if  breaks:
+                return f - 1
+            else:
+                return f
+            
