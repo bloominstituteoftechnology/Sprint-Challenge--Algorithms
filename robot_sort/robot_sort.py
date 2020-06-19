@@ -92,12 +92,63 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+
+    # Robot's light is a boolean flag we can utilize to ensure the loop gets ran when needed.
+    # after completion of a "round" set the light on to re-iterate through the loop.
+    # starting at the beginning of the array, travel to the end, swapping items that are greater with item currently held.
+    # once at the end of the array, we have a partially sorted array.
+    # travel backwards through the array swapping any items that are less with items currently held.
+    # once finished and back at the beginning index, the array is sorted.
+
+
     def sort(self):
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # turn the robot's light on to signal beginning of loop
+        self.set_light_on()
+
+        while self.light_is_on():
+            # remove the light so the robot can move
+            self.set_light_off()
+
+            # if the robot can move to the right
+            # ascending through the array from left to right
+            while self.can_move_right():
+
+                # move right and compare items
+                self.move_right()
+
+                # if the item being compared is greater
+                if self.compare_item() == 1:
+                    # pick it up, and turn on the light indicating move is over,
+                    # restarting the loop
+                    self.swap_item()
+                    self.set_light_on()
+
+            # if the robot can move to the left
+            # (e.g. there is no more moves to the right)
+            # descending through the remainder of the array
+            while self.can_move_left():
+                # pick up an item
+                self.swap_item()
+                # move to the left
+                self.move_left()
+
+                # compare the items, if the item's value is less than the value of the item being held
+                # swap items and turn light on indicating turn is over, and restarting the loop.
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.set_light_on()
+                
+                # else move to the right and swap items
+                # and then move back to the left.
+                self.move_right()
+                self.swap_item()
+                self.move_left()
+
+
+                
 
 
 if __name__ == "__main__":
