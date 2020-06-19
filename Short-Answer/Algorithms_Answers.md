@@ -4,11 +4,18 @@
 
 a) O(n)
 
+because: O(n^3) / O(n^2) = O(n)
+
 
 b) O(n log n)
 
+because: O(n) * log M = O(n log n)
+
 
 c)O(n)
+
+because: It only performs 1 function, if bunnies == 0, return 2 + bunnyEars(bunnies-1)
+doesnt matter the hight of the interger input, it will still run the same operation.
 
 ## Exercise II
 
