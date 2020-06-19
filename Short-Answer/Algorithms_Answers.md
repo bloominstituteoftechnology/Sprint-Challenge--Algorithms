@@ -9,7 +9,9 @@ a) O(n), Reasoning:
     The loop will only need to loop n times before coming to a conclusion. 
 
 
-b) O(n/2) but we call it O(n) as it remains linear runtime relative to n times.
+b) O(n^2) quadratic. It is looping n times n as it keeps resetting j:
+    Every loop will loop for j O(n/2) times. But as it is still linear, we call that O(n) still.
+    So outer loop O(n) will loop O(n) times = O(n^2)
 
 
 c) O(n) even though we're doing recursion, it still requires we create a recursive
