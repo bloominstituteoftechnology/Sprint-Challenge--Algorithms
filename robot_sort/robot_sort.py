@@ -133,6 +133,7 @@ class SortingRobot:
                     self.swap_item() # pick next item to sort
                     self.move_right() # move right
             elif result == -1: # <
+                # held item's value is less
                 if self.light_is_on(): # moving left
                     self.set_light_on() # Light is on when moving left
                     self.move_left()
@@ -142,6 +143,7 @@ class SortingRobot:
                 #    self.move_left() # TTT
                     self.set_light_on() # switch direction 
             elif result == 1: # >
+                # held item's value is greater
                 self.set_light_off() # Light is off when moving right
                 self.move_right()
             else: # return = 0
