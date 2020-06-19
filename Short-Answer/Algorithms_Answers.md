@@ -25,6 +25,6 @@ c) Runtime is O(n) recursive function will run once and then call itself for n-1
         keep top_floor the same
         make midfloor the bottom_floor
         repeat 2 until egg breaks
-        return the floor
+        return the floor the egg breaks on
 
 The time Complexity is O(logn). A binary search keeps cutting the list in half.
