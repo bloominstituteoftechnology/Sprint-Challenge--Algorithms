@@ -100,18 +100,18 @@ class SortingRobot:
         """
         # Fill this out
         # Check for right movements
-        if self.can_move_right() is False:
+        if self.can_move_right() == False:
             return self._list
         # Swap item
         self.swap_item()
         # Move to right while possible
-        while self.can_move_right() is True:
+        while self.can_move_right() == True:
             self.move_right()
             # Swap item
-            if self.compare_item() == 1:
+            if self.compare_item() == True:
                 self.swap_item()
         # Move to left while possible
-        while self.can_move_left() is True:
+        while self.can_move_left() == True:
             self.move_left()
             # Swap
             if self.compare_item() == None:
@@ -122,6 +122,10 @@ class SortingRobot:
         # Call sort()
         self.sort()
 
+## Spend nearly 1 hour optimizing before reading stretch requirements. 
+# Originally: Ran 5 tests in 5.021s once it ran at all.
+# Optimized: Ran 6 tests in 0.033s.
+# --> resulting code is also MUCH more human readable now.
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
