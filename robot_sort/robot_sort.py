@@ -96,8 +96,18 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        for step in range(len(l)):
+            key = l[step]
+
+            j = step - 1
+
+            #comparing the key with each element on the left until a smaller element is found
+            while j >= 0 and key < l[j]:
+                l[j + 1] = l[j]
+                j = j - 1
+
+                #placing the key after the element
+                l[j + 1] = key
 
 
 if __name__ == "__main__":
