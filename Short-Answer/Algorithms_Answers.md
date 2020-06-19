@@ -23,3 +23,4 @@ If it does not break we can set the lowest floor to the floor above the current 
 Find the new middle between the low and high floor
 Repeat until you find the floor lowest floor that doesn't break the egg
 If for some reason the lowest floor ever exceeds the highest floor then your egg experiment is a fail
+The runtime of the this implementation would be O(log n)
