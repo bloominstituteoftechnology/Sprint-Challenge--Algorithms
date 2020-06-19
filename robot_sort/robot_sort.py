@@ -97,8 +97,44 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
 
+        self.set_light_on()
+        # keep moving until the empty spot is at the far right
+        # of the list during the insertion phase
+        
+        # while True:
+        while self.light_is_on():
+
+            # pick up the first item
+            self.swap_item()
+
+            # continue moving to the right until it reaches the end
+            while self.can_move_right():
+                self.move_right()
+
+                # if the current item is less than the item in hand, swap the two
+                if self.compare_item() is not None and self.compare_item() >= 0:
+                    self.swap_item()
+
+            # head back to the start position
+            while self.can_move_left():
+                self.move_left()
+
+            # move to the correct spot for insertion (it will be empty)
+            while self.can_move_right() and self.compare_item() is not None:
+
+                # if the curent spot is not empty, keep moving to the right:
+                self.move_right()
+
+            # insert the item in the correct spot. Move to the right to begin the cycle again.
+            self.swap_item()
+            self.move_right()
+
+            # if the robot now is at the very end of the list, the sort is completed
+            if not self.can_move_right():
+                print('list is sorted')
+                self.set_light_off()
+                # return False
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
