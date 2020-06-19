@@ -96,8 +96,49 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        self.swap_item()
+        self.move_right()
+
+        while self.can_move_right(): 
+            # If the held item's value is greater, return 1.
+            # If the held item's value is less, return -1.
+            # If the held item's value is equal, return 0.
+            # If either item is None, return None.
+            result = self.compare_item()
+
+            if result == None:
+                if self.light_is_on():
+                    # we're going to the left 
+                    if self.can_move_left():
+                        # continue to move left 
+                        self.move_left()
+                    else:
+                        # We can't move any more left. Drop it. 
+                        self.swap_item() # drop it 
+                        self.set_light_off() # start moving right
+                        self.move_right() # move right
+                        self.swap_item() # pick next item to sort
+                        self.move_right() # move right
+                else: # we're going to the right, we've found an empty slot
+                    self.swap_item() # drop it 
+                    self.set_light_off() # Light is off when moving right
+                    self.move_right() # move right
+                    self.swap_item() # pick next item to sort
+                    self.move_right() # move right
+            elif result == -1: # <
+                if self.light_is_on(): # moving left
+                    self.set_light_on() # Light is on when moving left
+                    self.move_left()
+                else: # moving right
+                    self.move_left()
+                #    self.swap_item() # drop it 
+                #    self.move_left() # TTT
+                    self.set_light_on() # switch direction 
+            elif result == 1: # >
+                self.set_light_off() # Light is off when moving right
+                self.move_right()
+            else: # return = 0
+                self.move_right()
 
 
 if __name__ == "__main__":
