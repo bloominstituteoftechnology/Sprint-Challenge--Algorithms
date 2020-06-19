@@ -6,10 +6,10 @@ Your function must utilize recursion. It cannot contain any loops.
 
 
 def count_th(word):
-    substring = 'th'
-    count = word.count(substring)
-
-    if count == 0:
+    substring = "th"
+    if len(word) != = substring:
         return
+    for i in range(0, len(word)):
+        if i == substring:
 
-    return count
+    return substring += 1
