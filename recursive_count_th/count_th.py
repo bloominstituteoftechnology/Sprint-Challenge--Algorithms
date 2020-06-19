@@ -5,6 +5,10 @@ Your function must utilize recursion. It cannot contain any loops.
 '''
 def count_th(word):
     
-    # TBC
+    if not word:
+      return 0
+  
+    count = 1 if word[:2] == 'th' else 0
+    count = count + count_th(word[1:])
     
-    pass
+    return count
