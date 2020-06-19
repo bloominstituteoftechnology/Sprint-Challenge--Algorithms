@@ -25,14 +25,15 @@ def find_highest_floor(n):
 
     test_floor = n / 2
 
-    while test_floor != (high - 1): #**
-        test_floor = (low+high) / 2
+    while True: #**
         if tossed_egg(test_floor) is broken:
             high = test_floor
-        else:
+        else:  # not broken
             low = test_floor
-        # test next floor
-    return test_floor
+            if test_floor == (high - 1):
+                return test_floor
+
+        test_floor = (low+high) / 2
 
 #**: we want the highest possible floor, so we want the next lowest floor than one that breaks the egg
 
