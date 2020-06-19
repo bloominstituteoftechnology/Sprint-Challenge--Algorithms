@@ -95,17 +95,61 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
-        """
-        Sort the robot's list.
-        """
+        # # set robot light to on
+        # self.set_light_on()
+        # # while robot light is true
+        # while self.light_is_on():
+        #     # swap the item
+        #     self.swap_item()
+        #     # while the robot can move right
+        #     while self.can_move_right():
+        #         self.move_right()
+        #         # compare item to the position
+        #         if self.compare_item() == 1:
+        #             self.swap_item()
+        # while self.can_move_left() == True and self.compare_item() is not None:
+        #     self.move_left()
+        # # if the Robot cant move to the right then turn his light off
+        # if self.can_move_right() is not True:
+        #     self.set_light_off()
+        # else:
+        #     # otherwise move right
+        #     self.move_right()
 
-        pass
+        # If the robot can't move to the right, return the list
+        if self.can_move_right() is False:
+            return self._list
+
+        # Swap the item
+        self.swap_item()
+
+        # While we can move to the right
+        while self.can_move_right() is True:
+            self.move_right()
+
+            # Swap if we need to
+            if self.compare_item() == 1:
+                self.swap_item()
+
+        # Move to the left while we can
+        while self.can_move_left() is True:
+            self.move_left()
+
+            # Swap if we need to
+            if self.compare_item() == None:
+                self.swap_item()
+                break
+
+        # Move to the Right
+        self.move_right()
+        # Recursivly call ourself
+        self.sort()
 
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
-
+    # l = [4, 5, 7, 1, 9, 6, 2]
     l = [
         15,
         41,
