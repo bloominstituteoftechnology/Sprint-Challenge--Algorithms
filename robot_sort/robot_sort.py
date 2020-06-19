@@ -92,6 +92,28 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+    def bubble_right(self):
+        while self.can_move_right():
+            self.swap_item()
+            self.move_right()
+            if self.compare_item() == 1:
+                self.swap_item()
+                self.set_light_on()
+            self.move_left()
+            self.swap_item()
+            self.move_right()
+    
+    def bubble_left(self):
+        while self.can_move_left():
+            self.swap_item()
+            self.move_left()
+            if self.compare_item() == -1:
+                self.swap_item()
+                self.set_light_on()
+            self.move_right()
+            self.swap_item()
+            self.move_left()
+
     def sort(self):
         """
         Sort the robot's list.
@@ -124,30 +146,19 @@ class SortingRobot:
         while self.light_is_on():
             self.set_light_off()
 
-            while self.can_move_right():
-                self.swap_item()
-                self.move_right()
-                if self.compare_item() == 1:
-                    self.swap_item()
-                    self.set_light_on()
-                self.move_left()
-                self.swap_item()
-                self.move_right()
+            self.bubble_right()
             
-
+            # We need this check to see if we didn't bubble anything going right
+            # If so there is no poing trying to bubble items going left
             if not self.light_is_on():
                 break
             self.set_light_off()
 
-            while self.can_move_left():
-                self.swap_item()
-                self.move_left()
-                if self.compare_item() == -1:
-                    self.swap_item()
-                    self.set_light_on()
-                self.move_right()
-                self.swap_item()
-                self.move_left()
+            self.move_left() # Move left to avoid repeat comparison :)
+
+            self.bubble_left()
+
+            
 
 
 if __name__ == "__main__":
