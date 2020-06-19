@@ -17,5 +17,22 @@ This is essentially equal to a simple for-loop in time complexity. It starts at 
 
 ## Exercise II
 ```
-def
+Strategy: Use a "binary-search"-like algorithm to cut the number of floors to test in half with each egg-drop-test
+
+def find_highest_floor(n):
+    low = 0
+    high = n
+
+    test_floor = n / 2
+
+    while test_floor != (high - 1): #**
+        test_floor = (low+high) / 2
+        if tossed_egg(test_floor) is broken:
+            high = test_floor
+        else:
+            low = test_floor
+        # test next floor
+    return test_floor
+
+#**: we want the highest possible floor, so we want the next lowest floor than one that breaks the egg
 ```
