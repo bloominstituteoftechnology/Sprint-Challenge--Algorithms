@@ -96,8 +96,58 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # One simple sorting algorithm that would be possible to do 
+        # given the robots limited capabilities is bubble sort
+        # We can use the fact that the robot has a light as a boolean to determine if our list is sorted
+        # If the robot can make a complete pass through the list without picking up any items, the list is sorted
+        # Since the robot must traverse the list one item at a time, why not bubble items both ways?
+
+        # First we will turn the light on
+        # Then we will set up a while loop to keep going while the light is on
+            # Inside the while loop, we first turn the light off
+            # Then we begin checking each item against it's neighbor, initially moving right
+
+            # While we can move right
+                # To do the check we pick up an item, move right, and compare
+                # If the neighbor is larger, we move back and drop the item, and move forward again
+                # If, however, the neighbor is smaller, we swap items, move left, drop the item, and move forward
+                # Also we turn the light on
+
+            # If the light is off we break, as no items were swapped so the list is sorted
+            # Otherwise we turn the light back off
+
+            # While we can move left
+                # Do everything in the list above in reverse, going right to left
+
+        self.set_light_on()
+
+        while self.light_is_on():
+            self.set_light_off()
+
+            while self.can_move_right():
+                self.swap_item()
+                self.move_right()
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.set_light_on()
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+            
+
+            if not self.light_is_on():
+                break
+            self.set_light_off()
+
+            while self.can_move_left():
+                self.swap_item()
+                self.move_left()
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.set_light_on()
+                self.move_right()
+                self.swap_item()
+                self.move_left()
 
 
 if __name__ == "__main__":
