@@ -6,7 +6,7 @@ a)
 O(n) Linear- while loops through n items
 
 b)
-O(n^2) Quadratic- every element in a collection needs to be compared to ever other element.
+O(n) Linear - There is a nested while loop but, the while loop does not traverse i, i times
 
 c)
 being called recursively n times before reaching base case so its O(n)
