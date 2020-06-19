@@ -103,6 +103,7 @@ class SortingRobot:
         # Move to the right element and do the same.
         # When going backwards with the an element, go back as far a necessary to place it in the correct spot. 
         # After an element is placed, grab the element to the right and begin again. 
+        # Everything to the left of none is sorted.
         self.swap_item()
         self.move_right()
 
