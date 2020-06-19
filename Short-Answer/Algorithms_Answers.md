@@ -2,8 +2,8 @@
 
 ## Exercise I
 
-a) O(n^2)
-The loop is set up to run through a length that is n * n * n, which is equivalent to n^3. This would indicate cubic time, _however_ a is incremented by n*n on each run of the loop, not 1. Therefore, the difference between this increment and the overall loop length is n.
+a) O(n)
+The loop is set up to run through a length that is n * n * n, which is equivalent to n^3. This would indicate cubic time, _however_ a is incremented by n*n on each run of the loop, not 1. Therefore, the difference between this increment and the overall loop length is n. So our runtime is O(n)
 
 
 b) O(n log n)
