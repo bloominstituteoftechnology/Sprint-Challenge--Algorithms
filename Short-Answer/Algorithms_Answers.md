@@ -35,4 +35,6 @@ def find_highest_floor(n):
     return test_floor
 
 #**: we want the highest possible floor, so we want the next lowest floor than one that breaks the egg
+
+runtime: O(logn)
 ```
