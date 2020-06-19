@@ -96,6 +96,13 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
+        # Start from the left.
+        # Grab value and replace it with None. 
+        # Move the element to the right until it finds the first elemnt greater than itself. 
+        #   - backup and place itself.
+        # Move to the right element and do the same.
+        # When going backwards with the an element, go back as far a necessary to place it in the correct spot. 
+        # After an element is placed, grab the element to the right and begin again. 
         self.swap_item()
         self.move_right()
 
