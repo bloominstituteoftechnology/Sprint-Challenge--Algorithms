@@ -96,18 +96,18 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        for step in range(len(l)):
-            key = l[step]
+        for step in range(len(self._list)):
+            key = self._list[step]
 
             j = step - 1
 
             #comparing the key with each element on the left until a smaller element is found
-            while j >= 0 and key < l[j]:
-                l[j + 1] = l[j]
+            while j >= 0 and key < self._list[j]:
+                self._list[j + 1] = self._list[j]
                 j = j - 1
 
                 #placing the key after the element
-                l[j + 1] = key
+                self._list[j + 1] = key
 
 
 if __name__ == "__main__":
