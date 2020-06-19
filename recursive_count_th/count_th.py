@@ -8,17 +8,16 @@ start_time = time.time()
 
 def count_th(word):
 
-    count = 0
     if word == word.count('th'):
-        return 
-        count += 1
-
-    return word.count('th')
+        return 1
+    else:
+        return word.count('th')
 
 end_time = time.time()
 word = 'the ant and the'
 print(count_th(word))
 print (f"runtime: {end_time - start_time} seconds")
+
     
 
 
