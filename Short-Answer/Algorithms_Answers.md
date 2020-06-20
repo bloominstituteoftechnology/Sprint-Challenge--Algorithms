@@ -2,14 +2,20 @@
 
 ## Exercise I
 
-a)
+a) this would have a running time of 0(n)
 
 
-b)
+b) this would have a running time of 0(n^2)
 
 
-c)
+c) this would have a running time of 0(n)
 
 ## Exercise II
 
+floor = 0
+eggBroken = False
 
+while egg != eggBroken
+    floor += 1
+if eggBroken = True
+    return floor - 1
