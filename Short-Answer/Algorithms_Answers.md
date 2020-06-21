@@ -17,15 +17,15 @@ c) Exponetial 0(c^2) - the bunny function is recursive. So the input bunnies is 
 def floor_game(f):
   egg_count = 10
 
-  for i in range(f + 1):
-    if i < 6: 
-      egg_count -= 1
-      print('Egg didnt break', i)
-    
+    for i in range(f + 1):
+        if i < 6: 
+            egg_count -= 1
+            print('Egg didnt break', i)
+      
     else:
-      if i > 5:
-        egg_count -= 1
-        print('Egg did break', i)
+        if i > 5:
+            egg_count -= 1
+            print('Egg did break', i)
 
 The time complexity is 0(n) because `i` will change the input of `f` by 1. Then if `f` is < floor 6 one egg will drop off each floor and not break.
 
