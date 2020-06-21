@@ -13,7 +13,7 @@ b) 0(n) for loop is traversing through `n`. if `n` is less than one then nothing
 c) Exponetial 0(c^2) - the bunny function is recursive. So the input bunnies is slightly increase. The time will move as a much faster rate.
 
 ## Exercise II
-
+//floor game
 def floor_game(f):
   egg_count = 10
 
