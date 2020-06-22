@@ -93,11 +93,24 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
+        for i in range(len(l)):
+
+            for j in range(len(l) - i- 1):
+                if l[j] > l[j + 1]:
+
+                    l[j],l[j + 1] = l[j + 1], l[ j ]
         """
-        Sort the robot's list.
+        Worst case is if the array of number was in reverse order. It will have to do a number of operations element by element to get everything in order.
+
+        Best case is if the array is already in order
+
+        Avg case is if the numbers in mixed up and we have to sort through them
+
+        Worst Case - 0(n2)
+        Best Case - 0(n)
+        Avg Case - 0(n2)
         """
-        # Fill this out
-        pass
+      
 
 
 if __name__ == "__main__":
