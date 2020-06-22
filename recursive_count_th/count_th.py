@@ -8,20 +8,23 @@ def count_th(word):
     second = 1
     print(word)
     #base
-    word = word.lower()
-
+    
     print(len(word))
     if len(word) < 2:
         print('stop')
         return 0
-    together = word[first] + word[second]
-    if together == 'th':
-        return 1
+    else:
+        together = word[first] + word[second]
+        total = 0
+        if together == 'th':
+            total = 1
         # print('th')
         
-    new_word = word[1:]
-    print('new word',new_word)
-    return count_th(word[1:])
+        new_word = word[1:]
+        print('new word',new_word)
+    #return count + recursion count
+        return total + count_th(word[1:])
+
    
 
     # print(len(word))
