@@ -11,22 +11,23 @@ a)  a = 0
       a = a + n * n
 ```
 
-
 ```
 b)  sum = 0
-    for i in range(n):
-      j = 1
+    for i in range(n): # O(n)
+      j = 1 O(1)
       while j < n:
-        j *= 2
-        sum += 1
+        j *= 2 n/2
+        sum += 1 0(1)
 ```
+
+O(nlogn)
 
 ```
 c)  def bunnyEars(bunnies):
-      if bunnies == 0:
+      if bunnies == 0:  O(n)
         return 0
 
-      return 2 + bunnyEars(bunnies-1)
+      return 2 + bunnyEars(bunnies-1)  O(n)
 ```
 
 ## Exercise II
