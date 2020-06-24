@@ -4,7 +4,7 @@
 
 a)O(n)
 
-b)
+b)O(nlogn)
 
 c)O(n)
 
