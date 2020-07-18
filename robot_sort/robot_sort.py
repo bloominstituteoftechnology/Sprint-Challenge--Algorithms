@@ -1,68 +1,3 @@
-
-"""
-    U - This looks like an opportunity for a bubble sort. We can start iteratively at the beginning of 
-        the list (on the left side) and check each element against the next element in the list.
-
-        We're going to use the bit of memory for the robot's light as a way of indicating whether we've sorted the list at least 1 time or not. If we make it through a full pass of the list and the robot's light doesn't go off, we're good to go. 
-
-        Otherwise, we reset the robot's light to "OFF" at the end of the loop before it starts on another pass.
-
-    P - 
-        1) Determine if we can move to the right. 
-
-            If so, grab item at the beginning of the list.
-
-
-                2) Determine - 
-
-                    if held item > compared item:
-                        grab compared item and drop held item.
-                        turn the robot's light on.
-                        move to the right
-                    else (if they're already in the right order):
-                        move to the right.
-
-            else:
-                2) Move left in the list until we can't move left anymore.
-                   Turn the robot's light off. This indicates we're at the beginning 
-
-
-        3) Repeat this process until we arrive at the end of the list. The larger values in this    
-           implementation will "bubble" toward the end of the list.
-
-        4) If we make it through an iteration of the entire list and the robot's light doesn't turn on,
-           we can assume that the list is sorted.
-
-
-    E - Write everything out.
-
-    R - I had a thought for a faster version of the bubble sort. Since we're under the assumption that 
-        the robot is a physical thing that needs to be moving back and forth, it doesn't make sense for the robot to move all the way back to the beginning of the list with each iteration.
-
-        With the values of this sort method becoming more sorted over time (larger values bubbling to the right, smaller values bubbling to the left), we could cut our execution time by comparing items from left to right AND right to left. Then we could further decrease the size of our list by changing our starting positions since a full pass going from the start to the end and then back to the start will sort our largest item all the way to the right and our smallest item all the way to the left.
-
-        # before a full range sorting pass - largest value and smallest values are not sorted.
-        items = [ 8, 6, 7, 2, 5, 4, 3, 1]
-
-        # after a full range sorting pass - largest and smallest values are sorted.
-        items = [ 1, 6, 7, 2, 5, 4, 3, 8]
-
-        # We can increase the efficiency of our algorithm by incrementing our starting position and 
-        # decrementing our ending position.
-
-        # before another sorting pass 
-        items = [1, (6, 7, 2, 5, 4, 3), 8] # we only sort from inside the parentheses
-
-        # after another sorting pass
-        items = [1, (2, 6, 5, 4, 3, 7), 8] # we only sort from inside the parentheses
-
-        # incremented again - 
-        items = [1, 2, (6, 5, 4, 3,) 7, 8] # we only sort from inside the parentheses
-
-        etc....
-    """
-
-
 class SortingRobot:
     def __init__(self, l):
         """
@@ -173,20 +108,34 @@ class SortingRobot:
             while self.can_move_right() is True:
                 self.move_right()
                 # compare the values of the items. If the item in front is greater, swap them.
-                if self.compare_item() == -1:
+                if self.compare_item() == -1 and not None:
                     # we're indicating that we've swapped at least one item.
                     self.set_light_on()
                     self.swap_item()
 
-        if (self.can_move_right() is True) and self.can_move_left() is False:
-            self.set_light_off()
+                # checking to make sure we account for null values.
+                if self.compare_item() == None:
+                    self.move_right()
+
+        if (self.can_move_left() is True) and (self.light_is_on()):
+            self.move_left()
+
+        # We're at the right side of the list now and want to move back to the beginning.
+        if (self.can_move_left() is True) and self.can_move_right() is False:
+            # the item all the way at the far right side is going to be sorted, so we can move first, then grab the item at the
+            self.move_left()
             self.swap_item()
 
             while self.move_left() is True:
-                self.move_left()
-                if self.compare() == 1:
+                # if the item we're holding is greater than what we're comparing it to, grab the smaller one.
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.move_left()
 
-        pass
+        # breaking case - we move from the beginning all the way to the right and the robot's light is still off.
+
+        if (self.can_move_right() is False) and (self.light_is_on() is False):
+            return self._list
 
 
 if __name__ == "__main__":
