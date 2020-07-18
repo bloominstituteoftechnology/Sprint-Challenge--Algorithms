@@ -6,5 +6,7 @@ Your function must utilize recursion. It cannot contain any loops.
 def count_th(word):
     
     # TBC
+    in_betweens = word.split('th')
+    #test
+    return len(in_betweens) - 1 
     
-    pass
