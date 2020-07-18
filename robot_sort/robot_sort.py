@@ -171,7 +171,7 @@ class SortingRobot:
         while self.can_move_right() is True:
             self.move_right()
             # compare the values of the items. If the item in front is greater, swap them.
-            if self.compare_item()
+            if self.compare_item() == 1:
 
         pass
 
