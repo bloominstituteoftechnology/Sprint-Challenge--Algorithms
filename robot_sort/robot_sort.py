@@ -166,12 +166,25 @@ class SortingRobot:
 
         # 1) Determine if we can move to the right and cannot move to the left. This is us at the beginning of the list. If these are true, grab item in front and move to the right.
         if (self.can_move_right() is True) and self.can_move_left() is False:
+            self.set_light_off()
             self.swap_item()
 
-        while self.can_move_right() is True:
-            self.move_right()
-            # compare the values of the items. If the item in front is greater, swap them.
-            if self.compare_item() == 1:
+            #   If we have the ability to move right
+            while self.can_move_right() is True:
+                self.move_right()
+                # compare the values of the items. If the item in front is greater, swap them.
+                if self.compare_item() == -1:
+                    # we're indicating that we've swapped at least one item.
+                    self.set_light_on()
+                    self.swap_item()
+
+        if (self.can_move_right() is True) and self.can_move_left() is False:
+            self.set_light_off()
+            self.swap_item()
+
+            while self.move_left() is True:
+                self.move_left()
+                if self.compare() == 1:
 
         pass
 
