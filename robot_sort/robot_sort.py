@@ -1,3 +1,5 @@
+
+
 class SortingRobot:
     def __init__(self, l):
         """
@@ -99,43 +101,51 @@ class SortingRobot:
         Sort the robot's list.
         """
 
-        # 1) Determine if we can move to the right and cannot move to the left. This is us at the beginning of the list. If these are true, grab item in front and move to the right.
-        if (self.can_move_right() is True) and self.can_move_left() is False:
-            self.set_light_off()
-            self.swap_item()
+        # We're wanting to return when the robot can't move right anymore.
+        # It has reached the end of the list.
+        if self.can_move_right() == False:
+            return
 
-            #   If we have the ability to move right
-            while self.can_move_right() is True:
+        # Grab the card in front.
+        self.swap_item()
+
+        while self.can_move_right():
+            self.move_right()
+
+            if self.compare_item() == -1:
+                self.swap_item()
+                print(self._item)
                 self.move_right()
-                # compare the values of the items. If the item in front is greater, swap them.
-                if self.compare_item() == -1 and not None:
-                    # we're indicating that we've swapped at least one item.
-                    self.set_light_on()
-                    self.swap_item()
 
-                # checking to make sure we account for null values.
-                if self.compare_item() == None:
-                    self.move_right()
+        self.swap_item()
 
-        if (self.can_move_left() is True) and (self.light_is_on()):
+        while self.can_move_left() and self.compare_item() is not None:
             self.move_left()
 
-        # We're at the right side of the list now and want to move back to the beginning.
-        if (self.can_move_left() is True) and self.can_move_right() is False:
-            # the item all the way at the far right side is going to be sorted, so we can move first, then grab the item at the
-            self.move_left()
-            self.swap_item()
+            if self.compare_item() == 1:
+                self.swap_item()
+                print(self._item)
+                self.move_left()
 
-            while self.move_left() is True:
-                # if the item we're holding is greater than what we're comparing it to, grab the smaller one.
-                if self.compare_item() == 1:
-                    self.swap_item()
-                    self.move_left()
+        self.swap_item()
+        self.move_right()
+        self.sort()
 
-        # breaking case - we move from the beginning all the way to the right and the robot's light is still off.
+        # We want to do this while we can still move to the right.
+        # Head to the first node in the list and grab an item
 
-        if (self.can_move_right() is False) and (self.light_is_on() is False):
-            return self._list
+        # Check that item to see if it is greater than or less than the held item.
+
+        # If the item held by the robot is less than the thing it is comparing, swap.
+
+        # The robot has completed its first sweep going from left to right, so now it drops
+        # the highest card and starts the process from the right.
+
+        # Here is the optimization. If we're able to compare while going forwards, we can also compare when going backwards. Each full pass of the robot along the list will be more efficient. We also have to take care of None values.
+
+        # At this point, the robot has reached the left side again. So it is able to restart the function
+
+        # restart the function
 
 
 if __name__ == "__main__":
