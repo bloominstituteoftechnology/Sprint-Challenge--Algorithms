@@ -96,10 +96,49 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        for i in range(len(self._list)):
-            for j in range(i+1, len(self._list)):
-                self.compare_item()
+        while self.can_move_right():
+            # Save original pos
+            sorted_pos = self._position
+            print("picking up {} from pos {}".format(self._list[self._position], self._position))
+            # pickup item in this space
+            self.swap_item()
+            # Check with each item in the rest of the loop
+            while self.can_move_right():
+                # print("Checking {} with {}".format(self._item, self._list[self._position]))
+                self.move_right()
+                if self.compare_item() == 1:
+                    print("picking up {} from pos {}".format(self._list[self._position], self._position))
+                    self.swap_item()
+            # Move back and swap the one in hand at sorted_pos
+            while not self._position == sorted_pos:
+                self.move_left()
+            # drop item in None spot
+            self.swap_item()
+            self.move_right()
+
+    def sort(self):
+        """
+        Sort the robot's list.
+        """
+        while self.can_move_right():
+            # Save original pos
+            sorted_pos = self._position
+            # pickup item in this space
+            self.swap_item()
+            # Check with each item in the rest of the loop
+            while self.can_move_right():
+                self.move_right()
+                if self.compare_item() == 1:
+                    self.swap_item()
+            # Move back and swap the one in hand at sorted_pos
+            while not self._position == sorted_pos:
+                self.move_left()
+            # drop item in None spot
+            self.swap_item()
+            self.move_right()
+
+                    
+
 
 
 if __name__ == "__main__":
