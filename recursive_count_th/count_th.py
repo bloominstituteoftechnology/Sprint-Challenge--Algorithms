@@ -14,5 +14,4 @@ def count_th(word):
         return count_th(word[1:])
 
 
-#two = "thatthat"
-#print("None:", count_th(none))
+#print(count_th(none))
