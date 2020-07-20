@@ -20,12 +20,21 @@
                 2) Move left in the list until we can't move left anymore.
 
         3) Repeat this process until we arrive at the end of the list. The larger values in this    
-           implementation will "bubble" toward the end of the list. At the end, we want to exit when we can't move right anymore AND the light is off.
+           implementation will "bubble" toward the end of the list. At the end, we want to exit when 
+           we can't move right anymore AND the light is off.
         
-        ADDENDUM: I had a thought for a faster version of the bubble sort. Since we're under the assumption that 
-        the robot is a physical thing that needs to be moving back and forth, it doesn't make sense for the robot to move all the way back to the beginning of the list with each iteration.
+        ADDENDUM - GREEDY: 
+        
+        I had a thought for a faster version of the bubble sort. Since we're under the assumption that
+        the robot is a physical thing that needs to be moving back and forth, it doesn't make sense for 
+        the robot to move all the way back to the beginning of the list with each iteration.
 
-        With the values of this sort method becoming more sorted over time (larger values bubbling to the right, smaller values bubbling to the left), we could cut our execution time by comparing items from left to right AND right to left. Then we could further decrease the size of our list by changing our starting positions since a full pass going from the start to the end and then back to the start will sort our largest item all the way to the right and our smallest item all the way to the left.
+        With the values of this sort method becoming more sorted over time (larger values bubbling to the 
+        right, smaller values bubbling to the left), we could cut our execution time by comparing items 
+        from left to right AND right to left. Then we could further decrease the size of our list by 
+        changing our starting positions since a full pass going from the start to the end and then back 
+        to the start will sort our largest item all the way to the right and our smallest item all the 
+        way to the left.
 
         # before a full range sorting pass - largest value and smallest values are not sorted.
         items = [ 8, 6, 7, 2, 5, 4, 3, 1]
@@ -33,8 +42,8 @@
         # after a full range sorting pass - largest and smallest values are sorted.
         items = [ 1, 6, 7, 2, 5, 4, 3, 8]
 
-        # We can increase the efficiency of our algorithm by incrementing our starting position and 
-        # decrementing our ending position.
+        # We can increase the efficiency of our algorithm by incrementing our starting position 
+        # and decrementing our ending position.
 
         # before another sorting pass 
         items = [1, (6, 7, 2, 5, 4, 3), 8] # we only sort from inside the parentheses
@@ -45,7 +54,9 @@
         # incremented again - 
         items = [1, 2, (6, 5, 4, 3,) 7, 8] # we only sort from inside the parentheses
         
-        This should reduce our execution time from an O(n) loop to an O(n-2) on each pass of the loop because we're reducing the total number of passes we'd have to do by 2 each time we complete a loop iteration.   
+        This should reduce our execution time from an O(n) loop to an O(n-2) on each pass of the loop 
+        because we're reducing the total number of passes we'd have to do by 2 each time we complete 
+        a loop iteration.   
         
 
 
@@ -192,6 +203,7 @@ class SortingRobot:
 
         # Now we have the smallest value. We're gonna deposit that value all the way to the left
         self.swap_item()
+        
 
         # Now we move to the right so we're not starting from the beginning of the list again and restart.
         self.move_right()
