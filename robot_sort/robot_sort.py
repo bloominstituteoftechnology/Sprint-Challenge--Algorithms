@@ -98,31 +98,7 @@ class SortingRobot:
         """
         while self.can_move_right():
             # Save original pos
-            sorted_pos = self._position
-            print("picking up {} from pos {}".format(self._list[self._position], self._position))
-            # pickup item in this space
-            self.swap_item()
-            # Check with each item in the rest of the loop
-            while self.can_move_right():
-                # print("Checking {} with {}".format(self._item, self._list[self._position]))
-                self.move_right()
-                if self.compare_item() == 1:
-                    print("picking up {} from pos {}".format(self._list[self._position], self._position))
-                    self.swap_item()
-            # Move back and swap the one in hand at sorted_pos
-            while not self._position == sorted_pos:
-                self.move_left()
-            # drop item in None spot
-            self.swap_item()
-            self.move_right()
-
-    def sort(self):
-        """
-        Sort the robot's list.
-        """
-        while self.can_move_right():
-            # Save original pos
-            sorted_pos = self._position
+            org_pos = self._position
             # pickup item in this space
             self.swap_item()
             # Check with each item in the rest of the loop
@@ -130,8 +106,8 @@ class SortingRobot:
                 self.move_right()
                 if self.compare_item() == 1:
                     self.swap_item()
-            # Move back and swap the one in hand at sorted_pos
-            while not self._position == sorted_pos:
+            # Move back and swap the one in hand at org_pos
+            while not self._position == org_pos:
                 self.move_left()
             # drop item in None spot
             self.swap_item()
