@@ -1,15 +1,11 @@
-#### Please add your answers to the ***Analysis of  Algorithms*** exercises here.
+#### Please add your answers to the **_Analysis of Algorithms_** exercises here.
 
 ## Exercise I
 
-a)
-
+a) 0(n)
 
 b)
-
 
 c)
 
 ## Exercise II
-
-
