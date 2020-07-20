@@ -1,3 +1,59 @@
+"""
+    U - This looks like an opportunity for a recursive bubble sort. We can start at the beginning of 
+        the list (on the left side) and check each element against the next element in the list.
+
+    P - NAIVE & GREEDY IMPLEMENTATIONS
+        1) Determine if we can move to the right. 
+
+            If so, grab item at the beginning of the list.
+
+                2) Determine - 
+
+                    if held item < compared item:
+                        grab compared item and drop held item.
+                        turn the light on. This indicates we've performed a swap on that pass.
+                        move to the right
+                    else (if they're already in the right order):
+                        move to the right.
+
+            else:
+                2) Move left in the list until we can't move left anymore.
+
+        3) Repeat this process until we arrive at the end of the list. The larger values in this    
+           implementation will "bubble" toward the end of the list. At the end, we want to exit when we can't move right anymore AND the light is off.
+        
+        ADDENDUM: I had a thought for a faster version of the bubble sort. Since we're under the assumption that 
+        the robot is a physical thing that needs to be moving back and forth, it doesn't make sense for the robot to move all the way back to the beginning of the list with each iteration.
+
+        With the values of this sort method becoming more sorted over time (larger values bubbling to the right, smaller values bubbling to the left), we could cut our execution time by comparing items from left to right AND right to left. Then we could further decrease the size of our list by changing our starting positions since a full pass going from the start to the end and then back to the start will sort our largest item all the way to the right and our smallest item all the way to the left.
+
+        # before a full range sorting pass - largest value and smallest values are not sorted.
+        items = [ 8, 6, 7, 2, 5, 4, 3, 1]
+
+        # after a full range sorting pass - largest and smallest values are sorted.
+        items = [ 1, 6, 7, 2, 5, 4, 3, 8]
+
+        # We can increase the efficiency of our algorithm by incrementing our starting position and 
+        # decrementing our ending position.
+
+        # before another sorting pass 
+        items = [1, (6, 7, 2, 5, 4, 3), 8] # we only sort from inside the parentheses
+
+        # after another sorting pass
+        items = [1, (2, 6, 5, 4, 3, 7), 8] # we only sort from inside the parentheses
+
+        # incremented again - 
+        items = [1, 2, (6, 5, 4, 3,) 7, 8] # we only sort from inside the parentheses
+        
+        This should reduce our execution time from an O(n) loop to an O(n-2) on each pass of the loop because we're reducing the total number of passes we'd have to do by 2 each time we complete a loop iteration.   
+        
+
+
+    E - Write everything out.
+
+    R - Look for ways of reducing the total number of steps required to perform the operation.
+    
+"""
 
 
 class SortingRobot:
@@ -101,51 +157,46 @@ class SortingRobot:
         Sort the robot's list.
         """
 
-        # We're wanting to return when the robot can't move right anymore.
-        # It has reached the end of the list.
-        if self.can_move_right() == False:
+        # We're wanting to return when the robot can't move right anymore. We're using the light to keep track of whether a swap has occurred.
+        if self.can_move_right() == False and self.light_is_on() == False:
             return
 
         # Grab the card in front.
         self.swap_item()
 
+        # while we're able to move right and have the first card
         while self.can_move_right():
+            # move to the right
             self.move_right()
 
+            # check the value of the held card against the card in front of it.
             if self.compare_item() == -1:
+                # if the card the robot is holding is LESS THAN the value of the card in front of it, grab the card in front.
                 self.swap_item()
-                print(self._item)
-                self.move_right()
-
+                self.set_light_on()
+        # Once we reach the end of the row, the robot can't move right anymore and it should be holding the highest value it encountered. Grab that value.
         self.swap_item()
+        self.set_light_off()
 
+        # Now we go back the other way. We handle our None values here to make sure those are filtered out of the list.
         while self.can_move_left() and self.compare_item() is not None:
+
+            # Start moving left.
             self.move_left()
 
+            # This time if the value that the robot is holding is MORE THAN the value of the card in front of it, we grab that card. We want the smallest value.
             if self.compare_item() == 1:
+                # grab it!
                 self.swap_item()
-                print(self._item)
-                self.move_left()
+                self.set_light_on()
 
+        # Now we have the smallest value. We're gonna deposit that value all the way to the left
         self.swap_item()
+
+        # Now we move to the right so we're not starting from the beginning of the list again and restart.
         self.move_right()
+        self.set_light_off()
         self.sort()
-
-        # We want to do this while we can still move to the right.
-        # Head to the first node in the list and grab an item
-
-        # Check that item to see if it is greater than or less than the held item.
-
-        # If the item held by the robot is less than the thing it is comparing, swap.
-
-        # The robot has completed its first sweep going from left to right, so now it drops
-        # the highest card and starts the process from the right.
-
-        # Here is the optimization. If we're able to compare while going forwards, we can also compare when going backwards. Each full pass of the robot along the list will be more efficient. We also have to take care of None values.
-
-        # At this point, the robot has reached the left side again. So it is able to restart the function
-
-        # restart the function
 
 
 if __name__ == "__main__":
