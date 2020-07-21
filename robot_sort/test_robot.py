@@ -3,6 +3,36 @@ import random
 from robot_sort import SortingRobot
 
 class Test(unittest.TestCase):
+# 2 3 5 4
+# 6 3 5 4
+
+# 1 6 4 2 
+# 1   4 2 
+#   6
+#(6 picked up (swap) 
+# 1   4 2
+#     6 
+#(move right; compare => is 6 bigger than 4? yes)
+# 1   6 2 
+#     4
+#(swap) => (4 held) 
+# 1   6 2
+#       4
+#(move right while holding 4; compare => is 4 bigger than 2? yes)
+# 1   6 4
+#       2
+#(swap) => (2 held), back to the beginning
+# 1   6 4
+#     2
+# (compare: is 2 bigger than 6? no, move right)
+# 1   6 4 
+#       2
+# 
+# 
+# 
+
+
+
 
     def setUp(self):
         self.small_list = [5, 4, 3, 2, 1]
