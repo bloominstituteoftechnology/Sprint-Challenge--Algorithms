@@ -3,12 +3,13 @@
 ## Exercise I
 
 a) O(1)
-
+# O(n) -- would run 10 times before while loop breaks
 
 b) O(n)
-
+# O(nlogn)
 
 c) O(logn)
+# O(n) -- function runs ten times
 
 ## Exercise II
 
