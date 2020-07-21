@@ -94,11 +94,41 @@ class SortingRobot:
 
     def sort(self):
         """
-        Sort the robot's list.
-        """
-        # Fill this out
-        pass
+		Sort the robot's list.
+		"""
+#light is turned on and while loop below runs until no swaps are made
+        self.set_light_on()
 
+# while light is on, keep sorting, because if the light is on, a swap has been made, if a swap has been made, the list is not fully sorted
+        while self.light_is_on():
+            self.set_light_off()  #original status of light before testing for unsortedness
+
+# keep comparing items as in the bubblesort: https://www.youtube.com/watch?v=NiyEqLZmngY
+# think of an easier solution where there are only 2 items to compare and to sort.  Then based off this easy solution go from there.
+# then think of a solution with the following: 1 6 4 2
+            while self.can_move_right():
+# Swap item = pick up item if robot is holding nothing
+#  self.position on line 8 above has a default value of 0 (for first move in while statement); which is the first element of the list
+                self.swap_item()
+                self.move_right()
+
+# self.compare_item() == 1 means item being held is bigger than item robot is infront of but not holding.  
+                if self.compare_item() == 1:
+# look at bubblesort video above
+# if item being held is bigger then swap
+                    self.swap_item()
+                    self.move_left()  # go back to the empty spot on the left
+                    self.swap_item()  # set item down (swap with the empty space)
+                    self.move_right()  # move back right
+                    self.set_light_on()  # turn light un to indicate a swap was made (meaning the list is not sorted)
+                else:
+                    self.move_left()  # move to the left once
+                    self.swap_item()  # put item back
+                    self.move_right()  # go to the right one space
+
+# Start from the beginning again
+            while self.can_move_left():
+                self.move_left()
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
