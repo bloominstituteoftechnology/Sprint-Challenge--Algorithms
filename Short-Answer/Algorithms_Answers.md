@@ -13,9 +13,7 @@ a = 0
       a = a + n * n
 ```
 Because the while loop runs while a is less than n^3 and then a increases by n^2, we can 
-say that the runtime complexity is O(n^3)/O(n^2) = O(n)
-
-The time complexity is O(1) + O(n^3) / O(n^2) = 
+say that the time complexity is O(1) + O(n^3) / O(n^2) = 
 
 `O(n)`
 
@@ -67,7 +65,7 @@ which would be constant instead of linear
 
 ## Exercise II
 
-Heyyy we shouldn't normalize food waste but ok here's what I would do:
+Heyyy we shouldn't normalize food waste (Britta'd it) but ok here's what I would do:
 
 I would take a look at how high the building is, and go to the middle floor.
 

@@ -140,12 +140,18 @@ class SortingRobot:
                 # Move to the right to get ready to pick up the next item
                 self.move_right()
 
-            # now Robot is all the way to the right. We could make it move left and sort along
-            # the way, but I'm too lazy to type all of that our rn so I'm just going to have 
-            # it move to the beginning
+            # now robot is all the way to the right.. do the same exact thing to the left except
+            # for when we compare, check for -1 because that would mean the item on the right (holding)
+            # is less than the item in front of us
             while self.can_move_left():
+                self.swap_item()
                 self.move_left()
-
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.set_light_on()
+                self.move_right()
+                self.swap_item()
+                self.move_left()
 
 
 if __name__ == "__main__":
