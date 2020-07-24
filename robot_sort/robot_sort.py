@@ -154,15 +154,26 @@ class SortingRobot:
         #print(f'COMPARE ITEM {self.compare_item()}')
         #print(self.can_move_right())
 
-        len_list = (len(self._list)-1)
-        print(f'LEN LIST {len_list}')
+
+        ## Oh wait, I think this may be illegal.
+        ## Can't get the length of the list because it's a stored value
+        # len_list = (len(self._list)-1)
+        # print(f'LEN LIST {len_list}')
         
-        for i in range(len_list):
-            #print(f'I{i}')
-        
+        # for i in range(len_list):
+        #     #print(f'I{i}')
+        ## Get the loop started
+        self.set_light_on()
+        #print(f'Light status: {self._light}')
+        while self.light_is_on() == True:
+            self.set_light_off()
+            #print(f'Light status: {self._light}')
+
             ## While loop to check if you can keep going right
             # repeat process until you can't go right anymore
             while self.can_move_right() == True:
+                
+                
 
             ## Pick up this item at the left side of the list. It is currently the smallest.
             ## Use swap item
@@ -174,6 +185,8 @@ class SortingRobot:
 
                 ## If the held item is less than the item in front:
                 if self.compare_item() <= 0:
+
+
                     #print('HELD ITEM IS LESS THAN ITEM IN FRONT')
                     # move left
                     self.move_left()
@@ -189,6 +202,11 @@ class SortingRobot:
                     # swap items
                     self.swap_item()
                 #   print(f'HELD ITEM {self._item}')
+                    
+                    ## Turn the light on. 
+                    ## This indicates that you've performed at least one swap on this pass.
+                    self.set_light_on()
+                    #print(f'Light status: {self._light}')
                     # move left
                     self.move_left()
                 #  print(f'POSITION {self._position}')
@@ -200,7 +218,11 @@ class SortingRobot:
                 
                 self.move_right()
                 #print(f'POSITION {self._position}')
-
+            
+            ## Turn off the light as the next pass starts
+            # self.set_light_off()
+            #print(f'Light status: {self._light}')
+            
             while self.can_move_left() == True:
                 self.move_left()
                 #print(f'POSITION {self._position}')
