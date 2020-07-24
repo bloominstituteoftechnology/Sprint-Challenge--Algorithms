@@ -12,6 +12,6 @@ def count_th(word):
     else:
         # recursive case
         if word[0:2] == "th":
-            return 1 + count_th(word[2:1])
+            return 1 + count_th(word[2:])
         else:
-            return count_th(word[1:1])
+            return count_th(word[1:])
