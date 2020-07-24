@@ -28,6 +28,15 @@ This Sprint Challenge is split into two separate parts that test your ability to
 
 For this portion of the Sprint Challenge, you'll be answering questions posed in the `Algorithms_Questions.md` document inside the `Short-Answer` directory. Write down your answer and also write down a justification for _why_ you put down that answer. This could net you some partial credit if your justification is sound but the answer you put down turns out to not be correct. Add your answers to the questions in the `Algorithms_Answers.md` file.
 
+3. Use recursion to complete the count_th() function (3 points)
+Inside the recursive_count_th directory you'll find the count_th.py file. In this file, please add your recursive implementation to the count_th() method following these rules:
+
+Your function should take in a signle parameter (a string word)
+Your function should return a count of how many occurences of "th" occur within word. Case matters.
+Your function must utilize recursion.
+It cannot contain any loops.
+Run python test_count_th.py to run the tests for your count_th() function to ensure that your implementation is correct.
+
 ### 2. Implement Robot Sort (60 points)
 
 You have been given a robot with very basic capabilities:

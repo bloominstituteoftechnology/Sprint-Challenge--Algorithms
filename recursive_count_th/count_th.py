@@ -6,26 +6,27 @@ Your function must utilize recursion. It cannot contain any loops.
 def count_th(word):
     first = 0
     second = 1
-    print(word)
+    #print(word)
     #base
     
     print(len(word))
     if len(word) < 2:
-        print('stop')
+        #print('stop')
         return 0
     else:
         together = word[first] + word[second]
+        print(together)
         total = 0
         if together == 'th':
             total = 1
         # print('th')
         
         new_word = word[1:]
-        print('new word',new_word)
+        #print('new word',new_word)
     #return count + recursion count
         return total + count_th(word[1:])
 
-   
+print(count_th("abcthxyz"))
 
     # print(len(word))
     # if len(word) >= 2:
