@@ -14,7 +14,11 @@ is greater than `n`. Doubling each time means that the loop will complete in
 multiplied, giving us `O(n log n)`.
 
 
-c)
+c) This algorithm is `O(n)`. This is because it recursively calls itself. Each
+call subtracts a constant amount (in this case 1), bringing it one step closer
+to the base case of 0. Because it is a constant amount and there is only one
+recursive call each time, the number of steps is a linear function based on
+the input.
 
 ## Exercise II
 
