@@ -41,6 +41,23 @@ at len(n) / 2 and if it breaks, we do a while loop to go down the floors, if it 
 
 Starting from the middle of the building, in the worts case scenerario, the biggest number of eggs that can be broken is len(n / 2) - 1.
 
-This operation has a runtime of O(n), but if we perform a binary search as we search the floors, it can be optimized to a O(log 2n) runtime complexity.
+This operation has a runtime of O(log n)
+
+It should look something like this:
+
+n = highest_floor
+
+current_highest = n
+
+middle_floor = current_highest / 2
+
+Drop egg from new current floor, new_current = middle_floor.
+
+If egg breaks, go back to middle floor - 1.
+
+If egg does not break, new_current += 1. If it doesn't break, keep going up.
+
+When egg breaks, return f = new_current.
+
 
 ```
