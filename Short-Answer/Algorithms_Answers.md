@@ -2,14 +2,15 @@
 
 ## Exercise I
 
-a)
+a) This function is O(n) because the runtime increases linearly with regards to input
 
 
-b)
+b) This function is O(n²) because there is a loop and an inner loop
 
 
-c)
+c) This function O(log n) because it is recursive
 
 ## Exercise II
 
-
+Start in the very middle floor, drop an egg
+    if it doesn't break, go to the floor between this 
