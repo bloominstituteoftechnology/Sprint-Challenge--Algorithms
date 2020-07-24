@@ -68,4 +68,4 @@ def find_f(building, f_minus_1=0, bottom=building[0], top=building[-1]):
         return -1 # No floor is safe from eggs broken.
 ```
 
-The runtime complexity of this O(log(n)). Since the Binary Search algorithm doesn't need to visit every single positon, it can bypass the bulk of the top floors in its search for the floor f. Even in the worst case scenario that floor f is the top floor, the algorithm still bypasses at least half of the array's elements in it's search
+The runtime complexity of this is O(n), with Theta(log(n)) being the best case scenario and Theta(n) being the worst case scenario. Since the Binary Search algorithm doesn't need to visit every single positon, it can bypass the bulk of the top floors in its search for the floor f. Even in the worst case scenario that floor f is the top floor, the algorithm still bypasses at least half of the array's elements in it's search.
