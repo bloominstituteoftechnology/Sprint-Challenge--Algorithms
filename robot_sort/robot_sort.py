@@ -95,9 +95,35 @@ class SortingRobot:
     def sort(self):
         """
         Sort the robot's list.
+        steps:
+        1. Compare
+        2. Swap/pick if necessary
+        3. Move
+        4. Continue  
         """
-        # Fill this out
-        pass
+        # What if we can't move right anymore?
+        if self.can_move_right() == False:
+            return self._list
+        self.swap_item()
+
+        # Move if we can, swap if we need
+        while self.can_move_right():
+            self.move_right()
+            if self.compare_item() == 1:
+                self.swap_item()
+
+        # Move if we can, swap if we need
+        while self.can_move_left():
+            self.move_left()
+            if self.compare_item() == None:
+                self.swap_item()
+                break
+
+        # Move
+        self.move_right()
+        
+        # Continue
+        self.sort()
 
 
 if __name__ == "__main__":
