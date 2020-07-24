@@ -108,16 +108,18 @@ class SortingRobot:
         # move left until the robot finds out where it belongs
         # if he is not at the begining and the current item
         # is less than sorted
-        # while able to move left, swap current item and move to left
+        # while able to move left, swap current item and move
+        # to left
             while self.can_move_left() == True:
                 self.swap_item()
                 self.move_left()
-             # if current item < 0 (nothing), swap current item and turn light off
+             # if current item < 0 swap
+             # current item and turn light off
                 if self.compare_item() < 0:
                     self.swap_item()
                     self.set_light_off()
 
-                # move right. if there is an item: grab it.
+                # move right. If there is an item take hold of it .
                 # then move left -
                 self.move_right()
                 self.swap_item()
