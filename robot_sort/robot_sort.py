@@ -96,8 +96,35 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        #Utilizing a bubble sort, but both ascending and descending. I hoped this would be enough to do the stretch but unfortunately it's not.
+        while not self.light_is_on(): #If the light is on after a full pass, it means our list is sorted.
+            self.set_light_on()
+
+            #Ascending sort
+            while self.can_move_right(): #The robot will move right until it reaches the end of the list.
+                self.swap_item() #Robot picks up current position
+                self.move_right() #Moves right.
+
+                if self.compare_item() > 0: #If the item at this position is less than held item
+                    self.swap_item() #Swap the items
+                    self.set_light_off() #Light off signifies a swap happened.
+
+                self.move_left() #These three drops the current item into the empty spot, and return to the 'current' spot.
+                self.swap_item()
+                self.move_right()
+
+            #Descending sort
+            while self.can_move_left(): #Reached the end of the list, iterating backwards.
+                self.swap_item() #Just like above, but rights are swapped for lefts.
+                self.move_left()
+
+                if self.compare_item() < 0: #Just like above, but comparing if the item at this position is greater than held item.
+                    self.swap_item()
+                    self.set_light_off()
+
+                self.move_right()
+                self.swap_item()
+                self.move_left()
 
 
 if __name__ == "__main__":
