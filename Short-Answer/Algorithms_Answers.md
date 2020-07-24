@@ -3,13 +3,13 @@
 ## Exercise I
 
 a)
-
+O(n*n*n)
 
 b)
-
+O(n)
 
 c)
-
+O(1)
 ## Exercise II
 
 
