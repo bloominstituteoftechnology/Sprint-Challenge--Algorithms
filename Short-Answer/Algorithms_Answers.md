@@ -7,7 +7,11 @@ greater than `n^3`, `a` increases by `n^2` each iteration. Dividing `n^3` by
 `n^2` leaves us with just `n`.
 
 
-b)
+b) This algorithm has a runtime of `O(n log n)`. The outer goes from 0 to `n`,
+which means it is `O(n)`. The inner loop starts at 1 and then doubles until it
+is greater than `n`. Doubling each time means that the loop will complete in
+`O(log2 n)` time. And because they are nested loops the time complexity is
+multiplied, giving us `O(n log n)`.
 
 
 c)
