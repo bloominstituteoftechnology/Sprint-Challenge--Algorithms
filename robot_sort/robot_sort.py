@@ -109,8 +109,21 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        while self.can_move_right() is True:
+            if self.compare_adjacent() is -1:
+                self.move_right()
+                self.move_right()
+            
+            elif self.compare_adjacent() is 1:
+                self.swap_item()
+                self.move_right()
+                self.swap_item()
+                self.move_left()
+                self.swap_item()
+
+            if self._list == self._list.sort():
+                while self.can_move_left() is True:
+                    self.move_left()
 
 
 if __name__ == "__main__":
@@ -123,6 +136,8 @@ if __name__ == "__main__":
 
     # Potential hangups:
         # The None value
+            # get Robot to be holding the None value  as much as possible
+            # use compare_adjacent() method.
         # Having an odd number of elements in a list.
 
     # while Robot can move right:
@@ -134,9 +149,11 @@ if __name__ == "__main__":
     l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
 
     robot = SortingRobot(l)
+    print("Before List")
+    print("-----------")
+    print(robot._list)
 
-    print(robot.compare_adjacent())
-
+    print("\nAfter List")
+    print("-----------")
     robot.sort()
-    print(len(robot._list))
     print(robot._list)
