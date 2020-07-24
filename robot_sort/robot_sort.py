@@ -97,7 +97,49 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        # Maybe we can use the robot light as a flag to signal something.
+        # Try bubblesort
+
+        #Start by making sure light off
+        self.set_light_off()
+
+        #Use while loop
+        print(self.lis)
+
+        while True:
+            #beginning of each loop, light should be off
+            self.set_light_off()
+
+
+            #first, check if there is a value in front
+            while self.can_move_right():
+                #compare in hand item to next item
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    #If a swap was made, we want to turn the light on to track that.
+                    if not self.light_is_on():
+                        self.set_light_on()
+                self.move_right()
+
+            #Once we're at the end of the list, we want to
+            #check if swaps were made. If there was a swap made,
+            # aka the light is on, travel back to the beginning.
+            # Otherwise, break the loop.
+            if self.light_is_on():
+                while self.can_move_left():
+                    self.move_left()
+            else:
+                break
+
+
+
+
+
+
+
+
+
+
 
 
 if __name__ == "__main__":
