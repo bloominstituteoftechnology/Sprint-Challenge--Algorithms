@@ -2,13 +2,13 @@
 
 ## Exercise I
 
-a)
+a) This is O(n) because it runs for as long as a < n, and a increases by a factor of n * n.
 
 
-b)
+b)  This is O(n log n) because the inner loop increments at a greater rate.
 
 
-c)
+c) This is O(n) because it recurses an amount that's vaguely equal to n.
 
 ## Exercise II
 
