@@ -96,8 +96,56 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        
+        # using Bubble sort
+
+        # Turn light on to enter the while loop for the first time
+        self.set_light_on()
+
+        # Enter the while loop to begin sorting
+        while self.light_is_on():
+
+            # Turn the light off so that if we don't swap anything
+            # it will exit the loop
+            self.set_light_off()
+
+            # Enter another while loop keep the robot moving right
+            # while it still can
+            while self.can_move_right():
+
+                # Pick up item / swap with item in hand (if has nothing in hand
+                # it will just pick up item and leave the space "empty" with a None
+                # value)
+                self.swap_item()
+
+                # Move to the right 
+                self.move_right()
+            
+                # Compare the item in inventory with the item in front of us
+                # If the item we are holding is larger than the item in front of 
+                # us (compare_item() method returns a 1):
+                if self.compare_item() == 1:
+                    # we want to swap (numbers to the left should be smaller)
+                    self.swap_item()
+                    # turn on the light to make sure it enters the loop again
+                    self.set_light_on()
+                
+                # Move to the left (regardless of if we have swapped because we need
+                # to put the item back)
+                self.move_left()
+                
+                # Put item down
+                self.swap_item()
+
+                # Move to the right to get ready to pick up the next item
+                self.move_right()
+
+            # now Robot is all the way to the right. We could make it move left and sort along
+            # the way, but I'm too lazy to type all of that our rn so I'm just going to have 
+            # it move to the beginning
+            while self.can_move_left():
+                self.move_left()
+
 
 
 if __name__ == "__main__":
