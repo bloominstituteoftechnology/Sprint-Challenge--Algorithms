@@ -81,11 +81,13 @@ class SortingRobot:
         Turn on the robot's light
         """
         self._light = "ON"
+
     def set_light_off(self):
         """
         Turn off the robot's light
         """
         self._light = "OFF"
+
     def light_is_on(self):
         """
         Returns True if the robot's light is on and False otherwise.
@@ -96,8 +98,89 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        self.set_light_on()
+
+        while self.light_is_on() is True:
+            self.scan_right()
+
+    def scan_right(self):
+        self.swap_item()
+        while self.can_move_right() is True:
+            if self.compare_item() == 1:
+                self.swap_item()
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+                self.swap_item()
+                self.move_right()
+            else:
+                self.swap_item()
+                self.move_right()
+
+        if self.can_move_right() is False:
+            if self.compare_item() == 1:
+                self.swap_item()
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+                self.swap_item()
+            else:
+                self.swap_item()
+
+        print(self._list)
+        self.scan_left()
+
+    def scan_left(self):
+        while self.can_move_left() is True:
+            self.move_left()
+
+        self.sort_check()
+
+    def sort_check(self):
+        self.move_right()
+        self.swap_item()
+        while self.can_move_right() is True:
+            if self.compare_item() == -1:
+                self.set_light_off()
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+                self.swap_item()
+                self.move_right()
+            else:
+                self.move_left()
+                self.swap_item()
+                self.set_light_on()
+                return
+
+        if self.can_move_right() is False:
+            if self.compare_item() == -1:
+                self.set_light_off()
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+                self.swap_item()
+            else:
+                self.move_left()
+                self.swap_item()
+                self.set_light_on()
+                return
+
+
+"""
+Haven't been able to get this working yet;
+
+Implementing bubble sort;
+code makes a single pass forward ('right') through the list,
+then returns to initial position and checks to see if list is sorted.
+
+If false, makes another pass forward, repeats recursively until
+escape conditions (sorted list) are met.
+
+currently sorts everything but the first four index locations correctly;
+leads to infinite recursion. I suspect there's an issue with how I'm handling
+the None and with how I'm handling escape 
+"""
 
 
 if __name__ == "__main__":

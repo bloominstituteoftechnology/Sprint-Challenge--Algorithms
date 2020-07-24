@@ -2,6 +2,7 @@ import unittest
 import random
 from robot_sort import SortingRobot
 
+
 class Test(unittest.TestCase):
 
     def setUp(self):
