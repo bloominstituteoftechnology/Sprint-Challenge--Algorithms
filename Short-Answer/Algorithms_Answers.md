@@ -2,14 +2,19 @@
 
 ## Exercise I
 
-a)
+a) Running on O(n) and it's linear
 
 
-b)
+b) Runniong on O(n2) running 2 loops causing it to take longer
 
 
-c)
+c) running O(2) in recursive mode
 
 ## Exercise II
+
+
+Eggs
+
+
 
 
