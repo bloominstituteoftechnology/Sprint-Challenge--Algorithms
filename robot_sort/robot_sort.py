@@ -96,13 +96,23 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        for i in range(len(l) - 1):
-            self.swap_item()
-            while (self.move_left() and self.light_is_on(), not self.light_is_on(), self.move_right() and self.light_is_on()):
-                self.moving_items_right()
-                self.moving_items_left()
+        # Quick Solution:
+        # for i in range(len(l) - 1):
+        #     for j in range(0, len(l) - i - 1):
+        #         if l[j] > l[j + 1]:
+        #             l[j], l[j + 1] = l[j + 1], l[j]
 
-    def moving_items_right(self):
+        self.swap_item()
+        for i in range(len(l) - 1):
+            self.moving_items_right(i)
+            self.moving_items_left(i)
+            return l
+
+        #     while (self.move_left() and self.light_is_on(), not self.light_is_on(), self.move_right() and self.light_is_on()):
+        #         self.moving_items_right()
+        #         self.moving_items_left()
+
+    def moving_items_right(self, item=None):
         if self.can_move_right():
             self.move_right()
             if not self.can_move_right(): # Means I'm at the end
@@ -115,7 +125,7 @@ class SortingRobot:
                 self.swap_item() # Swapping my lesser item for the greater
                 self.moving_items_right() # Do this again and again until I hit the end and turn the light on.
 
-    def moving_items_left(self):
+    def moving_items_left(self, item=None):
         if self.can_move_left():
             self.move_left()
             if not self.can_move_left(): # Means I'm at the beginning
