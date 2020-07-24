@@ -110,14 +110,15 @@ class SortingRobot:
             while self.can_move_left(): #robot comes to end and can move left now
                 if self.compare_item()!= None: # returns none if none is found
                     self.swap_item()
-            
+                    
             #when robot is at the end and list is sorted then set light on
             if self.can_move_right():
                 self.move_right()
                 self.swap_item()
             else:
-                self.set_light_on()
-        pass           
+                self.set_light_off()
+        
+        # pass           
 
         # # Fill this out
         # #using bubble sort 
