@@ -3,11 +3,11 @@
 ## Exercise I
 
 a) runtime: O(n)  
-Given n, it looks like the amount would double resulting a linear complexity.
+Given n, it looks like the amount would double resulting a linear complexity
 
 
 b) runtime: O(n^2) 
-Quadratic Time because it is a loop within a loop.
+Quadratic Time since its a loop within a loop.
 
 
 c) runtime: O(n) 

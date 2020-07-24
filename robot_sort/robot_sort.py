@@ -96,8 +96,38 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        while not self.light_is_on(): #if light is off
+            self.set_light_on() #turn light on
+
+            #move right until it cant any more
+            while self.can_move_right(): #while it can move right
+                self.swap_item() #swap the items
+                self.move_right() #and go to the next right point
+
+                if self.compare_item() > 0: #if the held item greater than the one in current pos
+                    self.swap_item() #swap the items
+                    self.set_light_off() #turn off light
+                #if it isnt greater, then do nothing and move on
+
+
+#114-117 and 128-130 proved to be the hardest part of this section for me XD took forever 
+#to click that i would have to drop the item back where i got it if i wasnt going to move it
+                self.move_left() #move back to the left(previous should be None now)
+                self.swap_item() #'swap' items, which really is just dropping so robos holds None
+                self.move_right() #then move back to the right again 
+
+            #if they can go left instead fo right, do the same thing but left instead of right
+            while self.can_move_left():
+                self.swap_item()
+                self.move_left()
+
+                if self.compare_item() < 0:
+                    self.swap_item()
+                    self.set_light_off()
+
+                self.move_right()
+                self.swap_item()
+                self.move_left()
 
 
 if __name__ == "__main__":
