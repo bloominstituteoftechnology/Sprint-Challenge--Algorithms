@@ -1,3 +1,26 @@
+# Understand:
+#
+# Using the methods provided in the SortingRobot class, we need to sort from lowest
+# to highest the values of the list that is passed in to the instance of SortingRobot. We were told
+# that we needed to understand very well the sorting methods of bubble and selection sort. Given the
+# constraints given to accomplish this sort, the only method that does not involve storing any variables
+# is the bubble sort method.
+
+# Plan:
+
+# Turn the robots light on to start the program.
+
+# Given the list [5,4,3,2,1], the robot should pick up the first item in the list and deposit the None value.
+# It should move right as far as possible comparing the value it holds to each value in front of it along the way. If the value held is
+# greater than the value in front of it then it should swap so that when it is at its rightmost position it should be holding the
+# lowest value in the unsorted list. It should then move left to the None value, deposit its low value and move the None value one position
+# to the right, thereby seperating the sorted array from the unsorted array.
+
+# This process should be repeated until the None value is at the rightmost position, indicating that the full list has been sorted.
+
+# The robot should then switch off its light causing the program to exit.
+
+
 class SortingRobot:
     def __init__(self, l):
         """
@@ -81,11 +104,13 @@ class SortingRobot:
         Turn on the robot's light
         """
         self._light = "ON"
+
     def set_light_off(self):
         """
         Turn off the robot's light
         """
         self._light = "OFF"
+
     def light_is_on(self):
         """
         Returns True if the robot's light is on and False otherwise.
@@ -96,15 +121,54 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # Execute:
+
+        # Turn the light on to initiate the sort
+        self.set_light_on()
+
+        while self.light_is_on():
+
+            # Drop the None value and pick up the item in the list in front of the robot
+            self.swap_item()
+
+            # While moving right till the end of the list
+            while self.can_move_right():
+                self.move_right()
+
+                # Check if the value held is greater, it it is
+                # pick up the lower value
+                if self.compare_item() == 1:
+                    self.swap_item()
+
+            # When the robot is at the rightmost position, it should hold the lowest
+            # value and should then move back left until it reaches the None value.
+            while self.can_move_left() and self.compare_item() is not None:
+                self.move_left()
+
+            # Drop the low value and pick up None
+            self.swap_item()
+
+            # Move one position to the right
+            if self.can_move_right():
+                self.move_right()
+
+            else:
+                # Turn the robot's light off to terminate the program's outer while loop
+                # and exit the program
+                self.set_light_off()
+
+# REFLECT:
+
+# There may be a way to move left and right comparing greater values one way and lesser values the other direction
+# that may improve the runtime of this sort, however time does not allow for refactoring the above code in this case.
 
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
-    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1,
+         45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
 
     robot = SortingRobot(l)
 
