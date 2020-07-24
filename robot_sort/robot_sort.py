@@ -96,8 +96,44 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # the base case
+        if not self.can_move_right():
+            return
+
+        # while the robot is able to move right, we want to move across
+        # the list to pick up the biggest item and place it at the end
+        while self.can_move_right():
+            # if the item held is smaller, or the robot's not holding anything
+            if self.compare_item() == -1 or self.compare_item() == None:
+                # swap the item
+                self.swap_item()
+                # and move it right
+                self.move_right()
+            # unless the robot is holding the bigger item and it should just move right
+            else:
+                self.move_right()
+        # At this point, the robot should not be holding an item and largest 
+        # item should be at the end of the list.
+        # The robot should then move back to the left and grab the smallest item it finds
+        while self.can_move_left() and self.compare_item() != None:
+            # if the item held is bigger
+            if self.compare_item() == 1:
+                # swap the item 
+                self.swap_item()
+                # and move it left
+                self.move_left()
+            # unless the robot is holding the smaller item then it should just move left
+            else:
+                self.move_left()
+
+        # At this point, the largest item should be at the end
+        # Robot is at the index it started at, holding the smallest item.
+        # So, swap the item, move right, and recurse.
+        self.swap_item()
+        self.move_right()
+        self.sort()
+
+
 
 
 if __name__ == "__main__":
