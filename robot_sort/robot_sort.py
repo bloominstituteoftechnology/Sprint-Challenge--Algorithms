@@ -96,17 +96,48 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
-
-
-if __name__ == "__main__":
-    # Test our your implementation from the command line
-    # with `python robot_sort.py`
-
-    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
-
-    robot = SortingRobot(l)
-
-    robot.sort()
-    print(robot._list)
+        # Note on selected approach: Time is only incremented in the provided prompt functions when the robot 
+        # moves right or left along the list --> so we're actually trying to minimize movement here, 
+        # not actual runtime. Considering this and given the robot's limited memory, merge sort 
+        # (which at O(nlogn) Big O is more efficient than bubble sort, insertion sort, selection sort) 
+        # seemingly is not possible or ideal here.
+        # 
+        # Given the constraints on the robot's movement (time is measured by moves right or left 
+        # as above, not as actual runtime) and functionality, bubble sort seems to be a more 
+        # "time"-efficient (where time is defined as # of moves left or right, as noted above) 
+        # algorithm in this case. We can use the light to keep track of whether or not 
+        # >=1 swaps were performed in our previous pass-through (>=1 swaps if light is on), 
+        # because that is our only way of doing so (only memory available -- can't store any 
+        # variables as per prompt).
+        
+        # Turn light on to enter the while loop the first time:
+        self.set_light_on()
+        # Repeatedly pass through the entire array and bubble sort it until every element is 
+        # in order (0 swaps performed in the previous pass-through):
+        while self.light_is_on():
+            # Set light off as default to start (# swaps = 0);
+            self.set_light_off()
+            # Move to the start of the array:
+            while self.can_move_left():
+                self.move_left()
+            # One bubble sort pass through of the entire list/array:
+            while self.can_move_right():
+                # Move to next index and pick up the item there:
+                self.swap_item()
+                self.move_right()
+                # If held item's (item at previous position) value > value "in front of" the robot, 
+                # swap the values in the current index (item "in front of" the robot) and 
+                # previous index (item held by robot):
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    # Turn on light (only form of memory allowed) to signify >=1 swaps have been 
+                    # performed in this pass-through:
+                    self.set_light_on()
+                # Otherwise, put the currently held item back at the previous index:
+                else:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
