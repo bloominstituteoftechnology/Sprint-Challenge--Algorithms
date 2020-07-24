@@ -92,12 +92,43 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+    def bubble_sort(self):
+        self.swap_item()
+        if self.can_move_right() == True:
+            self.move_right()
+        
+        if self.compare_item() == 1:
+            self.set_light_on()
+            self.swap_item()
+            if self.can_move_left() == True:
+                self.move_left()
+                self.swap_item()
+                if self.can_move_right() == True:
+                    self.move_right()#ready for next check
+        else: #return to original position. 
+            self.move_left()
+            self.swap_item()
+            self.move_right()
+
+    
     def sort(self):
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        while self.can_move_right() == True:
+            self.bubble_sort()
+        
+        if self.can_move_right() == False:
+            while self.can_move_left():
+                self.move_left()
+        
+        if self.light_is_on() == True:
+            self.set_light_off() 
+            self.sort() #recursive call to sort
+        
+        else:
+            return "The list is sorted, your work here is done!"
+
 
 
 if __name__ == "__main__":
@@ -110,3 +141,61 @@ if __name__ == "__main__":
 
     robot.sort()
     print(robot._list)
+
+    """
+    Inside the `robot_sort` directory you'll find the `robot_sort.py` file. Open it up and read through each of the robot's abilities. Once you've understood those, start filling out the `sort()` method following these rules:
+
+  * You may use any pre-defined robot methods.
+  * You may NOT modify any pre-defined robot methods.
+  * You may use logical operators. (`if`, `and`, `or`, `not`, etc.)
+  * You may use comparison operators. (`>`, `>=`, `<`, `<=`, `==`, `is`, etc.)
+  * You may use iterators. (`while`, `for`, `break`, `continue`)
+  * You may NOT store any variables. (`=`)
+  * You may NOT access any instance variables directly. (`self._anything`)
+  * You may NOT use any Python libraries or class methods. (`sorted()`, etc.)
+  * You may define robot helper methods, as long as they follow all the rules.
+
+##### Hints
+
+* Make sure you understand the problem and all of the rules! A solution that breaks the rules will not receive full credit.
+
+* If you're unsure if an operator or method is allowed, ask.
+
+* Lay out some numbered cards in a line and try sorting them as if you were the robot.
+
+* Come up with a plan and write out your algorithm before coding. If your plan is sound but you don't reach a working implementation in three hours, you may receive partial credit.
+
+* There is no efficiency requirement but you may lose points for an unreasonably slow solution. Tests should run in far less than 1 second.
+
+* We discussed a sorting method this week that might be useful. Which one? bubble sort
+
+* The robot has exactly one bit of memory: its light. Why is this important? Know when the robot is holding an object.
+"""
+
+# I chose to use Bubble sort on this problem because it was recommended by my peers who had previously taken this Sprint. Because of this I took the time this week to understand Bubble sort and how it works. While it is not as efficient as Selection Sort, which I could have used to solve this problem, I feel for making MVP it was the best choice. 
+#Plan: Compare item held vs item robot is over until the end of the list  
+#Define helper function bubble_sort that takes in self as a parameter
+    #call self.swap_item()
+    #call move_right
+
+     # If compare_item returns 1
+              #swap item, set light to on, move left swap then move right to pick up next item
+       
+        # else: places item in original position and moves to make the next swap
+
+    
+    #sort():
+        #while robot can move right is True
+             #call bubble_sort
+        #if light is on:
+            #turn light off
+            #call self.sort()
+        #if robot can move right is False:
+            #reset position for next bubble_sort by moving left
+        
+        #else:
+           #return 'List is sorted'
+
+            
+
+     
