@@ -109,6 +109,11 @@ class SortingRobot:
         #     self.moving_items_left(i)
         #     return l
 
+        # for i in range(len(self._list) - 1):
+        #     (self.swap_item(), self.moving_items_right(), self.moving_items_left()) * i
+        
+        # ABOVE FOR LOOP WORKS, BUT WANT BOTTOM ONE TO WORK BECAUSE IT DOESN'T BREAK RULES
+
         for i in range(len(l) - 1):
             (self.swap_item(), self.moving_items_right(), self.moving_items_left()) * i
 
@@ -132,6 +137,8 @@ class SortingRobot:
                 self.moving_items_right() # Do this again and again until I hit the end and turn the light on.
             elif self.compare_item() == 1:
                 self.moving_items_right()
+            elif self.compare_item() == 0:
+                self.moving_items_right()
 
     def moving_items_left(self, item=None):
         if self.can_move_left():
@@ -144,6 +151,8 @@ class SortingRobot:
                 self.swap_item() # Swapping my greater item for the lesser
                 self.moving_items_left() # Do this again and again until I hit the end and turn the light on.
             elif self.compare_item() == -1:
+                self.moving_items_left()
+            elif self.compare_item() == 0:
                 self.moving_items_left()
 
 
