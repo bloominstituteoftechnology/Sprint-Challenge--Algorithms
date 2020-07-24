@@ -96,8 +96,36 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # Bidirectional bubble sort
+
+         # Base Case
+        if not self.can_move_right():
+            return
+        
+        # while able to move right, move across the list to pick up the biggest item and put it at the end
+        while self.can_move_right():
+            
+            # if item is smaller, or robot not holding an item
+            if self.compare_item() == -1 or self.compare_item() == None:
+                self.swap_item()
+                self.move_right()
+            else:
+                self.move_right()
+        
+        # while able to move left, move across the list and pick up the smallest item and put it at the beginning
+        while self.can_move_left() and self.compare_item() != None:
+            
+            # if the item held is bigger:
+            if self.compare_item() == 1:
+                self.swap_item()
+                self.move_left()
+            else:
+                self.move_left()
+                
+        # No longer can move left, place item, move to the next number that needs to be sorted, and repeat 
+        self.swap_item()
+        self.move_right()
+        self.sort()
 
 
 if __name__ == "__main__":

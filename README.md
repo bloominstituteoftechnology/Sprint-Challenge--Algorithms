@@ -1,56 +1,5 @@
 # Sprint Challenge: Algorithms
 
-In this week's Sprint you explored and implemented some classic algorithmic approaches and used them to solve novel problems. You also implemented some classic and fundamental sorting algorithms and learned how to go about evaluating their respective runtimes and performance. This Sprint Challenge aims to assess your comfort with these topics through exercises that build on the algorithmic intuition you've started to build up.
-
-## Instructions
-
-**Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**
-
-This is an individual assessment. All work must be your own. Your Challenge score is a measure of your ability to work independently using the material covered throughout this sprint. You need to demonstrate proficiency in the
-concepts and objectives that were introduced and that you practiced in the preceding days.
-
-You are not allowed to collaborate during the Sprint Challenge. However, you are encouraged to follow the twenty-minute rule and seek support from your TL and
-Instructor in your cohort help channel on Slack. Your submitted work reflects your proficiency in the concepts and topics that were covered this sprint.
-
-You have three hours to complete this Sprint Challenge. Plan your time accordingly.
-
-## Commits
-
-Commit your code regularly and meaningfully. This helps both you (in case you ever need to return to old code for any number of reasons) and it also helps your team lead to more thoroughly assess your work.
-
-## Description
-
-This Sprint Challenge is split into two separate parts that test your ability to analyze and write algorithms.
-
-### Short Answer Questions 
-
- > It is recommended that you spend no more than 1 hour on this portion of the Sprint Challenge.
-
-For this portion of the Sprint Challenge, you'll be answering questions posed in the `Algorithms_Questions.md` document inside the `Short-Answer` directory. Write down your answer and also write down a justification for _why_ you put down that answer. This could net you some partial credit if your justification is sound but the answer you put down turns out to not be correct. Add your answers to the questions in the `Algorithms_Answers.md` file.
-
-#### 1. Analyzing runtime _(3 points)_
-
-Given 3 blocks of code, identify the runtime of each. Justify your answer.
-
-#### 2. Find the highest floor _(3 points)_
-
-Suppose that you have an n-story building and plenty of eggs. Suppose also that an egg gets broken if it is thrown off floor f or higher, and doesn't get broken if dropped off a floor less than floor f. Devise a strategy to determine the value of f such that the number of dropped + broken eggs is minimized.
-
-Write out your proposed algorithm in plain English or pseudocode AND give the runtime complexity of your solution.
-
-### Code Challenges
-
-#### 3. Use recursion to complete the `count_th()` function _(3 points)_
-Inside the `recursive_count_th` directory you'll find the `count_th.py` file. In this file, please add your recursive implementation to the `count_th()` method following these rules:
-
-* Your function should take in a signle parameter (a string `word`)
-* Your function should return a count of how many occurences of ***"th"*** occur within `word`. Case matters.
-* Your function must utilize recursion. 
-  * It cannot contain any loops.
-
-Run `python test_count_th.py` to run the tests for your `count_th()` function to ensure that your implementation is correct.
-
-
 #### 4. Understand, plan, & implement the Robot Sort algorithm _(6 points)_
 
 You have been given a robot with very basic capabilities:
