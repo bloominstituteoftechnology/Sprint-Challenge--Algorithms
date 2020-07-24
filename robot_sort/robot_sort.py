@@ -92,12 +92,43 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+    def bubble_sort(self):
+        self.swap_item()
+        if self.can_move_right() == True:
+            self.move_right()
+        
+        if self.compare_item() == 1:
+            self.set_light_on()
+            self.swap_item()
+            if self.can_move_left() == True:
+                self.move_left()
+                self.swap_item()
+                if self.can_move_right() == True:
+                    self.move_right()#ready for next check
+        else: #return to original position. 
+            self.move_left()
+            self.swap_item()
+            self.move_right()
+
+    
     def sort(self):
         """
         Sort the robot's list.
         """
-        # Fill this out
-        # 
+        while self.can_move_right() == True:
+            self.bubble_sort()
+        
+        if self.can_move_right() == False:
+            while self.can_move_left():
+                self.move_left()
+        
+        if self.light_is_on() == True:
+            self.set_light_off() 
+            self.sort() #recursive call to sort
+        
+        else:
+            return "The list is sorted, your work here is done!"
+
 
 
 if __name__ == "__main__":
@@ -138,7 +169,7 @@ if __name__ == "__main__":
 
 * We discussed a sorting method this week that might be useful. Which one? bubble sort
 
-* The robot has exactly one bit of memory: its light. Why is this important? space complexity? Know when the robot is holding an object?
+* The robot has exactly one bit of memory: its light. Why is this important? Know when the robot is holding an object.
 """
 
 # I chose to use Bubble sort on this problem because it was recommended by my peers who had previously taken this Sprint. Because of this I took the time this week to understand Bubble sort and how it works. While it is not as efficient as Selection Sort, which I could have used to solve this problem, I feel for making MVP it was the best choice. 
@@ -156,11 +187,12 @@ if __name__ == "__main__":
     #sort():
         #while robot can move right is True
              #call bubble_sort
-        #if robot can move right is False:
-            #reset position for next bubble_sort by moving left
         #if light is on:
             #turn light off
             #call self.sort()
+        #if robot can move right is False:
+            #reset position for next bubble_sort by moving left
+        
         #else:
            #return 'List is sorted'
 
