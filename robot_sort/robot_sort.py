@@ -97,7 +97,19 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        #using bubble sort 
+        #go thru all the elements
+        for i in range(len(self._list)-1):
+            #now going thru all j elements, since i elments in place
+            for j in range((len(self._list)-i)-1):
+                #traverse array from length of _list minus i -1 
+                #swap elements if found greater than next element 
+                if self._list[j] > self._list[j+1]:
+                    self._list[j], self._list[j+1] = self._list[j+1], self._list[j] #swapping if greater 
+
+        return self._list #return the list :-)
+
+        # pass
 
 
 if __name__ == "__main__":
