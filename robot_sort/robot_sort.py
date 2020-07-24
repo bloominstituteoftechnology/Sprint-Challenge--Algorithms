@@ -93,11 +93,47 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
+
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        self.set_light_on() #setting light to on
+
+        while self.light_is_on(): # light is on, list not sorted
+            self.swap_item()
+
+            while self.can_move_right(): # robot moves right
+                self.move_right() 
+                if self.compare_item()>0: # compares each item
+                    self.swap_item() #swaps if smallest
+
+            while self.can_move_left(): #robot comes to end and can move left now
+                if self.compare_item()!= None: # returns none if none is found
+                    self.swap_item()
+                    
+            #when robot is at the end and list is sorted then set light on
+            if self.can_move_right():
+                self.move_right()
+                self.swap_item()
+            else:
+                self.set_light_off()
+        
+        # pass           
+
+        # # Fill this out
+        # #using bubble sort 
+        # #go thru all the elements
+        # for i in range(len(self._list)-1):
+        #     #now going thru all j elements, since i elments in place
+        #     for j in range((len(self._list)-i)-1):
+        #         #traverse array from length of _list minus i -1 
+        #         #swap elements if found greater than next element 
+        #         if self._list[j] > self._list[j+1]:
+        #             self._list[j], self._list[j+1] = self._list[j+1], self._list[j] #swapping if greater 
+
+        # return self._list #return the list :-)
+
+        # pass
 
 
 if __name__ == "__main__":
