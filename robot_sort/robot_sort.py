@@ -121,9 +121,19 @@ class SortingRobot:
                 self.move_left()
                 self.swap_item()
 
-            if self._list == self._list.sort():
+            if self._list == bubble_sort(self._list):
                 while self.can_move_left() is True:
                     self.move_left()
+
+
+def bubble_sort(arr):
+    # i = cur_index, j = next_index
+    for i in range(len(arr) - 1):
+        # limits range to only two values at a time
+        for j in range(len(arr) - i - 1):
+            # compare cur_index and next_index values
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
 
 
 if __name__ == "__main__":
