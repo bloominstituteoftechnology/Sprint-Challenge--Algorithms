@@ -58,9 +58,7 @@ def find_f(building, f_minus_1=0, bottom=building[0], top=building[-1]):
     elif building[middle] < f_minus_1:
         return find_f(building, target, middle + 1, top)
 
-    # This accounts for the case the 0 is found.
-    # The next element must then naturally be checked if we're to
-    # find the top floor at which eggs are not to be broken.
+    # This accounts for the case that whatever the middle value winds up being zero. The next element, then, must naturally be checked if we're to find the top floor at which eggs are not to be broken.
     elif building[middle] == f_minus_1:
         while building[middle + 1] == f_minus_1:
         middle += 1
