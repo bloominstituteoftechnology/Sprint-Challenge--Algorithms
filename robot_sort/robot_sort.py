@@ -97,7 +97,116 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        '''
+        First pass solution pseudocode
+
+
+        ### Check if the list is empty
+        ## if it is, return none
+
+        ## Start at the left side of the list
+    
+
+        ## If you can move right, keep going
+        ## Otherwise return the value- the list is sorted already
+
+        ## Pick up this item at the left side of the list. It is currently the smallest.
+        ## Use swap item
+        ## THis will make the current index NONE
+
+
+        ## Move right.
+        ## Compare items.
+        ## If the held item is less than the item in front:
+             # move left
+            # swap items (Now the lower value is on the left, you are holding None, and back at the original position)
+            # move right (now at the second position)
+        # if the held item is more than item in front:
+            # swap items
+            # move left
+            # swap items (Now the lower value is on the left, you are holding None, and back at the original position)
+            # move right (now at the second position)
+
+        #Now at second position
+        # pick up second item
+        # repeat process
+        '''
+
+        #print(f'OG LIST {l}')
+
+        ### Check if the list is empty
+        ## if it is, return none
+
+        ## Start at the left side of the list
+        #print(f'POSITION {self._position}')
+
+        ## If you can move right, keep going
+        ## Otherwise return the value- the list is sorted already
+
+
+        #print(f'HELD ITEM {self._item}')
+
+
+
+        #print(f'POSITION {self._position}')
+
+        ## Compare items.
+        #print(f'COMPARE ITEM {self.compare_item()}')
+        #print(self.can_move_right())
+
+        len_list = (len(self._list)-1)
+        print(f'LEN LIST {len_list}')
+        
+        for i in range(len_list):
+            #print(f'I{i}')
+        
+            ## While loop to check if you can keep going right
+            # repeat process until you can't go right anymore
+            while self.can_move_right() == True:
+
+            ## Pick up this item at the left side of the list. It is currently the smallest.
+            ## Use swap item
+            ## THis will make the current index NONE
+                self.swap_item()
+
+            ## Move right.
+                self.move_right()
+
+                ## If the held item is less than the item in front:
+                if self.compare_item() <= 0:
+                    #print('HELD ITEM IS LESS THAN ITEM IN FRONT')
+                    # move left
+                    self.move_left()
+                # print(f'POSITION {self._position}')
+                    # swap items (Now the lower value is on the left, you are holding None, and back at the original position)
+                    self.swap_item()
+                # print(f'HELD ITEM {self._item}')
+                    # move right (now at the second position)
+                    #self.move_right()
+                # print(f'POSITION {self._position}')
+                # if the held item is more than item in front:
+                elif self.compare_item() > 0:
+                    # swap items
+                    self.swap_item()
+                #   print(f'HELD ITEM {self._item}')
+                    # move left
+                    self.move_left()
+                #  print(f'POSITION {self._position}')
+                    # swap items (Now the lower value is on the left, you are holding None, and back at the original position)
+                    self.swap_item()
+                #  print(f'HELD ITEM {self._item}')
+                    # move right (now at the second position)
+                    
+                
+                self.move_right()
+                #print(f'POSITION {self._position}')
+
+            while self.can_move_left() == True:
+                self.move_left()
+                #print(f'POSITION {self._position}')
+
+
+        
 
 
 if __name__ == "__main__":
@@ -105,8 +214,8 @@ if __name__ == "__main__":
     # with `python robot_sort.py`
 
     l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
-
+    #l = [5,3,4,1]
     robot = SortingRobot(l)
 
     robot.sort()
-    print(robot._list)
+    print(f'SORTED LIST {robot._list}')
