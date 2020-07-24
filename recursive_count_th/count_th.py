@@ -6,5 +6,16 @@ Your function must utilize recursion. It cannot contain any loops.
 
 
 def count_th(word):
+    # if word.count < 2, no way to contain `th`
+    if len(word) < 2:
+        return 0
 
-    pass
+    #base case
+    elif word[0:2] == "th":
+
+        return 1 + count_th(word[2:])
+    else:
+        return count_th(word[1:])
+
+
+
