@@ -96,12 +96,28 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Robot Light on and off
-        self_light_is_on()
-        # pick up item if not holding an item
-        
-        # pick up item and if holding item swap items
-        # robot can compare item it currently is holding with item in front of it
+        # Robot Light on 
+        self.light_is_on()
+        # load swap
+        self.swap_item()
+        # grab list
+        for _ in range(0, len(self._list)):
+            # move left
+            while self.can_move_left():
+                self.move_left()
+                # compare items
+                if self.compare_item() == -1:
+                    self.swap_item()
+            # move right
+            while self.can_move_right():
+                self.move_right()
+                if self.compare_item() == -1:
+                    self.swap_item()
+        # power light off
+        self.set_light_off()
+        self.swap_item()
+        pass
+
 
 
 if __name__ == "__main__":
