@@ -95,9 +95,62 @@ class SortingRobot:
     def sort(self):
         """
         Sort the robot's list.
+
+        can_move_right
+        can_move_left
+        move_left
+        move_right
+
+        swap_item
+        compare_item
+
+        set_light_on
+        set_light_off
+        light_is_on
         """
-        # Fill this out
-        pass
+        # Assume at least 1 iteration of bubble sort needed by turning on the light
+        self.set_light_on()
+        
+        # Bubble sort loop
+        while self.light_is_on():
+
+            # get to the left most index 
+            if self.can_move_right() == False:
+                while self.can_move_left():
+                    self.move_left()
+
+            # if no swaps take place the light will stay off and the loop will break
+            self.set_light_off()
+
+            # Begin bubble sort iteration
+            while self.can_move_right():
+
+                # Grab index and move right
+                self.swap_item()
+                self.move_right()
+
+                # Left is greater
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    self.set_light_on()
+                # Right is greater
+                elif self.compare_item() == -1:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                # Equal
+                elif self.compare_item() == 0:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                # If None
+                else:
+                    print('This else should never be called!')
+                    
+        return None
 
 
 if __name__ == "__main__":
