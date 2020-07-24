@@ -8,7 +8,7 @@ def count_th(word):
         return 0
     
     if word[:2] == "th":
-        return count_th(word[2:]) + 1
+        return count_th(word[1:]) + 1
     else:
         return count_th(word[1:])
 
