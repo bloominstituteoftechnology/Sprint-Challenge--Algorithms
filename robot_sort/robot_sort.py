@@ -97,7 +97,20 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        l = self._list
+
+        last = len(l) - 1 #last element of list
+
+        for i in range(last): # check from first to last element
+            for j in range(last - i): #check j th element to its neighbor element
+                if l[j] > l[j + 1]: # if j is greater than its neighbor element then swap it 
+                    l[j], l[j + 1] = l[j + 1], l[j] #swap smaller to left
+
+        return l 
+
+
+
+
 
 
 if __name__ == "__main__":
