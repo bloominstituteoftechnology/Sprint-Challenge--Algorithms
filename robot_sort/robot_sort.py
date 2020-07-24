@@ -97,6 +97,21 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
+        #turning on light.
+        self.set_light_on()
+        #while the light is on, we will turn it off and on as we have successful sorts.
+        while self.light_is_on():
+            self.set_light_off()
+
+            while self.can_move_right():
+                self.swap_item()
+                self.move_right()
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.set_light_on
+                self.move_left()
+                self.swap_item()
+                self.move_right()
         pass
 
 
