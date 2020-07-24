@@ -4,9 +4,9 @@
 
 a) its a while loop with continue looping n number of times and it has one loop so its O(n)
 
-b) it has a for and while loop so its a O(n) because the for loop runs the whole time while the while loop only runs if j is less than n.
+b) it has a for and while loop so its a O(n) because the for loop runs the whole time while the while loop only runs if j is less than n. - correct answer: 0(n log n)
 
-c) because its recursive it calls itself and it also has a if loop so its O(n^2)
+c)  and it also has a if loop so its O(n^2) - correct answer : 0(n)
 
 ## Exercise II
 
@@ -22,4 +22,6 @@ Even if it does not break go back to both points and repeat
 If you have a floor that the egg ends up breaking and then ends up not breaking, then the floor where the egg breaks is F.
 
 and since its looping twice then it is 0(n^2)
+
+Use Binary search.
 
