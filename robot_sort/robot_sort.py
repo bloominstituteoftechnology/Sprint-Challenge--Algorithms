@@ -98,6 +98,7 @@ class SortingRobot:
         """
         # Fill this out
         self.set_light_on()
+        
         while self.light_is_on():
             self.swap_item()
             while self.can_move_right():
