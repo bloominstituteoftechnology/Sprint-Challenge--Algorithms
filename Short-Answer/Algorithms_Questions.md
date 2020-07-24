@@ -20,7 +20,7 @@ b)  sum = 0
         j *= 2
         sum += 1
 ```
-
+                                                                                                                                                                                         
 ```
 c)  def bunnyEars(bunnies):
       if bunnies == 0:
