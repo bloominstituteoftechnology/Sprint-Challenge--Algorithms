@@ -101,23 +101,33 @@ class SortingRobot:
         # load swap
         self.swap_item()
         # grab list
-        for _ in range(0, len(self._list)):
-            # move left
-            while self.can_move_left():
-                self.move_left()
-                # compare items
-                if self.compare_item() == -1:
-                    self.swap_item()
+        for i in range(0, len(self._list)):
             # move right
             while self.can_move_right():
                 self.move_right()
                 if self.compare_item() == -1:
                     self.swap_item()
+                else:
+                    self.move_right()
+            # compare items and move them
+            if self.compare_item() == 1:
+                self.swap_item()
+                self.move_left()
+                self.swap_item()
+                self.move_right()        
+            # move left
+            while self.can_move_left():
+                self.move_left()
+                # compare items
+                if self.compare_item() == 1:
+                    self.swap_item()
+                else:
+                    self.move_left()
+      
         # power light off
         self.set_light_off()
         self.swap_item()
         pass
-
 
 
 if __name__ == "__main__":
