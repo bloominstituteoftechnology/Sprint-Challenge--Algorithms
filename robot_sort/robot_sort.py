@@ -96,8 +96,64 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # Quick Solution:
+        # for i in range(len(l) - 1):
+        #     for j in range(0, len(l) - i - 1):
+        #         if l[j] > l[j + 1]:
+        #             l[j], l[j + 1] = l[j + 1], l[j]
+
+        # self.swap_item()
+        # print(self._item)
+        # for i in range(len(l) - 1):
+        #     self.moving_items_right(i)
+        #     self.moving_items_left(i)
+        #     return l
+
+        # for i in range(len(self._list) - 1):
+        #     (self.swap_item(), self.moving_items_right(), self.moving_items_left()) * i
+        
+        # ABOVE FOR LOOP WORKS, BUT WANT BOTTOM ONE TO WORK BECAUSE IT DOESN'T BREAK RULES
+
+        for i in range(len(l) - 1):
+            (self.swap_item(), self.moving_items_right(), self.moving_items_left()) * i
+
+
+        # if (self.move_left() and self.light_is_on(), not self.light_is_on(), self.move_right() and self.light_is_on()):
+        #     self.sort
+            # self.moving_items_left()
+            # self.moving_items_right()
+
+    def moving_items_right(self, item=None):
+        if self.can_move_right():
+            self.move_right()
+            if not self.can_move_right(): # Means I'm at the end
+                if self.compare_item() == 1: # Greatest item in my hand
+                    self.swap_item()
+                    self.set_light_on() # Indicate this item goes here
+                self.set_light_on() # Greatest item was already here. Signify it stays
+                return
+            if self.compare_item() == -1:
+                self.swap_item() # Swapping my lesser item for the greater
+                self.moving_items_right() # Do this again and again until I hit the end and turn the light on.
+            elif self.compare_item() == 1:
+                self.moving_items_right()
+            elif self.compare_item() == 0:
+                self.moving_items_right()
+
+    def moving_items_left(self, item=None):
+        if self.can_move_left():
+            self.move_left()
+            if not self.can_move_left(): # Means I'm at the beginning
+                if self.compare_item() == None: # I took it in the beginning
+                    self.swap_item()
+                    self.set_light_on() # Indicate this item goes here
+            if self.compare_item() == 1:
+                self.swap_item() # Swapping my greater item for the lesser
+                self.moving_items_left() # Do this again and again until I hit the end and turn the light on.
+            elif self.compare_item() == -1:
+                self.moving_items_left()
+            elif self.compare_item() == 0:
+                self.moving_items_left()
 
 
 if __name__ == "__main__":
@@ -110,3 +166,54 @@ if __name__ == "__main__":
 
     robot.sort()
     print(robot._list)
+
+    '''
+PLAN
+    1. Check where I am at
+        - Check left to verify I am at start
+        - Check right to make sure I can move right
+            - Should find out I am at the beginning of the list.
+
+    2. Pick up the item at current position. (This should be item at index 0)
+
+    3. (First case exception where I don't check if I can move right) Normally
+    will check if I can move right or not.
+
+    4. Move to next position
+
+    5. Check if I can move right again
+        - If I am at the very end I do not need to swap items if the item on the ground happens to be greater.
+            This means the greatest number was found at the end and I don't want to swap it with my item
+            just to swap it back. Wasting moves.
+
+    6. Compare the item in my hand to the item on the ground.
+        - If the item in my hand < the item on the ground
+            - Swap
+        - Else
+            - My item is greater so I keep it
+        - Check right
+            - Move right if there is space 
+
+    7. Repeat steps 3, 4 & 5 until I reach the end.
+
+    8. Once I am at the end I either swap to put the greatest item down or leave the item on the ground there
+    because it is the greatest item.
+        - I want to turn my light on indicating this number goes in this spot.
+
+    9. Check if I can go left
+        - Move position left.
+
+    10. Check I can go left again
+
+    11. Compare the item in my hand to the item on the ground.
+        - If the item in my hand > the item on the ground
+            - Swap
+        - Else
+            - My item is less so I keep it
+
+    12. Repeat step 9, 10 & 11 until I reach the other end.
+
+    13. Once I am at the beginning again I compare my items to see if I want to swap
+    or not (I either have the most less number or it is on the ground).
+        - I turn my light on to indicate this number goes in this spot.
+'''
