@@ -112,12 +112,13 @@ class SortingRobot:
                 return
             # Otherwise, start going left
             while self.move_left():
-                # If the item is not None, keep going left
-                # Else
+                # Once we find a `None`, stop
                 if self.compare_item() is None:
                     # place down the item and move one place to the right
                     self.swap_item()
                     self.move_right()
+                    # Moving to the right is important, because it means that our robot
+                    # will start out on the first unsorted item
                     break
 
 
