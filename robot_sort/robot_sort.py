@@ -102,26 +102,34 @@ class SortingRobot:
         # mark the first element as sorted
         # for every item starting with the second element
         # take hold
-        while self.can_move_left() == True:
-            self.swap_item()
-            self.move_left()
-
+        # while light is off, turn it on
+        while self.light_is_on() == False:
+            self.set_light_on()
         # move left until the robot finds out where it belongs
         # if he is not at the begining and the current item
         # is less than sorted
-        if self.compare_item() < 0:
-            self.swap_item()
+        # while able to move left, swap current item and move to left
+            while self.can_move_left() == True:
+                self.swap_item()
+                self.move_left()
+             # if current item < 0 (nothing), swap current item and turn light off
+                if self.compare_item() < 0:
+                    self.swap_item()
+                    self.set_light_off()
 
-            self.move_right()
-            self.swap_item()
-            self.move_left()
+                # move right. if there is an item: grab it.
+                # then move left -
+                self.move_right()
+                self.swap_item()
+                self.move_left()
 
-    #  repeat steps for right
+     # ^ repeat steps for right
             while self.can_move_right() == True:
                 self.swap_item()
                 self.move_right()
                 if self.compare_item() > 0:
                     self.swap_item()
+                    self.set_light_off()
                 self.move_left()
                 self.swap_item()
                 self.move_right()

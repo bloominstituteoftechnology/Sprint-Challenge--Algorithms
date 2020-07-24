@@ -16,7 +16,7 @@ doubling the size of j. This double the size of the incrementer
 making it O(log n).
 
 c) O(n)
-This is a recurse call and it relies on the input.
+This is a recursive call and it relies on the input.
 
 ## Exercise II
 
