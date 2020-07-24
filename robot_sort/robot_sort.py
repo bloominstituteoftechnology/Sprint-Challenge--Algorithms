@@ -9,11 +9,17 @@ class SortingRobot:
         self._light = "OFF"     # The state of the robot's light
         self._time = 0          # A time counter (stretch)
 
+# it has lists in his hand
+# the item that it is holding is none
+# the position of this robot is no where forward
+
     def can_move_right(self):
         """
         Returns True if the robot can move right or False if it's
         at the end of the list.
         """
+        
+
         return self._position < len(self._list) - 1
 
     def can_move_left(self):
@@ -97,9 +103,39 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        while self.can_move_right():
+                # if the item to compare is none we wil swap
+            if self.compare_item() == None:
+                self.swap_item()
+            # after swapping we will movie forward
+            self.move_right()
+            # if the compare item is existing 
+            if self.compare_item() == 1:
+                # turn the light on to tru 
+                self.set_light_on()
+                # drop the item 
+                self.swap_item()
+                # move left
+                self.move_left()
+                # drop the item
+                self.swap_item()
+                # move right
+                self.move_right()
+                # drop the item
+                self.swap_item()
+            else:
+                # move left
+                self.move_left()
+                self.swap_item()
+                self.move_right()
 
-
+            if self.can_move_right() == False:
+                if self.light_is_on():
+                    self.set_light_off()
+                else:
+                    return
+                while self.can_move_left():
+                    self.move_left()
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
