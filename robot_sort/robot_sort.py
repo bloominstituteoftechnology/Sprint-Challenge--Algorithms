@@ -56,7 +56,7 @@ class SortingRobot:
         This will increment the time counter by 1.
         """
         self._time += 1
-        print(self._item, ' switching with ', self._list[self._position])
+        # print(self._item, ' switching with ', self._list[self._position])
         self._item, self._list[self._position] = self._list[self._position], self._item
 
     def compare_item(self):
@@ -93,35 +93,48 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
-        """
-        Sort the robot's list.
-        """
-        # Fill this out
-        # Traverse through all elements
-        for i in range(len(self._list)):
-            self.set_light_off() 
+        self.set_light_on()
 
-            # Last i elements are already in place 
-            for j in range(0, (len(self._list))-i-1): 
-
-                print(" I am holding ", self._item)
-                print("if ", self._item, " greater than ", self._list[self._position], " SWAP!")
-
-                if self.compare_item() == 1:
-                    print("Dropping ", self._item)
-                    self.swap_item()
-                    # light on - means Robot has swapped,
-                    # he's still working- don't leave the loop!
-                    self.set_light_on()
-                elif self.compare_item() is None:
-                    self._item = self._list[j]
-
-                if self.can_move_right() == True:
-                    self.move_right()
-                    
+        while self.light_is_on():
+            self.set_light_off()
+            # needs to be off again to use as "swapped" boolean later
             
-            if self.light_is_on() == False:
-                break
+            # right loop, includes swaps
+            while self.can_move_right():
+                    self.swap_item()
+                    self.move_right()
+                    # check its not None
+                    if self.compare_item() is not None:
+                        if self.compare_item() >= 0:
+                            # holding something greater:
+                            self.fix_order()
+                        else:
+                            # holding something less:
+                            self.put_back()
+
+            # left loop used only to repeat right
+            while self.can_move_left():
+                self.move_left()
+
+    def put_back(self):
+        self.move_left()
+        self.swap_item()
+        self.move_right()
+    
+    def fix_order(self):
+        self.swap_item()
+        self.put_back()
+        self.set_light_on()
+
+        
+
+
+    
+
+
+
+    
+        
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
