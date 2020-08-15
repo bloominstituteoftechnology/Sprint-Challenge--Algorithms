@@ -96,8 +96,45 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # Based on the given instructions and methods, we need to program this robot to
+        # sort lists from lowest to highest using only the provided abilities.
+
+        # Plan
+        # Turn the robot's light on to start the program and begin sorting.
+
+        # While the robot is running, the robot should pick up the first item in the list and drop the None value (swap).
+        # If the robot can move right, it should move right, then compare the value of what it is holding to the value in front of it. 
+        # If the value held is greater than the value in front of it, it should swap and now hold the lower value.
+        # Once the robot finishes moving right, it should be holding the lowest value in the array. 
+        # At this point, the robot should then start moving left, back towards the None value. Once it reaches the None value,
+        # swap the value it's holding (which should be the lowest value) with the None value and move the None value one position
+        # to the right. This swap will thereby separate the sorted array from the unsorted array.
+
+        # This process should be repeated until the None value is at the rightmost position, indicating that the full list has been sorted.
+
+        # The robot should then switch off its light, indicating the sort is complete and the program can terminate.
+
+        self.set_light_on()
+
+        while self.light_is_on():
+            self.swap_item()
+
+            while self.can_move_right():
+                self.move_right()
+
+                if self.compare_item() == 1:
+                    self.swap_item()
+
+            while self.can_move_left() and self.compare_item() is not None:
+                self.move_left()
+
+            self.swap_item()
+
+            if self.can_move_right():
+                self.move_right()
+
+            else:
+                self.set_light_off()
 
 
 if __name__ == "__main__":
