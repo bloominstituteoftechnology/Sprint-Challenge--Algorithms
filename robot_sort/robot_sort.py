@@ -133,26 +133,19 @@ class SortingRobot:
                 self.move_left()
                 self.swap_item()
                 self.move_right()
-            elif self.compare_item() == -1:
-                #if -1 (less than)
-                    #move left, swap, start loop over
+            else:
                 self.move_left()
                 self.swap_item()
                 self.move_right()
-            #this is implicit, don't code
-                #if 0 (equal)
-                    #start loop over
-                    
-        while self.can_move_left():
-            self.move_left()
-        # if self.light_is_on():
-        #     #reset the arm
-        #     #call bubble sort
-        #     # TODO make this better, sort on the way back
-        #     while self.can_move_left(): 
-        #         self.move_left()
-        #     self.set_light_off()
-        #     self.bubble_sort()
+
+        if self.light_is_on():
+            #reset the arm
+            #call bubble sort
+            # TODO make this better, sort on the way back
+            while self.can_move_left(): 
+                self.move_left()
+            self.set_light_off()
+            self.bubble_sort()
 
         #implicit, no need to code, this means obj can only sort once
         # TODO consider making your sort position agnostic
@@ -164,10 +157,6 @@ class SortingRobot:
         Sort the robot's list.
         """
         self.bubble_sort()
-        while self.light_is_on():
-            self.set_light_off()
-            self.bubble_sort()
-
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
