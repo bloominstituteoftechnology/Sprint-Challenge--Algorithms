@@ -96,9 +96,32 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # Light on starts the while loop. Turning it off stops it.
+        self.set_light_on()
+        while self.light_is_on():
+            # Grab the first item
+            self.swap_item()
 
+            # Start moving to the end of the array as far as you can.
+            while self.can_move_right():
+                self.move_right()
+                # For each step, swap if the encountered item is bigger. Leave it if it's smaller.
+                if self.compare_item() == 1 and self.compare_item() is not None:
+                    self.swap_item()
+
+            # Now that you're at the end of the array it's time to walk it back.
+            while self.can_move_left():
+                self.move_left()
+                
+            # Ok, we're back at the beginning. Move back to the right and find the smallest item to swap.
+            while self.can_move_right() and self.compare_item() is not None:
+                self.move_right()
+            self.swap_item()
+
+            # Move into it's position and turn off your light if you can't move to the right anymore.
+            self.move_right()
+            if self.can_move_right() == False:
+                self.set_light_off()
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
