@@ -118,39 +118,50 @@ class SortingRobot:
             #sorting is done, you are done here
 
         # if can move right?
-        while self.can_move_right():
-            # Pick up element
-            self.swap_item()
-            # Move right
-            self.move_right()
-            # Compare element
-            if self.compare_item() == 1:
-                #if 1 (greater than)
-                    #swap element, turn light on, move left, swap element,
-                    #move right, start loop over
+        if self.can_move_right():
+            while self.can_move_right():
+                # Pick up element
                 self.swap_item()
-                self.set_light_on()
-                self.move_left()
-                self.swap_item()
+                # Move right
                 self.move_right()
-            else:
-                self.move_left()
+                # Compare element
+                if self.compare_item() == 1:
+                    #if 1 (greater than)
+                        #swap element, turn light on, move left, swap element,
+                        #move right, start loop over
+                    self.swap_item()
+                    self.set_light_on()
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                else:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+
+        # position agnostic check
+        elif self.can_move_left():
+            while self.can_move_left():
+                # Pick up element
                 self.swap_item()
-                self.move_right()
+                # Move left
+                self.move_left()
+                # Compare element
+                # if 1 (greater than)
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.set_light_on()
+                    self.move_right()
+                    self.swap_item()
+                    self.move_left()
+                else:
+                    self.move_right()
+                    self.swap_item()
+                    self.move_left()
 
         if self.light_is_on():
-            #reset the arm
-            #call bubble sort
-            # TODO make this better, sort on the way back
-            while self.can_move_left(): 
-                self.move_left()
             self.set_light_off()
             self.bubble_sort()
-
-        #implicit, no need to code, this means obj can only sort once
-        # TODO consider making your sort position agnostic
-        # else:
-            #sorting is done, you are done here
 
     def sort(self):
         """
