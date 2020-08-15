@@ -1,3 +1,15 @@
+"""
+Proposed Strategy
+
+* Model the robot sorting mechanism as a "bubble sort"
+* The robot will use its powers to compare adjacent list elements
+  as it traverses from left to right (`move_right` & `can_move_right` methods)
+* It will swap adjacent elements if the right element is less than the left element (`swap_item` method)
+* The robot will then shift back the beginning (far left) and repeat the process (`move_left` & `can_move_left` methods)
+* When a left to right pass has been completed without a swap, the sorting process is done
+    * The robot can use it's memory capability (`set_light_on`, `set_light_off`, `light_is_on` methods)
+"""
+
 class SortingRobot:
     def __init__(self, l):
         """
@@ -92,12 +104,37 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+    def back_to_start(self):
+        # Can we move left? If so, repeated move to the left
+        while self.can_move_left():
+            self.move_left()
+
+        # Can't move any further left
+        return
+
+    
+
     def sort(self):
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+
+        # Compare item with current element
+        if self.compare_item() == None:
+            # item/current = None
+            # swap item and current
+            self.swap_item()
+
+        # Move to the right
+        # Can the robot move to the right?
+        if self.can_move_right():
+            # Yes, move to the right one
+            self.move_right()
+        else:
+            # Can no longer move to the right
+            # 
+
+
 
 
 if __name__ == "__main__":
