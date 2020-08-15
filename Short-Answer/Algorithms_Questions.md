@@ -14,11 +14,11 @@ a)  a = 0
 
 ```
 b)  sum = 0
-    for i in range(n):
-      j = 1
-      while j < n:
-        j *= 2
-        sum += 1
+    for i in range(n): 0(n)
+      j = 1             0(1)
+      while j < n:      0(n)
+        j *= 2          0(1)
+        sum += 1        0(1)
 ```
 
 ```
