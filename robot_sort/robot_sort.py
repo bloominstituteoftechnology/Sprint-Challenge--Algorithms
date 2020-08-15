@@ -96,9 +96,12 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        n = len(l)
 
+        for i in range(l-1):
+            for j in range(0, n-i-1):
+                if l[j] > l[j+1]:
+                    l[j], l[j+1] = l[j+1], l[j]
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
