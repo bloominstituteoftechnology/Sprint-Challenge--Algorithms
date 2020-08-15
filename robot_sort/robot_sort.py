@@ -97,7 +97,20 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        # for every i in length of list
+        for i in range(len(l)):
+            # for every j in range starting at 1, length of list - i
+            for j in range(1, len(l)-i):
+                # if j -1 left is less than l right 
+                if l[j-1] > l[j]:
+                    # trying to change this -- "You may NOT store any variables. (=)"
+                    l[j-1], l[j] = l[j], l[j-1]
+                    
+        return l
+
+       
+       
+     
 
 
 if __name__ == "__main__":
