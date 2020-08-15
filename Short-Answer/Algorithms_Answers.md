@@ -12,4 +12,12 @@ c) A recursive function which will always recurse `n` times and `n + 1` iteratio
 
 ## Exercise II
 
+The question essentially ask for an implementation of the binary search algorithm which has a linear runtime complexity. O(n)
+
+#### Implementation
+
+- Find the middle floor of the building by dividing the total number of floors by 2
+- If the egg breaks at that height, find the next middle floor, if it does not break go up to the floor half way between current floor and the roof.
+- Repeat until egg breaks after having not broken
+
 
