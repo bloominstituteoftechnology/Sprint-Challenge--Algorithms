@@ -142,15 +142,17 @@ class SortingRobot:
             #this is implicit, don't code
                 #if 0 (equal)
                     #start loop over
-
-        if self.light_is_on():
-            #reset the arm
-            #call bubble sort
-            # TODO make this better, sort on the way back
-            while self.can_move_left(): 
-                self.move_left()
-            self.set_light_off()
-            self.bubble_sort()
+                    
+        while self.can_move_left():
+            self.move_left()
+        # if self.light_is_on():
+        #     #reset the arm
+        #     #call bubble sort
+        #     # TODO make this better, sort on the way back
+        #     while self.can_move_left(): 
+        #         self.move_left()
+        #     self.set_light_off()
+        #     self.bubble_sort()
 
         #implicit, no need to code, this means obj can only sort once
         # TODO consider making your sort position agnostic
@@ -162,6 +164,9 @@ class SortingRobot:
         Sort the robot's list.
         """
         self.bubble_sort()
+        while self.light_is_on():
+            self.set_light_off()
+            self.bubble_sort()
 
 
 if __name__ == "__main__":
