@@ -36,6 +36,7 @@ class Test(unittest.TestCase):
         robot.sort()
         self.assertEqual(robot._list, sorted(self.small_neg))
 
+    # added by felix for debugging
     def test_sorting_duplicates_negative_list(self):
         robot = SortingRobot(self.medium_neg)
         robot.sort()
