@@ -14,7 +14,7 @@ def count_th(word):
             return 0
     else:
         front = word[:2] #slice of the first two letters
-        print(front)
+        #print(front)
         if front == 'th':
             back = word[2:] #because if front is th, we can skip the second char
             return 1 + count_th(back)
