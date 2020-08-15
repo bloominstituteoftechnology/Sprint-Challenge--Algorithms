@@ -2,7 +2,7 @@
 
 ## Exercise I
 
-a)
+a) O(n) = The runtime complexity depends on the values of n
 
 
 b)
