@@ -10,7 +10,7 @@ a)  a = 0
     while (a < n * n * n):
       a = a + n * n
 ```
-
+0(n)
 
 ```
 b)  sum = 0
