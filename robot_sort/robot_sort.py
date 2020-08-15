@@ -118,39 +118,39 @@ class SortingRobot:
             #sorting is done, you are done here
 
         # if can move right?
-        while can_move_right():
+        while self.can_move_right():
             # Pick up element
-            swap_item()
+            self.swap_item()
             # Move right
-            move_right()
+            self.move_right()
             # Compare element
-            if compare_item() == 1:
+            if self.compare_item() == 1:
                 #if 1 (greater than)
                     #swap element, turn light on, move left, swap element,
                     #move right, start loop over
-                swap_item()
-                set_light_on()
-                move_left()
-                swap_item()
-                move_right()
-            elif compare_item == -1:
+                self.swap_item()
+                self.set_light_on()
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+            elif self.compare_item() == -1:
                 #if -1 (less than)
                     #move left, swap, start loop over
-                move_left()
-                swap()
-                move_right()
+                self.move_left()
+                self.swap_item()
+                self.move_right()
             #this is implicit, don't code
                 #if 0 (equal)
                     #start loop over
 
-        if light_is_on():
+        if self.light_is_on():
             #reset the arm
             #call bubble sort
             # TODO make this better, sort on the way back
-            while can_move_left(): 
-                move_left()
-            set_light_off()
-            bubble_sort()
+            while self.can_move_left(): 
+                self.move_left()
+            self.set_light_off()
+            self.bubble_sort()
 
         #implicit, no need to code, this means obj can only sort once
         # TODO consider making your sort position agnostic
@@ -161,7 +161,7 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        pass
+        self.bubble_sort()
 
 
 if __name__ == "__main__":
