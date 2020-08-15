@@ -92,13 +92,82 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+    def bubble_sort(self):
+        # okay the goal is to get an mvp, and I have one bit of memory
+        # (the light), so bubble sort seems like a good fit for a quick and
+        # dirty version.
+
+        # Okay so when you swap the first item, it puts a "none" down.
+        # So we have to pick item up, move right one, compare.
+
+        # So lets talk this out. Robot starts at position 0
+        # if can move right?
+            # Pick up element
+            # Move right
+            # Compare element
+                #if 1 (greater than)
+                    #swap element, turn light on, move left, swap element,
+                    #move right, start loop over
+                #if 0 (equal)
+                    #start loop over
+                #if -1 (less than)
+                    #move left, swap, move right, start loop over
+        # elif light is on
+            #run bubble_sort again (call function)
+        # else:
+            #sorting is done, you are done here
+
+        # if can move right?
+        if self.can_move_right():
+            while self.can_move_right():
+                # Pick up element
+                self.swap_item()
+                # Move right
+                self.move_right()
+                # Compare element
+                if self.compare_item() == 1:
+                    #if 1 (greater than)
+                        #swap element, turn light on, move left, swap element,
+                        #move right, start loop over
+                    self.swap_item()
+                    self.set_light_on()
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                else:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+
+        # position agnostic check
+        elif self.can_move_left():
+            while self.can_move_left():
+                # Pick up element
+                self.swap_item()
+                # Move left
+                self.move_left()
+                # Compare element
+                # if 1 (greater than)
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.set_light_on()
+                    self.move_right()
+                    self.swap_item()
+                    self.move_left()
+                else:
+                    self.move_right()
+                    self.swap_item()
+                    self.move_left()
+
+        if self.light_is_on():
+            self.set_light_off()
+            self.bubble_sort()
+
     def sort(self):
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
-
+        self.bubble_sort()
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
