@@ -92,11 +92,36 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+    def bubble_sort(self):
+        # okay the goal is to get an mvp, and I have one bit of memory
+        # (the light), so bubble sort seems like a good fit for a quick and
+        # dirty version.
+
+        # Okay so when you swap the first item, it puts a "none" down.
+        # So we have to pick item up, move right one, compare.
+
+        # So lets talk this out. Robot starts at position 0
+        # if can move right?
+            # Pick up element 0
+            # Move right
+            # Compare element
+                #if 1 (greater than)
+                    #swap element, turn light on, move left, swap element,
+                    #move right, start loop over
+                #if 0 (equal)
+                    #start loop over
+                #if -1 (less than)
+                    #move left, swap, start loop over
+        # elif light is on
+            #run bubble_sort again (call function)
+        # else:
+            #sorting is done, you are done here
+
+
     def sort(self):
         """
         Sort the robot's list.
         """
-        # Fill this out
         pass
 
 
