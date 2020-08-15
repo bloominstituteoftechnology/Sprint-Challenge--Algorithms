@@ -96,9 +96,35 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # call swap_item to grab the first item
+        # and turn on light because it's holding an item?
+        self.swap_item()
+        self.set_light_on()
+        # if the item in front is less than the item it's holding -> swap
+        # if the item in front is the same or greater, do nothing
+        if self.can_move_right():
+            self.move_right()
+            if self.compare_item() == -1:
+                self.swap_item()
+                self.move_right()
+            else:
+                self.move_right()
+        else:
+            self.swap_item()
+            self.move_left()
+            if self.can_move_left:
+                if self.compare_item() == -1:
+                    self.move_left()
+                else:
+                    self.swap_item()
+                    self.move_left()
+            else:
+                self.swap_item()
+                self.move_right()
 
+
+        # if the light is ON...the robot is holding the item from the previous position
+        pass
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
@@ -110,3 +136,11 @@ if __name__ == "__main__":
 
     robot.sort()
     print(robot._list)
+
+    """
+    the robot is initially holding the item at index 0 
+    where it starts and must first compare it to the item at index 1. 
+    If the one it’s holding is larger than the one in index 1, 
+    it swaps (picks up the item at index 1 and moves it to index 0 
+    but holds on to the item it started with, otherwise moves right.
+    """
