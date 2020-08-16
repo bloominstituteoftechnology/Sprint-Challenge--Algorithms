@@ -21,6 +21,9 @@ class SortingRobot:
         self._light = "OFF"     # The state of the robot's light
         self._time = 0          # A time counter (stretch)
 
+    def foo(self):
+        pass
+    
     def can_move_right(self):
         """
         Returns True if the robot can move right or False if it's
@@ -109,33 +112,66 @@ class SortingRobot:
         while self.can_move_left():
             self.move_left()
 
-        # Can't move any further left
+        # Can't move any further left; should be back at the start of the list
         return
 
-    
+    # process_elm_pairs proceses adjacent element
+    def process_elm_pairs(self):
+        # Can the robot move to the right?
+        if not self.can_move_right:
+            # Can't move to the right, no processing can be done
+            return
+
+        self.swap_item()        # swap: item = #1 val; #1 elm = None
+        self.move_right()       # move right: (pos = #2 elm)
+
+        # Is the item (#1 val) > #2 val?
+        if self.compare_item() == 1:
+            # Yes, the item (#1 val) > #2 val
+            self.swap_item()    # swap: #2 elm = #1 val; item = #2 val
+            self.set_light_on() # turn on the robot's light
+            self.move_left()    # move left: pos = #1 elm
+            self.swap_item()    # swap: #1 elm = #2 val; item = None
+            self.foo()
+        else:
+            # Yes, the item (#1 val) < #2 val
+            #   item back to None
+            self.move_left()    # move left: pos = #1 elm
+            self.swap_item()
+            self.foo()
+
+        # Move back again to the right (to pos: #2 elm)
+        self.move_right()
+
+        return
+
 
     def sort(self):
         """
         Sort the robot's list.
         """
 
-        # Compare item with current element
-        if self.compare_item() == None:
-            # item/current = None
-            # swap item and current
-            self.swap_item()
+        # Turn on the robot's light (proxy: swap indicator)
+        self.set_light_on()
 
-        # Move to the right
-        # Can the robot move to the right?
-        if self.can_move_right():
-            # Yes, move to the right one
-            self.move_right()
-        else:
-            # Can no longer move to the right
-            # 
+        # Iterate through the list comparing adjacent elements (call fn: process_elm_pairs)
+        while self.light_is_on():
+            self.set_light_off() 
 
+            # Traverse down the robot's list from left to right
+            while self.can_move_right():
+                # Process two adjacent list elements
+                self.process_elm_pairs()
 
+                # Can we move to the right?
+                if not self.can_move_right():
+                    # no: break out of the iteration
+                    break
 
+            # Has a swap been made in this traversal (light is on)?
+            if self.light_is_on():
+                # Swap made; shift to the beginning (far left) and iterate again
+                self.back_to_start()
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
