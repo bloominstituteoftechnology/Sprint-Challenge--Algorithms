@@ -2,14 +2,19 @@
 
 ## Exercise I
 
-a) I believe it would be constant. 
+a) I believe it would be constant so O(1)
 
 
-b)
+b) I beleive it would be logarithmic so O(log n)
 
 
-c)
+c) I believe it would be exponential so O(2^n)
 
 ## Exercise II
+
+I would start at the bottom floor and start counting at 1 until I made it to floor f.
+That way I would know the value of the floor under f.
+
+I beleive it the time complexity would be linear so O(n)
 
 
