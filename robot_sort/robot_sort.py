@@ -112,15 +112,17 @@ class SortingRobot:
                     self.swap_item()
 
             # Go back to the left side (but not as far as the None)
-            while self.can_move_left() and self.compare_item() is not None:
+            while self.compare_item() is not None:
                 self.move_left()
 
             # Swap the next item and go right while the light is on
             self.swap_item()
 
+            # Move right again and go through the list from there
             if self.can_move_right():
                 self.move_right()
 
+            # Exit out if you can't move right anymore
             else:
                 self.set_light_off()
  
