@@ -2,13 +2,13 @@
 
 ## Exercise I
 
-a)
+a) O(1) - this is constant, will only run onnce
 
 
-b)
+b) O(n log n)
 
 
-c)
+c) O(n) - the function runs n times.
 
 ## Exercise II
 
