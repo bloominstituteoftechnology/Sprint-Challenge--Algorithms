@@ -92,10 +92,13 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+    # This sort() method mimics Selection Sort
     def sort(self):
         """
         Sort the robot's list.
         """
+        # The robot starts at index 0, so if the robot cannot move right then there is
+        # at most one item in the list (i.e. the list is already sorted)
         if not self.can_move_right():
             return
 
