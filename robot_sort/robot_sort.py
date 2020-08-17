@@ -93,6 +93,9 @@ class SortingRobot:
         return self._light == "ON"
 
     # This sort() method mimics Selection Sort
+    # Time Complexity: O(n^2)
+    # Space Complexity: O(1)
+    # Selection sort always performs O(n^2) comparisons, but only O(n) swaps (somewhere between 0 - n)
     def sort(self):
         """
         Sort the robot's list.
