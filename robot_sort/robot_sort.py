@@ -111,14 +111,14 @@ class SortingRobot:
                 if self.compare_item() == 1:
                     self.swap_item()
 
-            # Go back to the left side (but not as far as the None)
+            # Go back to the left side (but not as far as the None, since it is the last value on the right)
             while self.compare_item() is not None:
                 self.move_left()
 
-            # Swap the next item and go right while the light is on
+            # Swap the lowest value being held and go to the next item and go right while the light is on
             self.swap_item()
 
-            # Move right again and go through the list from there
+            # Move right again and go through the loop again
             if self.can_move_right():
                 self.move_right()
 
