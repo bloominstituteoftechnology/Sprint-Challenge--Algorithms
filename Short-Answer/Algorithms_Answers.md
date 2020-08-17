@@ -2,7 +2,7 @@
 
 ## Exercise I
 
-a)
+a) I believe it would be constant. 
 
 
 b)
