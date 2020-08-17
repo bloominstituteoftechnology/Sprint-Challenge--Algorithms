@@ -2,13 +2,13 @@
 
 ## Exercise I
 
-a)
+a) linear complexity, O(n) because there is one input and one output
 
 
-b)
+b) Quadratic Complexity, O(n^2) becuase the for while iterates n * the number of for loops. n * n 
 
 
-c)
+c) Logorithmic complexity, O(log n) 
 
 ## Exercise II
 
