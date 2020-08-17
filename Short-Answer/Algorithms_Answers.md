@@ -17,15 +17,20 @@ c) It is recursive, so it has the potential to make the time complexity pretty h
 
 ## Exercise II
 
-number_of_eggs = some number
-n = some number
-f = some number
+def determine_the_floor(n, f):
+    first step is to divide the floors in half and keep 
+    --- each if equals an egg drop! --- 
+    check to see if the halfway point (the lower bound of the top half) breaks the egg:
+    if not:
+        divide the top half in half (n - n//2) and do it again recursively
+    if so:
+        check if the floor you're on == f (the floor that eggs start breaking)
+        if it is:
+            return f
+        if not:
+            divide that bottom half in half (n//2) recursively and test again
 
-call a function find_the_floor(n, f):
-    n = n // 2 <---- divide the number of floors in half to determine if f is in upper or lower bound
-    drop one egg
-    if div is less than f (or in other words, if the egg doesn't break):
-        div = 
+    all of that runs until you find the value. You are getting rid of large chunks of floors
+    and narrowing it down quicker than floor by floor working your way up. 
 
-
-
+    because we have an if nested inside another, we have a runtime complexity of O(n*n), so O(n^2)
