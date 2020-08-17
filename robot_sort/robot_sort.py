@@ -91,13 +91,54 @@ class SortingRobot:
         Returns True if the robot's light is on and False otherwise.
         """
         return self._light == "ON"
+    def merge(arrA, arrB):
+        '''
+          function  to merge 2 sorted arrays
+        '''
+        elements = len(arrA) + len(arrB)
+        merged_arr = [0] * elements
+        i=j = k = 0
+        while i < len(arrA) and j < len(arrB):
+        #compare two array
+            if arrA[i] > arrB[j]:
+                #store smaller element
+                merged_arr[k] = arrB[j]
+                j +=1
+            else:
+                merged_arr[k] = arrA[i]
+                i +=1
+            k +=1
+        #store remaining element of first array
+        while i < len(arrA):
+            merged_arr[k] = arrA[i]
+            i +=1
+            k +=1 
+
+        #store remaining element of second array
+        while j < len(arrB):
+            merged_arr[k] = arrB[j]
+            k += 1
+            j +=1
+        
+        return merged_arr
 
     def sort(self):
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        #if length of array is grater than 1
+        #sliced  the array in to halves
+        if len(self._list)<=1:
+            return l
+            #Find the the middle part of the arr
+        mid = len(self._list)//2
+        self._list = self._list[:mid]
+        right_array = self._list[mid:]
+        # resursive call the function on left and right array 
+        x = self.sort(left_array) 
+        y = self.sort(right_array)
+        self._list =  merge(x, y)
+        return self._list
 
 
 if __name__ == "__main__":
