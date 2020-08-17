@@ -110,7 +110,7 @@ class SortingRobot:
                     self.swap_item()
             # The robot is now at the end of the list and holding the smallest item
 
-            # Traverse left to where this latest iteration started
+            # Traverse left to the index where this latest iteration started
             while self.compare_item() != None:
                 self.move_left()
 
