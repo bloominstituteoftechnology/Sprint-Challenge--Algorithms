@@ -96,8 +96,29 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+
+        # base case - if robot can't move any further to the right after all his movement during recursion
+        if self.can_move_right() == False:
+            return 
+        # pick up the item
+        self.swap_item()
+        # move right and compare till can move right
+        while self.can_move_right():
+            # if he holds the smallest number then move left till the end, 
+            # drop this number on the first position and move one step right + pick up next number
+            # (recursive where the fist element will +1)
+            # =======
+            # if he find smaller number then swap and move right and compare till he finds the smallest
+            # swap with the smallest
+            self.move_right()
+            if self.compare_item() == 1:
+                self.swap_item()
+        while self.can_move_left() and self.compare_item() is not None:
+            self.move_left()
+        self.swap_item()
+        self.move_right()
+        self.sort()
+
 
 
 if __name__ == "__main__":
