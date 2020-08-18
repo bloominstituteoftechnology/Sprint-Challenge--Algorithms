@@ -111,7 +111,7 @@ class SortingRobot:
         # Light Off Compare >, Light On Compare >
        
       
-      
+        #When robot's light is on, the list is unsorted. 
         self.set_light_on()
         
         self.swap_item()
