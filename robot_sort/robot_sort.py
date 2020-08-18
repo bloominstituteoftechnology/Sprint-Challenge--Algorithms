@@ -98,6 +98,40 @@ class SortingRobot:
         """
         # Fill this out
         pass
+        
+        
+        #Describe Bubble Sort
+        ##Bubble sort works by comparing each element to it's neigbor
+        #If the second index is smaller than the first index, swap the two indices
+        #If you reach the end of the array, start again
+        # Robot starts at position 0 
+        # Pick up current card and check to see if robot can move right
+        # Compare Card and if Card is Higher, swap card out
+        # Move all the way in one direction doing swap
+        # Light Off Compare >, Light On Compare >
+       
+      
+      
+        self.set_light_on()
+        
+        self.swap_item()
+        
+        while self.light_is_on():
+            
+            while self.move_right():
+                if self.compare_item() == 1:
+                    self.swap_item()
+            if self.compare_item() is None:
+                self.swap_item()
+                self.set_light_off()
+                break
+            else:
+                while self.move_left():                # Compare Card and if Card is Higher, swap card out
+                    if self.compare_item() is None:    # Move all the way in one direction doing swap
+                        self.swap_item()
+                        self.move_right()
+                        self.swap_item()
+                        break
 
 
 if __name__ == "__main__":
