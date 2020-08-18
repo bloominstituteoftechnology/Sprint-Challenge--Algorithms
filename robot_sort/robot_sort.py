@@ -96,17 +96,61 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # call swap_item to grab the first item
+        # and turn on light because it's holding an item?
+
+        # if the item in front is less than the item it's holding -> swap
+        # if the item in front is the same or greater, do nothing
+
+        # while light is on, move right
+        # if light is off move left
+
+        self.set_light_on()
+
+        for i in range(len(self._list)*(len(self._list)-1)//2+1):
+
+            while self.light_is_on():
+                if self.can_move_right():
+                    if self.compare_item() == -1 or self.compare_item() is None:
+                        self.swap_item()
+                        self.move_right()
+                    else:
+                        self.move_right()
+                else:
+                    self.swap_item()
+                    self.move_left()
+                    self.set_light_off()
+
+            while not self.light_is_on():
+                if self.can_move_left():
+                    if self.compare_item() == 1 or self.compare_item() is None:
+                        self.swap_item()
+                        self.move_left()
+                    else:
+                        self.move_left()
+                else:
+                    self.swap_item()
+                    self.move_right()
+                    self.set_light_on()
+
+        # if the light is ON...the robot has reached the end
 
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
-
+#    l = [5, 4, 2, 1, 3]
     l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
 
     robot = SortingRobot(l)
 
     robot.sort()
     print(robot._list)
+
+    """
+    the robot is initially holding the item at index 0 
+    where it starts and must first compare it to the item at index 1. 
+    If the one it’s holding is larger than the one in index 1, 
+    it swaps (picks up the item at index 1 and moves it to index 0 
+    but holds on to the item it started with, otherwise moves right.
+    """
