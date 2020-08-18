@@ -12,7 +12,6 @@ def count_th(word):
         return 0
     else:
         new_word = word.replace("th", "", 1)
-        print(new_word)
         return count_th(new_word) + 1
 
 word = "abcthefthghith"
