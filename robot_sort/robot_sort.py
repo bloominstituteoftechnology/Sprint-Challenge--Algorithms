@@ -98,15 +98,15 @@ class SortingRobot:
         """
         # Fill this out
         # for every i in length of list
-        for i in range(len(l)):
+        for i in range(len(self._list)):
             # for every j in range starting at 1, length of list - i
-            for j in range(1, len(l)-i):
+            for j in range(1, len(self._list)-i):
                 # if j -1 left is less than l right 
-                if l[j-1] > l[j]:
-                    # trying to change this -- "You may NOT store any variables. (=)"
-                    l[j-1], l[j] = l[j], l[j-1]
+                if self._list[j-1] > self._list[j]:
+                    # trying to change this -- "You may NOT store any variables. "
+                    self._list[j-1], self._list[j] = self._list[j], self._list[j-1]
                     
-        return l
+        return self._list
 
        
        
