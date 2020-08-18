@@ -91,54 +91,61 @@ class SortingRobot:
         Returns True if the robot's light is on and False otherwise.
         """
         return self._light == "ON"
-    def merge(arrA, arrB):
-        '''
-          function  to merge 2 sorted arrays
-        '''
-        elements = len(arrA) + len(arrB)
-        merged_arr = [0] * elements
-        i=j = k = 0
-        while i < len(arrA) and j < len(arrB):
-        #compare two array
-            if arrA[i] > arrB[j]:
-                #store smaller element
-                merged_arr[k] = arrB[j]
-                j +=1
-            else:
-                merged_arr[k] = arrA[i]
-                i +=1
-            k +=1
-        #store remaining element of first array
-        while i < len(arrA):
-            merged_arr[k] = arrA[i]
-            i +=1
-            k +=1 
 
-        #store remaining element of second array
-        while j < len(arrB):
-            merged_arr[k] = arrB[j]
-            k += 1
-            j +=1
-        
-        return merged_arr
 
     def sort(self):
         """
         Sort the robot's list.
         """
-        #if length of array is grater than 1
-        #sliced  the array in to halves
-        if len(self._list)<=1:
-            return l
-            #Find the the middle part of the arr
-        mid = len(self._list)//2
-        self._list = self._list[:mid]
-        right_array = self._list[mid:]
-        # resursive call the function on left and right array 
-        x = self.sort(left_array) 
-        y = self.sort(right_array)
-        self._list =  merge(x, y)
-        return self._list
+        # using Bubble sort
+
+        # Turn light on to enter the while loop for the first time
+        self.set_light_on()
+
+        # Enter the while loop to begin sorting
+        while self.light_is_on():
+
+            # Turn the light off so that if we don't swap anything
+            # it will exit the loop
+            self.set_light_off()
+
+            # Enter another while loop keep the robot moving right
+            # while it still can
+            while self.can_move_right():
+
+                # Pick up item / swap with item in hand (if has nothing in hand
+                # it will just pick up item and leave the space "empty" with a None
+                # value)
+                self.swap_item()
+
+                # Move to the right 
+                self.move_right()
+            
+                # Compare the item in inventory with the item in front of us
+                # If the item we are holding is larger than the item in front of 
+                # us (compare_item() method returns a 1):
+                if self.compare_item() == 1:
+                    # we want to swap (numbers to the left should be smaller)
+                    self.swap_item()
+                    # turn on the light to make sure it enters the loop again
+                    self.set_light_on()
+                
+                # Move to the left (regardless of if we have swapped because we need
+                # to put the item back)
+                self.move_left()
+                
+                # Put item down
+                self.swap_item()
+
+                # Move to the right to get ready to pick up the next item
+                self.move_right()
+
+            # now Robot is all the way to the right. We could make it move left and sort along
+            # the way, but I'm too lazy to type all of that our rn so I'm just going to have 
+            # it move to the beginning
+            while self.can_move_left():
+                self.move_left()
+
 
 
 if __name__ == "__main__":

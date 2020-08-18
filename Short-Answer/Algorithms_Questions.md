@@ -35,11 +35,4 @@ Suppose that you have an n-story building and plenty of eggs. Suppose also that 
 
 Write out your proposed algorithm in plain English or pseudocode AND give the runtime complexity of your solution.
 
-1) start from the middle floor f = n//2, 
-2) drop a egg
-3) check if the egg is broken or not
-4) if egg is  broken repeat  the same process for the left subarray of   n//2(0 to f-1)
-5) if egg is not broken repeat the process for  the right subarray of   n//2(f+1, n)
-6) Repeat step 1 to 5 until n = 0 or n= n
-
-Runtime complexity for this solution will be O(logn) 
+ 
