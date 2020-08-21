@@ -1,6 +1,6 @@
 class SortingRobot:
     def __init__(self, l):
-        """
+        """ 
         SortingRobot takes a list and sorts it.
         """
         self._list = l          # The list the robot is tasked with sorting
@@ -93,11 +93,32 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
-        """
-        Sort the robot's list.
-        """
-        # Fill this out
-        pass
+        # base case:
+        if self.can_move_right() == False:
+            return
+
+        self.swap_item() # pick up first item in list
+
+        while True:
+            # loop through to the last item in the list
+            while self.can_move_right():
+                self.move_right()
+                # compare item in robot hand with item in list. Swap if possible in order to hold the smallest item
+                if self.compare_item() == 1:
+                    self.swap_item()
+            # we are now at the end of the list and holding the smallest item
+
+            # loop left, swapping when we find smaller items
+            while self.compare_item() != None:
+                self.move_left()
+
+            self.swap_item() # Drop the smallest item in place
+
+            if not self.can_move_right():
+                return
+            self.move_right() # move right one item
+            self.swap_item() # pick it up
+
 
 
 if __name__ == "__main__":
