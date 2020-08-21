@@ -6,11 +6,10 @@ Give an analysis of the running time of each snippet of
 pseudocode with respect to the input size n of each of the following:
 
 ```python
-a)  a = 0
+a)  a = 0  O(n)
     while (a < n * n * n):
       a = a + n * n
 ```
-
 
 ```
 b)  sum = 0
@@ -21,6 +20,8 @@ b)  sum = 0
         sum += 1
 ```
 
+this is quadratic beacuse it had a for loop in and a while loop
+
 ```
 c)  def bunnyEars(bunnies):
       if bunnies == 0:
@@ -28,6 +29,8 @@ c)  def bunnyEars(bunnies):
 
       return 2 + bunnyEars(bunnies-1)
 ```
+
+exponential o(2^n) because runs twice each time function is called.
 
 ## Exercise II
 
