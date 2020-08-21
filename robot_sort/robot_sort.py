@@ -97,7 +97,92 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        # the robot's light "on" and "off" can indicate if/when a swap has occured
+        # We can begin by setting his light on to enter a loop that will begin the
+        # swapping process
+        self.set_light_on()
+
+        # we need to check each element agtainst its proceeding neighbor
+        # moving the robot to the right until it can't move anymore
+        # we can then place the held None value at the end
+        # We can move this None value slowly to the left of the list
+        # acting as a wall between the unsorted list and the sorted
+        # list
+
+        while self.can_move_right():
+            self.move_right()  # move robot all the way to the right
+        
+        self.swap_item()  # swap items so None value is in last spot
+
+        # create the loop based on the light system
+        while self.light_is_on():
+            # start by setting the light back to off
+            self.set_light_off()
+
+            # make sure robot is as far left as it can go
+            while self.can_move_left():
+                self.move_left()
+
+            # create loop that runs as long as robot can move to the right
+            while self.can_move_right():
+                # have robot compare items
+                # if item robot is holding has value less than item it is comparing
+                # swap the items
+                if self.compare_item() == - 1:
+                    self.swap_item()
+                    self.set_light_on  # a swap occured, so switch light on
+                    self.move_right()  # move right once
+                
+                # while comparinjg items, if robot runs into None value, that means it
+                # has reached end of the unsorted list.
+                # Swap the value the robot is holding (which should be the highest value
+                # in the unsorted list up to this point) with the None value
+                elif self.compare_item() is None:
+                    self.swap_item()
+                    if self.can_move_left():  # check if robot can move left
+                        self.move_left()  # move left
+                        self.swap_item()  # swap item (this creates the new end of unsorted list)
+                        self.set_light_on()  # swap occured so switch light on
+                        if self.can_move_left():  # check if robot is at the first position in the list
+                            while self.can_move_right():  # while robot can move right
+                                self.move_right()  # move right
+                        else:  # if robot is at first position
+                            self.set_light_off()  # turn light off - we have sorted everything we can
+                            while self.can_move_right():  # while robot can move right
+                                self.move_right()  # move right
+
+                else:
+                    self.move_right()  # move right one position
+
+            if self.compare_item() is None:
+                self.swap_item()
+                if self.can_move_left():
+                    self.move_left()
+                    self.swap_item()
+                    self.set_light_on()
+                
+            while self.can_move_left():
+                self.move_left()
+
+            # this code is used for the placement of the final value
+            # completing the sorted list - ensures the last item the 
+            # robot holds is the None value
+            if self.compare_item() is None:
+                self.swap_item()
+                
+"""
+Inside the `robot_sort` directory you'll find the `robot_sort.py` file. Open it up and read through each of the robot's abilities. Once you've understood those, start filling out the `sort()` method following these rules:
+
+  * You may use any pre-defined robot methods.
+  * You may NOT modify any pre-defined robot methods.
+  * You may use logical operators. (`if`, `and`, `or`, `not`, etc.)
+  * You may use comparison operators. (`>`, `>=`, `<`, `<=`, `==`, `is`, etc.)
+  * You may use iterators. (`while`, `for`, `break`, `continue`)
+  * You may NOT store any variables. (`=`)
+  * You may NOT access any instance variables directly. (`self._anything`)
+  * You may NOT use any Python libraries or class methods. (`sorted()`, etc.)
+  * You may define robot helper methods, as long as they follow all the rules.
+"""
 
 
 if __name__ == "__main__":
