@@ -18,3 +18,8 @@ if the input of bunnies increased the amount of times it will need to run the fu
 (n) eggs
 !breaks < floor
 breaks > floor
+
+value of the floor will be determined by dropping eggs of the halfway point of (n / 2) stories
+If the egg breaks then the user will find the middle point between that halfway point and the bottom
+If not then the user will move up between halfway and (n) stories
+this will continue until the user finds the value at which where the egg will break or not break
