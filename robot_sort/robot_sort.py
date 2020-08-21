@@ -98,7 +98,7 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-      # I will be using the robots light as a means to start and end iterations of a loop using 'while'
+# I will be using the robots light as a means to start and end iterations of a loop using 'while'
 # I will turn on the robots light manually at the start.
 # This will run the code 'while' the light is on.
 # At the start of each block I will turn off the light.
@@ -108,32 +108,34 @@ class SortingRobot:
 # This will continue until there is nothing else to sort.
 
         # Turn on the robots light to start a loop.
-
         self.set_light_on()
         while self.light_is_on():
-
             # Turn off the light and begin the loop.
-
             self.set_light_off()
-
             # If the robot can go right, go through the list from left to right.
-
             while self.can_move_right():
-
                 # Move to the right.
-
                 self.move_right()
-
                 # Compare items. If the compared item is greater...
-
                 if self.compare_item() == 1:
-
                     # Pick it up and turn the light on to restart the loop.
-
                     self.swap_item()
                     self.set_light_on()
-
-        # When the robot is at the end of the array, go through the list from right to left.
+            # When the robot is at the end of the array, go through the list from right to left.
+            while self.can_move_left():
+                # Pick up the item.
+                self.swap_item()
+                # Move to the left.
+                self.move_left()
+                # Compare items. If the compared item is less...
+                if self.compare_item() == -1:
+                    # Pick it up and turn the light on to restart the loop.
+                    self.swap_item()
+                    self.set_light_on()
+                # Otherwise move to the right, swap items and move to the left.
+                self.move_right()
+                self.swap_item()
+                self.move_left()
 
 
 if __name__ == "__main__":
