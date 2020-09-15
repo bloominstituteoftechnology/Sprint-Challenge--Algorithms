@@ -18,7 +18,7 @@ def count_th(word):
     #OTHERWISE RETURN THE COUNT FROM THE REMAINING INDEX
     return count_th(word[n2 - 1:])
     
-    # TBC
+   
     
     
 count_th('thean')
