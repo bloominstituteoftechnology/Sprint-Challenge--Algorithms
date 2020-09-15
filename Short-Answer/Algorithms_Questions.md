@@ -5,7 +5,7 @@
 Give an analysis of the running time of each snippet of
 pseudocode with respect to the input size n of each of the following:
 
-```python
+```
 a)  a = 0
     while (a < n * n * n):
       a = a + n * n
@@ -14,11 +14,15 @@ a)  a = 0
 
 ```
 b)  sum = 0
-    for i in range(n):
+    for i in range(n): 
+    #O(n)
       j = 1
       while j < n:
         j *= 2
         sum += 1
+
+        #O(log n)
+      #O(n log n)
 ```
 
 ```
