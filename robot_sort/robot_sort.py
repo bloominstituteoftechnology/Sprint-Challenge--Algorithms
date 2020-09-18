@@ -128,7 +128,7 @@ class SortingRobot:
                     self.move_left()
                     self.swap_item()
                     self.move_right()
-            # Make sure all the way left at position 0
+            # Make sure all the way left at position  0
             while self.can_move_left():
                 self.move_left()
 
