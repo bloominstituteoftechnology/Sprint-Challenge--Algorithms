@@ -20,3 +20,4 @@ Suppose that you have an n-story building and plenty of eggs. Suppose also that 
 
 Write out your proposed algorithm in plain English or pseudocode AND give the runtime complexity of your solution.
 
+I would try at a midpoint in the building. If the egg breaks, I would go down to the the midpoint between the floor I was at and the bottom floor, and try again. If it didn't break, I would go to the midpoint between the floor I was on and the top, and repeat. I would repeat these steps until I found the floor that is less than floor f. This would be o(log n) runtime, due to me not testing the egg drop on every floor, eliminating linear runtime.
