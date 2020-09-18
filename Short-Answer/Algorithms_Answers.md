@@ -3,12 +3,14 @@
 ## Exercise I
 
 a)
-
+O(n) linear, non-nested while loop.
 
 b)
+O(n^2)
+nested loops are O(n^2)
 
-
-c)
+c)O(n) (linear)
+recursive function call
 
 ## Exercise II
 
