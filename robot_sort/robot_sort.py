@@ -94,10 +94,43 @@ class SortingRobot:
 
     def sort(self):
         """
-        Sort the robot's list.
+        Sort the robot's list using a bubble sort approach
         """
-        # Fill this out
-        pass
+        # Make sure all the way left at position 0
+        while self.can_move_left():
+            self.move_left()
+        
+        # Set light to on
+        self.set_light_on()
+
+        # Create iterative loop
+        while self.light_is_on():
+            # Turn light off
+            self.set_light_off()
+
+            # Create inner loop for comparing elements
+            while self.can_move_right():
+                # Copy method of swapping elements using python in a loop
+                # Pick up first item and prepare to compare
+                self.swap_item()
+                self.move_right()
+                if self.compare_item() > 0:
+                    # Swapping for larger items
+                    self.swap_item()
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    # Keeps track of if a swap was performed and if iteration 
+                    # is needed any further
+                    self.set_light_on()
+                else:
+                    # If item not larger
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+            # Make sure all the way left at position 0
+            while self.can_move_left():
+                self.move_left()
 
 
 if __name__ == "__main__":
