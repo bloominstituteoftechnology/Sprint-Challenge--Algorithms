@@ -6,5 +6,5 @@ Your function must utilize recursion. It cannot contain any loops.
 def count_th(word):
     
     # TBC
-    
+    # Don't understand what this wants at all. I've read it over and over for 20 straight minutes.
     pass

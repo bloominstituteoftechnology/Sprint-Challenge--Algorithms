@@ -38,8 +38,6 @@ def find_threshold(building, carton, min_floor = None, max_floor = None):
         min_floor = 0
         max_floor = len(building) - 1
     
-
-
     if min floor > max_floor:
         return -1
 
