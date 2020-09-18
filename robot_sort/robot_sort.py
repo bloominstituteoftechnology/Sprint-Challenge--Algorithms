@@ -98,23 +98,25 @@ class SortingRobot:
         """
         self.set_light_on()
         while self.light_is_on():
-            while self.can_move_left():
-                if self.compare_item() == None:
-                    self.swap_item()
-                    self.move_left()
-                elif self.compare_item() == -1:
-                    self.swap_item()
-                    self.move_left()
-                else:
-                    self.move_left()
+            self.set_light_off()
+            self.swap_item()
 
             while self.can_move_right():
+                self.move_right()
+
                 if self.compare_item() == 1:
                     self.swap_item()
-                    self.move_right()
+                    self.set_light_on()
+
+        
+            while self.can_move_left():
+                if self.compare_item() != None:
+                    self.move_left()
                 else:
-                    self.move_right()
-            self.set_light_off()
+                    break
+                
+            self.swap_item()
+            self.move_right()
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
