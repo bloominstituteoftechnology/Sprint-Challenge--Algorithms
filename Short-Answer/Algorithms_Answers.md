@@ -6,8 +6,8 @@ a)
 O(n) linear, non-nested while loop.
 
 b)
-O(n^2)
-nested loops are O(n^2)
+O(n log(n))
+Initial for loop is O(n), while the internal loop is O(log(n)), result is multiplying internal loop by initial loop value.
 
 c)O(n) (linear)
 recursive function call
