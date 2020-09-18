@@ -119,27 +119,27 @@ class SortingRobot:
         Sort the robot's list.
         """
         # One simple sorting algorithm that would be possible to do given the robots limited capabilities is bubble sort
-        # We can use the fact that the robot has a light as a boolean to determine if our list is sorted
+        # We can use the light as a boolean to determine if our list is sorted
         # If the robot can make a complete pass through the list without picking up any items, the list is sorted
-        # Since the robot must traverse the list one item at a time, why not bubble items both ways?
+        # Since the robot must traverse the list one item at a time, we should bubble sort both ways.
 
-        # First we will turn the light on
+        # First turn the light on
         self.set_light_on()
         
-        # Then we will set up a while loop to keep going while the light is on
+        # Then set up a while loop to keep going while the light is on
         while self.light_is_on():
 
-            # Inside the while loop, we first turn the light off
+            # Inside the while loop, turn the light off
             self.set_light_off()
 
-            # Then we begin checking each item against it's neighbor, initially moving right
+            # Then check each item against it's neighbor, initially moving right
             self.bubble_right()
 
-            # While we can move right
-                # To do the check we pick up an item, move right, and compare
-                # If the neighbor is larger, we move back and drop the item, and move forward again
-                # If, however, the neighbor is smaller, we swap items, move left, drop the item, and move forward
-                # Also we turn the light on
+            # While moving right
+                # To do the check pick up an item, move right, and compare
+                # If the neighbor is larger, move back and drop the item, and move forward again
+                # If, however, the neighbor is smaller, swap items, move left, drop the item, and move forward
+                # Also turn the light on
 
             # If the light is off we break, as no items were swapped so the list is sorted
             # Otherwise we turn the light back off
@@ -147,11 +147,11 @@ class SortingRobot:
                 break
             self.set_light_off()
 
-            # While we can move left
-                # Do everything in the list above in reverse, going right to left
+            # While moving left
+            # Do everything in the list above in reverse, going right to left
             # We need this check to see if we didn't bubble anything going right
             # If so there is no poing trying to bubble items going left
-            
+
             self.move_left() # Move left to avoid repeats
 
             self.bubble_left()
