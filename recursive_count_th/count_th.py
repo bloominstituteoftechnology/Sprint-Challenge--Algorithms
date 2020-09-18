@@ -11,7 +11,7 @@ def count_th(word):
     if len(word) < 2:
         return 0
     
-    # If the word has th, then we add one and start at the end index
+    # If the word has th, then we add one and start at the next index
     elif word[0:2] == 'th':
         return 1 + count_th(word[1:])
     # If it doesn't keep iterating
