@@ -96,9 +96,32 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # if at the end of the list
+        if self.can_move_right() == False:
+            return
+        
+        # swap item increments 1, pick up item so not none.
+        self.swap_item()
 
+        # if can move to the right i.e. not at end of list
+        # move right - if item has higher value i.e. == 1 
+        # swap items.
+        while self.can_move_right():
+            self.move_right()
+            if self.compare_item() == 1:
+                self.swap_item()
+                
+        while self.compare_item() is not None:
+            self.move_left()
+        
+        self.swap_item()
+        self.move_right()
+        self.sort()
+
+
+'''
+python robot_sort/test_robot.py
+'''
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
