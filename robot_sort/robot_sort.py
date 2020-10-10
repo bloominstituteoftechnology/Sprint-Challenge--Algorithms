@@ -96,8 +96,27 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # worst case: if the robot is at the end of the list
+        if not self.can_move_right():
+            return
+
+        self.swap_item()
+
+        # while the robot is anywhere but the end of the list
+        while self.can_move_right():
+            self.move_right()
+            # If the held item's value is greater, swap
+            if self.compare_item() == 1:
+                self.swap_item()
+
+        while self.compare_item() is not None:
+            self.move_left() 
+
+        self.swap_item()
+        self.move_right()
+        # calling sort recursively
+        self.sort()
+               
 
 
 if __name__ == "__main__":
