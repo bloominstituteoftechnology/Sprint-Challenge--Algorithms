@@ -101,7 +101,8 @@ class SortingRobot:
             self.set_light_on()
         
         while self.light_is_on():
-            
+            if self.compare_item() == 1:
+                self.swap_item()
         pass
 
 
