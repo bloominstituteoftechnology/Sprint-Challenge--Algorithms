@@ -112,3 +112,4 @@ Uncomment the `test_stretch_times()` test in `test_robot.py`. Can you optimize y
 
 ### Passing the Sprint
 Score ranges for a 1, 2, and 3 are shown in the rubric above. For a student to have _passed_ a sprint challenge, they need to earn an **average of at least 2** for all items on the rubric.
+
