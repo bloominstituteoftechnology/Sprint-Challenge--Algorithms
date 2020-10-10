@@ -2,13 +2,13 @@
 
 ## Exercise I
 
-a)
+a) O(n) - Constant time
 
 
-b)
+b) O(n log n) - Linearithmic time
 
 
-c)
+c) O(n) - Constant time
 
 ## Exercise II
 
