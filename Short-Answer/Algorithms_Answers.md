@@ -2,13 +2,12 @@
 
 ## Exercise I
 
-a) constant time. Given a number input, the function is siply doing a math calculation, there are no loops or iterations, simply multiplication and assigning a variable to a number
+a) O(n). As n gets larger, the number of cycles that the function will run is n. because the while condition grows a rate of n^3 and the function adds n^2 each iteration, it will hit the condition after 'n' cycles.
+
+b)O(n log(n)). This function creates a for loop, but also has a limiting variable in 'j'. As n gets larger, the function will loop more times, but n will need to grow by a factor of 2 to overcome the condition set by the 'j' variable in the while loop. 
 
 
-b)linear time. This function creates an iteration and uses a for loop. This means that as n gets larger, then the function will take longer to run proportionally to the size of n
-
-
-c)exponential time. this function leverages a recursion, therefore as the input size grows, the number of operations that the function does grows exponentially to the input 'n'. For instance, if the input is 1, the function runs through once, then again to hit the base case for the recursion, and as 'n' increases, the number of times the function runs goes up by a factor of 'n'
+c)O(n). This recursive function calls itself on on the input value minus 1, so it will run 'n' number of times, the addition in the return statement is constant time, so it is disregarded.
 
 ## Exercise II
 I would use code similar to a binary search. 
