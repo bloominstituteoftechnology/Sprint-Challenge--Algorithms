@@ -2,13 +2,12 @@
 
 ## Exercise I
 
-a)
+a) Linear
 
 
-b)
+b) The iteration increase the time
 
-
-c)
+c) no looping since it's only called once
 
 ## Exercise II
 

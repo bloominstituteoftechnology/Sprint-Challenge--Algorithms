@@ -11,6 +11,8 @@ a)  a = 0
       a = a + n * n
 ```
 
+it's a single while loop so it 0(n)
+
 
 ```
 b)  sum = 0
@@ -20,6 +22,7 @@ b)  sum = 0
         j *= 2
         sum += 1
 ```
+This is a nested loop 0(n^2)
 
 ```
 c)  def bunnyEars(bunnies):
@@ -28,6 +31,7 @@ c)  def bunnyEars(bunnies):
 
       return 2 + bunnyEars(bunnies-1)
 ```
+0(n) it's a recursion.
 
 ## Exercise II
 
