@@ -40,7 +40,7 @@ while (lowest_broken_floor - 1) != highest_unbroken_floor:
 
   Else (not broken):
     highest_unbroken_floor = current
-    Too low, go higher (guess twice)
+    Too low, go higher (guess double)
     current = current * 2
 
 f = lowest_broken_floor
