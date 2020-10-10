@@ -26,35 +26,35 @@ class Test(unittest.TestCase):
         robot.sort()
         self.assertEqual(robot._list, sorted(self.large_list))
 
-    # def test_sorting_large_varied_list(self):
-    #     robot = SortingRobot(self.large_varied_list)
-    #     robot.sort()
-    #     self.assertEqual(robot._list, sorted(self.large_varied_list))
+    def test_sorting_large_varied_list(self):
+        robot = SortingRobot(self.large_varied_list)
+        robot.sort()
+        self.assertEqual(robot._list, sorted(self.large_varied_list))
 
-    # def test_sorting_random_list(self):
-    #     robot = SortingRobot(self.random_list)
-    #     robot.sort()
-    #     self.assertEqual(robot._list, sorted(self.random_list))
+    def test_sorting_random_list(self):
+        robot = SortingRobot(self.random_list)
+        robot.sort()
+        self.assertEqual(robot._list, sorted(self.random_list))
 
-    # def test_stretch_times(self):
-        # robot = SortingRobot(self.small_list)
-        # robot.sort()
-        # self.assertLess(robot._time, 110)
+    def test_stretch_times(self):
+        robot = SortingRobot(self.small_list)
+        robot.sort()
+        self.assertLess(robot._time, 110)
 
-        # robot = SortingRobot(self.medium_list)
-        # robot.sort()
-        # print(robot._time)
-        # self.assertLess(robot._time, 1948)
+        robot = SortingRobot(self.medium_list)
+        robot.sort()
+        print(robot._time)
+        self.assertLess(robot._time, 1948)
 
-        # robot = SortingRobot(self.large_list)
-        # robot.sort()
-        # print(robot._time)
-        # self.assertLess(robot._time, 27513)
+        robot = SortingRobot(self.large_list)
+        robot.sort()
+        print(robot._time)
+        self.assertLess(robot._time, 27513)
 
-        # robot = SortingRobot(self.large_varied_list)
-        # robot.sort()
-        # print(robot._time)
-        # self.assertLess(robot._time, 28308)
+        robot = SortingRobot(self.large_varied_list)
+        robot.sort()
+        print(robot._time)
+        self.assertLess(robot._time, 28308)
 
 
 if __name__ == '__main__':
