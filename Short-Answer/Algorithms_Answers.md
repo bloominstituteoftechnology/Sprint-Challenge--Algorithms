@@ -2,10 +2,10 @@
 
 ## Exercise I
 
-a) 
+a) I beleive this is constant time (O(1)). There is no looping through a list. It's just basic math operations.
 
 
-b) This is O(n^2). There is a loop inside of a loop. The run time is proportional to the input size of data set. 
+b) This is O(log n). Even though we are looping, j is exponentially getting closer to n, whish will break us out of the loop.
 
 
 c)The run time is O(n). Depending on how many bunnies we have, the run time will grow exactly with the size of the input.
