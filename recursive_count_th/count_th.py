@@ -5,7 +5,7 @@ Your function must utilize recursion. It cannot contain any loops.
 '''
 def count_th(word):
     #start the counter at 0
-    th_count = 0
+    count = 0
     #start searching at the beginning
     letter_index = 0
 
@@ -14,16 +14,8 @@ def count_th(word):
         return 0
     # if the current index plus one matches increase count and move on to the next letter
     if word[letter_index : letter_index + 2] == "th":
-            th_count += 1 + count_th(word[letter_index + 1: ])
+            count += 1 + count_th(word[letter_index + 1: ])
     # if it doesn't match , then move on to the next letter without increasing our count
     if word[letter_index: letter_index + 2] != "th":
-        th_count = count_th(word[letter_index + 1: ])
-    return th_count
-
-    
-    pass
-
-word = "abcthxyz"
-count = count_th(word)
-
-print(count)
+        count = count_th(word[letter_index + 1: ])
+    return count
