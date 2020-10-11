@@ -11,4 +11,5 @@ c) Runtime complexity is O(n) because here it's calling the recursive function w
 
 ## Exercise II
 
-Since we are aware of the floors and are sorted, recommend using binary search, start on the middle floor and drop an egg. if the egg breaks, then move to middle of the floors below and repeat. If the egg doesn't break, move to the middle of the floors above and repeat. O(logN)
+Since we are aware of the floors and are sorted, recommend using binary search, start on the middle floor and drop an egg. if the egg breaks, then move to middle of the floors below and repeat. If the egg doesn't break, move to the middle of the floors above and repeat. 
+O(logN)
