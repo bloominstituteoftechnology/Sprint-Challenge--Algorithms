@@ -96,13 +96,49 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # in this algo I am using the light for exit loop, or know when to quit sorting. 
+        # motivation in this algo is to reduce the number of steps robot is taking to get the sorting done. 
+        # idea is not to reduce the code execution time. Also we want to keep space complexity as 1, since making more 
+           # copies is not an option. So recursive sorting is ruled out. I am doing an iterative approach. 
+
+        # Plan:
+          # 1. Robot picks up first ele, moves right if possible and compares. 
+          # 2. if comparioson result is 1, swap. move left by 1 step and swap again. set light ON
+          # 3. if comparision result is not 1, move left 1 step, but back the carrying element, move 1 step to right. 
+               # No action with light. 
+          # 4. repeat steps 1-3, until robot cannot move right. 
+          # 5. Move back to first element after 1 pass and repeat steps 1-4 
+          # 6. exit when after 1 pass through the array light remains off. 
+
+        self.set_light_on() # set light on in beginning. 
+
+        while self.light_is_on():
+            self.set_light_off()
+
+            while self.can_move_right(): # Step 1
+                self.swap_item()
+                self.move_right()
+
+                if self.compare_item() == 1: # Step 2 
+                    self.swap_item()
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    self.set_light_on()
+                
+                else:                       # Step 3 
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+
+            while self.can_move_left():  # step 5 
+                self.move_left() 
 
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
+
 
     l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
 
