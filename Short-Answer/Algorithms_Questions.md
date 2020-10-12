@@ -10,7 +10,7 @@ a)  a = 0
     while (a < n * n * n):
       a = a + n * n
 ```
-
+O(n)
 
 ```
 b)  sum = 0
@@ -20,6 +20,7 @@ b)  sum = 0
         j *= 2
         sum += 1
 ```
+O(n * log(n)) = O(nlog(n))
 
 ```
 c)  def bunnyEars(bunnies):
@@ -27,8 +28,9 @@ c)  def bunnyEars(bunnies):
         return 0
 
       return 2 + bunnyEars(bunnies-1)
+    
 ```
-
+O(1^n)
 ## Exercise II
 
 Suppose that you have an n-story building and plenty of eggs. Suppose also that an egg gets broken if it is thrown off floor f or higher, and doesn't get broken if dropped off a floor less than floor f. Devise a strategy to determine the value of f such that the number of dropped + broken eggs is minimized.
