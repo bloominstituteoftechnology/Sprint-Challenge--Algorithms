@@ -11,5 +11,9 @@ def count_th(word):
 
     # slice the string according to inclusion of "th"
     # count
+    if word[0:2] == "th":
+        return count_th(word[2:]) + 1
+
+    return count_th(word[1:]) 
 
 print(count_th("th"))
