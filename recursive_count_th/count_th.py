@@ -16,5 +16,3 @@ def count_th(word, substring: str = 'th'):
     # increment count and continue next part
     else:
         return 0 + count_th(word[1:])
-    
-    
