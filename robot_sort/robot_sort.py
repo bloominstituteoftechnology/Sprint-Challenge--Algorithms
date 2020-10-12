@@ -98,8 +98,8 @@ class SortingRobot:
         """
         # in this algo I am using the light for exit loop, or know when to quit sorting. 
         # motivation in this algo is to reduce the number of steps robot is taking to get the sorting done. 
-        # idea is not to reduce the time taken. Also we want to keep space complexity as 1, sice making more 
-           # copies is not an option. So recursive sorting is rules out. I am doing an iterative approach. 
+        # idea is not to reduce the code execution time. Also we want to keep space complexity as 1, since making more 
+           # copies is not an option. So recursive sorting is ruled out. I am doing an iterative approach. 
 
         # Plan:
           # 1. Robot picks up first ele, moves right if possible and compares. 
