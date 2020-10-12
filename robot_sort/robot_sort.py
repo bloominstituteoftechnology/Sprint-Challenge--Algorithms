@@ -97,7 +97,86 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        # Robot starts at position 0
+        # Pick up current card and check to see if robot can move right
+        # Compare Card and if Card is Higher, swap
+        # Move all the way in one direction doing swaps
+        # Light Off Compare >, Light On Compare >
+        # Fill this out
+        # Pick up first item
+        self.swap_item()
+        self.move_right()
+        self.set_light_on()
+    
+        
+        
+        
+        #Describe Bubble Sort
+        ##Bubble sort works by comparing each element to it's neigbor
+        #If the second index is smaller than the first index, swap the two indices
+        #If you reach the end of the array, start again
+        # Robot starts at position 0 
+        # Pick up current card and check to see if robot can move right
+        # Compare Card and if Card is Higher, swap card out
+        # Move all the way in one direction doing swap
+        # Light Off Compare >, Light On Compare >
+       
+      
+        #When robot's light is on, the list is unsorted. 
+        # self.set_light_on()
+        
+        # self.swap_item()
+        
+        # while self.light_is_on():
+            
+        #     while self.move_right():
+        #         if self.compare_item() == 1:
+        #             self.swap_item()
+        #     if self.compare_item() is None:
+        #         self.swap_item()
+        #         self.set_light_off()
+        #         break
+        #     else:
+        #         while self.move_left():                # Compare Card and if Card is Higher, swap card out
+        #             if self.compare_item() is None:    # Move all the way in one direction doing swap
+        #                 self.swap_item()
+        #                 self.move_right()
+        #                 self.swap_item()
+        #                 break
+        
+        
+        
+         # Light Off Compare <, Light On Compare >
+        while self.light_is_on():
+            self.set_light_off()
+
+            # Pick up current card and check to see if robot can move right
+            while self.can_move_right() and self.compare_item() is not None:
+                # Compare Card and if Card is Higher, swap
+                # Move all the way in one direction doing swaps
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.move_right()
+                    self.set_light_on()
+                else:
+                    self.move_right()
+            #Pick up card and check to see if robot can move left
+            while self.can_move_left() and self.compare_item() is not None:
+                # Compare Card and if Card is Higher, swap
+                # Move all the way in one direction doing swaps
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.move_left()
+                    self.set_light_on()
+                else:
+                    self.move_left()
+        #Iteration Step to actually sort items
+            if self.can_move_right():
+                self.swap_item()
+                self.move_right()
+                self.swap_item()
+                self.move_right()
+        self.swap_item()
 
 
 if __name__ == "__main__":
