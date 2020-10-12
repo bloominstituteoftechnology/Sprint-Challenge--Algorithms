@@ -96,8 +96,35 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+
+        # if robot cannot move right, return
+        if not self.can_move_right:
+            return
+
+        #pickup initial item
+        self.swap_item()
+
+        while True:
+            #move right and keep swapping to get the lowest item in the rest of the list
+            while self.can_move_right():
+                self.move_right()
+                if self.compare_item() == 1:
+                    self.swap_item()
+            
+            # then while we haven't reached None, move left
+            while self.compare_item() != None:
+                self.move_left()
+
+            #drop the item into None
+            self.swap_item()
+
+            #if we can't move right, we're done sorting
+            if not self.can_move_right():
+                return
+            
+            #move right and pick up the next item
+            self.move_right()
+            self.swap_item()
 
 
 if __name__ == "__main__":
