@@ -2,6 +2,7 @@
 
 ## Exercise I
 
+
 a)
 
 
