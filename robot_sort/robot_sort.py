@@ -108,59 +108,19 @@ class SortingRobot:
         # run all the tasks again
         # when there are no swaps, set the light to off.
 
-        # if self._position == 0 and self.swap_item() is None:
-        #     self.swap_item()
-        # while self.can_move_right():
-        #     self.move_right()
-        #     if self.compare_item():
-        #         self.swap_item()
-        #     else:
-        #         self.move_left()
-        #         self.swap_item()
-        #         self.move_right()
-        #         self.swap_item()
-
-        # while self.can_move_left():
-        #     self.move_left()
-
-        # second attempts
-        # self.set_li
-
-        #
-        # if self.compare() is None:
-        #     self.swap_item()
-        # while self.can_move_right():
-        #     self.move_right()
-        #     if self.compare() == 1:
-        #         self.swap_item()
-        # while self.can_move_left():
-        #     self.can_move_left()
-        # self.swap_item()
-        # self.move_right()
-
-        # if not self.can_move_right:
-        #     return
-        # else:
-        #     if self.compare() == None:
-        #         self.swap()
-        #         self.move_right()
-        #     if self.compare() == 1:
-        #         self.swap()
-        #         self.move_left()
-        #         self.swap()
-        #         self.move_right()
-        # self.sort()
-
         while self.light_is_on() == False:
             self.set_light_on()
+            # print("Outer while")
             while self.can_move_right():
+                # print("Inner moving right")
+                # print(self._item)
                 if self.compare_item() == None:
                     self.swap_item()
                     self.move_right()
                 elif self.compare_item() == 1:
                     self.swap_item()
                     self.set_light_off()
-                elif self.compare_item() == -1:
+                else:
                     self.move_left()
                     self.swap_item()
                     self.move_right()
@@ -174,6 +134,7 @@ class SortingRobot:
                     self.move_left()
                     self.swap_item()
             while self.can_move_left():
+                # print("Inner moving left")
                 self.move_left()
 
             if self.light_is_on():
