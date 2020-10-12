@@ -12,6 +12,3 @@ def count_th(word, total = 0):
         return count_th(word[2:], total)
     else:
         return count_th(word[1:], total)
-
-
-count_th('hooowwwhdthenkjsjkd', 5)
