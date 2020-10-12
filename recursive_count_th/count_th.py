@@ -6,4 +6,5 @@ Your function must utilize recursion. It cannot contain any loops.
 def count_th(word):
     # UPER
     # establish the base case
-    pass
+    if len(word) == 0:
+        return 0
