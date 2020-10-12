@@ -57,9 +57,7 @@ class SortingRobot:
         """
         self._time += 1
         # Swap the held item with the list item at the robot's position
-        self._item,
-        self._list[self._position] = self._list[self._position],
-        self._item
+        self._item, self._list[self._position] = self._list[self._position], self._item
 
     def compare_item(self):
         """
@@ -83,19 +81,16 @@ class SortingRobot:
         Turn on the robot's light
         """
         self._light = "ON"
-
     def set_light_off(self):
         """
         Turn off the robot's light
         """
         self._light = "OFF"
-
     def light_is_on(self):
         """
         Returns True if the robot's light is on and False otherwise.
         """
         return self._light == "ON"
-
 
     def sort(self):
         """
@@ -135,8 +130,6 @@ class SortingRobot:
                 # move to the beginning of the list
                 while self.can_move_left():
                     self.move_left()
-
-
 
 
 if __name__ == "__main__":
