@@ -8,3 +8,8 @@ def count_th(word):
     # establish the base case
     if len(word) == 0:
         return 0
+
+    # slice the string according to inclusion of "th"
+    # count
+
+print(count_th("th"))
