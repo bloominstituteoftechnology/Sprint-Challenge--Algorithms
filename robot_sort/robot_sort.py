@@ -1,3 +1,5 @@
+from time import sleep
+
 class SortingRobot:
     def __init__(self, l):
         """
@@ -92,21 +94,109 @@ class SortingRobot:
         """
         return self._light == "ON"
 
-    def sort(self):
+    def sort1(self):
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+
+        """
+        This is really challenging. I have a plan, and I'm close, but the hard part is getting the details right.
+
+        It's the `None` that's a big problem! If I have 
+
+        """
+
+
+
+
+        
+        self.swap_item()     # swap our None with first item
+
+        while not self.light_is_on():
+            
+            while self.move_right():
+                print(f'moving right, at [{self._position}]')
+                
+                if self.compare_item() is None:
+                    self.swap_item()
+                    print(f'swapping, have {self._item}')
+                    print(self._list)
+                if self.compare_item() != None and self.compare_item() <= 0:
+                    self.swap_item()
+                    print(f'swapping, have {self._item}')
+                    print(self._list)
+            
+            print(f'end has {self._list[self._position]}, robot has {self._item}')
+
+            if self.compare_item() is None:
+                self.swap_item()
+                print(f'swapping, have {self._item}')
+                print(self._list)
+            elif self.compare_item() >= 0:
+                self.swap_item()
+                print(f'swapping, have {self._item}')
+                print(self._list)
+
+            while self.move_left():
+                print(f'moving left, at [{self._position}]')
+            
+                if self.compare_item() is None:
+                    self.swap_item
+                    print(f'swapping, have {self._item}')
+                    print(self._list)
+                elif self.compare_item() >= 0:
+                    self.swap_item()
+                    print(f'swapping, have {self._item}')
+                    print(self._list)
+            
+            print(f'beginning has {self._list[self._position]}, robot has {self._item}')
+            self.swap_item()
+            print(f'swapping, have {self._item}')
+            print(self._list)
+            
+            # make a pass to check if completely sorted
+
+            # move right and make sure each number is greater
+            while self.move_right():
+                self.compare_item()
+        
+            sleep(1)
+
+    def sort(self):
+
+        while self.can_move_right():
+            self.swap_item()
+            print(f'swapping, have {self._item}')
+            print(self._list)
+            
+            while self.can_move_right():
+                self.move_right()
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    print(f'swapping, have {self._item}')
+                    print(self._list)
+        
+            while self.compare_item() != None:
+                self.move_left()
+        
+            self.swap_item()
+            print(f'swapping, have {self._item}')
+            print(self._list)
+            self.move_right()
+
 
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
-    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+    # l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+    l = [10, 7, 5, 1, 3]
+    print(l)
 
     robot = SortingRobot(l)
+    # robot.sort()
+    robot.sort
 
-    robot.sort()
-    print(robot._list)
+    # print(robot._item)
+    # print(robot._list)
