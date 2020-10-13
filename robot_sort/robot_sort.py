@@ -96,8 +96,23 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # if the robot cannot move left or right, 
+            # there is no `list` (there are no items to compare) - make no swap,
+            # and return 0
+        # else if the robot cannot move left, but can move right, begin comparing items and moving right
+            # [compare next item] if held item's value is `None` compared to item in front of robot ( == `None`),
+                # swap currently held item with the list item in front
+                # and move right
+            # if held item's value is equal to item in front of robot (== 0),
+                # make no swap,
+                # and move right
+            # else if held item's value is less than the item in front of robot (== -1),
+                # swap currently held item with the list item in front
+                # and move right
+            # else, the held item's value must be greater than item in front of robot (== 1)
+                # make no swap,
+                # and move right
+        # or else the robot can move left, but cannot move right, `list` must be already sorted
 
 
 if __name__ == "__main__":
