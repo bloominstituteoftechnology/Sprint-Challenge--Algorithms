@@ -110,12 +110,13 @@ class SortingRobot:
         while self.light_is_on():
             self.set_light_off()  # stop continuous loop
             self.move_right()
+            self.swap_item()
             if self.compare_item() != None:
                 self.swap_item()    
             while self.can_move_right():
                 self.move_right()
             while self.can_move_left():
-                self.move_left()            
+                self.move_left()           
                 
   
 
