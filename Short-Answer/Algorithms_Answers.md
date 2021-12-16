@@ -2,13 +2,13 @@
 
 ## Exercise I
 
-a)
+a) O(1)
 
 
-b)
+b) O(n)
 
 
-c)
+c) O(n)
 
 ## Exercise II
 
